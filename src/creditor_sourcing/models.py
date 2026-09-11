@@ -48,6 +48,8 @@ class Matter:
     appointment_date: str | None = None      # ISO date
     practitioner: str | None = None
     practitioner_firm: str | None = None
+    industry: str | None = None
+    state: str | None = None
     source_url: str | None = None
     source_id: str | None = None             # Worrells 32-hex id, ASIC notice id
     # Populated by the ASIC Connect watcher.
@@ -80,6 +82,8 @@ class Creditor:
     creditor_type: str | None = None
     source: str = "asic"
     source_document: str | None = None
+    debtor_industry: str | None = None
+    debtor_state: str | None = None
 
     @property
     def name_key(self) -> str:

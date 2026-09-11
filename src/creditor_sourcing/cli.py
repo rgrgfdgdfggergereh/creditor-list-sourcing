@@ -26,7 +26,7 @@ from . import aggregate, config, ledger, qualify, workbook
 from .enrich import pipedrive, policylist
 from .models import Creditor, Matter
 from .parse.creditor_tables import extract_pdf
-from .sources import asic_connect, asic_notices, worrells
+from .sources import asic_connect, asic_dataset, asic_notices, worrells
 from .sources.http import Client
 
 log = logging.getLogger("creditor_sourcing")
@@ -57,7 +57,17 @@ def cmd_collect(args: argparse.Namespace) -> int:
     found: list[Matter] = []
     sources = config.settings()["sources"]
 
-    if sources["asic_notices"]["enabled"] and "asic" in args.sources:
+    # The statistics workbook's "data set" sheet is the primary named-company
+    # feed: one structured download instead of hundreds of scraped pages.
+    if sources["asic_stats"]["enabled"] and "asic" in args.sources:
+        try:
+            found.extend(asic_dataset.collect())
+        except Exception as exc:  # noqa: BLE001
+            log.error("ASIC data set collection failed: %s", exc)
+
+    # Published Notices corroborates and fills gaps - it publishes within days
+    # of an appointment, while the workbook is republished monthly.
+    if sources["asic_notices"]["enabled"] and "asic-notices" in args.sources:
         try:
             found.extend(asic_notices.collect())
         except Exception as exc:  # noqa: BLE001
@@ -221,6 +231,35 @@ def cmd_probe(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_schema(args: argparse.Namespace) -> int:
+    """Download the ASIC workbook and print its shape.
+
+    This is how the data set sheet's real column names get discovered from an
+    environment with no access to download.asic.gov.au: run it in CI and read
+    the job log.
+    """
+    url = args.url or asic_dataset.resolve_latest_url()
+    payload = asic_dataset.download(url)
+    print(f"Source: {url}")
+    print(f"Size:   {len(payload):,} bytes\n")
+    print(asic_dataset.describe(payload))
+
+    if args.save:
+        target = asic_dataset.save(payload, Path(args.save))
+        print(f"\nSaved workbook to {target}")
+    try:
+        matters = asic_dataset.parse(payload, lookback_days=0)
+        print(f"\nParsed {len(matters)} appointments in total.")
+        for matter in matters[:5]:
+            print(f"  {matter.company_name} | ACN {matter.acn} | "
+                  f"{matter.appointment_type} | {matter.appointment_date} | "
+                  f"{matter.industry} | {matter.state}")
+    except RuntimeError as exc:
+        print(f"\nPARSE FAILED: {exc}")
+        return 1
+    return 0
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     if args.respect_schedule and not check_schedule():
         cfg = config.settings()["schedule"]
@@ -242,7 +281,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     def add_common(p: argparse.ArgumentParser) -> None:
         p.add_argument("--sources", default="asic,worrells",
-                       help="comma separated: asic,worrells")
+                       help="comma separated: asic,asic-notices,worrells")
         p.add_argument("--limit", type=int, default=0)
         p.add_argument("--inbox", default=str(config.STATE_DIR / "inbox"))
         p.add_argument("--matter-id")
@@ -262,6 +301,11 @@ def build_parser() -> argparse.ArgumentParser:
         if name == "run":
             p.add_argument("--respect-schedule", action="store_true")
         p.set_defaults(handler=handler)
+
+    schema = sub.add_parser("schema")
+    schema.add_argument("--url", default="", help="override the workbook URL")
+    schema.add_argument("--save", default="", help="also save the .xlsx here")
+    schema.set_defaults(handler=cmd_schema)
 
     probe = sub.add_parser("probe")
     probe.add_argument("source", choices=["asic-notices", "asic-connect", "worrells"])

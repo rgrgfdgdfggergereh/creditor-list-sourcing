@@ -1,27 +1,65 @@
 # Data sources
 
-## ASIC Published Notices — the feed of named companies
+## ASIC insolvency statistics workbook — the primary feed
+
+<https://www.asic.gov.au/about-asic/corporate-publications/statistics/insolvency-statistics>
+
+The workbook ASIC publishes as *Insolvency statistics — Series 1 and Series 2*
+carries the summary tables **and a sheet named `data set`** listing the
+companies that entered external administration, one row per appointment. That
+sheet is the primary named-company feed.
+
+It is the best source available for this job:
+
+- **Structured, not scraped.** One `.xlsx` download; no CSS selectors to break.
+- **One request instead of hundreds.** Replaces a page-by-page crawl.
+- **Carries the fields that matter** — company name, ACN, appointment type,
+  appointment date, industry and state. Industry and state come through onto
+  the prospect row, so a rep can see which sector the bad debt came from.
+
+`sources/asic_dataset.py` reads it. Two things make it robust rather than
+brittle:
+
+- **The header row is found by content, not position.** ASIC puts title and
+  note rows above the real header, so the loader scans for the first row that
+  matches at least two known header names. `HEADER_ALIASES` holds every
+  spelling ASIC has used for each field.
+- **A renamed schema raises instead of returning nothing.** "No insolvencies
+  this week" and "the columns moved" must never look the same, or a silent
+  zero gets reported as a quiet week.
+
+The published URL embeds the publication date and ASIC mints a new media id
+each release, so `resolve_latest_url()` reads the landing page for the current
+workbook rather than trusting a pinned URL. The configured URL in
+`config/settings.yml` is the fallback.
+
+To see the real shape of the sheet, run the **ASIC data set schema** workflow.
+It prints the sheet names, the detected header row, which columns mapped to
+which fields, and any header it did not recognise — and saves the workbook as
+an artifact. That workflow also runs monthly, so a column rename surfaces
+before it breaks a Monday run.
+
+### On the Series 1 / Series 2 summary tables
+
+The summary tables in the same workbook are aggregate counts by month, state,
+industry and appointment type, with no company names. They are the right
+source for insolvency **trend commentary** (and for the monthly Industry
+Report) but cannot produce prospects. The `data set` sheet is the one this
+pipeline reads.
+
+## ASIC Published Notices — corroboration and fresher timing
 
 <https://publishednotices.asic.gov.au>
 
 Free, no registration, no fee to search. Publishes the notices companies must
 give under the Corporations Act, including appointment of an external
-administrator. Carries **company name, ACN, notice type, date and the appointed
-practitioner** — which is what makes it the source that produces prospects.
-Coverage starts 1 July 2012.
+administrator. Carries company name, ACN, notice type, date and the appointed
+practitioner. Coverage starts 1 July 2012.
 
-## ASIC insolvency statistics (Series 1 and 2) — context only
-
-The spreadsheet at `download.asic.gov.au/media/.../asic-insolvency-statistics-
-series-1-and-series-2-*.xlsx` was the original intended source for this
-pipeline. **It cannot do the job.** Series 1 and Series 2 are *aggregate
-counts* of companies entering external administration, broken down by month,
-state, industry and appointment type. There are no company names in it at all,
-so nothing in it can become a prospect.
-
-It is still useful — it is the right source for insolvency trend commentary
-(and for the monthly Industry Report) — so the pipeline keeps it for the
-narrative, and takes named companies from Published Notices instead.
+Its value alongside the workbook is **timing**: notices appear within days of
+an appointment, while the workbook is republished monthly. It is a secondary
+source — enabled with `--sources asic-notices` — and catches this month's
+appointments before the next workbook lands.
 
 ## ASIC Connect — Form 5604 detection
 

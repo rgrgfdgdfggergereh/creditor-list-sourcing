@@ -24,13 +24,17 @@ Actions does not.
 ```
   collect ──► watch ──► [ HUMAN BUYS ] ──► ingest ──► report
      │          │              │              │          │
-  Published   ASIC         Cloudflare      creditor   qualify
-  Notices    Connect        dashboard       tables    + score
-  Worrells   doc list       R2 upload       from PDF  + enrich
+  ASIC       ASIC          Cloudflare      creditor   qualify
+  data set   Connect        dashboard       tables    + score
+  Notices    doc list       R2 upload       from PDF  + enrich
+  Worrells
 ```
 
-**collect** — new external administrations from ASIC Published Notices and the
-Worrells New Appointments list, merged into `state/matters.json`.
+**collect** — new external administrations from the `data set` sheet of ASIC's
+insolvency statistics workbook (the primary feed: one structured download, with
+industry and state on every row), optionally corroborated by ASIC Published
+Notices for appointments newer than the last monthly workbook, plus the
+Worrells New Appointments list. Merged into `state/matters.json`.
 
 **watch** — for every open matter, check the ASIC Connect document list for a
 lodged Form 5604. Free. Matters without one stay open and are re-checked next

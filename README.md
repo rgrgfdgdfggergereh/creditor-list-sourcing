@@ -10,11 +10,11 @@ companies, filtering them down to genuine prospects, and handing the sales team
 a workbook.
 
 ```
-ASIC Published Notices ─┐
-                        ├─► matters ─► 5604 watch ─► [ buy on ASIC ] ─┐
-Worrells portal ────────┘                                             │
-                                                                      ▼
-                                        creditors ─► qualify ─► enrich ─► workbook
+ASIC statistics "data set" ─┐
+ASIC Published Notices ─────┼─► matters ─► 5604 watch ─► [ buy on ASIC ] ─┐
+Worrells portal ────────────┘                                             │
+                                                                          ▼
+                                            creditors ─► qualify ─► enrich ─► workbook
 ```
 
 Everything is automated except one step: **buying the Form 5604 document on
@@ -68,7 +68,7 @@ lead for whoever already owns the relationship.
 
 ```
 src/creditor_sourcing/
-  sources/     ASIC Published Notices, ASIC Connect, Worrells portal
+  sources/     ASIC statistics data set, Published Notices, ASIC Connect, Worrells
   parse/       creditor tables out of Form 5604 / Initial Advice PDFs
   enrich/      PolicyList and Pipedrive cross-reference
   qualify.py   the exclusion rules and the priority score

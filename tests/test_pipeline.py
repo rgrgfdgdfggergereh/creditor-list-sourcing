@@ -9,6 +9,7 @@ wrong name, a wrong amount, or an existing client as a new lead.
 from __future__ import annotations
 
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
@@ -18,6 +19,7 @@ import pytest
 from creditor_sourcing import aggregate, qualify
 from creditor_sourcing.models import Creditor, normalise_name
 from creditor_sourcing.parse.creditor_tables import parse_lines
+from creditor_sourcing.sources import asic_dataset
 from creditor_sourcing.sources.worrells import details_view_url
 
 
@@ -168,3 +170,76 @@ class TestWorrellsUrl:
     def test_garbage_is_rejected(self):
         with pytest.raises(ValueError):
             details_view_url("https://customerportal.worrells.net.au/FileInformation")
+
+
+class TestAsicDataSet:
+    """The "data set" sheet of ASIC's insolvency statistics workbook."""
+
+    @staticmethod
+    def workbook(header, rows, sheet_name="data set", preamble=True):
+        import io
+
+        from openpyxl import Workbook
+
+        wb = Workbook()
+        wb.remove(wb.active)
+        wb.create_sheet("Notes")
+        ws = wb.create_sheet(sheet_name)
+        if preamble:
+            ws.append(["ASIC Insolvency Statistics - Series 1 and Series 2"])
+            ws.append([])
+        ws.append(header)
+        for row in rows:
+            ws.append(row)
+        buf = io.BytesIO()
+        wb.save(buf)
+        return buf.getvalue()
+
+    HEADER = ["Company Name", "ACN", "Appointment Type", "Date of Appointment",
+              "Industry", "State"]
+    ROWS = [
+        ["Bust Co Pty Ltd", "123456789", "Creditors voluntary winding up",
+         date(2026, 9, 3), "Construction", "NSW"],
+        ["Collapsed Builders Pty Ltd", "987 654 321", "Court liquidation",
+         date(2026, 9, 8), "Construction", "VIC"],
+    ]
+
+    def test_header_is_found_below_the_title_rows(self):
+        matters = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)
+        assert [m.company_name for m in matters] == [
+            "Bust Co Pty Ltd", "Collapsed Builders Pty Ltd",
+        ]
+
+    def test_acn_is_normalised(self):
+        matters = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)
+        assert matters[1].acn == "987654321"
+
+    def test_industry_and_state_are_carried(self):
+        matter = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)[0]
+        assert (matter.industry, matter.state) == ("Construction", "NSW")
+
+    def test_alternate_header_spellings_still_map(self):
+        header = ["Organisation Name", "A.C.N.", "Initial appointment type",
+                  "Appointment date", "ANZSIC Division", "State/Territory"]
+        matter = asic_dataset.parse(self.workbook(header, self.ROWS), lookback_days=0)[0]
+        assert matter.company_name == "Bust Co Pty Ltd"
+        assert matter.appointment_type == "Creditors voluntary winding up"
+
+    def test_a_renamed_schema_raises_rather_than_returning_nothing(self):
+        # "No insolvencies this week" and "the schema moved" must never look
+        # the same, or a silent zero gets reported as a quiet week.
+        payload = self.workbook(["Widget", "Sprocket", "Gizmo"], [["a", "b", "c"]])
+        with pytest.raises(RuntimeError, match="company-name column"):
+            asic_dataset.parse(payload, lookback_days=0)
+
+    def test_missing_sheet_names_what_was_there(self):
+        payload = self.workbook(self.HEADER, self.ROWS, sheet_name="Summary")
+        with pytest.raises(RuntimeError, match="No data-set sheet"):
+            asic_dataset.parse(payload, lookback_days=0)
+
+    def test_lookback_filters_old_appointments(self):
+        rows = self.ROWS + [["Ancient Pty Ltd", "111222333", "Administration",
+                             date(2024, 1, 15), "Retail", "QLD"]]
+        recent = asic_dataset.parse(self.workbook(self.HEADER, rows), lookback_days=30)
+        assert "Ancient Pty Ltd" not in [m.company_name for m in recent]
+        assert len(asic_dataset.parse(self.workbook(self.HEADER, rows), lookback_days=0)) == 3
