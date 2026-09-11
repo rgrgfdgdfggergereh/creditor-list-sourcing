@@ -35,7 +35,7 @@ jobs:
           if [ "${{ inputs.legs || 'all' }}" = "pdf-text" ]; then
             # Dump the raw text of real creditor documents, so the PDF parser
             # is calibrated against what the reports actually contain.
-            python scripts/dump_pdf_text.py 2 2>&1 | tee out/diagnosis.txt
+            python scripts/dump_pdf_text.py 1 2>&1 | tee out/diagnosis.txt
           else
             ARGS=""
             if [ "${{ inputs.legs || 'all' }}" != "all" ]; then
