@@ -33,6 +33,7 @@ jobs:
         env:
           PYTHONPATH: src
         run: |
+          mkdir -p out
           python -m creditor_sourcing -v schema \
             ${{ inputs.url && format('--url {0}', inputs.url) || '' }} \
             --save out/asic-insolvency-statistics.xlsx \

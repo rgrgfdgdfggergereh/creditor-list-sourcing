@@ -34,6 +34,9 @@ def build(creditors: Iterable[Creditor]) -> list[Prospect]:
                 display_name=display,
                 total_exposure_aud=round(sum(r.amount_aud for r in rows), 2),
                 matter_count=len({r.matter_id for r in rows}),
+                debtor_industries=sorted(
+                    {r.debtor_industry for r in rows if r.debtor_industry}
+                ),
                 matters=[
                     {
                         "matter_id": r.matter_id,
@@ -41,6 +44,8 @@ def build(creditors: Iterable[Creditor]) -> list[Prospect]:
                         "amount_aud": r.amount_aud,
                         "source": r.source,
                         "source_document": r.source_document,
+                        "debtor_industry": r.debtor_industry,
+                        "debtor_state": r.debtor_state,
                     }
                     for r in rows
                 ],

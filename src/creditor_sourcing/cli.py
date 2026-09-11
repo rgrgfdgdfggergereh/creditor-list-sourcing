@@ -143,6 +143,9 @@ def cmd_ingest(args: argparse.Namespace) -> int:
             pdf, record["company_name"], matter_id, record.get("source", "asic")
         )
         if status == "ok":
+            for creditor in rows:
+                creditor.debtor_industry = record.get("industry")
+                creditor.debtor_state = record.get("state")
             creditors.extend(rows)
             record["creditors_captured"] = True
             record["form_5604_purchased"] = True
@@ -183,6 +186,8 @@ def cmd_report(args: argparse.Namespace) -> int:
             address=r.get("address"), related_party=r.get("related_party", False),
             creditor_type=r.get("creditor_type"), source=r.get("source", "asic"),
             source_document=r.get("source_document"),
+            debtor_industry=r.get("debtor_industry"),
+            debtor_state=r.get("debtor_state"),
         )
         for r in raw
     ]

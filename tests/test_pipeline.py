@@ -173,73 +173,118 @@ class TestWorrellsUrl:
 
 
 class TestAsicDataSet:
-    """The "data set" sheet of ASIC's insolvency statistics workbook."""
+    """The "Data set" sheet of ASIC's insolvency statistics workbook.
+
+    HEADER and the sheet shape below are ASIC's real ones, captured from the
+    published workbook by the "ASIC data set schema" workflow: five blank/title
+    rows, a merged group-label row, then the header on row 7.
+    """
+
+    # Exactly as published, trailing spaces and embedded newlines included.
+    HEADER = [
+        "Data to", "ACN No ", "Organisation name ", "Appointee (person or company)",
+        "Appointment type", "Effective date", "Period\n(Year month)",
+        "Period (financial year)", "Industry type (division)",
+        "Industry type (subdivision)", "Industry type (group)",
+        "State of incorporation (state or territory)",
+        "Principal place of business (state or territory)",
+        "Principal place of business (area)",
+        "Principal place of business (postcode)",
+        "Series 1 \n(companies entering)", "Series 2 \n(all appointments)",
+    ]
 
     @staticmethod
-    def workbook(header, rows, sheet_name="data set", preamble=True):
+    def row(name, acn, appointment, when, series_1=1, industry="Construction",
+            subdivision="Building Construction", state="Victoria", postcode=3000):
+        return [None, acn, name, "JONES, MICHAEL GREGORY", appointment, when,
+                "2026 09", "2026-2027", industry, subdivision, "Group",
+                "Victoria", state, "Melbourne - West", postcode, series_1, 1]
+
+    ROWS = [
+        row.__func__("TANCRED BROTHERS PTY LTD", 25712, "Court liquidation",
+                     date(2026, 9, 3), industry="Retail Trade",
+                     subdivision="Food Retailing", state="Queensland", postcode=4305),
+        row.__func__("JINDONG HOLDINGS PTY LTD", 612927974,
+                     "Creditors' voluntary liquidation", date(2026, 9, 8)),
+    ]
+
+    @classmethod
+    def workbook(cls, header=None, rows=None, sheet_name="Data set"):
         import io
 
         from openpyxl import Workbook
 
         wb = Workbook()
         wb.remove(wb.active)
-        wb.create_sheet("Notes")
+        wb.create_sheet("Contents")
+        wb.create_sheet("1.1")
         ws = wb.create_sheet(sheet_name)
-        if preamble:
-            ws.append(["ASIC Insolvency Statistics - Series 1 and Series 2"])
+        for _ in range(5):
             ws.append([])
-        ws.append(header)
-        for row in rows:
+        ws.append([None, "Organisation details", None, "Appointee", "Role"])
+        ws.append(header or cls.HEADER)
+        for row in rows if rows is not None else cls.ROWS:
             ws.append(row)
         buf = io.BytesIO()
         wb.save(buf)
         return buf.getvalue()
 
-    HEADER = ["Company Name", "ACN", "Appointment Type", "Date of Appointment",
-              "Industry", "State"]
-    ROWS = [
-        ["Bust Co Pty Ltd", "123456789", "Creditors voluntary winding up",
-         date(2026, 9, 3), "Construction", "NSW"],
-        ["Collapsed Builders Pty Ltd", "987 654 321", "Court liquidation",
-         date(2026, 9, 8), "Construction", "VIC"],
-    ]
+    def parse(self, **kw):
+        return asic_dataset.parse(self.workbook(**kw), lookback_days=30)
 
-    def test_header_is_found_below_the_title_rows(self):
-        matters = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)
-        assert [m.company_name for m in matters] == [
-            "Bust Co Pty Ltd", "Collapsed Builders Pty Ltd",
+    def test_header_is_found_on_row_seven(self):
+        assert [m.company_name for m in self.parse()] == [
+            "TANCRED BROTHERS PTY LTD", "JINDONG HOLDINGS PTY LTD",
         ]
 
-    def test_acn_is_normalised(self):
-        matters = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)
-        assert matters[1].acn == "987654321"
+    def test_low_acn_is_zero_padded_not_dropped(self):
+        # ACNs are stored as numbers, so 000 025 712 arrives as 25712.
+        # Dropping short values loses every early-registered company.
+        assert self.parse()[0].acn == "000025712"
 
-    def test_industry_and_state_are_carried(self):
-        matter = asic_dataset.parse(self.workbook(self.HEADER, self.ROWS), lookback_days=0)[0]
-        assert (matter.industry, matter.state) == ("Construction", "NSW")
+    def test_normal_acn_is_unchanged(self):
+        assert self.parse()[1].acn == "612927974"
 
-    def test_alternate_header_spellings_still_map(self):
-        header = ["Organisation Name", "A.C.N.", "Initial appointment type",
-                  "Appointment date", "ANZSIC Division", "State/Territory"]
-        matter = asic_dataset.parse(self.workbook(header, self.ROWS), lookback_days=0)[0]
-        assert matter.company_name == "Bust Co Pty Ltd"
-        assert matter.appointment_type == "Creditors voluntary winding up"
+    def test_industry_and_location_are_captured(self):
+        matter = self.parse()[0]
+        assert (matter.industry, matter.industry_subdivision) == (
+            "Retail Trade", "Food Retailing",
+        )
+        assert (matter.state, matter.postcode) == ("Queensland", "4305")
+
+    def test_practitioner_is_captured(self):
+        assert self.parse()[0].practitioner == "JONES, MICHAEL GREGORY"
+
+    def test_repeat_appointments_are_excluded(self):
+        # A Series 2 row without the Series 1 flag is a subsequent appointment
+        # for a company already counted - it would duplicate the matter.
+        rows = [*self.ROWS, self.row("JINDONG HOLDINGS PTY LTD", 612927974,
+                                     "Court liquidation", date(2026, 9, 9),
+                                     series_1=None)]
+        assert len(self.parse(rows=rows)) == 2
+
+    def test_solvent_wind_ups_are_excluded(self):
+        # Members' voluntary liquidation is solvent - nobody lost money.
+        rows = [*self.ROWS, self.row("RICH OWNERS PTY LTD", 111222333,
+                                     "Members' voluntary liquidation",
+                                     date(2026, 9, 5))]
+        names = [m.company_name for m in self.parse(rows=rows)]
+        assert "RICH OWNERS PTY LTD" not in names
+
+    def test_lookback_filters_the_history(self):
+        # The real sheet holds 70,000+ appointments back to July 2021.
+        rows = [*self.ROWS, self.row("ANCIENT PTY LTD", 999888777,
+                                     "Court liquidation", date(2021, 7, 1))]
+        assert len(self.parse(rows=rows)) == 2
+        assert len(asic_dataset.parse(self.workbook(rows=rows), lookback_days=0)) == 3
 
     def test_a_renamed_schema_raises_rather_than_returning_nothing(self):
         # "No insolvencies this week" and "the schema moved" must never look
         # the same, or a silent zero gets reported as a quiet week.
-        payload = self.workbook(["Widget", "Sprocket", "Gizmo"], [["a", "b", "c"]])
         with pytest.raises(RuntimeError, match="company-name column"):
-            asic_dataset.parse(payload, lookback_days=0)
+            self.parse(header=["Widget", "Sprocket", "Gizmo"],
+                       rows=[["a", "b", "c"]])
 
     def test_missing_sheet_names_what_was_there(self):
-        payload = self.workbook(self.HEADER, self.ROWS, sheet_name="Summary")
         with pytest.raises(RuntimeError, match="No data-set sheet"):
-            asic_dataset.parse(payload, lookback_days=0)
-
-    def test_lookback_filters_old_appointments(self):
-        rows = self.ROWS + [["Ancient Pty Ltd", "111222333", "Administration",
-                             date(2024, 1, 15), "Retail", "QLD"]]
-        recent = asic_dataset.parse(self.workbook(self.HEADER, rows), lookback_days=30)
-        assert "Ancient Pty Ltd" not in [m.company_name for m in recent]
-        assert len(asic_dataset.parse(self.workbook(self.HEADER, rows), lookback_days=0)) == 3
+            self.parse(sheet_name="Summary")

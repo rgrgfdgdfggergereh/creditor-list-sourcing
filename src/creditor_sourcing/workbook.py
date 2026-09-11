@@ -70,6 +70,7 @@ def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
                 prospect.total_exposure_aud,
                 prospect.matter_count,
                 debtors,
+                ", ".join(prospect.debtor_industries),
                 prospect.abn,
                 prospect.state,
                 prospect.contact_name,
@@ -88,7 +89,7 @@ def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
             for column in range(1, 6):
                 sheet.cell(row=row, column=column).fill = PRIORITY_FILL
         if prospect.pipedrive_org_id:
-            for column in range(13, 16):
+            for column in range(14, 17):
                 sheet.cell(row=row, column=column).fill = CRM_FILL
 
 
@@ -107,11 +108,11 @@ def build(
 
     headers = [
         "Creditor (prospect)", "Score", "Total exposure", "# insolvencies",
-        "Owed by (debtor companies)", "ABN", "State", "Contact", "Title",
-        "Email", "Phone", "Contact source", "Pipedrive org", "Pipedrive owner",
-        "Pipedrive link",
+        "Owed by (debtor companies)", "Debtor industries", "ABN", "State",
+        "Contact", "Title", "Email", "Phone", "Contact source",
+        "Pipedrive org", "Pipedrive owner", "Pipedrive link",
     ]
-    widths = [38, 7, 16, 13, 52, 15, 8, 24, 24, 30, 18, 14, 28, 20, 42]
+    widths = [38, 7, 16, 13, 52, 30, 15, 8, 24, 24, 30, 18, 14, 28, 20, 42]
 
     sheet = _sheet(workbook, "Prospects", headers)
     _prospect_rows(sheet, qualified)
@@ -154,7 +155,8 @@ def build(
 
     matter_headers = [
         "Insolvent company", "ACN", "Source", "Appointment type",
-        "Appointment date", "Practitioner", "Form 5604 lodged", "5604 date",
+        "Appointment date", "Industry", "Industry (subdivision)", "State",
+        "Postcode", "Practitioner", "Form 5604 lodged", "5604 date",
         "Document number", "Purchased", "Creditors captured", "Last checked",
     ]
     matter_sheet = _sheet(workbook, "Matters", matter_headers)
@@ -163,6 +165,8 @@ def build(
             [
                 matter.get("company_name"), matter.get("acn"), matter.get("source"),
                 matter.get("appointment_type"), matter.get("appointment_date"),
+                matter.get("industry"), matter.get("industry_subdivision"),
+                matter.get("state"), matter.get("postcode"),
                 matter.get("practitioner"),
                 "Yes" if matter.get("form_5604_lodged") else "No",
                 matter.get("form_5604_date"), matter.get("form_5604_doc_number"),
@@ -171,7 +175,8 @@ def build(
                 matter.get("last_checked"),
             ]
         )
-    _finish(matter_sheet, [38, 14, 10, 26, 16, 26, 16, 13, 18, 11, 18, 14])
+    _finish(matter_sheet,
+            [38, 14, 10, 26, 16, 22, 24, 16, 10, 26, 16, 13, 18, 11, 18, 14])
 
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{prefix}_{date.today().isoformat()}.xlsx"

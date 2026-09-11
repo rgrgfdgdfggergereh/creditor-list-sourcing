@@ -45,8 +45,9 @@ why, rather than failing the run.
 
 ### 2. Confirm the ASIC data set schema — do this first
 
-The primary feed is the `data set` sheet of ASIC's insolvency statistics
-workbook. Confirm its real columns before the first run:
+The primary feed is the `Data set` sheet of ASIC's insolvency statistics
+workbook. Its schema is already confirmed against the 7 September 2026 release
+(see [DATA_SOURCES.md](DATA_SOURCES.md)); re-confirm after a republish:
 
 ```
 Actions → ASIC data set schema → Run workflow

@@ -45,39 +45,59 @@ LANDING_PAGE = (
 )
 SHEET_CANDIDATES = ("data set", "dataset", "data_set", "raw data", "series 1 raw data")
 
+# Members' voluntary liquidation is a solvent wind-up: there are no creditors
+# taking a loss, so those rows are never prospect material.
+SOLVENT_APPOINTMENTS = ("members' voluntary", "members voluntary")
+
 # Lower-cased, punctuation-stripped header text -> Matter field.
+#
+# The exact spellings ASIC uses today are marked (actual). The rest are
+# tolerated variants, kept so a rename does not break the run: ASIC has used
+# several over the years and the sheet is republished monthly.
 HEADER_ALIASES: dict[str, str] = {
+    # Identity
+    "organisation name": "company_name",          # actual
     "company name": "company_name",
-    "organisation name": "company_name",
     "entity name": "company_name",
     "name": "company_name",
     "company": "company_name",
+    "acn no": "acn",                              # actual
     "acn": "acn",
     "a c n": "acn",
     "australian company number": "acn",
-    "abn": "abn",
-    "appointment type": "appointment_type",
+    # Appointment
+    "appointment type": "appointment_type",       # actual
     "initial appointment type": "appointment_type",
     "type of appointment": "appointment_type",
     "external administration type": "appointment_type",
+    "effective date": "appointment_date",         # actual
     "appointment date": "appointment_date",
     "date of appointment": "appointment_date",
     "date appointed": "appointment_date",
-    "notification date": "appointment_date",
-    "industry": "industry",
-    "industry division": "industry",
-    "anzsic division": "industry",
-    "state": "state",
-    "state territory": "state",
-    "region": "state",
+    "appointee person or company": "practitioner",  # actual
     "appointee": "practitioner",
     "practitioner": "practitioner",
     "practitioner name": "practitioner",
-    "person appointed": "practitioner",
     "appointee name": "practitioner",
     "firm": "practitioner_firm",
     "practitioner firm": "practitioner_firm",
-    "appointee firm": "practitioner_firm",
+    # Industry - division is the headline, subdivision is the useful detail
+    "industry type division": "industry",             # actual
+    "industry type subdivision": "industry_subdivision",  # actual
+    "industry": "industry",
+    "industry division": "industry",
+    "anzsic division": "industry",
+    # Location. Principal place of business beats state of incorporation for
+    # sales territory: it is where the company actually trades.
+    "principal place of business state or territory": "state",   # actual
+    "principal place of business postcode": "postcode",          # actual
+    "state of incorporation state or territory": "state_of_incorporation",  # actual
+    "state": "state",
+    "state territory": "state",
+    # Series 1 marks a company's FIRST appointment. Series 2 counts every
+    # appointment including subsequent ones, which would duplicate matters.
+    "series 1 companies entering": "series_1",    # actual
+    "series 2 all appointments": "series_2",      # actual
 }
 
 _PUNCT = re.compile(r"[^a-z0-9 ]+")
@@ -85,8 +105,36 @@ _SPACE = re.compile(r"\s+")
 
 
 def _norm_header(value: Any) -> str:
+    """Fold a header cell to a lookup key.
+
+    Headers carry embedded newlines ("Period\n(Year month)"), trailing spaces
+    ("ACN No ") and parenthesised qualifiers, so punctuation and whitespace are
+    flattened before lookup.
+    """
     text = _PUNCT.sub(" ", str(value or "").strip().lower())
     return _SPACE.sub(" ", text).strip()
+
+
+def _normalise_acn(value: Any) -> str | None:
+    """Zero-pad an ACN back to nine digits.
+
+    ACNs are stored as numbers in this sheet, so leading zeros are gone:
+    TANCRED BROTHERS PTY LTD arrives as 25712 and is really 000 025 712.
+    Dropping short values instead of padding them silently loses every company
+    registered early enough to have a low ACN.
+    """
+    digits = re.sub(r"[^0-9]", "", str(value or ""))
+    if not digits or len(digits) > 9:
+        return None
+    return digits.zfill(9)
+
+
+def _is_true(value: Any) -> bool:
+    """Read a Series 1 / Series 2 flag cell, which ASIC writes as 1 or blank."""
+    if value in (None, ""):
+        return False
+    text = str(value).strip().lower()
+    return text in {"1", "1.0", "y", "yes", "true"}
 
 
 def resolve_latest_url(client: Client | None = None) -> str:
@@ -184,8 +232,22 @@ def _parse_date(value: Any) -> str | None:
     return None
 
 
-def parse(payload: bytes, lookback_days: int | None = None) -> list[Matter]:
-    """Read the data set sheet into Matters, newest appointments first."""
+def parse(
+    payload: bytes,
+    lookback_days: int | None = None,
+    first_appointments_only: bool = True,
+) -> list[Matter]:
+    """Read the Data set sheet into Matters.
+
+    The sheet holds the full history - over 70,000 appointments back to July
+    2021 - so `lookback_days` is what keeps a weekly run to the new ones. Pass
+    0 to read everything.
+
+    `first_appointments_only` keeps just the rows flagged Series 1, a company's
+    first entry into external administration. Series 2 rows repeat a company
+    for each subsequent appointment, which would create duplicate matters and
+    double-count the same creditors.
+    """
     from openpyxl import load_workbook
 
     workbook = load_workbook(io.BytesIO(payload), read_only=True, data_only=True)
@@ -197,8 +259,8 @@ def parse(payload: bytes, lookback_days: int | None = None) -> list[Matter]:
 
     header_index, mapping = _find_header(rows)
     log.info(
-        "data set sheet: header on row %d, columns %s",
-        header_index + 1, sorted(set(mapping.values())),
+        "Data set sheet: header on row %d, %d columns mapped: %s",
+        header_index + 1, len(mapping), sorted(set(mapping.values())),
     )
 
     days = lookback_days
@@ -207,7 +269,7 @@ def parse(payload: bytes, lookback_days: int | None = None) -> list[Matter]:
     cutoff = (date.today() - timedelta(days=days)).isoformat() if days else None
 
     matters: list[Matter] = []
-    skipped_old = 0
+    skipped_old = skipped_repeat = skipped_solvent = 0
     for row in rows[header_index + 1:]:
         values: dict[str, Any] = {}
         for column, field in mapping.items():
@@ -218,32 +280,49 @@ def parse(payload: bytes, lookback_days: int | None = None) -> list[Matter]:
         if not company or _norm_header(company) in HEADER_ALIASES:
             continue
 
+        # Series 1 is only present when the mapping found the column; if ASIC
+        # drops it, fall back to keeping every row rather than keeping none.
+        track_series_1 = first_appointments_only and "series_1" in mapping.values()
+        if track_series_1 and not _is_true(values.get("series_1")):
+            skipped_repeat += 1
+            continue
+
+        appointment_type = str(values.get("appointment_type") or "").strip() or None
+        if appointment_type and any(
+            s in appointment_type.lower() for s in SOLVENT_APPOINTMENTS
+        ):
+            skipped_solvent += 1
+            continue
+
         appointment_date = _parse_date(values.get("appointment_date"))
         if cutoff and appointment_date and appointment_date < cutoff:
             skipped_old += 1
             continue
 
-        acn = re.sub(r"[^0-9]", "", str(values.get("acn") or "")) or None
         matters.append(
             Matter(
                 source="asic",
                 company_name=company,
-                acn=acn if acn and len(acn) == 9 else None,
-                appointment_type=str(values.get("appointment_type") or "").strip() or None,
+                acn=_normalise_acn(values.get("acn")),
+                appointment_type=appointment_type,
                 appointment_date=appointment_date,
                 practitioner=str(values.get("practitioner") or "").strip() or None,
                 practitioner_firm=str(values.get("practitioner_firm") or "").strip() or None,
                 industry=str(values.get("industry") or "").strip() or None,
+                industry_subdivision=str(values.get("industry_subdivision") or "").strip()
+                or None,
                 state=str(values.get("state") or "").strip() or None,
+                postcode=str(values.get("postcode") or "").strip() or None,
                 first_seen=date.today().isoformat(),
             )
         )
 
     log.info(
-        "data set sheet: %d appointments in the last %s days (%d older rows skipped)",
-        len(matters), days, skipped_old,
+        "Data set sheet: %d appointments in the last %s days "
+        "(skipped %d older, %d repeat appointments, %d solvent wind-ups)",
+        len(matters), days or "all", skipped_old, skipped_repeat, skipped_solvent,
     )
-    if not matters and skipped_old == 0:
+    if not matters and not (skipped_old or skipped_repeat or skipped_solvent):
         raise RuntimeError(
             "The data set sheet produced no rows at all. The schema has probably "
             "changed - run `python -m creditor_sourcing schema`."

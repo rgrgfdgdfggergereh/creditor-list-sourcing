@@ -49,7 +49,9 @@ class Matter:
     practitioner: str | None = None
     practitioner_firm: str | None = None
     industry: str | None = None
+    industry_subdivision: str | None = None
     state: str | None = None
+    postcode: str | None = None
     source_url: str | None = None
     source_id: str | None = None             # Worrells 32-hex id, ASIC notice id
     # Populated by the ASIC Connect watcher.
@@ -102,6 +104,8 @@ class Prospect:
     total_exposure_aud: float = 0.0
     matter_count: int = 0
     matters: list[dict[str, Any]] = field(default_factory=list)
+    # Which sectors the bad debts came from - useful for industry-led outreach.
+    debtor_industries: list[str] = field(default_factory=list)
     # Qualification.
     qualified: bool = True
     disqualified_reason: str | None = None

@@ -14,8 +14,64 @@ It is the best source available for this job:
 - **Structured, not scraped.** One `.xlsx` download; no CSS selectors to break.
 - **One request instead of hundreds.** Replaces a page-by-page crawl.
 - **Carries the fields that matter** — company name, ACN, appointment type,
-  appointment date, industry and state. Industry and state come through onto
-  the prospect row, so a rep can see which sector the bad debt came from.
+  effective date, ANZSIC industry division and subdivision, principal place of
+  business state and postcode, and the appointed practitioner. Industry and
+  state come through onto the prospect row, so a rep can see which sector the
+  bad debt came from.
+
+### Confirmed schema
+
+Captured from the published workbook (7 September 2026 release, 20 MB) by the
+**ASIC data set schema** workflow. The sheet is `Data set`, the header is on
+**row 7** under five title rows and a merged group-label row, and there were
+**73,206 appointment rows** going back to 1 July 2021.
+
+| Col | Header (verbatim) | Mapped to |
+|---:|---|---|
+| 1 | `Data to` | — |
+| 2 | `ACN No ` | `acn` |
+| 3 | `Organisation name ` | `company_name` |
+| 4 | `Appointee (person or company)` | `practitioner` |
+| 5 | `Appointment type` | `appointment_type` |
+| 6 | `Effective date` | `appointment_date` |
+| 7 | `Period\n(Year month)` | — |
+| 8 | `Period (financial year)` | — |
+| 9 | `Industry type (division)` | `industry` |
+| 10 | `Industry type (subdivision)` | `industry_subdivision` |
+| 11 | `Industry type (group)` | — |
+| 12 | `State of incorporation (state or territory)` | `state_of_incorporation` |
+| 13 | `Principal place of business (state or territory)` | `state` |
+| 14 | `Principal place of business (area)` | — |
+| 15 | `Principal place of business (postcode)` | `postcode` |
+| 16 | `Series 1 \n(companies entering)` | `series_1` |
+| 17 | `Series 2 \n(all appointments)` | `series_2` |
+
+Three things in that layout matter more than they look:
+
+**ACNs are stored as numbers, so leading zeros are gone.** `TANCRED BROTHERS
+PTY LTD` arrives as `25712` and is really ACN 000 025 712. The loader
+zero-pads to nine digits. Validating on length and dropping short values —
+the obvious first cut — silently loses every company registered early enough
+to have a low ACN.
+
+**Series 1 marks a company's first entry into external administration.** Series
+2 counts *every* appointment, so the same company recurs for each subsequent
+one. The loader keeps Series 1 rows only, or the same insolvency produces
+duplicate matters and double-counts its creditors.
+
+**Members' voluntary liquidation is a solvent wind-up** — nobody lost money, so
+those rows are never prospect material and are dropped by appointment type.
+
+Appointment types as published: `Creditors' voluntary liquidation`, `Court
+liquidation`, `Voluntary administration`, `Controller appointed (except
+receiver or managing controller)`. Only the creditors' voluntary liquidations
+reliably produce a Form 5604; the others carry creditor information on
+different forms.
+
+Principal place of business is preferred over state of incorporation for sales
+territory, because it is where the company actually trades.
+
+### Why it holds up
 
 `sources/asic_dataset.py` reads it. Two things make it robust rather than
 brittle:
@@ -33,7 +89,8 @@ each release, so `resolve_latest_url()` reads the landing page for the current
 workbook rather than trusting a pinned URL. The configured URL in
 `config/settings.yml` is the fallback.
 
-To see the real shape of the sheet, run the **ASIC data set schema** workflow.
+To re-confirm the shape of the sheet after a republish, run the **ASIC data set
+schema** workflow.
 It prints the sheet names, the detected header row, which columns mapped to
 which fields, and any header it did not recognise — and saves the workbook as
 an artifact. That workflow also runs monthly, so a column rename surfaces
