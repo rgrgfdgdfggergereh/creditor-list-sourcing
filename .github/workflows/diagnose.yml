@@ -1,0 +1,54 @@
+name: Diagnose sourcing legs
+
+# Reports the live state of all three sourcing legs: does each respond, does
+# its parser find rows, and what is actually in the data. Read-only - it never
+# writes state and never spends money.
+#
+# The development sandbox has no egress, so this is how the legs get verified.
+
+on:
+  workflow_dispatch:
+    inputs:
+      legs:
+        description: "Which legs to check"
+        type: choice
+        default: all
+        options: [all, asic, notices, worrells]
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      WORRELLS_SESSION_COOKIE: ${{ secrets.WORRELLS_SESSION_COOKIE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Diagnose
+        run: |
+          mkdir -p out
+          ARGS=""
+          if [ "${{ inputs.legs || 'all' }}" != "all" ]; then
+            ARGS="${{ inputs.legs }}"
+          fi
+          python scripts/diagnose.py $ARGS 2>&1 | tee out/diagnosis.txt
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo '## Sourcing leg diagnosis'
+            echo '```'
+            cat out/diagnosis.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diagnosis
+          path: out/diagnosis.txt
+          retention-days: 30
