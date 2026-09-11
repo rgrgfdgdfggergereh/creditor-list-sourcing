@@ -224,24 +224,86 @@ Worrells publishes its Initial Advice reports to creditors. Those contain the
 and available the week of appointment rather than after a purchase. When a
 matter is a Worrells appointment this is always the cheaper and faster path.
 
+### What a listing actually looks like
+
+Page 18 of RFCVIC PTY LTD's published Initial Advice, verbatim:
+
+```
+18
+D.
+Listing of known creditors (identifying related parties)
+Name
+Address
+Related Party
+ROCAP Amount
+Australian Alliance Automotive Finance Pty Limited
+Locked Bag 900  Milson Point NSW 1565
+No
+TBC
+Bidfood Australia Limited
+PO Box 220  Pendle Hill NSW 2145
+No
+TBC
+...
+```
+
+Three things in that page drive the parser design:
+
+**The amounts are `TBC`.** The practitioner publishes the creditor names
+before quantifying the debts, so the ROCAP Amount column carries no figures at
+all. This is the single most consequential finding about this source: a page
+gate that requires amount cells rejects the real listing, and a $5,000
+exposure floor applied to an unstated amount drops every creditor from these
+matters. Creditors are recorded with `amount_known = False` and survive
+qualification; only their exposure is unknown, not their existence.
+
+**The layout is cell-per-line**, one cell per line, with the Related Party
+`No` as the row anchor and the amount cell after it.
+
+**Page furniture sits in the row buffer.** The page number `18` and the
+section letter `D.` precede the first row. Left in, they become the first
+creditor's "name" and the real first creditor is lost.
+
+The proposal response form (page 32) also carries standalone `Yes`/`No` cells,
+so the page gate additionally requires a listing heading on the same page -
+that form's heading is "Proposal response form and notices".
+
+### What the pipeline does with it
+
+Of RFCVIC's four creditors, exactly one is a trade credit prospect:
+
+| Creditor | Outcome |
+|---|---|
+| Bidfood Australia Limited | **prospect** - food wholesaler that supplied a caterer on credit |
+| Australian Alliance Automotive Finance | excluded - financier |
+| Silver Chef Rentals Pty Ltd | excluded - equipment rental |
+| Velociti Capital Spv 1 Pty Ltd | excluded - capital vehicle |
+
+That ratio is worth expecting: a small insolvency's listing is mostly
+financiers and statutory creditors, and one or two genuine trade suppliers.
+
 ### Measured coverage
 
 The portal needs **no login**: the New Appointments list returns 372
 appointments over plain HTTP, and the document PDFs fetch unauthenticated.
 
-Across 14 published documents, **7 carried a creditor listing (50%)**, and
-which document it is matters more than which matter:
+Across 14 published documents, the listing appears in the substantial report,
+not the covering one:
 
-| Document | Carried a listing |
-|---|---|
-| Initial Advice | 4 of 4 |
-| 2nd Advice | 2 of 3 |
-| First Advice | 1 of 6 |
+| Document | Pages | Carries a listing |
+|---|---|---|
+| Initial Advice | 37-39 | yes - confirmed on RFCVIC, and 7 listing-heading pages each on SJMFood, Allgood Andrews and Clean Fleet |
+| 2nd Advice | 9-54 | sometimes |
+| First Advice | 21-28 | usually not - short covering report, no annexure |
 
-"First Advice" is usually the short covering report with no creditor annexure;
-"Initial Advice" is the substantial one (37-39 pages, 7 pages of listing
-headings). `CREDITOR_DOCUMENTS` is ordered on that evidence. None of the 14
-documents was image-only, so OCR is not needed for this source.
+`CREDITOR_DOCUMENTS` is ordered on that evidence, so the pipeline fetches
+Initial Advice first. None of the 14 documents was image-only, so OCR is not
+needed for this source.
+
+An earlier version of the survey reported "7 of 14 carry a listing". That
+figure was wrong: it counted standalone Yes/No cells per page but amount cells
+across the whole document, so the test was satisfied by almost anything. The
+survey now measures both on the same page, matching the parser.
 
 Most matters on the list carry no documents at all yet - they are days old.
 `MAYDE ELECTRICAL PTY LTD` had a start date of the same day as the survey.

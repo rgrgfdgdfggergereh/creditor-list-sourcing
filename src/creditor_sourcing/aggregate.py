@@ -32,7 +32,10 @@ def build(creditors: Iterable[Creditor]) -> list[Prospect]:
             Prospect(
                 name_key=key,
                 display_name=display,
-                total_exposure_aud=round(sum(r.amount_aud for r in rows), 2),
+                total_exposure_aud=round(
+                    sum(r.amount_aud for r in rows if r.amount_known), 2
+                ),
+                exposure_known=any(r.amount_known for r in rows),
                 matter_count=len({r.matter_id for r in rows}),
                 debtor_industries=sorted(
                     {r.debtor_industry for r in rows if r.debtor_industry}
@@ -42,6 +45,7 @@ def build(creditors: Iterable[Creditor]) -> list[Prospect]:
                         "matter_id": r.matter_id,
                         "debtor_company": r.debtor_company,
                         "amount_aud": r.amount_aud,
+                        "amount_known": r.amount_known,
                         "source": r.source,
                         "source_document": r.source_document,
                         "debtor_industry": r.debtor_industry,

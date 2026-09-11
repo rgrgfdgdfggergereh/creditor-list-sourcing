@@ -42,6 +42,16 @@ HEADINGS = (
 MIN_YES_NO_CELLS = 2
 MIN_MONEY_CELLS = 2
 
+# An early Initial Advice publishes the creditor names before the amounts are
+# quantified: the "ROCAP Amount" column reads TBC. Measured live on RFCVIC PTY
+# LTD page 18, where all four creditors had TBC. Requiring amount cells on the
+# page therefore rejects real listings, so a listing heading plus the Related
+# Party column is sufficient on its own.
+UNQUANTIFIED = re.compile(
+    r"^\s*(tbc|t\.b\.c\.?|unknown|unquantified|n/?a|nil|-|\u2013|\u2014)\s*$",
+    re.IGNORECASE,
+)
+
 YES_NO_CELL = re.compile(r"^\s*(Yes|No)\s*$", re.IGNORECASE)
 MONEY_CELL = re.compile(r"^\s*\$?\s*\d{1,3}(?:,\d{3})*(?:\.\d{2})?\s*$")
 
@@ -85,6 +95,22 @@ PROSE_TAIL = re.compile(
 # Section and annexure labels that sit above the first row.
 ANNEXURE = re.compile(r"^(annexure|schedule|section|appendix|part)\b", re.IGNORECASE)
 
+# Page furniture that lands in the row buffer ahead of the first creditor: the
+# page number and the section letter. Left in, they become the first row's
+# "name" and the real first creditor is lost - which is exactly what happened
+# to Australian Alliance Automotive Finance Pty Limited on RFCVIC page 18.
+PAGE_FURNITURE = re.compile(r"^(\d{1,4}|[A-Z]\.?|[ivxlc]+\.?|Page \d+.*)$")
+
+# Column headers, including the ROCAP and Identified variants practitioners
+# use for the amount column.
+COLUMN_HEADER = re.compile(
+    r"^(name(\s*of\s*creditor)?|creditor(\s*name|\s*type)?|address|"
+    r"related(\s*part(y|ies))?(\s*\(?yes\s*/?\s*no\)?)?|"
+    r"(rocap|identified|estimated|claimed|stated)?\s*amount(\s*owed)?"
+    r"(\s*\(\$\))?|estimated\s*return|balance|total|\$|#|no\.)$",
+    re.IGNORECASE,
+)
+
 LEADERS = re.compile(r"\.{4,}")
 AMOUNT_RE = re.compile(r"\$?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})\s*$")
 RELATED_RE = re.compile(r"\b(yes|no)\b", re.IGNORECASE)
@@ -115,16 +141,26 @@ def is_creditor_table(page_text: str) -> bool:
     table - which is how a remuneration schedule once became five creditors.
     """
     lines = page_text.splitlines()
-
-    # Cell-per-line: the Related Party column as bare Yes/No cells.
     yes_no = sum(1 for line in lines if YES_NO_CELL.match(line))
     money = sum(1 for line in lines if MONEY_CELL.match(line))
+    heading = any(h in page_text.lower() for h in HEADINGS)
+
+    # A listing heading on the page plus the Related Party column is the
+    # strongest signal available, and it holds when amounts are still TBC.
+    # The heading requirement is what keeps the proposal response form out:
+    # that page carries Yes/No cells too, but its heading is "Proposal
+    # response form and notices", not a creditor listing.
+    if heading and yes_no >= MIN_YES_NO_CELLS:
+        return True
+
+    # Cell-per-line with quantified amounts, for a continuation page where
+    # the practitioner did not repeat the heading.
     if yes_no >= MIN_YES_NO_CELLS and money >= MIN_MONEY_CELLS:
         return True
 
     # Inline rows: whole rows on one line, and only where the page also
     # carries a listing heading, since a single inline row is weak evidence.
-    if not any(h in page_text.lower() for h in HEADINGS):
+    if not heading:
         return False
     return sum(1 for line in lines if INLINE_ROW.match(line)) >= MIN_INLINE_ROWS
 
@@ -159,17 +195,18 @@ def parse_cells(
             continue
 
         if YES_NO_CELL.match(line):
-            # Find this row's amount: the next money-only cell.
-            amount = None
+            # Find this row's amount cell: either a number or an explicit
+            # "not quantified yet" marker such as TBC.
+            amount: float | None = None
+            amount_known = True
             cursor = index + 1
             while cursor < len(lines) and cursor <= index + 4:
                 candidate = lines[cursor].strip()
                 if MONEY_CELL.match(candidate):
-                    amount = _amount(candidate) or _amount(f"{candidate}")
-                    if amount is None:
-                        amount = float(
-                            re.sub(r"[^0-9.]", "", candidate) or 0
-                        )
+                    amount = float(re.sub(r"[^0-9.]", "", candidate) or 0)
+                    break
+                if UNQUANTIFIED.match(candidate):
+                    amount, amount_known = 0.0, False
                     break
                 cursor += 1
 
@@ -179,16 +216,12 @@ def parse_cells(
             # first creditor's name.
             cells = [
                 c for c in cells
-                if not re.fullmatch(
-                    r"(name|address|related(\s*party)?(\s*\(?yes/?no\)?)?|amount"
-                    r"(\s*owed)?(\s*\(\$\))?|creditor(\s*name|\s*type)?|"
-                    r"estimated\s*return|balance|\$|#|no\.)",
-                    c, re.IGNORECASE,
-                )
+                if not COLUMN_HEADER.match(c)
+                and not PAGE_FURNITURE.match(c)
                 and not any(h in c.lower() for h in HEADINGS)
                 and not ANNEXURE.match(c)
             ]
-            if cells and amount:
+            if cells and amount is not None:
                 name = cells[0]
                 address = " ".join(cells[1:]) or None
                 if (
@@ -203,6 +236,7 @@ def parse_cells(
                             debtor_company=debtor_company,
                             matter_id=matter_id,
                             amount_aud=amount,
+                            amount_known=amount_known,
                             address=address,
                             related_party=line.lower() == "yes",
                             source=source,

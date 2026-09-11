@@ -84,9 +84,11 @@ def score(prospect: Prospect) -> int:
     """
     cfg = config.settings()["score"]
     repeat = (prospect.matter_count - 1) * cfg["repeat_matter_weight"]
-    # log10 so a $2m exposure outranks $200k without swamping the repeat signal.
+    # log10 so a $2m exposure outranks $200k without swamping the repeat
+    # signal. An unquantified exposure scores on the repeat signal alone
+    # rather than being ranked as if it were zero.
     exposure = 0.0
-    if prospect.total_exposure_aud > 0:
+    if prospect.exposure_known and prospect.total_exposure_aud > 0:
         exposure = math.log10(prospect.total_exposure_aud) * cfg["exposure_log_weight"]
     return int(min(cfg["max_score"], max(0, repeat + exposure)))
 
@@ -103,7 +105,17 @@ def apply(
     for prospect in prospects:
         prospect.score = score(prospect)
 
-        if prospect.total_exposure_aud < cfg["min_exposure_aud"]:
+        # The floor can only be applied to a stated amount. Practitioners
+        # routinely publish the creditor list with the ROCAP Amount column as
+        # TBC, so testing an unstated exposure against the floor would drop
+        # every creditor from those matters - which is most of the early
+        # Worrells intake. Keep them and let the rep see the exposure is
+        # not yet quantified.
+        below_floor = (
+            prospect.exposure_known
+            and prospect.total_exposure_aud < cfg["min_exposure_aud"]
+        )
+        if below_floor:
             prospect.qualified = False
             prospect.disqualified_reason = (
                 f"Exposure ${prospect.total_exposure_aud:,.0f} is under the "

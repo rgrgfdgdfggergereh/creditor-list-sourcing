@@ -183,6 +183,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         Creditor(
             creditor_name=r["creditor_name"], debtor_company=r["debtor_company"],
             matter_id=r["matter_id"], amount_aud=r.get("amount_aud", 0.0),
+            amount_known=r.get("amount_known", True),
             address=r.get("address"), related_party=r.get("related_party", False),
             creditor_type=r.get("creditor_type"), source=r.get("source", "asic"),
             source_document=r.get("source_document"),

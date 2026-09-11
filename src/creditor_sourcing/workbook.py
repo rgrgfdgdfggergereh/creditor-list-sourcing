@@ -61,13 +61,15 @@ def _finish(sheet: Worksheet, widths: Sequence[int]) -> None:
 def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
     for prospect in prospects:
         debtors = "; ".join(
-            f"{m['debtor_company']} (${m['amount_aud']:,.0f})" for m in prospect.matters
+            f"{m['debtor_company']} "
+            f"({'$' + format(m['amount_aud'], ',.0f') if m.get('amount_known', True) else 'TBC'})"
+            for m in prospect.matters
         )
         sheet.append(
             [
                 prospect.display_name,
                 prospect.score,
-                prospect.total_exposure_aud,
+                prospect.total_exposure_aud if prospect.exposure_known else "TBC",
                 prospect.matter_count,
                 debtors,
                 ", ".join(prospect.debtor_industries),
@@ -84,7 +86,8 @@ def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
             ]
         )
         row = sheet.max_row
-        sheet.cell(row=row, column=3).number_format = MONEY
+        if prospect.exposure_known:
+            sheet.cell(row=row, column=3).number_format = MONEY
         if prospect.matter_count > 1:
             for column in range(1, 6):
                 sheet.cell(row=row, column=column).fill = PRIORITY_FILL

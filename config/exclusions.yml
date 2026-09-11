@@ -60,6 +60,8 @@ financiers:
     - "\\bfinance\\b"
     - "\\bleasing\\b"
     - "\\blease\\b"
+    - "\\brentals?\\b"
+    - "\\bhire\\b"
     - asset finance
     - equipment finance
     - "\\bfactoring\\b"

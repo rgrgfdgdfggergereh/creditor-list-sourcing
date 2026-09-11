@@ -565,3 +565,108 @@ class TestCellPerLineListing:
         assert len(rows) == 1
         assert rows[0].creditor_name == "Acme Building Supplies Pty Ltd"
         assert rows[0].amount_aud == 42500.0
+
+
+class TestLiveRfcvicListing:
+    """The real creditor listing, end to end.
+
+    Every string below is verbatim from page 18 of RFCVIC PTY LTD's published
+    Initial Advice (trading as Reel Food Catering), captured by the diagnose
+    workflow. This is the fixture that matters: the earlier synthetic ones were
+    written to match the parser's assumptions and passed while the parser was
+    incapable of reading a real document.
+    """
+
+    PAGE = "\n".join([
+        "18",
+        "D.",
+        "Listing of known creditors (identifying related parties)",
+        "Name", "Address", "Related Party", "ROCAP Amount",
+        "Australian Alliance Automotive Finance Pty Limited",
+        "Locked Bag 900  Milson Point NSW 1565", "No", "TBC",
+        "Bidfood Australia Limited",
+        "PO Box 220  Pendle Hill NSW 2145", "No", "TBC",
+        "Silver Chef Rentals Pty Ltd",
+        "PO Box 1760  Milton BC QLD 4064", "No", "TBC",
+        "Velociti Capital Spv 1 Pty Ltd",
+        "Unit 2, 4 ORRONG CRES  CAULFIELD NORTH VIC 3161", "No", "TBC",
+        "Lodge your claim online from the file's File Information page",
+    ])
+
+    # The proposal response form carries Yes/No cells too, and must not be
+    # mistaken for a listing.
+    RESPONSE_FORM = "\n".join([
+        "32", "H.", "Proposal response form and notices",
+        "RFCVIC PTY LTD (In Liquidation)", "ACN: 678 250 327",
+        "Yes", "No", "Object*",
+        "Proposal 1 - Past fee approval", "Name of creditor:", "Address:",
+    ])
+
+    def rows(self):
+        return creditor_tables.parse_cells(
+            self.PAGE.splitlines(), "RFCVIC PTY LTD", "m1", "worrells")
+
+    def test_the_listing_page_qualifies_despite_tbc_amounts(self):
+        # Requiring amount cells on the page rejected this real listing:
+        # every ROCAP Amount reads TBC, so the page has no amount cells.
+        assert creditor_tables.is_creditor_table(self.PAGE)
+
+    def test_the_proposal_response_form_does_not_qualify(self):
+        assert not creditor_tables.is_creditor_table(self.RESPONSE_FORM)
+
+    def test_all_four_creditors_are_read(self):
+        assert [r.creditor_name for r in self.rows()] == [
+            "Australian Alliance Automotive Finance Pty Limited",
+            "Bidfood Australia Limited",
+            "Silver Chef Rentals Pty Ltd",
+            "Velociti Capital Spv 1 Pty Ltd",
+        ]
+
+    def test_page_number_and_section_letter_do_not_become_the_first_creditor(self):
+        # "18" and "D." sit in the row buffer ahead of the first row. Left in,
+        # the first creditor was lost entirely.
+        names = [r.creditor_name for r in self.rows()]
+        assert "18" not in names and "D." not in names
+        assert names[0] == "Australian Alliance Automotive Finance Pty Limited"
+
+    def test_rocap_amount_header_is_not_a_creditor(self):
+        assert "ROCAP Amount" not in [r.creditor_name for r in self.rows()]
+
+    def test_tbc_is_recorded_as_unknown_not_as_zero(self):
+        assert all(not r.amount_known for r in self.rows())
+        assert all(r.amount_aud == 0.0 for r in self.rows())
+
+    def test_addresses_pair_with_the_right_creditor(self):
+        rows = {r.creditor_name: r.address for r in self.rows()}
+        assert rows["Bidfood Australia Limited"] == "PO Box 220  Pendle Hill NSW 2145"
+        assert rows["Silver Chef Rentals Pty Ltd"] == "PO Box 1760  Milton BC QLD 4064"
+
+    def test_unquantified_creditors_survive_the_exposure_floor(self):
+        # The $5,000 floor cannot be applied to an unstated amount. Applying
+        # it anyway would drop the entire early Worrells intake.
+        prospects = qualify.apply(aggregate.build(self.rows()))
+        assert all(not p.exposure_known for p in prospects)
+        assert not any(
+            p.disqualified_reason and "under the" in p.disqualified_reason
+            for p in prospects
+        )
+
+    def test_only_the_trade_supplier_survives_qualification(self):
+        # Of the four, Bidfood is the food wholesaler that supplied a catering
+        # company on credit. The other three are finance, equipment rental and
+        # a capital vehicle - none insurable as trade credit.
+        prospects = qualify.apply(aggregate.build(self.rows()))
+        assert [p.display_name for p in prospects if p.qualified] == [
+            "Bidfood Australia Limited"
+        ]
+
+    def test_an_unquantified_prospect_scores_on_repeat_exposure_alone(self):
+        prospect = aggregate.build(self.rows())[0]
+        assert qualify.score(prospect) == 0
+        two_matters = aggregate.build(
+            self.rows()
+            + [Creditor("Bidfood Australia Limited", "Other Bust Pty Ltd", "m2",
+                        0.0, amount_known=False)]
+        )
+        bidfood = next(p for p in two_matters if "Bidfood" in p.display_name)
+        assert qualify.score(bidfood) > 0
