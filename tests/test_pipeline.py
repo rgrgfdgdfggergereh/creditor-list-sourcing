@@ -670,3 +670,52 @@ class TestLiveRfcvicListing:
         )
         bidfood = next(p for p in two_matters if "Bidfood" in p.display_name)
         assert qualify.score(bidfood) > 0
+
+
+class TestRepeatExposureOnLiveData:
+    """Bidfood appears in two of the three live listings.
+
+    RFCVIC PTY LTD (Reel Food Catering) and SJMFood Pty Ltd both list Bidfood
+    Australia as a creditor, spelled differently. That is the repeat-exposure
+    signal the whole ranking is built on, observed in real data: one food
+    wholesaler carrying bad debts from two separate food-service collapses.
+    """
+
+    RFCVIC = ["Australian Alliance Automotive Finance Pty Limited",
+              "Bidfood Australia Limited", "Silver Chef Rentals Pty Ltd",
+              "Velociti Capital Spv 1 Pty Ltd"]
+    SJMFOOD = ["A.C.N. 603 273 365 PTY LTD", "ALLIED RETAIL FINANCE PTY LTD",
+               "BIDFOOD AUSTRALIA LIMITED", "BOB & PETE'S PTY LIMITED"]
+
+    def prospects(self):
+        rows = [
+            Creditor(n, "RFCVIC PTY LTD", "m1", 0.0, amount_known=False)
+            for n in self.RFCVIC
+        ] + [
+            Creditor(n, "SJMFood Pty Ltd", "m2", 0.0, amount_known=False)
+            for n in self.SJMFOOD
+        ]
+        return qualify.apply(aggregate.build(rows))
+
+    def test_differently_spelled_bidfood_becomes_one_prospect(self):
+        bidfood = [p for p in self.prospects() if "bidfood" in p.name_key]
+        assert len(bidfood) == 1
+        assert bidfood[0].matter_count == 2
+
+    def test_bidfood_outranks_the_single_matter_prospects(self):
+        qualified = [p for p in self.prospects() if p.qualified]
+        assert qualified[0].matter_count == 2
+        assert "BIDFOOD" in qualified[0].display_name.upper()
+
+    def test_both_debtor_companies_are_recorded_against_it(self):
+        bidfood = next(p for p in self.prospects() if "bidfood" in p.name_key)
+        assert {m["debtor_company"] for m in bidfood.matters} == {
+            "RFCVIC PTY LTD", "SJMFood Pty Ltd"
+        }
+
+    def test_the_financiers_are_all_excluded(self):
+        excluded = {p.display_name for p in self.prospects() if not p.qualified}
+        assert "Australian Alliance Automotive Finance Pty Limited" in excluded
+        assert "ALLIED RETAIL FINANCE PTY LTD" in excluded
+        assert "Silver Chef Rentals Pty Ltd" in excluded
+        assert "Velociti Capital Spv 1 Pty Ltd" in excluded
