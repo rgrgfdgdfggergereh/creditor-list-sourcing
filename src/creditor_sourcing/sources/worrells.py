@@ -24,7 +24,7 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import date
+from datetime import date, datetime
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
@@ -40,6 +40,29 @@ PDF_RE = re.compile(r"/WebDocuments/.+\.pdf$", re.IGNORECASE)
 
 # Documents that actually carry a creditor listing, best first.
 CREDITOR_DOCUMENTS = ("notice of plan", "initial advice", "first advice", "2nd advice")
+
+# Label -> Matter field, as the labels appear in the File Details panel. The
+# panel gives us the ACN, which is what lets a Worrells matter be reconciled
+# against the same company in the ASIC workbook.
+DETAIL_LABELS = {
+    "ACN/Estate#": "acn",
+    "Admin Type": "appointment_type",
+    "Start Date": "appointment_date",
+    "Industry": "industry",
+    "Appointee": "practitioner",
+    "Office Name": "office",
+    "Principal": "principal",
+}
+
+# EVERY label the File Details panel renders, mapped or not. These are the
+# boundaries a value must stop at. Omitting the unmapped ones lets a value
+# swallow the rest of the panel - "Start Date" came back as
+# "11/09/2026 Exec Analyst Broderick Dipple Status Priority Contact Person ...".
+PANEL_LABELS = (
+    "ACN/Estate#", "Office Name", "Trading Name", "Principal", "Admin Type",
+    "Manager:", "Manager", "Start Date", "Exec Analyst", "Status",
+    "Contact Person", "Industry", "Appointee", "File Details", "I want to",
+)
 
 
 def details_view_url(url_or_id: str) -> str:
@@ -109,6 +132,65 @@ def creditor_documents(html: str, base_url: str) -> list[dict[str, str]]:
         for doc in parse_documents(html, base_url)
         if any(w in doc["name"].lower() for w in CREDITOR_DOCUMENTS)
     ]
+
+
+def parse_details(html: str) -> dict[str, str]:
+    """Read the File Details panel off a DetailsView page.
+
+    The panel is label/value pairs rendered as adjacent inline elements rather
+    than a table, so this walks the page's visible text and reads the span
+    after each known label. Labels not present simply do not appear in the
+    result - a brand new matter has most of them blank.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    text = " ".join(soup.get_text(" ", strip=True).split())
+
+    # A value runs until the next panel label, whether or not we map it.
+    stop = "|".join(
+        re.escape(label) for label in sorted(PANEL_LABELS, key=len, reverse=True)
+    )
+
+    details: dict[str, str] = {}
+    for label in sorted(DETAIL_LABELS, key=len, reverse=True):
+        field = DETAIL_LABELS[label]
+        if field in details:
+            continue
+        match = re.search(
+            rf"{re.escape(label)}\s*:?\s*(.+?)\s*(?={stop}|$)", text
+        )
+        if not match:
+            continue
+        value = match.group(1).strip(" :-")
+        if value and value.lower() not in ("none known", "none", "n/a"):
+            details[field] = value
+    return details
+
+
+def apply_details(matter: Matter, html: str) -> Matter:
+    """Fill a Matter from its DetailsView page. Never overwrites a set field."""
+    details = parse_details(html)
+
+    acn = re.sub(r"[^0-9]", "", details.get("acn", ""))
+    if acn and len(acn) <= 9 and not matter.acn:
+        matter.acn = acn.zfill(9)
+    if not matter.appointment_type:
+        matter.appointment_type = details.get("appointment_type")
+    if not matter.industry:
+        matter.industry = details.get("industry")
+    if not matter.practitioner:
+        matter.practitioner = details.get("practitioner")
+    if not matter.practitioner_firm:
+        matter.practitioner_firm = "Worrells"
+
+    start = details.get("appointment_date")
+    if start and not matter.appointment_date:
+        for fmt in ("%d/%m/%Y", "%Y-%m-%d", "%d %b %Y"):
+            try:
+                matter.appointment_date = datetime.strptime(start, fmt).date().isoformat()
+                break
+            except ValueError:
+                continue
+    return matter
 
 
 def collect(client: Client | None = None) -> list[Matter]:

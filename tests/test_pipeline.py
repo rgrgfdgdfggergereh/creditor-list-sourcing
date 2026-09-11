@@ -17,9 +17,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import pytest
 
 from creditor_sourcing import aggregate, qualify
-from creditor_sourcing.models import Creditor, normalise_name
+from creditor_sourcing.models import Creditor, Matter, normalise_name
 from creditor_sourcing.parse.creditor_tables import parse_lines
-from creditor_sourcing.sources import asic_dataset
+from creditor_sourcing.sources import asic_dataset, worrells
 from creditor_sourcing.sources.worrells import details_view_url
 
 
@@ -146,6 +146,107 @@ class TestCreditorTableParsing:
     def test_contents_lines_are_never_creditors(self):
         rows = parse_lines(["Schedule of debts .......... 12"], "Bust Co", "m1", "asic")
         assert rows == []
+
+
+class TestWorrellsDetails:
+    """The File Details panel on a DetailsView page.
+
+    DETAIL_HTML is the verbatim visible text of the live page for
+    MAYDE ELECTRICAL PTY LTD, captured by the diagnose workflow. The panel is
+    label/value pairs in inline elements, not a table.
+    """
+
+    DETAIL_HTML = (
+        "<html><body>File Information MAYDE ELECTRICAL PTY LTD File Details "
+        "ACN/Estate#: 168 364 298 Office Name: North Lakes Trading Name None known "
+        "Principal Lee Crosthwaite Admin Type Creditors Vol Manager: Broderick Dipple "
+        "Start Date 11/09/2026 Exec Analyst Broderick Dipple Status Priority "
+        "Contact Person Joseph Eckersley Industry Building/Construction "
+        "Appointee Andrew Worrell I want to Lodge a Proof of Debt</body></html>"
+    )
+
+    def test_values_stop_at_the_next_panel_label(self):
+        # Without every panel label as a boundary - including the ones we do
+        # not map - Start Date swallowed the rest of the panel.
+        details = worrells.parse_details(self.DETAIL_HTML)
+        assert details["appointment_date"] == "11/09/2026"
+        assert details["appointment_type"] == "Creditors Vol"
+        assert details["office"] == "North Lakes"
+
+    def test_acn_is_extracted_and_padded(self):
+        # The ACN is what lets a Worrells matter reconcile against the same
+        # company in the ASIC workbook.
+        matter = worrells.apply_details(
+            Matter(source="worrells", company_name="MAYDE ELECTRICAL PTY LTD"),
+            self.DETAIL_HTML,
+        )
+        assert matter.acn == "168364298"
+
+    def test_start_date_becomes_an_iso_date(self):
+        matter = worrells.apply_details(
+            Matter(source="worrells", company_name="X"), self.DETAIL_HTML)
+        assert matter.appointment_date == "2026-09-11"
+
+    def test_industry_and_appointee_are_captured(self):
+        matter = worrells.apply_details(
+            Matter(source="worrells", company_name="X"), self.DETAIL_HTML)
+        assert matter.industry == "Building/Construction"
+        assert matter.practitioner == "Andrew Worrell"
+        assert matter.practitioner_firm == "Worrells"
+
+    def test_placeholder_values_are_dropped(self):
+        assert "trading_name" not in worrells.parse_details(self.DETAIL_HTML)
+
+    def test_existing_values_are_never_overwritten(self):
+        matter = Matter(source="worrells", company_name="X", acn="999888777",
+                        industry="Manufacturing")
+        worrells.apply_details(matter, self.DETAIL_HTML)
+        assert matter.acn == "999888777"
+        assert matter.industry == "Manufacturing"
+
+    def test_a_bare_page_yields_nothing_rather_than_junk(self):
+        assert worrells.parse_details("<html><body>Nothing here</body></html>") == {}
+
+
+class TestWorrellsDocuments:
+    """Document links on a DetailsView page.
+
+    Confirmed live: most matters carry no documents (they are days old), while
+    a matured one such as Valera Recycling Pty Ltd carries "First Advice" and
+    "2nd Advice" - both creditor listings, downloadable unauthenticated.
+    """
+
+    HTML = """<html><body>
+      <a href="/">home</a>
+      <a href="/FileInformation">File Information</a>
+      <a href="/WebDocuments/12345/first-advice.pdf">First Advice</a>
+      <a href="/WebDocuments/12345/2nd-advice.pdf">2nd Advice</a>
+      <a href="/WebDocuments/12345/remuneration.pdf">Remuneration Report</a>
+      <a href="/Privacy">Privacy</a>
+    </body></html>"""
+
+    BASE = "https://customerportal.worrells.net.au"
+
+    def test_only_pdfs_are_returned(self):
+        docs = worrells.parse_documents(self.HTML, self.BASE)
+        assert len(docs) == 3
+        assert all(d["url"].endswith(".pdf") for d in docs)
+
+    def test_creditor_documents_rank_first(self):
+        names = [d["name"] for d in worrells.parse_documents(self.HTML, self.BASE)]
+        assert names[:2] == ["First Advice", "2nd Advice"]
+
+    def test_creditor_documents_excludes_other_reports(self):
+        names = [d["name"] for d in worrells.creditor_documents(self.HTML, self.BASE)]
+        assert names == ["First Advice", "2nd Advice"]
+
+    def test_urls_are_absolute(self):
+        doc = worrells.creditor_documents(self.HTML, self.BASE)[0]
+        assert doc["url"] == f"{self.BASE}/WebDocuments/12345/first-advice.pdf"
+
+    def test_a_new_matter_with_no_documents_is_not_an_error(self):
+        bare = """<html><body><a href="/">h</a><a href="/Privacy">p</a></body></html>"""
+        assert worrells.parse_documents(bare, self.BASE) == []
 
 
 class TestWorrellsUrl:

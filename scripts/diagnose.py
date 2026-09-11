@@ -250,20 +250,56 @@ def diagnose_worrells() -> None:
                 print(f"  Visible text ({len(text)} chars): {text[:900]!r}")
 
         # One matter proves nothing - this one may simply have no documents
-        # lodged yet. Sample several of the newest appointments.
-        print("\n  Sampling the newest appointments from the list:")
-        for matter in matters[:6]:
+        # lodged yet. Sample the list until we find matters that do.
+        print("\n  Sampling appointments from the list for lodged documents:")
+        with_docs: list[tuple] = []
+        for matter in matters[:40]:
             try:
                 page = client.get(matter.source_url).text
-                docs = worrells.parse_documents(page, cfg["base_url"])
-                creditor = worrells.creditor_documents(page, cfg["base_url"])
-                names = [d["name"] for d in docs][:4]
-                print(f"    {matter.company_name[:38]:<40} "
-                      f"{len(page):>7,}b  pdfs={len(docs)} creditor={len(creditor)} {names}")
-                if docs and not documents:
-                    documents = docs
+                matter = worrells.apply_details(matter, page)
+                docs = worrells.creditor_documents(page, cfg["base_url"])
+                if docs:
+                    with_docs.append((matter, docs))
+                    print(f"    {matter.company_name[:36]:<38} ACN {matter.acn or '-':<9} "
+                          f"{matter.appointment_type or '-':<16} "
+                          f"{[d['name'] for d in docs]}")
+                if len(with_docs) >= 3:
+                    break
             except Exception as exc:  # noqa: BLE001
-                print(f"    {matter.company_name[:38]:<40} FAILED: {exc}")
+                print(f"    {matter.company_name[:36]:<38} FAILED: {exc}")
+
+        checked = min(40, len(matters))
+        print(f"    ({len(with_docs)} of the first {checked} sampled carry a "
+              f"creditor document; the rest are too new)")
+        if with_docs:
+            documents = with_docs[0][1]
+
+        # THE end-to-end proof: download a creditor document and parse it.
+        # If this works, Worrells yields creditor lists with no ASIC purchase,
+        # no browser automation and no login.
+        print("\n  End-to-end: download a creditor document and extract creditors")
+        import tempfile
+
+        from creditor_sourcing.parse.creditor_tables import extract_pdf
+
+        for matter, docs in with_docs[:3]:
+            for doc in docs[:2]:
+                try:
+                    blob = client.get(doc["url"]).content
+                    with tempfile.TemporaryDirectory() as tmp:
+                        path = Path(tmp) / "doc.pdf"
+                        path.write_bytes(blob)
+                        rows, status = extract_pdf(
+                            path, matter.company_name, matter.matter_id, "worrells")
+                    total = sum(r.amount_aud for r in rows)
+                    print(f"    {matter.company_name[:30]:<32} {doc['name'][:14]:<16} "
+                          f"{len(blob):>8,}b  status={status:<10} "
+                          f"creditors={len(rows):<4} total=${total:,.0f}")
+                    for row in rows[:4]:
+                        print(f"        {row.creditor_name[:44]:<46} ${row.amount_aud:>12,.2f}")
+                except Exception as exc:  # noqa: BLE001
+                    print(f"    {matter.company_name[:30]:<32} {doc['name'][:14]:<16} "
+                          f"FAILED: {type(exc).__name__}: {exc}")
     except Exception as exc:  # noqa: BLE001
         print(f"  FAILED: {type(exc).__name__}: {exc}")
 
