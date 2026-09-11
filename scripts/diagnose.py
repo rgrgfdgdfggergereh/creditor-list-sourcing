@@ -226,11 +226,44 @@ def diagnose_worrells() -> None:
         print(f"  PDF documents found: {len(documents)}")
         for doc in documents[:8]:
             print(f"    {doc['name']!r} -> {doc['url']}")
-        creditor_docs = worrells.creditor_documents(html, cfg["base_url"])
-        print(f"  Of those, creditor-listing documents: {len(creditor_docs)}")
+
         if not documents:
-            text = " ".join(html.split())[:400]
-            print(f"  Page text starts: {text!r}")
+            # The PDF pattern did not match. Dump every link and the page's
+            # visible text so the real document URL shape can be read off,
+            # rather than guessing at another regex.
+            from bs4 import BeautifulSoup
+
+            soup = BeautifulSoup(html, "lxml")
+            anchors = [(a.get_text(strip=True)[:44], a["href"])
+                       for a in soup.find_all("a", href=True)]
+            print(f"  Anchors on page: {len(anchors)} - all of them:")
+            for text, href in anchors:
+                print(f"    {text!r:48} -> {href}")
+            for tag in ("iframe", "embed", "object", "button"):
+                found = soup.find_all(tag)
+                if found:
+                    print(f"  <{tag}> x{len(found)}: "
+                          f"{[f.get('src') or f.get('data') or f.get_text(strip=True)[:40] for f in found][:6]}")
+            body = soup.find("body")
+            if body:
+                text = " ".join(body.get_text(" ", strip=True).split())
+                print(f"  Visible text ({len(text)} chars): {text[:900]!r}")
+
+        # One matter proves nothing - this one may simply have no documents
+        # lodged yet. Sample several of the newest appointments.
+        print("\n  Sampling the newest appointments from the list:")
+        for matter in matters[:6]:
+            try:
+                page = client.get(matter.source_url).text
+                docs = worrells.parse_documents(page, cfg["base_url"])
+                creditor = worrells.creditor_documents(page, cfg["base_url"])
+                names = [d["name"] for d in docs][:4]
+                print(f"    {matter.company_name[:38]:<40} "
+                      f"{len(page):>7,}b  pdfs={len(docs)} creditor={len(creditor)} {names}")
+                if docs and not documents:
+                    documents = docs
+            except Exception as exc:  # noqa: BLE001
+                print(f"    {matter.company_name[:38]:<40} FAILED: {exc}")
     except Exception as exc:  # noqa: BLE001
         print(f"  FAILED: {type(exc).__name__}: {exc}")
 

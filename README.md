@@ -10,9 +10,9 @@ companies, filtering them down to genuine prospects, and handing the sales team
 a workbook.
 
 ```
-ASIC statistics "data set" ─┐
-ASIC Published Notices ─────┼─► matters ─► 5604 watch ─► [ buy on ASIC ] ─┐
-Worrells portal ────────────┘                                             │
+ASIC statistics "Data set" ─┐
+Worrells portal ────────────┴─► matters ─► 5604 watch ─► [ buy on ASIC ] ─┐
+                                                                          │
                                                                           ▼
                                             creditors ─► qualify ─► enrich ─► workbook
 ```

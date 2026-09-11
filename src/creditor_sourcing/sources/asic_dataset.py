@@ -265,11 +265,12 @@ def parse(
 
     days = lookback_days
     if days is None:
-        days = config.settings()["sources"]["asic_notices"]["lookback_days"]
+        days = config.settings()["sources"]["asic_stats"]["lookback_days"]
     cutoff = (date.today() - timedelta(days=days)).isoformat() if days else None
 
     matters: list[Matter] = []
     skipped_old = skipped_repeat = skipped_solvent = 0
+    newest = ""
     for row in rows[header_index + 1:]:
         values: dict[str, Any] = {}
         for column, field in mapping.items():
@@ -295,6 +296,8 @@ def parse(
             continue
 
         appointment_date = _parse_date(values.get("appointment_date"))
+        if appointment_date and appointment_date > newest:
+            newest = appointment_date
         if cutoff and appointment_date and appointment_date < cutoff:
             skipped_old += 1
             continue
@@ -322,6 +325,18 @@ def parse(
         "(skipped %d older, %d repeat appointments, %d solvent wind-ups)",
         len(matters), days or "all", skipped_old, skipped_repeat, skipped_solvent,
     )
+
+    # The workbook trails reality by weeks. If the window cannot reach the
+    # newest row in the file, the run finds nothing and looks like a quiet
+    # week - so say exactly what happened instead.
+    if cutoff and not matters and newest:
+        lag = (date.today() - date.fromisoformat(newest)).days
+        log.error(
+            "No matters returned: the newest appointment in the file is %s "
+            "(%d days old) but the lookback window is only %d days. Widen "
+            "sources.asic_stats.lookback_days.",
+            newest, lag, days,
+        )
     if not matters and not (skipped_old or skipped_repeat or skipped_solvent):
         raise RuntimeError(
             "The data set sheet produced no rows at all. The schema has probably "

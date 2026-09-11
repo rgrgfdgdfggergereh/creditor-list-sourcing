@@ -288,3 +288,16 @@ class TestAsicDataSet:
     def test_missing_sheet_names_what_was_there(self):
         with pytest.raises(RuntimeError, match="No data-set sheet"):
             self.parse(sheet_name="Summary")
+
+    def test_stale_file_reports_the_lag_instead_of_looking_like_a_quiet_week(self, caplog):
+        # Measured on the real 7 Sep 2026 release: the newest appointment was
+        # 19 days old, so a 14-day window returned zero and the weekly run
+        # would have reported "no insolvencies" rather than "file is stale".
+        import logging
+
+        old = date.today().replace(year=date.today().year - 1).isoformat()
+        rows = [self.row("STALE CO PTY LTD", 123456789, "Court liquidation", old)]
+        with caplog.at_level(logging.ERROR):
+            assert asic_dataset.parse(self.workbook(rows=rows), lookback_days=14) == []
+        assert "newest appointment in the file" in caplog.text
+        assert "lookback window is only 14 days" in caplog.text

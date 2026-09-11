@@ -79,6 +79,57 @@ different forms.
 Principal place of business is preferred over state of incorporation for sales
 territory, because it is where the company actually trades.
 
+### Publication lag - the thing that decides the lookback
+
+Measured on the 7 September 2026 release: the newest appointment in the sheet
+was **23 August, 19 days before the run**. The pipeline originally used a
+14-day lookback, which returned **zero rows** — a weekly run would have
+reported "no insolvencies this week" every single week.
+
+So `sources.asic_stats.lookback_days` is 60. It has to cover the publication
+lag plus a full month of new appointments. Measured windows:
+
+| Lookback | Matters | of which CVL |
+|---:|---:|---:|
+| 14 days | 0 | 0 |
+| 30 days | 486 | 225 |
+| 60 days | 1,627 | 764 |
+| 90 days | 2,807 | 1,321 |
+| 180 days | 6,354 | 3,086 |
+
+A wide window is safe because re-seeing a matter costs nothing: `ledger.merge()`
+dedupes on `matter_id`, so a company already tracked is updated rather than
+duplicated. A narrow window loses leads permanently. When the window cannot
+reach the newest row in the file, the loader logs an error naming the file's
+newest date and the lag, so a stale file never presents as a quiet week.
+
+### What is actually in the sheet
+
+From the same release, across the 54,845 first appointments:
+
+| Appointment type | Count | Share |
+|---|---:|---:|
+| Creditors' voluntary liquidation | 25,917 | 47.3% |
+| Court liquidation | 10,275 | 18.7% |
+| Restructuring (small business) | 6,755 | 12.3% |
+| Voluntary administration | 6,711 | 12.2% |
+| Receiver & manager appointed | 2,144 | 3.9% |
+| Controller appointed | 1,479 | 2.7% |
+| Receiver appointed | 1,328 | 2.4% |
+| Provisional liquidation | 204 | 0.4% |
+
+Only the **creditors' voluntary liquidations** reliably produce a Form 5604 —
+just under half the file, roughly 250 a month. **Restructuring** appointments
+are worth noting separately: a small business restructuring plan publishes a
+"Schedule of debts and claims", which `parse/creditor_tables.py` already reads,
+so those are reachable without an ASIC purchase where the practitioner
+publishes the plan.
+
+Top industries: Construction 14,043 (25.6%), Accommodation and Food Services
+8,366, Other Services 5,503, Retail Trade 3,639, Professional/Scientific/
+Technical 3,491, Administrative and Support 2,827, Transport/Postal/Warehousing
+2,700, Manufacturing 2,608.
+
 ### Why it holds up
 
 `sources/asic_dataset.py` reads it. Two things make it robust rather than
@@ -112,7 +163,23 @@ source for insolvency **trend commentary** (and for the monthly Industry
 Report) but cannot produce prospects. The `data set` sheet is the one this
 pipeline reads.
 
-## ASIC Published Notices — corroboration and fresher timing
+## ASIC Published Notices — disabled
+
+**Status: `enabled: false`.** Measured, not assumed: the browse path returns
+**HTTP 404**, and the only form on the response is the site's own search widget
+(`collection` / `profile` / `query` — a Funnelback box on the 404 page). The
+real results come from a search POST, so this leg needs genuine scraper work.
+
+It no longer earns that work. The only thing it added over the workbook was
+about 19 days of freshness, and that turns out not to matter: a Form 5604 is
+due **within 10 business days** of the winding-up resolution, so by the time
+the workbook publishes, the form we are waiting for is already lodged. Being
+earlier would only mean watching an empty document register for longer.
+
+Re-enable it only if same-week appointments become necessary for some other
+reason. The parser and its probe are left in place for that.
+
+### What it was going to be
 
 <https://publishednotices.asic.gov.au>
 
