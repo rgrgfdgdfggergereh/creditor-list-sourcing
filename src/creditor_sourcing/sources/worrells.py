@@ -38,8 +38,15 @@ log = logging.getLogger(__name__)
 FILE_ID_RE = re.compile(r"([0-9A-Fa-f]{32})")
 PDF_RE = re.compile(r"/WebDocuments/.+\.pdf$", re.IGNORECASE)
 
-# Documents that actually carry a creditor listing, best first.
-CREDITOR_DOCUMENTS = ("notice of plan", "initial advice", "first advice", "2nd advice")
+# Documents that carry a creditor listing, best first.
+#
+# Ranked on measured yield across 14 published documents:
+#   Initial Advice  4/4 carried a listing (and 7 pages of listing headings each)
+#   2nd Advice      2/3
+#   First Advice    1/6  - usually the short covering report, no annexure
+# "Notice of Plan" leads because a small business restructuring plan carries
+# the formal "Schedule of debts and claims", the cleanest layout of all.
+CREDITOR_DOCUMENTS = ("notice of plan", "initial advice", "2nd advice", "first advice")
 
 # Label -> Matter field, as the labels appear in the File Details panel. The
 # panel gives us the ACN, which is what lets a Worrells matter be reconciled

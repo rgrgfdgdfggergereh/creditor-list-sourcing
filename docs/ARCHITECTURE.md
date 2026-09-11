@@ -98,13 +98,41 @@ deliberately in one readable line so it can be argued with and tuned.
 
 ## Design rules
 
-**Never invent a creditor.** A page counts as a creditor table only if it has a
-name *and* a dollar amount. Contents entries with dotted leaders, totals rows
-and page markers are excluded explicitly, because both the table of contents
-and the sentence "list of creditors and summary of affairs" contain the heading
-words. Scanned documents with no extractable text are reported for manual
-review rather than run through OCR — publishing a wrong creditor name and
-amount is worse than publishing nothing.
+**Never invent a creditor.** This rule was written first and then broken, so
+it is worth recording exactly how. An early parser turned its creditor section
+on when a heading appeared anywhere in the document, then took any line ending
+in a dollar amount. On live Worrells reports it produced five "creditors" named
+`Fees:` totalling $66,960 — the practitioner's remuneration schedule — plus
+prose fragments like `report to creditors of` from the sentence "report to
+creditors of 10 September 2026 in the amount of $31,500.00". These reports run
+20-40 pages and mention creditors, remuneration, and even "vote Yes, No or
+Object" throughout, so a heading is no evidence of a table.
+
+What actually works: a page qualifies only on **table evidence**. Either
+standalone `Yes`/`No` cells (the Related Party column) plus amount-only cells,
+or — with a listing heading on the same page — two or more complete inline
+rows. Narrative pages score zero standalone Yes/No cells; a real listing
+page scores 4 to 21.
+
+The row reader has to match the layout too. PyMuPDF emits **one cell per line**
+for a ruled table, so a row arrives as a run of cells, not a single line. A
+line-based parser cannot read a real listing at all — the only single-line
+"name plus amount" text in these documents is narrative and fee labels, so it
+finds exclusively the wrong rows. `parse_cells()` handles the cell layout and
+anchors each row on the related-party cell, so an added Creditor Type or
+Estimated Return column cannot shift the data.
+
+Rows are rejected when the name is a fee or position label, ends in a colon,
+starts lower-case or ends on a preposition (prose continuing from the line
+above), or runs to sentence length. That last rule drops a deliberately
+lower-cased trading name, which is the right trade: a missing creditor can be
+recovered from the source document, a fabricated one reaches the sales team as
+a real company owed real money.
+
+Scanned documents with no extractable text are reported for manual review
+rather than run through OCR. `extract_pdf` also separates "no creditor table
+in this document" from "pages look like a table but no rows parsed", because
+the first is a normal, common outcome and the second is a bug.
 
 **Parse by header, not by position.** Every table parser maps column *header
 text* to fields. A reordered or added column then degrades to "not found"

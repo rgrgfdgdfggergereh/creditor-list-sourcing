@@ -224,6 +224,30 @@ Worrells publishes its Initial Advice reports to creditors. Those contain the
 and available the week of appointment rather than after a purchase. When a
 matter is a Worrells appointment this is always the cheaper and faster path.
 
+### Measured coverage
+
+The portal needs **no login**: the New Appointments list returns 372
+appointments over plain HTTP, and the document PDFs fetch unauthenticated.
+
+Across 14 published documents, **7 carried a creditor listing (50%)**, and
+which document it is matters more than which matter:
+
+| Document | Carried a listing |
+|---|---|
+| Initial Advice | 4 of 4 |
+| 2nd Advice | 2 of 3 |
+| First Advice | 1 of 6 |
+
+"First Advice" is usually the short covering report with no creditor annexure;
+"Initial Advice" is the substantial one (37-39 pages, 7 pages of listing
+headings). `CREDITOR_DOCUMENTS` is ordered on that evidence. None of the 14
+documents was image-only, so OCR is not needed for this source.
+
+Most matters on the list carry no documents at all yet - they are days old.
+`MAYDE ELECTRICAL PTY LTD` had a start date of the same day as the survey.
+That is normal, not an error: the matter stays open in the ledger and is
+re-checked until a document appears.
+
 **The URL rewrite this depends on.** The New Appointments list links each
 matter as
 
