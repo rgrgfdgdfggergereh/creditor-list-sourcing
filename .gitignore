@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+out/
+*.xlsx
+!tests/fixtures/*.xlsx
+.env
+node_modules/
+.wrangler/
+
+state/inbox/*.pdf

@@ -1,0 +1,23 @@
+name = "creditor-purchase-queue"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+# The dashboard is for staff only. Put a Cloudflare Access policy in front of
+# the route (Zero Trust > Access > Applications) restricting it to the NCI
+# email domain. The Worker additionally requires a bearer token for every /api
+# call the GitHub Actions job makes, so automation never depends on Access.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "creditor-sourcing"
+database_id = "REPLACE_WITH_D1_ID"
+
+[[r2_buckets]]
+binding = "DOCS"
+bucket_name = "creditor-sourcing-documents"
+
+[vars]
+ORG_NAME = "NCI Trade Credit Solutions"
+
+# QUEUE_TOKEN is a secret, not a var:
+#   wrangler secret put QUEUE_TOKEN

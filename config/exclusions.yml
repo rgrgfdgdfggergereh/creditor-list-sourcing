@@ -1,0 +1,151 @@
+# Which creditors are NOT trade credit insurance prospects.
+#
+# A trade credit policy insures a supplier's receivables ledger. So the
+# prospect we want is an unsecured TRADE supplier that sold goods or services
+# on credit terms. Everything below is owed money for some other reason and is
+# either uninsurable on this exposure or not a buyer.
+#
+# Matching is case-insensitive against the creditor name. Keep patterns as
+# whole-word-ish fragments; `qualify.py` word-boundaries them.
+
+statutory:
+  reason: Statutory / government creditor - not a trade supplier
+  patterns:
+    - australian taxation office
+    - deputy commissioner of taxation
+    - commissioner of taxation
+    - "\\bato\\b"
+    - revenue nsw
+    - state revenue office
+    - revenuesa
+    - office of state revenue
+    - workcover
+    - worksafe
+    - return to work
+    - icare nsw
+    - department of
+    - services australia
+    - centrelink
+    - fair work
+    - australian securities and investments commission
+    - "\\basic\\b"
+    - council$
+    - city of
+    - shire of
+
+employees:
+  reason: Employee / personal claim - not a company prospect
+  patterns:
+    - "\\bemployee[s]?\\b"
+    - employee entitlements
+    - former employee
+    - superannuation guarantee
+    - "\\bpayg\\b"
+
+financiers:
+  reason: Secured lender or financier - exposure is not trade credit
+  patterns:
+    - "\\bbank\\b"
+    - banking corporation
+    - westpac
+    - commonwealth bank
+    - "\\bnab\\b"
+    - national australia bank
+    - "\\banz\\b"
+    - bendigo
+    - macquarie
+    - judo bank
+    - prospa
+    - moula
+    - "\\bfinance\\b"
+    - "\\bleasing\\b"
+    - "\\blease\\b"
+    - asset finance
+    - equipment finance
+    - "\\bfactoring\\b"
+    - invoice finance
+    - "\\bcapital\\b"
+    - credit union
+    - building society
+
+landlords_utilities:
+  reason: Landlord or utility - not a trade receivable
+  patterns:
+    - "\\blandlord\\b"
+    - property trust
+    - real estate
+    - "\\brealty\\b"
+    - body corporate
+    - owners corporation
+    - "\\benergy\\b"
+    - "\\belectricity\\b"
+    - origin energy
+    - agl
+    - "\\bwater corporation\\b"
+    - sa water
+    - sydney water
+    - telstra
+    - optus
+    - vodafone
+
+professional_services:
+  reason: Insolvency / legal / accounting adviser - not a trade supplier
+  patterns:
+    - "\\blawyers\\b"
+    - "\\blegal\\b"
+    - solicitors
+    - barristers
+    - "\\bliquidator[s]?\\b"
+    - insolvency
+    - administrators pty
+    - worrells
+    - "\\bcor cordis\\b"
+    - jirsch
+    - pitcher partners
+    - "\\bbdo\\b"
+    - "\\bkpmg\\b"
+    - deloitte
+    - "\\bpwc\\b"
+    - ernst & young
+    - grant thornton
+    - "\\brsm\\b"
+    - chartered accountants
+
+insurance:
+  reason: Insurer or broker - competitor / not a prospect
+  patterns:
+    - insurance
+    - "\\binsurer\\b"
+    - "\\bunderwriting\\b"
+    - "\\bbrokers\\b"
+    - national credit insurance
+    - "\\bnci\\b"
+    - "\\batradius\\b"
+    - "\\bcoface\\b"
+    - "\\ballianz\\b"
+    - "\\bqbe\\b"
+    - euler hermes
+
+related_party:
+  reason: Related party of the insolvent company - not an arm's length supplier
+  patterns:
+    - "\\bdirector\\b"
+    - "\\bshareholder\\b"
+    - family trust
+    - superannuation fund
+    - "\\bsmsf\\b"
+
+# Creditor names that are junk artefacts of PDF parsing rather than companies.
+noise:
+  reason: Not a resolvable company name
+  patterns:
+    - "^total"
+    - "^sub-?total"
+    - "^unsecured creditors?$"
+    - "^secured creditors?$"
+    - "^priority creditors?$"
+    - "^trade creditors?$"
+    - "^various$"
+    - "^sundry"
+    - "^n/?a$"
+    - "^unknown$"

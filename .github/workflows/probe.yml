@@ -1,0 +1,38 @@
+name: Probe live sources
+
+# The analysis sandbox has no egress, so the parsers in src/creditor_sourcing/
+# sources/ are calibrated from real markup captured by this workflow rather
+# than from guessed selectors. Run it once before trusting a scraper, and again
+# whenever a source starts returning zero rows.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        type: choice
+        default: asic-notices
+        options: [asic-notices, asic-connect, worrells]
+      acn:
+        description: "ACN, required for asic-connect"
+        default: ""
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: src
+      WORRELLS_SESSION_COOKIE: ${{ secrets.WORRELLS_SESSION_COOKIE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          python -m creditor_sourcing probe "${{ inputs.source }}" \
+            ${{ inputs.acn && format('--acn {0}', inputs.acn) || '' }} --verbose
+      - uses: actions/upload-artifact@v4
+        with:
+          name: probe-${{ inputs.source }}
+          path: out/probe/

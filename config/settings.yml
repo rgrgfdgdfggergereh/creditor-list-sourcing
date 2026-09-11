@@ -1,0 +1,71 @@
+# Creditor List Sourcing - runtime settings.
+# Everything here is safe to commit. Secrets live in GitHub Actions secrets.
+
+schedule:
+  # The weekly run fires at 10:00 in this timezone. GitHub Actions cron is UTC
+  # only, so weekly-sourcing.yml schedules BOTH candidate UTC hours and the job
+  # self-checks local time. Change the tz here and in the workflow's TZ env.
+  timezone: Australia/Adelaide
+  local_hour: 10
+  weekday: 1            # 1 = Monday (ISO)
+
+sources:
+  asic_notices:
+    enabled: true
+    base_url: https://publishednotices.asic.gov.au
+    # Notice types that mean "a company just entered external administration".
+    notice_types:
+      - Appointment of an external administrator
+      - Appointment of a controller
+      - Court appointed liquidator
+    lookback_days: 14
+  asic_connect:
+    enabled: true
+    base_url: https://connectonline.asic.gov.au
+    # Form 5604 = "Information about the company's affairs sent to creditors".
+    # Contains the list of creditors, addresses and estimated amounts owed.
+    target_forms: ["5604"]
+    # A 5604 is due within 10 business days of the CVL resolution, but is often
+    # lodged and imaged later. Keep re-checking a matter for this long.
+    watch_days: 120
+  asic_stats:
+    # Series 1/2 is AGGREGATE statistics only - no company names. Used for the
+    # trend commentary in the weekly brief, never as a prospect source.
+    enabled: true
+    url: https://download.asic.gov.au/media/tzvbpc4i/asic-insolvency-statistics-series-1-and-series-2-published-7-september-2026.xlsx
+  worrells:
+    enabled: true
+    base_url: https://customerportal.worrells.net.au
+    # The New Appointments list links to /FileInformation/FileInformation/<id>.
+    # The rendered page that carries the client documents is the same id on
+    # /FileInformation/FileInformationDetailsView/<id> - swap the path segment,
+    # keep the 32-char hex id.
+    list_path: /FileInformation/NewAppointments
+    detail_path_from: /FileInformation/FileInformation/
+    detail_path_to: /FileInformation/FileInformationDetailsView/
+    throttle_ms: 400
+
+qualify:
+  # A creditor owed less than this is dropped - too small to signal a real
+  # trade book worth insuring.
+  min_exposure_aud: 5000
+  # Existing NCI policyholders are dropped outright.
+  drop_policylist_clients: true
+  # Companies already in Pipedrive are KEPT. They get a note on the existing
+  # organisation instead of being re-prospected as new.
+  drop_pipedrive_matches: false
+  # Non-trade creditors are dropped - they do not buy trade credit insurance
+  # on this exposure. Patterns live in config/exclusions.yml.
+  drop_non_trade: true
+
+score:
+  # Prospect priority = exposure weight + repeat-insolvency weight.
+  # A supplier bleeding across several administrations is in pain right now,
+  # which is the single strongest buying signal this pipeline can see.
+  repeat_matter_weight: 25
+  exposure_log_weight: 10
+  max_score: 100
+
+output:
+  workbook_prefix: NCI_Creditor_Prospects
+  directory: out

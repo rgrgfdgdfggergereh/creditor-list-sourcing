@@ -1,0 +1,104 @@
+name: Weekly creditor sourcing
+
+on:
+  schedule:
+    # 10:00 Monday in Australia/Adelaide. Actions cron is UTC only and Adelaide
+    # shifts between UTC+9:30 (ACST) and UTC+10:30 (ACDT), so both candidate
+    # slots are scheduled and the job itself gates on local time via
+    # `run --respect-schedule`. Exactly one of these becomes a real run.
+    - cron: "30 0 * * 1"    # 10:00 ACST
+    - cron: "30 23 * * 0"   # 10:00 ACDT
+  workflow_dispatch:
+    inputs:
+      stages:
+        description: "Stages to run"
+        type: choice
+        default: all
+        options: [all, collect, watch, ingest, report]
+      ignore_schedule:
+        description: "Run now regardless of the 10am gate"
+        type: boolean
+        default: true
+      push_notes:
+        description: "Write notes onto matching Pipedrive organisations"
+        type: boolean
+        default: false
+
+concurrency:
+  group: weekly-sourcing
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      PIPEDRIVE_API_TOKEN: ${{ secrets.PIPEDRIVE_API_TOKEN }}
+      LUSHA_API_KEY: ${{ secrets.LUSHA_API_KEY }}
+      HUNTER_API_KEY: ${{ secrets.HUNTER_API_KEY }}
+      WORRELLS_SESSION_COOKIE: ${{ secrets.WORRELLS_SESSION_COOKIE }}
+      QUEUE_ENDPOINT: ${{ secrets.QUEUE_ENDPOINT }}
+      QUEUE_TOKEN: ${{ secrets.QUEUE_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Pull purchased 5604 PDFs from the Cloudflare inbox
+        if: env.QUEUE_ENDPOINT != ''
+        continue-on-error: true
+        run: python scripts/sync_inbox.py pull
+
+      - name: Run the pipeline
+        run: |
+          FLAGS=""
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            FLAGS="--respect-schedule"
+          elif [ "${{ inputs.ignore_schedule }}" != "true" ]; then
+            FLAGS="--respect-schedule"
+          fi
+          if [ "${{ inputs.push_notes }}" = "true" ]; then
+            FLAGS="$FLAGS --push-notes"
+          fi
+          STAGE="${{ inputs.stages || 'all' }}"
+          if [ "$STAGE" = "all" ]; then STAGE="run"; fi
+          python -m creditor_sourcing "$STAGE" $FLAGS --verbose
+
+      - name: Publish the purchase queue to the Cloudflare dashboard
+        if: env.QUEUE_ENDPOINT != ''
+        continue-on-error: true
+        run: python scripts/sync_inbox.py push
+
+      - name: Upload the workbook
+        uses: actions/upload-artifact@v4
+        with:
+          name: creditor-prospects
+          path: out/*.xlsx
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Commit updated state
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          if git diff --cached --quiet; then
+            echo "No state change this run."
+          else
+            git commit -m "chore(state): weekly sourcing run $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Summary
+        if: always()
+        run: python scripts/summarise.py >> "$GITHUB_STEP_SUMMARY"
