@@ -31,8 +31,60 @@ HEADINGS = (
     "listing of known creditors",
     "list of creditors",
     "schedule of debts and claims",
-    "unsecured creditors",
 )
+
+# A page only counts as a creditor table if it carries the Related Party
+# column - standalone Yes/No cells - AND amount-only cells. This is the gate
+# that matters. Measured on live reports: narrative pages have zero standalone
+# Yes/No cells, while carrying sentences like "in the amount of $31,500.00"
+# that a heading-plus-amount rule happily harvests. Without this gate the
+# parser reported five creditors named "Fees:" off a remuneration schedule.
+MIN_YES_NO_CELLS = 2
+MIN_MONEY_CELLS = 2
+
+YES_NO_CELL = re.compile(r"^\s*(Yes|No)\s*$", re.IGNORECASE)
+MONEY_CELL = re.compile(r"^\s*\$?\s*\d{1,3}(?:,\d{3})*(?:\.\d{2})?\s*$")
+
+# The two layouts a creditor listing comes in.
+#
+# CELL_PER_LINE is what PyMuPDF emits for a real ruled table: every cell on its
+# own line, so the Related Party column appears as bare "Yes"/"No" lines.
+# INLINE_ROW is a whole row on one line - name, address, the related-party
+# flag, then the amount - which is how some reports and the Form 5604 layout
+# come through.
+#
+# A page qualifies as a table if it shows either shape. Requiring only a
+# heading and a trailing amount, as this once did, matches narrative prose.
+INLINE_ROW = re.compile(
+    r"^\s*\S.*?\b(Yes|No)\b[\s.|-]*\$?\s*\d{1,3}(?:,\d{3})*(?:\.\d{2})?\s*$",
+    re.IGNORECASE,
+)
+MIN_INLINE_ROWS = 2
+
+# Labels that are never a creditor, however well-formed the row looks. These
+# come from remuneration and position tables that sit near creditor content.
+NOT_A_CREDITOR = re.compile(
+    r"^(fees?|gst|total|sub-?total|balance|amount|remuneration|disbursements?|"
+    r"petty cash|interest|adjustment|opening|closing|less\b|add\b|net\b|"
+    r"estimated|surplus|deficiency|dividend|distribution|realisations?|"
+    r"receipts?|payments?|asset|liabilit)",
+    re.IGNORECASE,
+)
+
+# Prose fragments are the other false-positive family: a narrative line whose
+# clause happens to end in an amount, e.g. "report to creditors of 10 September
+# 2026 in the amount of $31,500.00". Two signals separate prose from a name.
+# A registered company name starts with a capital or a digit, and never ends on
+# a preposition or conjunction.
+PROSE_TAIL = re.compile(
+    r"\b(of|to|in|on|at|by|for|from|with|and|or|the|a|an|is|are|was|were|"
+    r"that|this|as|per|under|dated)$",
+    re.IGNORECASE,
+)
+
+# Section and annexure labels that sit above the first row.
+ANNEXURE = re.compile(r"^(annexure|schedule|section|appendix|part)\b", re.IGNORECASE)
+
 LEADERS = re.compile(r"\.{4,}")
 AMOUNT_RE = re.compile(r"\$?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})\s*$")
 RELATED_RE = re.compile(r"\b(yes|no)\b", re.IGNORECASE)
@@ -54,6 +106,120 @@ def _amount(text: str) -> float | None:
         return None
 
 
+def is_creditor_table(page_text: str) -> bool:
+    """Does this page carry an actual creditor table?
+
+    True for either known layout, and false for narrative. These reports run
+    20-40 pages and mention creditors, remuneration and even "vote Yes, No or
+    Object" throughout, so a heading match locates prose far more often than a
+    table - which is how a remuneration schedule once became five creditors.
+    """
+    lines = page_text.splitlines()
+
+    # Cell-per-line: the Related Party column as bare Yes/No cells.
+    yes_no = sum(1 for line in lines if YES_NO_CELL.match(line))
+    money = sum(1 for line in lines if MONEY_CELL.match(line))
+    if yes_no >= MIN_YES_NO_CELLS and money >= MIN_MONEY_CELLS:
+        return True
+
+    # Inline rows: whole rows on one line, and only where the page also
+    # carries a listing heading, since a single inline row is weak evidence.
+    if not any(h in page_text.lower() for h in HEADINGS):
+        return False
+    return sum(1 for line in lines if INLINE_ROW.match(line)) >= MIN_INLINE_ROWS
+
+
+def parse_cells(
+    lines: list[str], debtor_company: str, matter_id: str, source: str,
+    source_document: str | None = None,
+) -> list[Creditor]:
+    """Read a cell-per-line creditor table.
+
+    PyMuPDF emits one cell per line for a ruled table, so a row arrives as a
+    run of cells terminated by the related-party flag and the amount:
+
+        Acme Building Supplies Pty Ltd
+        12 Industry Rd Dandenong VIC
+        No
+        42,500.00
+
+    The related-party cell is the anchor: everything between the previous row's
+    amount and this Yes/No is the name and address, and the next money cell is
+    the amount. Anchoring on it rather than on position survives the optional
+    columns (creditor type, estimated return) that some practitioners add.
+    """
+    creditors: list[Creditor] = []
+    buffer: list[str] = []
+
+    index = 0
+    while index < len(lines):
+        line = lines[index].strip()
+        if not line:
+            index += 1
+            continue
+
+        if YES_NO_CELL.match(line):
+            # Find this row's amount: the next money-only cell.
+            amount = None
+            cursor = index + 1
+            while cursor < len(lines) and cursor <= index + 4:
+                candidate = lines[cursor].strip()
+                if MONEY_CELL.match(candidate):
+                    amount = _amount(candidate) or _amount(f"{candidate}")
+                    if amount is None:
+                        amount = float(
+                            re.sub(r"[^0-9.]", "", candidate) or 0
+                        )
+                    break
+                cursor += 1
+
+            cells = [c.strip() for c in buffer if c.strip()]
+            # Drop the section heading and the column headers, which sit in the
+            # buffer ahead of the first row and would otherwise be read as the
+            # first creditor's name.
+            cells = [
+                c for c in cells
+                if not re.fullmatch(
+                    r"(name|address|related(\s*party)?(\s*\(?yes/?no\)?)?|amount"
+                    r"(\s*owed)?(\s*\(\$\))?|creditor(\s*name|\s*type)?|"
+                    r"estimated\s*return|balance|\$|#|no\.)",
+                    c, re.IGNORECASE,
+                )
+                and not any(h in c.lower() for h in HEADINGS)
+                and not ANNEXURE.match(c)
+            ]
+            if cells and amount:
+                name = cells[0]
+                address = " ".join(cells[1:]) or None
+                if (
+                    NAME_RE.search(name)
+                    and not NOT_A_CREDITOR.match(name)
+                    and not name.rstrip().endswith(":")
+                    and (name[:1].isupper() or name[:1].isdigit())
+                ):
+                    creditors.append(
+                        Creditor(
+                            creditor_name=name,
+                            debtor_company=debtor_company,
+                            matter_id=matter_id,
+                            amount_aud=amount,
+                            address=address,
+                            related_party=line.lower() == "yes",
+                            source=source,
+                            source_document=source_document,
+                        )
+                    )
+            buffer = []
+            index = cursor + 1 if amount is not None else index + 1
+            continue
+
+        if not MONEY_CELL.match(line) and not LEADERS.search(line):
+            buffer.append(line)
+        index += 1
+
+    return creditors
+
+
 def parse_lines(
     lines: list[str], debtor_company: str, matter_id: str, source: str,
     source_document: str | None = None,
@@ -69,6 +235,22 @@ def parse_lines(
             continue
         head = AMOUNT_RE.sub("", line).strip(" .|-")
         if not NAME_RE.search(head):
+            continue
+        # A trailing colon means a label/value pair from a fee or position
+        # table, not a creditor row.
+        if head.rstrip().endswith(":") or NOT_A_CREDITOR.match(head.lstrip()):
+            continue
+        # A creditor name is a name, not a sentence.
+        if len(head) > 90 or head.count(" ") > 12:
+            continue
+        # A line continuing prose from the page above starts mid-sentence.
+        # Registered names start with a capital or a digit. This does drop a
+        # deliberately lower-cased trading name, which is the right trade:
+        # a missing creditor can be recovered from the source document, a
+        # fabricated one reaches the sales team as a real company.
+        if not head[:1].isupper() and not head[:1].isdigit():
+            continue
+        if PROSE_TAIL.search(head.rstrip(" .,;:")):
             continue
 
         related = False
@@ -130,24 +312,42 @@ def extract_pdf(
     if not any(p.strip() for p in pages):
         return [], "scanned"
 
+    # Only harvest pages that are demonstrably creditor tables. A page that
+    # merely mentions a heading is not one, and treating it as one publishes
+    # fee lines and narrative fragments as named creditors owed money.
     creditors: list[Creditor] = []
-    in_section = False
+    table_pages = 0
     for page_text in pages:
-        lowered = page_text.lower()
-        if any(h in lowered for h in HEADINGS):
-            in_section = True
-        if not in_section:
+        if not is_creditor_table(page_text):
             continue
-        found = parse_lines(
-            page_text.splitlines(), debtor_company, matter_id, source, path.name
+        table_pages += 1
+        lines = page_text.splitlines()
+        # Try both layouts and keep whichever actually yielded rows.
+        rows = parse_cells(lines, debtor_company, matter_id, source, path.name)
+        if not rows:
+            rows = parse_lines(lines, debtor_company, matter_id, source, path.name)
+        creditors.extend(rows)
+
+    if not table_pages:
+        # Distinguish "no creditor table in this document" from "we could not
+        # read the table", because the first is a normal, common outcome and
+        # the second is a bug to fix.
+        heading = any(h in p.lower() for p in pages for h in HEADINGS)
+        log.info(
+            "%s: no creditor table (%d pages, listing heading %s)",
+            path.name, len(pages), "present but no table" if heading else "absent",
         )
-        if found:
-            creditors.extend(found)
-        elif creditors:
-            # Section has ended - the table stopped producing rows.
-            in_section = False
+        return [], "no-section"
 
     if not creditors:
-        return [], "no-section"
-    log.info("%s: %d creditors", path.name, len(creditors))
+        log.warning(
+            "%s: %d page(s) look like a creditor table but no rows parsed - "
+            "the row layout differs from both known ones, do not assume the "
+            "document is empty",
+            path.name, table_pages,
+        )
+        return [], "table-unreadable"
+
+    log.info("%s: %d creditors from %d table page(s)",
+             path.name, len(creditors), table_pages)
     return creditors, "ok"

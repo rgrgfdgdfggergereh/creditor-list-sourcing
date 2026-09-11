@@ -18,6 +18,7 @@ import pytest
 
 from creditor_sourcing import aggregate, qualify
 from creditor_sourcing.models import Creditor, Matter, normalise_name
+from creditor_sourcing.parse import creditor_tables
 from creditor_sourcing.parse.creditor_tables import parse_lines
 from creditor_sourcing.sources import asic_dataset, worrells
 from creditor_sourcing.sources.worrells import details_view_url
@@ -402,3 +403,149 @@ class TestAsicDataSet:
             assert asic_dataset.parse(self.workbook(rows=rows), lookback_days=14) == []
         assert "newest appointment in the file" in caplog.text
         assert "lookback window is only 14 days" in caplog.text
+
+
+class TestCreditorTableGate:
+    """Which pages count as a creditor table.
+
+    These are regression tests for a real failure: on live Worrells reports the
+    parser returned five "creditors" all named "Fees:" totalling $66,960,
+    harvested from the practitioner's remuneration schedule. The reports run
+    20-40 pages and mention creditors throughout, so a heading match locates
+    narrative far more often than a table.
+    """
+
+    # Verbatim shape of a remuneration page from RFCVIC PTY LTD's report:
+    # narrative prose with one inline amount, no Related Party column.
+    REMUNERATION_PAGE = "\n".join([
+        "NOTICE OF PROPOSAL TO CREDITORS",
+        "RFCVIC PTY LTD (In Liquidation)",
+        "Proposal 2: Future fee approval",
+        "That the remuneration of the Liquidator from 10 September 2026 to the",
+        "finalisation of the liquidation is determined at a sum equal to the costs",
+        "report to creditors of 10 September 2026 in the amount of $31,500.00",
+        "Liquidator's remuneration is paid in priority to unsecured creditors",
+        "You may vote Yes, No or Object to the proposal being resolved",
+        "Fees: 3,405.70",
+        "Fees: 11,000.00",
+    ])
+
+    # A real creditor listing: the Related Party column gives standalone
+    # Yes/No cells, and amounts sit in their own cells.
+    LISTING_PAGE = "\n".join([
+        "Listing of known creditors",
+        "Name", "Address", "Related Party", "Amount",
+        "Acme Building Supplies Pty Ltd", "12 Industry Rd Dandenong VIC",
+        "No", "42,500.00",
+        "Riverside Timber Pty Ltd", "8 Kembla St Wollongong NSW",
+        "No", "128,000.00",
+    ])
+
+    def test_a_remuneration_page_is_not_a_creditor_table(self):
+        assert not creditor_tables.is_creditor_table(self.REMUNERATION_PAGE)
+
+    def test_a_listing_page_is_a_creditor_table(self):
+        assert creditor_tables.is_creditor_table(self.LISTING_PAGE)
+
+    def test_narrative_yes_no_does_not_qualify_a_page(self):
+        # "You may vote Yes, No or Object" must not count as the Related Party
+        # column - only a cell that is nothing but Yes or No does.
+        page = "\n".join(["You may vote Yes, No or Object", "1,000.00", "2,000.00"])
+        assert not creditor_tables.is_creditor_table(page)
+
+    @pytest.mark.parametrize(
+        "line",
+        [
+            "Fees: 3,405.70",
+            "Fees 11,000.00",
+            "GST 1,100.00",
+            "Total 230,500.00",
+            "Remuneration 31,500.00",
+            "Disbursements 265.84",
+            "Estimated surplus 5,000.00",
+        ],
+    )
+    def test_fee_and_position_labels_are_never_creditors(self, line):
+        rows = creditor_tables.parse_lines([line], "Bust Co", "m1", "worrells")
+        assert rows == [], f"{line!r} must not become a creditor"
+
+    def test_a_sentence_ending_in_an_amount_is_not_a_creditor(self):
+        line = ("report to creditors of 10 September 2026 in the amount of "
+                "31,500.00")
+        assert creditor_tables.parse_lines([line], "Bust Co", "m1", "worrells") == []
+
+    def test_a_real_supplier_row_still_parses(self):
+        line = "Acme Building Supplies Pty Ltd 12 Industry Rd Dandenong VIC No 42,500.00"
+        rows = creditor_tables.parse_lines([line], "Bust Co", "m1", "worrells")
+        assert len(rows) == 1
+        assert rows[0].creditor_name == "Acme Building Supplies Pty Ltd"
+        assert rows[0].amount_aud == 42500.0
+
+
+class TestCellPerLineListing:
+    """PyMuPDF emits one cell per line for a ruled table.
+
+    This is the layout a real creditor listing arrives in, and the original
+    line-based parser could not read it at all - which is why the only rows it
+    ever produced came from narrative and fee lines.
+    """
+
+    PAGE = "\n".join([
+        "Annexure C",
+        "Listing of known creditors",
+        "Name", "Address", "Related Party", "Amount",
+        "Acme Building Supplies Pty Ltd", "12 Industry Rd Dandenong VIC",
+        "No", "42,500.00",
+        "Smith Family Trust", "3 Hill St Toorak VIC", "Yes", "60,000.00",
+        "Riverside Timber Pty Ltd", "8 Kembla St Wollongong NSW",
+        "No", "128,000.00",
+    ])
+
+    def rows(self):
+        return creditor_tables.parse_cells(
+            self.PAGE.splitlines(), "Bust Co Pty Ltd", "m1", "worrells")
+
+    def test_every_row_is_read(self):
+        assert [r.creditor_name for r in self.rows()] == [
+            "Acme Building Supplies Pty Ltd",
+            "Smith Family Trust",
+            "Riverside Timber Pty Ltd",
+        ]
+
+    def test_the_section_heading_is_not_a_creditor(self):
+        assert "Listing of known creditors" not in [
+            r.creditor_name for r in self.rows()]
+
+    def test_the_annexure_label_is_not_a_creditor(self):
+        assert "Annexure C" not in [r.creditor_name for r in self.rows()]
+
+    def test_column_headers_are_not_creditors(self):
+        names = [r.creditor_name for r in self.rows()]
+        assert not {"Name", "Address", "Related Party", "Amount"} & set(names)
+
+    def test_amounts_and_addresses_pair_with_the_right_name(self):
+        rows = {r.creditor_name: r for r in self.rows()}
+        acme = rows["Acme Building Supplies Pty Ltd"]
+        assert acme.amount_aud == 42500.0
+        assert acme.address == "12 Industry Rd Dandenong VIC"
+        assert rows["Riverside Timber Pty Ltd"].amount_aud == 128000.0
+
+    def test_related_party_flag_follows_the_yes_no_cell(self):
+        rows = {r.creditor_name: r for r in self.rows()}
+        assert rows["Smith Family Trust"].related_party is True
+        assert rows["Acme Building Supplies Pty Ltd"].related_party is False
+
+    def test_an_extra_creditor_type_column_does_not_shift_the_data(self):
+        # Some practitioners add a Creditor Type column; anchoring on the
+        # Yes/No cell rather than on position has to survive that.
+        page = "\n".join([
+            "Listing of known creditors",
+            "Name", "Address", "Related Party", "Creditor Type", "Amount",
+            "Acme Building Supplies Pty Ltd", "12 Industry Rd Dandenong VIC",
+            "No", "42,500.00",
+        ])
+        rows = creditor_tables.parse_cells(
+            page.splitlines(), "Bust Co", "m1", "worrells")
+        assert len(rows) == 1
+        assert rows[0].creditor_name == "Acme Building Supplies Pty Ltd"
+        assert rows[0].amount_aud == 42500.0

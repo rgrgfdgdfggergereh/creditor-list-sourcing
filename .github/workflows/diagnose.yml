@@ -13,7 +13,7 @@ on:
         description: "Which legs to check"
         type: choice
         default: all
-        options: [all, asic, notices, worrells, pdf-text]
+        options: [all, asic, notices, worrells, pdf-text, survey]
 
 jobs:
   diagnose:
@@ -32,7 +32,10 @@ jobs:
       - name: Diagnose
         run: |
           mkdir -p out
-          if [ "${{ inputs.legs || 'all' }}" = "pdf-text" ]; then
+          if [ "${{ inputs.legs || 'all' }}" = "survey" ]; then
+            # How many published Worrells documents actually carry a listing?
+            python scripts/survey_worrells.py 14 2>&1 | tee out/diagnosis.txt
+          elif [ "${{ inputs.legs || 'all' }}" = "pdf-text" ]; then
             # Dump the raw text of real creditor documents, so the PDF parser
             # is calibrated against what the reports actually contain.
             python scripts/dump_pdf_text.py 1 2>&1 | tee out/diagnosis.txt
