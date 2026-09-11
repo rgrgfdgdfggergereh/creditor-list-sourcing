@@ -235,15 +235,31 @@ class TestWorrellsDocuments:
 
     def test_creditor_documents_rank_first(self):
         names = [d["name"] for d in worrells.parse_documents(self.HTML, self.BASE)]
-        assert names[:2] == ["First Advice", "2nd Advice"]
+        assert names[:2] == ["2nd Advice", "First Advice"]
+        assert "Remuneration Report" not in names[:2]
+
+    def test_ranking_follows_measured_yield(self):
+        # Across 14 published documents: Initial Advice carried a listing 4/4,
+        # 2nd Advice 2/3, First Advice only 1/6. So the order is not
+        # chronological - it is by how often the document actually has the
+        # creditor annexure.
+        html = """<html><body>
+          <a href="/WebDocuments/1/first.pdf">First Advice</a>
+          <a href="/WebDocuments/1/second.pdf">2nd Advice</a>
+          <a href="/WebDocuments/1/initial.pdf">Initial Advice</a>
+          <a href="/WebDocuments/1/plan.pdf">Notice of Plan</a>
+        </body></html>"""
+        names = [d["name"] for d in worrells.creditor_documents(html, self.BASE)]
+        assert names == ["Notice of Plan", "Initial Advice", "2nd Advice",
+                         "First Advice"]
 
     def test_creditor_documents_excludes_other_reports(self):
         names = [d["name"] for d in worrells.creditor_documents(self.HTML, self.BASE)]
-        assert names == ["First Advice", "2nd Advice"]
+        assert names == ["2nd Advice", "First Advice"]
 
     def test_urls_are_absolute(self):
         doc = worrells.creditor_documents(self.HTML, self.BASE)[0]
-        assert doc["url"] == f"{self.BASE}/WebDocuments/12345/first-advice.pdf"
+        assert doc["url"] == f"{self.BASE}/WebDocuments/12345/2nd-advice.pdf"
 
     def test_a_new_matter_with_no_documents_is_not_an_error(self):
         bare = """<html><body><a href="/">h</a><a href="/Privacy">p</a></body></html>"""
