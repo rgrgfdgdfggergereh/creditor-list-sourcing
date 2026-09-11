@@ -51,6 +51,11 @@ def main() -> int:
     client = Client(throttle_ms=cfg["throttle_ms"])
     wanted_docs = int(sys.argv[1]) if len(sys.argv) > 1 else 2
 
+    # Target "Initial Advice" - the substantial report. A First Advice is
+    # usually a short covering letter with no creditor annexure, so dumping
+    # one tells us nothing about the table layout.
+    want = (sys.argv[2] if len(sys.argv) > 2 else "initial advice").lower()
+
     matters = worrells.parse_new_appointments(
         client.get(cfg["base_url"] + cfg["list_path"]).text
     )
@@ -59,9 +64,12 @@ def main() -> int:
 
     done = 0
     for matter in matters[:40]:
-        docs = worrells.creditor_documents(
-            client.get(matter.source_url).text, cfg["base_url"]
-        )
+        docs = [
+            doc for doc in worrells.creditor_documents(
+                client.get(matter.source_url).text, cfg["base_url"]
+            )
+            if want in doc["name"].lower()
+        ]
         if not docs:
             continue
 
@@ -92,11 +100,13 @@ def main() -> int:
                           f"{info['money_cells']:>11}  {info['inline_money']:>12}  "
                           f"{info['heading']}")
 
-            # Verbatim dump of the pages that actually look like a table.
-            candidates = [p for p in profiles if p[1]["yesno"] >= 2][:3]
+            # Verbatim dump of every page carrying any Yes/No cell, then the
+            # heading pages. One of these is the listing; seeing them all is
+            # the only way to learn the row shape.
+            candidates = [p for p in profiles if p[1]["yesno"] >= 1][:3]
             if not candidates:
-                candidates = [p for p in profiles if p[1]["heading"]][:2]
-                print("\nNO page has 2+ standalone Yes/No cells. "
+                candidates = [p for p in profiles if p[1]["heading"]][:3]
+                print("\nNO page has a standalone Yes/No cell. "
                       "Dumping heading pages instead.")
 
             for number, info, lines in candidates:

@@ -47,6 +47,8 @@ def main() -> int:
 
     import pymupdf
 
+    print("y/n = most standalone Yes/No cells on any one page")
+    print("$cell = amount-only cells on that same page (both must co-occur)\n")
     print(f"{'company':<30} {'document':<15} {'pg':>3} {'y/n':>4} "
           f"{'$cell':>6} {'head':>5}  verdict")
     print("-" * 82)
@@ -88,23 +90,32 @@ def main() -> int:
                       f"{len(pages):>3} {'-':>4} {'-':>6} {'-':>5}  SCANNED (no text)")
                 continue
 
+            # Both counts must come from the SAME page, which is what the
+            # parser requires. An earlier version took the per-page maximum
+            # Yes/No count but summed money cells across the whole document,
+            # so almost any document scored as having a listing.
             best_yes_no = 0
-            money_cells = 0
+            best_page_money = 0
             heading_pages = 0
+            qualifying_pages = 0
             for text in pages:
                 lines = text.splitlines()
                 yn = sum(1 for ln in lines if YES_NO.match(ln))
+                money = sum(1 for ln in lines if MONEY_CELL.match(ln))
                 best_yes_no = max(best_yes_no, yn)
-                money_cells += sum(1 for ln in lines if MONEY_CELL.match(ln))
+                if yn >= 2:
+                    best_page_money = max(best_page_money, money)
+                if yn >= 2 and money >= 2:
+                    qualifying_pages += 1
                 if HEADING.search(text):
                     heading_pages += 1
 
-            has_listing = best_yes_no >= 2 and money_cells >= 2
+            has_listing = qualifying_pages > 0
             if has_listing:
                 with_listing += 1
             verdict = "LISTING" if has_listing else "no listing"
             print(f"{matter.company_name[:28]:<30} {doc['name'][:13]:<15} "
-                  f"{len(pages):>3} {best_yes_no:>4} {money_cells:>6} "
+                  f"{len(pages):>3} {best_yes_no:>4} {best_page_money:>6} "
                   f"{heading_pages:>5}  {verdict}")
 
     print("-" * 82)
