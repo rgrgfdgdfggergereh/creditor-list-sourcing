@@ -24,7 +24,15 @@ It is the best source available for this job:
 Captured from the published workbook (7 September 2026 release, 20 MB) by the
 **ASIC data set schema** workflow. The sheet is `Data set`, the header is on
 **row 7** under five title rows and a merged group-label row, and there were
-**73,206 appointment rows** going back to 1 July 2021.
+**73,206 appointment rows** going back to 1 July 2021 — **54,845** of them
+first appointments (Series 1), so a quarter of the sheet is repeat
+appointments for companies already counted.
+
+Five columns are deliberately left unmapped: `Data to` (a sheet-level metadata
+date), `Period (Year month)` and `Period (financial year)` (both derivable from
+the effective date), `Industry type (group)` (division and subdivision are
+enough), and `Principal place of business (area)` (the postcode is more
+useful).
 
 | Col | Header (verbatim) | Mapped to |
 |---:|---|---|
