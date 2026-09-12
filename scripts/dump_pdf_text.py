@@ -55,6 +55,9 @@ def main() -> int:
     # usually a short covering letter with no creditor annexure, so dumping
     # one tells us nothing about the table layout.
     want = (sys.argv[2] if len(sys.argv) > 2 else "initial advice").lower()
+    # Optional third argument: only this company, matched loosely. Used to go
+    # straight to a matter whose parsed output looked wrong.
+    company = (sys.argv[3] if len(sys.argv) > 3 else "").lower()
 
     matters = worrells.parse_new_appointments(
         client.get(cfg["base_url"] + cfg["list_path"]).text
@@ -63,7 +66,9 @@ def main() -> int:
     import pymupdf
 
     done = 0
-    for matter in matters[:40]:
+    for matter in matters:
+        if company and company not in matter.company_name.lower():
+            continue
         docs = [
             doc for doc in worrells.creditor_documents(
                 client.get(matter.source_url).text, cfg["base_url"]

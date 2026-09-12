@@ -9,6 +9,9 @@ name: Diagnose sourcing legs
 on:
   workflow_dispatch:
     inputs:
+      company:
+        description: "pdf-text only: limit the dump to one company"
+        default: ""
       legs:
         description: "Which legs to check"
         type: choice
@@ -38,7 +41,8 @@ jobs:
           elif [ "${{ inputs.legs || 'all' }}" = "pdf-text" ]; then
             # Dump the raw text of real creditor documents, so the PDF parser
             # is calibrated against what the reports actually contain.
-            python scripts/dump_pdf_text.py 1 "initial advice" 2>&1 | tee out/diagnosis.txt
+            python scripts/dump_pdf_text.py 1 "initial advice" \
+              "${{ inputs.company }}" 2>&1 | tee out/diagnosis.txt
           else
             ARGS=""
             if [ "${{ inputs.legs || 'all' }}" != "all" ]; then
