@@ -567,6 +567,160 @@ class TestCellPerLineListing:
         assert rows[0].amount_aud == 42500.0
 
 
+class TestLiveTwoAmountListing:
+    """The two-amount layout, verbatim from two live Initial Advice reports.
+
+    The September intake reported 80 creditors at exactly $0.00, and four
+    documents reported $0.00 for every creditor. The cause is in these pages:
+    the listing carries two amount columns, "ROCAP Amount" (from the
+    director's report on company affairs) and "Identified Amount" (the
+    liquidator's own figure). The ROCAP column reads $0.00 on almost every
+    row, and the parser was taking the first amount cell after the Related
+    Party flag - so the Australian Taxation Office came through at $0.00 when
+    the document said $370,993.81.
+
+    Both pages are captured by the diagnose workflow, cell for cell.
+    """
+
+    # FRONTLINE TRADES SOLUTIONS PTY LTD, page 17. Every row carries both
+    # amount columns.
+    FRONTLINE = "\n".join([
+        "17",
+        "D.",
+        "Listing of known creditors (identifying related parties)",
+        "Name", "Address", "Related Party", "ROCAP Amount", "Identified",
+        "Amount",
+        "Australian Taxation Office",
+        "Australian Taxation Office, PO Box 9003",
+        "NSW 2740",
+        "No", "$0.00", "$370,993.81",
+        "Commissioner of State Revenue",
+        "(Queensland Revenue Office)",
+        "PO Box 15931, City East    QLD 4002",
+        "No", "$0.00", "$637.46",
+        "New South Lawyers",
+        "PO Box 1449, Parramatta   NSW 2124",
+        "No", "$0.00", "$17,074.80",
+        "PJH Lawyers",
+        "Level 1, 60 Martin Place   NSW 2000",
+        "No", "$0.00", "$1,138.50",
+        "QUEENSLAND HOME WARRANTY",
+        "SCHEME",
+        "GPO Box 5099 BRISBANE QLD",
+        "No", "$0.00", "$236.30",
+        "WorkCover Queensland",
+        "GPO Box 2772   QLD 4001",
+        "No", "$0.00", "$14,638.01",
+        "Lodge your claim online from the file's File Information page",
+    ])
+
+    # JC Mechanical Repairs Pty Ltd, page 30. Here most rows carry only one
+    # amount cell - the Identified column is blank and PyMuPDF emits nothing
+    # for it - so the row shape varies within a single table.
+    JC_MECHANICAL = "\n".join([
+        "30",
+        "D.",
+        "Listing of known creditors (identifying related parties)",
+        "Name", "Address", "Related Party", "ROCAP Amount", "Identified",
+        "Amount",
+        "A.C.N. 603 303 126 PTY LTD",
+        "Level 8, 360 Collins Street  Melbourne",
+        "Victoria 3000",
+        "No", "$0.00",
+        "Australian Taxation Office (Insolvencies)",
+        "No", "$0.00",
+        "AZORA ASSET FINANCE PTY LTD",
+        "PO Box 1915  Castle Hill NSW 1765",
+        "No", "$0.00",
+        "Commonwealth Bank",
+        "Locked Bag 790  PARRAMATTA NSW",
+        "2124",
+        "No", "$0.00", "$18,872.25",
+        "Fair Entitlements Guarantee",
+        "No", "$0.00",
+        "FLEXICOMMERCIAL PTY LTD",
+        "LEVEL 1 , 121 Harrington Street  The",
+        "Rocks NSW 2000",
+        "No", "$0.00",
+        "iCare Workers Insurance",
+        "No", "$0.00",
+        "IQumulate Premium Funding Pty Ltd",
+    ])
+
+    def frontline(self):
+        return creditor_tables.parse_cells(
+            self.FRONTLINE.splitlines(), "FRONTLINE TRADES SOLUTIONS PTY LTD",
+            "m1", "worrells")
+
+    def jc(self):
+        return creditor_tables.parse_cells(
+            self.JC_MECHANICAL.splitlines(), "JC Mechanical Repairs Pty Ltd",
+            "m2", "worrells")
+
+    def test_the_identified_amount_is_read_not_the_rocap_zero(self):
+        amounts = {r.creditor_name: r.amount_aud for r in self.frontline()}
+        assert amounts["Australian Taxation Office"] == 370993.81
+        assert amounts["Commissioner of State Revenue"] == 637.46
+        assert amounts["New South Lawyers"] == 17074.80
+        assert amounts["PJH Lawyers"] == 1138.50
+        assert amounts["WorkCover Queensland"] == 14638.01
+
+    def test_every_frontline_creditor_has_a_stated_amount(self):
+        rows = self.frontline()
+        assert len(rows) == 6
+        assert all(r.amount_known for r in rows)
+        assert not any(r.amount_aud == 0.0 for r in rows)
+
+    def test_the_second_amount_column_header_is_not_a_creditor(self):
+        names = [r.creditor_name for r in self.frontline()]
+        assert "Identified" not in names and "Amount" not in names
+
+    def test_a_row_with_one_amount_cell_still_reads_it(self):
+        amounts = {r.creditor_name: r.amount_aud for r in self.jc()}
+        assert amounts["Commonwealth Bank"] == 18872.25
+
+    def test_rows_with_only_a_zero_are_unquantified_not_zero(self):
+        # A creditor owed nothing would not appear in a creditor listing. A
+        # row whose every amount cell reads $0.00 is an unstated debt, and
+        # recording it as $0.00 hands it to the $5,000 floor to be dropped as
+        # "too small" - losing a genuine prospect for a reason that is false.
+        rows = {r.creditor_name: r for r in self.jc()}
+        assert not rows["AZORA ASSET FINANCE PTY LTD"].amount_known
+        assert not rows["FLEXICOMMERCIAL PTY LTD"].amount_known
+        assert rows["Commonwealth Bank"].amount_known
+
+    def test_unquantified_rows_are_not_dropped_by_the_exposure_floor(self):
+        prospects = qualify.apply(aggregate.build(self.jc()))
+        flexi = [p for p in prospects if "FLEXICOMMERCIAL" in p.display_name.upper()]
+        assert flexi and not any(
+            p.disqualified_reason and "under the" in p.disqualified_reason
+            for p in flexi
+        )
+
+    def test_all_seven_jc_creditors_are_read(self):
+        assert [r.creditor_name for r in self.jc()] == [
+            "A.C.N. 603 303 126 PTY LTD",
+            "Australian Taxation Office (Insolvencies)",
+            "AZORA ASSET FINANCE PTY LTD",
+            "Commonwealth Bank",
+            "Fair Entitlements Guarantee",
+            "FLEXICOMMERCIAL PTY LTD",
+            "iCare Workers Insurance",
+        ]
+
+    def test_a_wrapped_postcode_is_not_stripped_as_page_furniture(self):
+        # "2124" arrives as its own numeric cell, indistinguishable from the
+        # page number except by position: furniture sits above the first row.
+        address = {r.creditor_name: r.address for r in self.jc()}
+        assert address["Commonwealth Bank"] == \
+            "Locked Bag 790  PARRAMATTA NSW 2124"
+
+    def test_the_page_number_is_still_kept_out_of_the_first_row(self):
+        names = [r.creditor_name for r in self.jc()]
+        assert "30" not in names and "D." not in names
+        assert names[0] == "A.C.N. 603 303 126 PTY LTD"
+
+
 class TestLiveRfcvicListing:
     """The real creditor listing, end to end.
 

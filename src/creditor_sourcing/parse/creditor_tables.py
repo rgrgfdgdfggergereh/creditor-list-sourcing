@@ -134,6 +134,20 @@ def is_header_fragment(cell: str) -> bool:
     words = _WORDS.findall(cell)
     return bool(words) and all(word.lower() in HEADER_WORDS for word in words)
 
+# A registered name starts with a capital or a digit, which is what separates
+# it from a prose fragment continuing from the line above. The exception is the
+# lower-cased brand: "iCare Workers Insurance" is a real creditor on JC
+# Mechanical Repairs' listing and was being dropped. A camel-cased first word
+# is a name; a prose fragment ("in the amount of") has no internal capital.
+CAMEL_NAME = re.compile(r"^[a-z]+[A-Z]")
+
+
+def starts_like_a_name(text: str) -> bool:
+    return bool(text) and (
+        text[:1].isupper() or text[:1].isdigit() or bool(CAMEL_NAME.match(text))
+    )
+
+
 LEADERS = re.compile(r"\.{4,}")
 AMOUNT_RE = re.compile(r"\$?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})\s*$")
 RELATED_RE = re.compile(r"\b(yes|no)\b", re.IGNORECASE)
@@ -188,6 +202,69 @@ def is_creditor_table(page_text: str) -> bool:
     return sum(1 for line in lines if INLINE_ROW.match(line)) >= MIN_INLINE_ROWS
 
 
+# How many amount cells a single row can carry. The live listing publishes
+# two - "ROCAP Amount" and "Identified Amount" - and the header splits across
+# three cells ("ROCAP Amount" / "Identified" / "Amount"). Reading only the
+# first is what reported 80 creditors at $0.00 across the September intake,
+# including the ATO at $0.00 when the document said $370,993.81.
+MAX_AMOUNT_CELLS = 2
+
+
+def _row_amount(lines: list[str], anchor: int) -> tuple[float | None, bool, int]:
+    """Read the amount columns that follow a Related Party cell.
+
+    Returns (amount, amount_known, cursor) where cursor is the line the caller
+    should resume from.
+
+    The listing carries up to two amount columns:
+
+        Australian Taxation Office
+        Australian Taxation Office, PO Box 9003
+        No
+        $0.00            <- ROCAP Amount, from the director's report
+        $370,993.81      <- Identified Amount, the liquidator's own figure
+
+    The ROCAP column is $0.00 whenever the director did not quantify the debt,
+    which on the live documents is most rows. The rightmost non-zero cell is
+    therefore the amount to report: it is the liquidator's figure where one
+    exists, and the only figure where the layout has a single column.
+
+    A row whose every amount cell reads $0.00 is not a creditor owed nothing -
+    a creditor owed nothing would not be listed. It is an unquantified debt,
+    and is reported as such so the exposure floor does not silently drop it
+    as "too small" when the honest answer is "amount not stated".
+    """
+    values: list[float | None] = []
+    cursor = anchor + 1
+    # Tolerate a stray cell between the flag and the first amount, as the old
+    # single-column scan did, but stop collecting at the first non-amount cell
+    # once the run has started - the cell after the run is the next row's name.
+    while cursor < len(lines) and cursor <= anchor + 4 and not values:
+        candidate = lines[cursor].strip()
+        if MONEY_CELL.match(candidate):
+            values.append(float(re.sub(r"[^0-9.]", "", candidate) or 0))
+        elif UNQUANTIFIED.match(candidate):
+            values.append(None)
+        cursor += 1
+
+    while cursor < len(lines) and len(values) < MAX_AMOUNT_CELLS:
+        candidate = lines[cursor].strip()
+        if MONEY_CELL.match(candidate):
+            values.append(float(re.sub(r"[^0-9.]", "", candidate) or 0))
+        elif UNQUANTIFIED.match(candidate):
+            values.append(None)
+        elif candidate:
+            break
+        cursor += 1
+
+    if not values:
+        return None, True, anchor
+    stated = [value for value in values if value]
+    if stated:
+        return stated[-1], True, cursor - 1
+    return 0.0, False, cursor - 1
+
+
 def parse_cells(
     lines: list[str], debtor_company: str, matter_id: str, source: str,
     source_document: str | None = None,
@@ -209,6 +286,11 @@ def parse_cells(
     """
     creditors: list[Creditor] = []
     buffer: list[str] = []
+    # Page furniture (the page number, the section letter) sits above the first
+    # row only. Filtering it out of every row instead eats the postcode off
+    # addresses that wrap, e.g. Commonwealth Bank's "Locked Bag 790 PARRAMATTA
+    # NSW" / "2124", which arrives as its own numeric cell.
+    first_row = True
 
     index = 0
     while index < len(lines):
@@ -218,20 +300,7 @@ def parse_cells(
             continue
 
         if YES_NO_CELL.match(line):
-            # Find this row's amount cell: either a number or an explicit
-            # "not quantified yet" marker such as TBC.
-            amount: float | None = None
-            amount_known = True
-            cursor = index + 1
-            while cursor < len(lines) and cursor <= index + 4:
-                candidate = lines[cursor].strip()
-                if MONEY_CELL.match(candidate):
-                    amount = float(re.sub(r"[^0-9.]", "", candidate) or 0)
-                    break
-                if UNQUANTIFIED.match(candidate):
-                    amount, amount_known = 0.0, False
-                    break
-                cursor += 1
+            amount, amount_known, cursor = _row_amount(lines, index)
 
             cells = [c.strip() for c in buffer if c.strip()]
             # Drop the section heading and the column headers, which sit in the
@@ -241,7 +310,7 @@ def parse_cells(
                 c for c in cells
                 if not COLUMN_HEADER.match(c)
                 and not is_header_fragment(c)
-                and not PAGE_FURNITURE.match(c)
+                and not (first_row and PAGE_FURNITURE.match(c))
                 and not any(h in c.lower() for h in HEADINGS)
                 and not ANNEXURE.match(c)
             ]
@@ -252,7 +321,7 @@ def parse_cells(
                     NAME_RE.search(name)
                     and not NOT_A_CREDITOR.match(name)
                     and not name.rstrip().endswith(":")
-                    and (name[:1].isupper() or name[:1].isdigit())
+                    and starts_like_a_name(name)
                 ):
                     creditors.append(
                         Creditor(
@@ -268,6 +337,7 @@ def parse_cells(
                         )
                     )
             buffer = []
+            first_row = False
             index = cursor + 1 if amount is not None else index + 1
             continue
 
@@ -302,11 +372,11 @@ def parse_lines(
         if len(head) > 90 or head.count(" ") > 12:
             continue
         # A line continuing prose from the page above starts mid-sentence.
-        # Registered names start with a capital or a digit. This does drop a
-        # deliberately lower-cased trading name, which is the right trade:
-        # a missing creditor can be recovered from the source document, a
-        # fabricated one reaches the sales team as a real company.
-        if not head[:1].isupper() and not head[:1].isdigit():
+        # Registered names start with a capital, a digit, or a lower-cased
+        # brand prefix such as "iCare". An all-lower-case first word is prose:
+        # a fabricated creditor reaches the sales team as a real company,
+        # while a missing one can be recovered from the source document.
+        if not starts_like_a_name(head):
             continue
         if PROSE_TAIL.search(head.rstrip(" .,;:")):
             continue
