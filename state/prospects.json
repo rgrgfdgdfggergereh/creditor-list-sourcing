@@ -78,55 +78,6 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
-      "Retail/Wholesale"
-    ],
-    "display_name": "Annual Leave",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 27798.47,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 17878.4,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "annual leave",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 71,
-    "state": null,
-    "total_exposure_aud": 45676.87,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction",
       "Unknown"
     ],
     "display_name": "A.C.N. 603 303 126 PTY LTD",
@@ -241,44 +192,6 @@
     "score": 60,
     "state": null,
     "total_exposure_aud": 1000000.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Debit Amount",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 984910.0,
-        "amount_known": true,
-        "debtor_company": "MAGNATE INTERNATIONAL PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "0f6f8d267c44351c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "debit amount",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 59,
-    "state": null,
-    "total_exposure_aud": 984910.0,
     "website": null
   },
   {
@@ -1239,44 +1152,6 @@
     "score": 50,
     "state": null,
     "total_exposure_aud": 110100.18,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Report for TOWM FOOD PTY LTD (In Liquidation)",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 98533.0,
-        "amount_known": true,
-        "debtor_company": "TOWM FOOD PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "10f086672361672c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "report for towm food in liquidation",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 49,
-    "state": null,
-    "total_exposure_aud": 98533.0,
     "website": null
   },
   {
@@ -3741,44 +3616,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Redundancy",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 9120.0,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "redundancy",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 39,
-    "state": null,
-    "total_exposure_aud": 9120.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "NOBLE INSUL & CO Pty Ltd",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -5936,7 +5773,7 @@
     "display_name": "Australian Taxation Office (Insolvencies)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 17,
+    "matter_count": 18,
     "matters": [
       {
         "amount_aud": 223694.0,
@@ -5955,6 +5792,16 @@
         "debtor_industry": "Other",
         "debtor_state": null,
         "matter_id": "083ce36acd940d45",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 984910.0,
+        "amount_known": true,
+        "debtor_company": "MAGNATE INTERNATIONAL PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "0f6f8d267c44351c",
         "source": "worrells",
         "source_document": "Initial Advice"
       },
@@ -6118,7 +5965,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 1601124.59,
+    "total_exposure_aud": 2586034.59,
     "website": null
   },
   {
@@ -6874,6 +6721,55 @@
     "score": 75,
     "state": null,
     "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Retail/Wholesale"
+    ],
+    "display_name": "Annual Leave",
+    "disqualified_reason": "Employee / personal claim - not a company prospect",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 27798.47,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 17878.4,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "annual leave",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 71,
+    "state": null,
+    "total_exposure_aud": 45676.87,
     "website": null
   },
   {
@@ -7688,6 +7584,44 @@
     "score": 39,
     "state": null,
     "total_exposure_aud": 9962.18,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Redundancy",
+    "disqualified_reason": "Employee / personal claim - not a company prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 9120.0,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "redundancy",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 9120.0,
     "website": null
   },
   {
@@ -9562,7 +9496,7 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Secured",
+    "display_name": "TBD",
     "disqualified_reason": "Exposure $2,478 is under the $5,000 minimum",
     "exposure_known": true,
     "matter_count": 1,
@@ -9578,7 +9512,7 @@
         "source_document": "Initial Advice"
       }
     ],
-    "name_key": "secured",
+    "name_key": "tbd",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,

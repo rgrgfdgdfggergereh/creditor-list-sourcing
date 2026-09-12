@@ -1,5 +1,20 @@
 [
   {
+    "name_key": "report for naviq administrator appointed",
+    "creditor_name": "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)",
+    "debtor_company": "NAVIQ GROUP PTY LTD",
+    "matter_id": "223b0bb01e679ad0",
+    "amount_aud": 747812.53,
+    "amount_known": true,
+    "address": "6. Unsecured Creditors A list of the known unsecured creditors is as follows: Christopher Clark TBC",
+    "related_party": false,
+    "creditor_type": null,
+    "source": "worrells",
+    "source_document": "2nd Advice",
+    "debtor_industry": "Other",
+    "debtor_state": null
+  },
+  {
     "name_key": "allianz workers compensation",
     "creditor_name": "Allianz Australia Workers Compensation",
     "debtor_company": "Patchworx Pty Ltd",
@@ -570,13 +585,13 @@
     "debtor_state": null
   },
   {
-    "name_key": "debit amount",
-    "creditor_name": "Debit Amount",
+    "name_key": "australian taxation office insolvencies",
+    "creditor_name": "Australian Taxation Office (Insolvencies)",
     "debtor_company": "MAGNATE INTERNATIONAL PTY LTD",
     "matter_id": "0f6f8d267c44351c",
     "amount_aud": 984910.0,
     "amount_known": true,
-    "address": "Australian Taxation Office (Insolvencies) B6310NSW PO Box 9003 Penrith NSW 2740",
+    "address": "B6310NSW PO Box 9003 Penrith NSW 2740",
     "related_party": false,
     "creditor_type": null,
     "source": "worrells",
@@ -656,21 +671,6 @@
     "creditor_type": null,
     "source": "worrells",
     "source_document": "Initial advice",
-    "debtor_industry": "Hospitality",
-    "debtor_state": null
-  },
-  {
-    "name_key": "report for towm food in liquidation",
-    "creditor_name": "Report for TOWM FOOD PTY LTD (In Liquidation)",
-    "debtor_company": "TOWM FOOD PTY LTD",
-    "matter_id": "10f086672361672c",
-    "amount_aud": 98533.0,
-    "amount_known": true,
-    "address": "The estimated cost of the liquidation is set out in detail in the Remuneration Approval Report included later in this report. 9. Upfront Indemnity As disclosed in the Declaration of Independence, Relevant Relationships and Indemnities (“DIRRI”) annexed to this report, I received an upfront payment $6.5k together with an indemnity capped at $16.5k from the Director at the commencement of the liquidation. This funding was provided to enable the appointment to proceed and to cover initial costs. This funding is not an asset of the liquidation and is not available for distribution to creditors. 10. Secured Creditors Searches of the PPSR have not identified any registered security interests. Accordingly, I do not expect there to be any secured creditor claims in this liquidation. 11. Priority Creditors Under the Act, employee entitlements have a priority over other unsecured creditors. Those outstanding employee entitlements have differing priorities of payment in the case of a dividend payment to employees. My investigations and enquiries to date have not identified any outstanding employee entitlements. 12. Non-Priority Unsecured Creditors The known unsecured creditors of the Company are as follows: ($) AGL",
-    "related_party": false,
-    "creditor_type": null,
-    "source": "worrells",
-    "source_document": "Initial Advice",
     "debtor_industry": "Hospitality",
     "debtor_state": null
   },
@@ -3075,13 +3075,13 @@
     "debtor_state": null
   },
   {
-    "name_key": "secured",
-    "creditor_name": "Secured",
+    "name_key": "tbd",
+    "creditor_name": "TBD",
     "debtor_company": "MUD CONCRETING PTY LTD",
     "matter_id": "1a184f2843239751",
     "amount_aud": 2478.0,
     "amount_known": true,
-    "address": "TBD The Australian Reinforcing Company 380 Docklands Drive, Docklands VIC 3008",
+    "address": "The Australian Reinforcing Company 380 Docklands Drive, Docklands VIC 3008",
     "related_party": false,
     "creditor_type": null,
     "source": "worrells",
@@ -3462,21 +3462,6 @@
     "source": "worrells",
     "source_document": "Initial advice",
     "debtor_industry": "Professional Services",
-    "debtor_state": null
-  },
-  {
-    "name_key": "report for naviq administrator appointed",
-    "creditor_name": "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)",
-    "debtor_company": "NAVIQ GROUP PTY LTD",
-    "matter_id": "223b0bb01e679ad0",
-    "amount_aud": 747812.53,
-    "amount_known": true,
-    "address": "6. Unsecured Creditors A list of the known unsecured creditors is as follows: Christopher Clark TBC",
-    "related_party": false,
-    "creditor_type": null,
-    "source": "worrells",
-    "source_document": "2nd Advice",
-    "debtor_industry": "Other",
     "debtor_state": null
   },
   {
