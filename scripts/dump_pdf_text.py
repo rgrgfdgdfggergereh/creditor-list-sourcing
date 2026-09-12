@@ -112,21 +112,35 @@ def main() -> int:
                           f"{info['money_cells']:>11}  {info['inline_money']:>12}  "
                           f"{info['heading']}")
 
-            # Verbatim dump of every page carrying any Yes/No cell, then the
-            # heading pages. One of these is the listing; seeing them all is
-            # the only way to learn the row shape.
-            candidates = [p for p in profiles if p[1]["yesno"] >= 1][:3]
+            # The listing page is the one with the most Related Party cells.
+            # Print each row as the parser sees it: the cells either side of
+            # the Yes/No anchor. The question a $0.00 row raises is what sits
+            # in the cells after the anchor - one amount column or two, and
+            # whether the first of them is empty - and this shows it directly.
+            candidates = [p for p in profiles if p[1]["yesno"] >= 1]
             if not candidates:
-                candidates = [p for p in profiles if p[1]["heading"]][:3]
+                candidates = [p for p in profiles if p[1]["heading"]][:1]
                 print("\nNO page has a standalone Yes/No cell. "
-                      "Dumping heading pages instead.")
+                      "Dumping the heading page instead.")
+            candidates.sort(key=lambda p: -p[1]["yesno"])
 
-            for number, info, lines in candidates:
-                print(f"\n--- page {number} verbatim ({info['yesno']} yes/no, "
+            for number, info, lines in candidates[:1]:
+                print(f"\n--- page {number} rows ({info['yesno']} yes/no, "
                       f"{info['money_cells']} money cells) ---")
-                for index, line in enumerate(lines):
-                    if line.strip():
-                        print(f"  {index:>3}| {line[:100]}")
+                cells = [ln.strip() for ln in lines if ln.strip()]
+                anchors = [i for i, c in enumerate(cells) if YES_NO.match(c)]
+                print("  first 12 cells on the page:")
+                for cell in cells[:12]:
+                    print(f"      | {cell[:80]}")
+                for anchor in anchors[:6]:
+                    before = cells[max(0, anchor - 3):anchor]
+                    after = cells[anchor + 1:anchor + 6]
+                    print(f"\n  anchor '{cells[anchor]}' at cell {anchor}")
+                    for cell in before:
+                        print(f"    before | {cell[:80]}")
+                    for offset, cell in enumerate(after, start=1):
+                        mark = "MONEY" if MONEY.match(cell) else "     "
+                        print(f"    +{offset} {mark} | {cell[:80]}")
             done += 1
         if done >= wanted_docs:
             break
