@@ -916,3 +916,49 @@ class TestOpenMatterLifecycle:
 
     def test_a_transient_failure_leaves_the_matter_open(self):
         assert ledger.open_matters(self.matter(document_status="failed"))
+
+
+class TestCliArgumentPositions:
+    """-v must work before and after the subcommand.
+
+    argparse puts top-level flags before the subcommand. That is easy to get
+    wrong in a shell script, and it fails the entire run with "unrecognized
+    arguments" rather than merely ignoring the flag. It silently broke the
+    weekly-sourcing and probe workflows before either had ever been run.
+    """
+
+    @staticmethod
+    def parse(argv):
+        from creditor_sourcing.cli import build_parser
+
+        return build_parser().parse_args(argv)
+
+    @staticmethod
+    def verbose(args):
+        return getattr(args, "verbose", False)
+
+    def test_verbose_before_the_subcommand(self):
+        # The subparser must not write its own default over this.
+        assert self.verbose(self.parse(["-v", "collect"]))
+
+    def test_verbose_after_the_subcommand(self):
+        assert self.verbose(self.parse(["collect", "--verbose"]))
+
+    def test_quiet_when_the_flag_is_absent(self):
+        assert not self.verbose(self.parse(["collect"]))
+
+    def test_verbose_after_the_subcommand_with_other_flags(self):
+        args = self.parse(["run", "--respect-schedule", "--verbose"])
+        assert self.verbose(args) and args.respect_schedule
+
+    @pytest.mark.parametrize(
+        "stage", ["collect", "watch", "ingest", "report", "run", "schema", "probe"],
+    )
+    def test_every_stage_accepts_verbose_after_it(self, stage):
+        argv = [stage, "asic-notices", "--verbose"] if stage == "probe" \
+            else [stage, "--verbose"]
+        assert self.verbose(self.parse(argv))
+
+    def test_the_stage_is_still_required(self):
+        with pytest.raises(SystemExit):
+            self.parse(["--verbose"])

@@ -343,8 +343,21 @@ def cmd_run(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="creditor_sourcing")
-    parser.add_argument("-v", "--verbose", action="store_true")
+    # -v is accepted both before and after the subcommand. argparse puts
+    # top-level flags before it, which is easy to get wrong in a shell script
+    # and fails the whole run with "unrecognized arguments" - it broke two
+    # workflows before anyone ran them. Declaring it on a parent parser makes
+    # both spellings work.
+    # SUPPRESS matters here: with an ordinary default the subparser writes
+    # its own False over a -v that was given before the subcommand, so
+    # "-v collect" would parse as quiet. Suppressed, whichever parser actually
+    # saw the flag is the one that sets it.
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument(
+        "-v", "--verbose", action="store_true", default=argparse.SUPPRESS,
+    )
+
+    parser = argparse.ArgumentParser(prog="creditor_sourcing", parents=[common])
     sub = parser.add_subparsers(dest="command", required=True)
 
     def add_common(p: argparse.ArgumentParser) -> None:
@@ -364,18 +377,18 @@ def build_parser() -> argparse.ArgumentParser:
         ("collect", cmd_collect), ("watch", cmd_watch),
         ("ingest", cmd_ingest), ("report", cmd_report), ("run", cmd_run),
     ):
-        p = sub.add_parser(name)
+        p = sub.add_parser(name, parents=[common])
         add_common(p)
         if name == "run":
             p.add_argument("--respect-schedule", action="store_true")
         p.set_defaults(handler=handler)
 
-    schema = sub.add_parser("schema")
+    schema = sub.add_parser("schema", parents=[common])
     schema.add_argument("--url", default="", help="override the workbook URL")
     schema.add_argument("--save", default="", help="also save the .xlsx here")
     schema.set_defaults(handler=cmd_schema)
 
-    probe = sub.add_parser("probe")
+    probe = sub.add_parser("probe", parents=[common])
     probe.add_argument("source", choices=["asic-notices", "asic-connect", "worrells"])
     probe.add_argument("--acn")
     probe.add_argument("--out", default="out/probe")
@@ -386,7 +399,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    _setup_logging(args.verbose)
+    _setup_logging(getattr(args, "verbose", False))
     if hasattr(args, "sources"):
         args.sources = [s.strip() for s in args.sources.split(",")]
     return args.handler(args)
