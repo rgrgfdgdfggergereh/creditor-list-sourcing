@@ -202,44 +202,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Other"
-    ],
-    "display_name": "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 747812.53,
-        "amount_known": true,
-        "debtor_company": "NAVIQ GROUP PTY LTD",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "223b0bb01e679ad0",
-        "source": "worrells",
-        "source_document": "2nd Advice"
-      }
-    ],
-    "name_key": "report for naviq administrator appointed",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 58,
-    "state": null,
-    "total_exposure_aud": 747812.53,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Melbourne Plaster Labour services",

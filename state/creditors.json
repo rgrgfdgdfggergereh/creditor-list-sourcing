@@ -1,20 +1,5 @@
 [
   {
-    "name_key": "report for naviq administrator appointed",
-    "creditor_name": "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)",
-    "debtor_company": "NAVIQ GROUP PTY LTD",
-    "matter_id": "223b0bb01e679ad0",
-    "amount_aud": 747812.53,
-    "amount_known": true,
-    "address": "6. Unsecured Creditors A list of the known unsecured creditors is as follows: Christopher Clark TBC",
-    "related_party": false,
-    "creditor_type": null,
-    "source": "worrells",
-    "source_document": "2nd Advice",
-    "debtor_industry": "Other",
-    "debtor_state": null
-  },
-  {
     "name_key": "allianz workers compensation",
     "creditor_name": "Allianz Australia Workers Compensation",
     "debtor_company": "Patchworx Pty Ltd",
