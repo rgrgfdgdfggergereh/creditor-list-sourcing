@@ -18,7 +18,7 @@ import argparse
 import json
 import logging
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -86,15 +86,71 @@ def cmd_collect(args: argparse.Namespace) -> int:
     return 0
 
 
+def _append_creditors(path: Path, creditors: list[Creditor]) -> None:
+    """Add creditor rows to the running JSON, replacing any for the same matter.
+
+    Replacing rather than appending means re-harvesting a matter (after a
+    practitioner lodges a fuller document, say) corrects the data instead of
+    duplicating every creditor.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    existing = json.loads(path.read_text()) if path.exists() else []
+    touched = {c.matter_id for c in creditors}
+    kept = [row for row in existing if row.get("matter_id") not in touched]
+    kept.extend(c.to_dict() for c in creditors)
+    path.write_text(json.dumps(kept, indent=2, ensure_ascii=False) + "\n")
+
+
 def cmd_watch(args: argparse.Namespace) -> int:
-    """Re-check every open matter for a lodged Form 5604 and rebuild the queue."""
+    """Advance every open matter, by whichever route its source allows.
+
+    The two sources need opposite handling and it matters which is which:
+
+      Worrells publishes its creditor listing itself, so an open matter is
+      harvested outright - fetch the detail page, download the report, read
+      the creditors. Free, and no human in the loop.
+
+      ASIC only tells us for free THAT a Form 5604 exists. Reading it means
+      buying it, so those matters go on the purchase queue for a human.
+
+    Treating them alike would either pay for creditor lists Worrells gives
+    away, or wait forever for a purchase that was never needed.
+    """
     known = ledger.load_matters()
     outstanding = ledger.open_matters(known)
-    log.info("Watch: %d open matters to check", len(outstanding))
+    worrells_open = [m for m in outstanding if m.get("source") == "worrells"]
+    asic_open = [m for m in outstanding if m.get("source") != "worrells"]
+    log.info("Watch: %d open matters (%d Worrells, %d ASIC)",
+             len(outstanding), len(worrells_open), len(asic_open))
 
+    settings = config.settings()
     client = Client()
-    checked = 0
-    for record in outstanding[: args.limit] if args.limit else outstanding:
+    creditors: list[Creditor] = []
+    harvested = no_documents = 0
+
+    # --- Worrells: harvest the published listing directly -------------------
+    cap = args.limit or settings["sources"]["worrells"].get("max_matters_per_run", 60)
+    for record in worrells_open[:cap]:
+        rows, status, updates = worrells.harvest(record, client)
+        record.update(updates)
+        record["last_checked"] = date.today().isoformat()
+        record["document_status"] = status
+        if status == "ok":
+            # Carry the debtor's sector onto every creditor row. Without this
+            # the Worrells leg loses the industry entirely, and "Debtor
+            # industries" - the column that tells a rep a timber supplier's
+            # bad debts all came from construction - comes through blank.
+            for creditor in rows:
+                creditor.debtor_industry = record.get("industry")
+                creditor.debtor_state = record.get("state")
+            creditors.extend(rows)
+            record["creditors_captured"] = True
+            harvested += 1
+        elif status == "no-documents":
+            no_documents += 1
+
+    # --- ASIC: free detection now, paid purchase later ----------------------
+    for record in asic_open[: args.limit] if args.limit else asic_open:
         matter = Matter(
             source=record["source"],
             company_name=record["company_name"],
@@ -106,12 +162,18 @@ def cmd_watch(args: argparse.Namespace) -> int:
             record["form_5604_lodged"] = True
             record["form_5604_date"] = matter.form_5604_date
             record["form_5604_doc_number"] = matter.form_5604_doc_number
-        checked += 1
+
+    if creditors:
+        _append_creditors(Path(args.out), creditors)
 
     ledger.save_matters(known)
     queue = ledger.queue_for_purchase(list(known.values()))
     ledger.save_queue(queue)
-    log.info("Watch: %d checked, %d documents queued for purchase", checked, len(queue))
+    log.info(
+        "Watch: %d Worrells matters harvested (%d creditors), %d not lodged yet; "
+        "%d ASIC documents queued for purchase",
+        harvested, len(creditors), no_documents, len(queue),
+    )
     return 0
 
 

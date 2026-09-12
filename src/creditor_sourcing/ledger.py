@@ -86,6 +86,11 @@ def open_matters(known: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
         for m in known.values()
         if not m.get("creditors_captured")
         and (m.get("first_seen") or cutoff) >= cutoff
+        # A Worrells matter whose documents exist but carry no listing will
+        # not grow one; re-fetching it every week is pure portal load. One
+        # with nothing lodged yet is the opposite - that is most of the
+        # intake, and it is exactly what we are waiting on.
+        and m.get("document_status") not in ("no-section", "scanned")
     ]
 
 

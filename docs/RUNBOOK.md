@@ -7,6 +7,8 @@ required of anyone unless there are documents to buy.
 
 1. Open the **run summary** on the Actions run — prospect counts, the top
    repeat-exposure companies, and the list of documents waiting to be bought.
+   Worrells creditors are already in there: that leg harvests itself and needs
+   nothing from you.
 2. If documents are queued, open the **purchase dashboard**, buy them on ASIC
    Connect (the links go straight to each company), and drop the PDFs back on
    the page.
@@ -114,6 +116,8 @@ shows every dropped company and the rule that dropped it.
 |---|---|---|
 | `collect` raises "company-name column" | the data set sheet was renamed | run the ASIC data set schema workflow, update `HEADER_ALIASES` |
 | A scraped source returns 0 rows | site markup changed | run the probe workflow, recalibrate |
+| Worrells matters collected but no creditors | most are days old with nothing lodged | normal — they stay open and are re-checked weekly |
+| A Worrells matter shows `no-section` | its documents carry no listing | expected on a First Advice; the matter stops being re-fetched |
 | Creditor names have address fragments | run-together PDF cells | acceptable; tune the split in `parse/creditor_tables.py` |
 | A document is `scanned` | image-only PDF | read it by hand — OCR is not trusted to publish names |
 | A document is `missing` | ASIC/portal returned 404 | leave it; the matter stays open and retries next week |

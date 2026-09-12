@@ -24,13 +24,16 @@ from __future__ import annotations
 
 import logging
 import re
+import tempfile
 from datetime import date, datetime
+from pathlib import Path
+from typing import Any
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
 from .. import config
-from ..models import Matter
+from ..models import Creditor, Matter
 from .http import Client
 
 log = logging.getLogger(__name__)
@@ -207,3 +210,82 @@ def collect(client: Client | None = None) -> list[Matter]:
     matters = parse_new_appointments(html)
     log.info("Worrells: %d appointments on the New Appointments list", len(matters))
     return matters
+
+
+def harvest(
+    record: dict[str, Any], client: Client | None = None,
+) -> tuple[list[Creditor], str, dict[str, Any]]:
+    """Fetch one Worrells matter's detail page and read its creditor listing.
+
+    This is the leg that needs no purchase and no login: the detail page gives
+    the ACN (which reconciles the matter against the same company in the ASIC
+    workbook) and links the published reports, one of which carries the
+    "Listing of known creditors".
+
+    Returns (creditors, status, detail_updates). Status is one of:
+      ok            - a creditor listing was read
+      no-documents  - nothing lodged yet; normal for a matter days old
+      no-section    - documents exist but none carries a listing
+      scanned       - an image-only document; needs manual review
+      failed        - the portal could not be reached
+
+    Documents are tried best-ranked first and the first that yields rows wins,
+    so a matter with both an Initial Advice and a First Advice does not pay to
+    download the second.
+    """
+    from ..parse.creditor_tables import extract_pdf
+
+    cfg = config.settings()["sources"]["worrells"]
+    client = client or Client(throttle_ms=cfg["throttle_ms"])
+
+    reference = record.get("source_id") or record.get("source_url") or ""
+    try:
+        html = client.get(details_view_url(reference)).text
+    except Exception as exc:  # noqa: BLE001 - one bad matter must not stop the run
+        log.warning("Worrells detail fetch failed for %s: %s",
+                    record.get("company_name"), exc)
+        return [], "failed", {}
+
+    # The File Details panel carries the ACN, admin type, industry and state.
+    stub = Matter(source="worrells", company_name=record.get("company_name", ""))
+    apply_details(stub, html)
+    updates = {
+        field: value
+        for field, value in (
+            ("acn", stub.acn), ("appointment_type", stub.appointment_type),
+            ("appointment_date", stub.appointment_date), ("industry", stub.industry),
+            ("practitioner", stub.practitioner),
+            ("practitioner_firm", stub.practitioner_firm),
+        )
+        if value and not record.get(field)
+    }
+
+    documents = creditor_documents(html, cfg["base_url"])
+    if not documents:
+        return [], "no-documents", updates
+
+    status = "no-section"
+    for document in documents[: cfg.get("max_documents_per_matter", 2)]:
+        try:
+            blob = client.get(document["url"]).content
+        except Exception as exc:  # noqa: BLE001
+            log.warning("Worrells document fetch failed (%s): %s",
+                        document["name"], exc)
+            continue
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "document.pdf"
+            path.write_bytes(blob)
+            rows, document_status = extract_pdf(
+                path, record["company_name"], record["matter_id"], "worrells",
+            )
+        if document_status == "ok":
+            for row in rows:
+                row.source_document = document["name"]
+            log.info("Worrells %s: %d creditors from %s",
+                     record["company_name"], len(rows), document["name"])
+            return rows, "ok", updates
+        if document_status in ("scanned", "table-unreadable"):
+            status = document_status
+
+    return [], status, updates

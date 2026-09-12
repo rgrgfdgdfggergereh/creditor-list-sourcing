@@ -64,6 +64,13 @@ sources:
     detail_path_from: /FileInformation/FileInformation/
     detail_path_to: /FileInformation/FileInformationDetailsView/
     throttle_ms: 400
+    # Documents are tried best-ranked first and the first that yields a
+    # listing wins, so this is a ceiling, not a target.
+    max_documents_per_matter: 2
+    # Cap detail-page fetches per run. Most matters on the list are days old
+    # and carry nothing yet, so the run re-checks them cheaply over time
+    # rather than hammering the portal in one pass.
+    max_matters_per_run: 60
 
 qualify:
   # A creditor owed less than this is dropped - too small to signal a real

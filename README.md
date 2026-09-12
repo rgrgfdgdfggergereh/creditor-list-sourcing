@@ -28,8 +28,8 @@ pip install -r requirements.txt
 export PYTHONPATH=src
 
 python -m creditor_sourcing collect    # find new administrations
-python -m creditor_sourcing watch      # check ASIC Connect for a lodged 5604
-python -m creditor_sourcing ingest     # parse purchased / downloaded PDFs
+python -m creditor_sourcing watch      # harvest Worrells; check ASIC for a 5604
+python -m creditor_sourcing ingest     # parse purchased 5604 PDFs
 python -m creditor_sourcing report     # qualify, enrich, build the workbook
 python -m creditor_sourcing run        # all four
 ```

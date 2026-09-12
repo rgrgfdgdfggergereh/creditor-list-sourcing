@@ -43,8 +43,9 @@ appointment, and closing the matter early loses the lead permanently.
 
 **buy** — the one manual step. See below.
 
-**ingest** — parse creditor tables out of the PDFs in `state/inbox/`, whether
-they came from an ASIC purchase or a free Worrells download.
+**ingest** — parse creditor tables out of PDFs in `state/inbox/`. This is now
+the *purchased* path only: Worrells documents are harvested automatically in
+`watch`, so the inbox holds the Form 5604 documents a human bought.
 
 **report** — aggregate to one prospect per company, qualify, enrich, build the
 workbook.

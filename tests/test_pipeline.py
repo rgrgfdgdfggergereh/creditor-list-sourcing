@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pytest
 
-from creditor_sourcing import aggregate, qualify
+from creditor_sourcing import aggregate, ledger, qualify
 from creditor_sourcing.models import Creditor, Matter, normalise_name
 from creditor_sourcing.parse import creditor_tables
 from creditor_sourcing.parse.creditor_tables import parse_lines
@@ -719,3 +719,200 @@ class TestRepeatExposureOnLiveData:
         assert "ALLIED RETAIL FINANCE PTY LTD" in excluded
         assert "Silver Chef Rentals Pty Ltd" in excluded
         assert "Velociti Capital Spv 1 Pty Ltd" in excluded
+
+
+class TestWorrellsHarvest:
+    """The leg that turns a Worrells matter into creditors with no purchase.
+
+    Stubs the HTTP client, because the portal is not reachable from the test
+    environment. The page and document content are the live shapes captured by
+    the diagnose workflow.
+    """
+
+    DETAIL_HTML = """<html><body>
+      File Information RFCVIC PTY LTD File Details
+      ACN/Estate#: 678 250 327 Office Name: Melbourne Trading Name None known
+      Principal R Crispino Admin Type Creditors Vol Manager: D Hayman
+      Start Date 08/09/2026 Exec Analyst D Hayman Status Priority
+      Contact Person D Hayman Industry Accommodation and Food Services
+      Appointee Roberto Crispino I want to Lodge a Proof of Debt
+      <a href="/WebDocuments/1/initial.pdf">Initial Advice</a>
+      <a href="/WebDocuments/1/first.pdf">First Advice</a>
+    </body></html>"""
+
+    LISTING = "\n".join([
+        "18", "D.", "Listing of known creditors (identifying related parties)",
+        "Name", "Address", "Related Party", "ROCAP Amount",
+        "Bidfood Australia Limited", "PO Box 220  Pendle Hill NSW 2145", "No", "TBC",
+        "Silver Chef Rentals Pty Ltd", "PO Box 1760  Milton BC QLD 4064", "No", "TBC",
+    ])
+
+    @staticmethod
+    def pdf_bytes(text):
+        import pymupdf
+
+        doc = pymupdf.open()
+        doc.new_page().insert_text((40, 50), text, fontsize=8)
+        blob = doc.tobytes()
+        doc.close()
+        return blob
+
+    class StubClient:
+        """Serves the detail page and the documents; records what was fetched."""
+
+        def __init__(self, detail_html, documents):
+            self.detail_html = detail_html
+            self.documents = documents
+            self.fetched = []
+
+        def get(self, url, **_):
+            self.fetched.append(url)
+            if url.endswith(".pdf"):
+                name = url.rsplit("/", 1)[-1]
+                if name not in self.documents:
+                    raise RuntimeError(f"404 {name}")
+                return type("R", (), {"content": self.documents[name]})()
+            return type("R", (), {"text": self.detail_html})()
+
+    def record(self):
+        return {
+            "matter_id": "m1",
+            "company_name": "RFCVIC PTY LTD",
+            "source": "worrells",
+            "source_id": "202502200334422382761DFEC99D43BE",
+        }
+
+    def test_a_listing_is_harvested_into_creditors(self):
+        client = self.StubClient(
+            self.DETAIL_HTML, {"initial.pdf": self.pdf_bytes(self.LISTING)})
+        rows, status, _ = worrells.harvest(self.record(), client)
+        assert status == "ok"
+        assert [r.creditor_name for r in rows] == [
+            "Bidfood Australia Limited", "Silver Chef Rentals Pty Ltd"]
+
+    def test_the_detail_panel_supplies_the_acn(self):
+        # The ACN is what lets a Worrells matter reconcile against the same
+        # company in the ASIC workbook.
+        client = self.StubClient(
+            self.DETAIL_HTML, {"initial.pdf": self.pdf_bytes(self.LISTING)})
+        _, _, updates = worrells.harvest(self.record(), client)
+        assert updates["acn"] == "678250327"
+        assert updates["industry"] == "Accommodation and Food Services"
+        assert updates["practitioner_firm"] == "Worrells"
+
+    def test_the_best_ranked_document_wins_and_the_rest_are_not_fetched(self):
+        # Initial Advice carries the listing 4 times out of 4; paying to
+        # download the First Advice as well is wasted portal load.
+        client = self.StubClient(self.DETAIL_HTML, {
+            "initial.pdf": self.pdf_bytes(self.LISTING),
+            "first.pdf": self.pdf_bytes(self.LISTING),
+        })
+        worrells.harvest(self.record(), client)
+        assert any("initial.pdf" in u for u in client.fetched)
+        assert not any("first.pdf" in u for u in client.fetched)
+
+    def test_a_matter_with_no_documents_is_not_an_error(self):
+        # Most of the New Appointments list is days old and carries nothing.
+        client = self.StubClient(
+            "<html><body>File Details ACN/Estate#: 123 456 789</body></html>", {})
+        rows, status, _ = worrells.harvest(self.record(), client)
+        assert (rows, status) == ([], "no-documents")
+
+    def test_documents_without_a_listing_report_no_section(self):
+        client = self.StubClient(self.DETAIL_HTML, {
+            "initial.pdf": self.pdf_bytes("Remuneration report\nFees: 3,405.70"),
+            "first.pdf": self.pdf_bytes("Covering letter only"),
+        })
+        rows, status, _ = worrells.harvest(self.record(), client)
+        assert (rows, status) == ([], "no-section")
+
+    def test_a_portal_failure_is_reported_not_raised(self):
+        class Dead:
+            def get(self, url, **_):
+                raise RuntimeError("connection reset")
+
+        rows, status, updates = worrells.harvest(self.record(), Dead())
+        assert (rows, status, updates) == ([], "failed", {})
+
+    def test_the_creditors_carry_the_document_they_came_from(self):
+        client = self.StubClient(
+            self.DETAIL_HTML, {"initial.pdf": self.pdf_bytes(self.LISTING)})
+        rows, _, _ = worrells.harvest(self.record(), client)
+        assert all(r.source_document == "Initial Advice" for r in rows)
+        assert all(r.source == "worrells" for r in rows)
+    def test_harvested_creditors_carry_the_debtor_industry(self, tmp_path, monkeypatch):
+        # The industry is the column that tells a rep a timber supplier's bad
+        # debts all came from construction. The Worrells path lost it once.
+        from creditor_sourcing import cli
+
+        client = self.StubClient(
+            self.DETAIL_HTML, {"initial.pdf": self.pdf_bytes(self.LISTING)})
+        monkeypatch.setattr(cli, "Client", lambda *a, **k: client)
+        monkeypatch.setattr(worrells, "Client", lambda *a, **k: client)
+        monkeypatch.setattr(ledger, "MATTERS", tmp_path / "matters.json")
+        monkeypatch.setattr(ledger, "QUEUE", tmp_path / "queue.json")
+
+        record = self.record()
+        record["first_seen"] = date.today().isoformat()
+        ledger.save_matters({record["matter_id"]: record})
+
+        args = cli.build_parser().parse_args(["watch"])
+        args.sources = ["worrells"]
+        args.out = str(tmp_path / "creditors.json")
+        cli.cmd_watch(args)
+
+        import json
+
+        rows = json.loads((tmp_path / "creditors.json").read_text())
+        assert rows, "watch produced no creditors"
+        assert all(
+            r["debtor_industry"] == "Accommodation and Food Services" for r in rows
+        )
+
+    def test_re_harvesting_a_matter_replaces_its_creditors(self, tmp_path):
+        # A practitioner lodging a fuller document should correct the data,
+        # not duplicate every creditor already recorded against that matter.
+        from creditor_sourcing.cli import _append_creditors
+
+        path = tmp_path / "creditors.json"
+        first = [Creditor("Old Name Pty Ltd", "RFCVIC PTY LTD", "m1", 0.0)]
+        second = [Creditor("Bidfood Australia Limited", "RFCVIC PTY LTD", "m1", 0.0)]
+        other = [Creditor("Untouched Pty Ltd", "Other Co", "m2", 0.0)]
+
+        _append_creditors(path, first + other)
+        _append_creditors(path, second)
+
+        import json
+
+        names = {r["creditor_name"] for r in json.loads(path.read_text())}
+        assert names == {"Bidfood Australia Limited", "Untouched Pty Ltd"}
+
+
+
+class TestOpenMatterLifecycle:
+    """Which matters a run re-checks, and which it stops chasing."""
+
+    @staticmethod
+    def matter(**kw):
+        base = {"matter_id": "m1", "company_name": "X", "source": "worrells",
+                "first_seen": date.today().isoformat()}
+        base.update(kw)
+        return {base["matter_id"]: base}
+
+    def test_a_matter_with_nothing_lodged_stays_open(self):
+        # This is most of the Worrells intake and is exactly what we wait on.
+        assert ledger.open_matters(self.matter(document_status="no-documents"))
+
+    def test_a_captured_matter_closes(self):
+        assert not ledger.open_matters(self.matter(creditors_captured=True))
+
+    def test_documents_without_a_listing_stop_being_re_fetched(self):
+        # Those documents will not grow a listing; re-fetching them weekly is
+        # pure portal load for no possible gain.
+        assert not ledger.open_matters(self.matter(document_status="no-section"))
+
+    def test_a_scanned_document_stops_being_re_fetched(self):
+        assert not ledger.open_matters(self.matter(document_status="scanned"))
+
+    def test_a_transient_failure_leaves_the_matter_open(self):
+        assert ledger.open_matters(self.matter(document_status="failed"))
