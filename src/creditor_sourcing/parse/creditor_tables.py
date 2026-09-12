@@ -23,7 +23,7 @@ import logging
 import re
 from pathlib import Path
 
-from ..models import Creditor
+from ..models import Creditor, normalise_name
 
 log = logging.getLogger(__name__)
 
@@ -125,6 +125,13 @@ HEADER_WORDS = {
     "amounts", "owed", "name", "names", "address", "related", "party",
     "parties", "creditor", "creditors", "type", "return", "balance", "total",
     "subtotal", "value", "debt", "claim", "yes", "no", "and", "or", "of",
+    # Ledger column headers. "Debit Amount" arrived as the first cell of a
+    # row on MAGNATE INTERNATIONAL's listing and became a creditor owed
+    # $984,910 - with the real creditor, the ATO, demoted to its address.
+    "debit", "credit", "gst", "net", "nett", "date", "ref", "reference",
+    "code", "days", "aged", "current", "opening", "closing", "movement",
+    "invoice", "unsecured", "secured", "priority", "employee", "employees",
+    "entitlement", "entitlements", "description", "particulars", "details",
 }
 _WORDS = re.compile(r"[A-Za-z]+")
 
@@ -140,6 +147,19 @@ def is_header_fragment(cell: str) -> bool:
 # Mechanical Repairs' listing and was being dropped. A camel-cased first word
 # is a name; a prose fragment ("in the amount of") has no internal capital.
 CAMEL_NAME = re.compile(r"^[a-z]+[A-Z]")
+
+
+def names_the_debtor(name: str, debtor_company: str) -> bool:
+    """Is this "creditor" actually the insolvent company itself?
+
+    Every page of these reports carries a running header - "Report for NAVIQ
+    GROUP PTY LTD (Administrator Appointed)" - which lands in the row buffer
+    and became a creditor owed $747,812.53. A company is never its own
+    creditor, so the debtor's name appearing in a row is a parsing artefact
+    whatever the surrounding layout looks like.
+    """
+    debtor = normalise_name(debtor_company)
+    return bool(debtor) and debtor in normalise_name(name)
 
 
 def starts_like_a_name(text: str) -> bool:
@@ -322,6 +342,7 @@ def parse_cells(
                     and not NOT_A_CREDITOR.match(name)
                     and not name.rstrip().endswith(":")
                     and starts_like_a_name(name)
+                    and not names_the_debtor(name, debtor_company)
                 ):
                     creditors.append(
                         Creditor(
@@ -395,7 +416,7 @@ def parse_lines(
         if split and split.start() > 3:
             name, address = head[: split.start()].strip(), head[split.start():].strip()
 
-        if len(name) < 3:
+        if len(name) < 3 or names_the_debtor(name, debtor_company):
             continue
         creditors.append(
             Creditor(

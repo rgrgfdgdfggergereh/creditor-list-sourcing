@@ -1181,6 +1181,68 @@ class TestAsicCheckOrder:
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
 
 
+class TestArtefactsFromTheSecondLiveRun:
+    """Three names that reached the qualified prospect list but are not companies.
+
+    All from the 12 September run over 31 real insolvencies. Each is a
+    different failure: a running page header, a ledger column header, and an
+    employee entitlement category. All three would have been handed to the
+    sales team as businesses to call.
+    """
+
+    def test_the_running_page_header_is_not_a_creditor(self):
+        # "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)" is the
+        # header printed on every page of the report. It reached the list
+        # owed $747,812.53 - a company cannot be its own creditor.
+        page = "\n".join([
+            "Listing of known creditors",
+            "Name", "Address", "Related Party", "Amount",
+            "Report for NAVIQ GROUP PTY LTD (Administrator Appointed)",
+            "6. Unsecured Creditors A list of the known unsecured creditors",
+            "No", "747,812.53",
+            "Archiclad Pty Ltd", "5 Foundry Rd Sunshine VIC 3020", "No",
+            "484,312.00",
+        ])
+        rows = creditor_tables.parse_cells(
+            page.splitlines(), "NAVIQ GROUP PTY LTD", "m1", "worrells")
+        assert [r.creditor_name for r in rows] == ["Archiclad Pty Ltd"]
+
+    def test_the_line_parser_also_rejects_the_debtor_itself(self):
+        rows = creditor_tables.parse_lines(
+            ["Report for TOWM FOOD PTY LTD (In Liquidation) 98,533.00",
+             "Bidfood Australia Limited 12,400.00"],
+            "TOWM FOOD PTY LTD", "m1", "worrells")
+        assert [r.creditor_name for r in rows] == ["Bidfood Australia Limited"]
+
+    def test_a_ledger_column_header_is_not_a_creditor(self):
+        # "Debit Amount" became a creditor owed $984,910 and demoted the real
+        # creditor, the ATO, to its address.
+        assert creditor_tables.is_header_fragment("Debit Amount")
+        page = "\n".join([
+            "Listing of known creditors",
+            "Name", "Address", "Related Party", "Debit Amount",
+            "Debit Amount",
+            "Australian Taxation Office (Insolvencies)",
+            "No", "984,910.00",
+        ])
+        rows = creditor_tables.parse_cells(
+            page.splitlines(), "MAGNATE INTERNATIONAL PTY LTD", "m1", "worrells")
+        assert [r.creditor_name for r in rows] == [
+            "Australian Taxation Office (Insolvencies)"]
+
+    def test_an_entitlement_category_is_not_a_prospect(self):
+        # "Annual Leave", address "N/A", owed $27,798.47 on HOMEMAKERS S.C's
+        # listing. A real row in the document, but not a business to call.
+        rows = [
+            Creditor("Annual Leave", "HOMEMAKERS S.C PTY LTD", "m1", 27798.47),
+            Creditor("Bidfood Australia Limited", "HOMEMAKERS S.C PTY LTD",
+                     "m1", 27798.47),
+        ]
+        prospects = qualify.apply(aggregate.build(rows))
+        assert [p.display_name for p in prospects if p.qualified] == [
+            "Bidfood Australia Limited"]
+
+
 class TestHeaderFragments:
     """Column headers must never become creditors.
 

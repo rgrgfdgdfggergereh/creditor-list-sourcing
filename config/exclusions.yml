@@ -41,6 +41,20 @@ employees:
     - former employee
     - superannuation guarantee
     - "\\bpayg\\b"
+    # Entitlement categories, which the priority-creditor tables list as rows
+    # in their own right: "Annual Leave" came through as a company owed
+    # $27,798 on HOMEMAKERS S.C's listing.
+    - "^annual leave"
+    - "^long service leave"
+    - "^personal leave"
+    - "^sick leave"
+    - leave loading
+    - "^wages"
+    - "^salary"
+    - "^redundancy"
+    - payment in lieu
+    - "^superannuation"
+    - unpaid entitlements
 
 financiers:
   reason: Secured lender or financier - exposure is not trade credit
