@@ -55,9 +55,15 @@ def main() -> int:
     # usually a short covering letter with no creditor annexure, so dumping
     # one tells us nothing about the table layout.
     want = (sys.argv[2] if len(sys.argv) > 2 else "initial advice").lower()
-    # Optional third argument: only this company, matched loosely. Used to go
-    # straight to a matter whose parsed output looked wrong.
-    company = (sys.argv[3] if len(sys.argv) > 3 else "").lower()
+    # Optional third argument: a comma-separated list of companies, each
+    # matched loosely. Used to go straight to the matters whose parsed output
+    # looked wrong, rather than dumping whatever happens to be at the top of
+    # the list. Naming companies also sets how many documents to dump, so one
+    # run covers the whole set under investigation.
+    wanted = [part.strip().lower() for part in
+              (sys.argv[3] if len(sys.argv) > 3 else "").split(",") if part.strip()]
+    if wanted:
+        wanted_docs = max(wanted_docs, len(wanted))
 
     matters = worrells.parse_new_appointments(
         client.get(cfg["base_url"] + cfg["list_path"]).text
@@ -67,7 +73,8 @@ def main() -> int:
 
     done = 0
     for matter in matters:
-        if company and company not in matter.company_name.lower():
+        name = matter.company_name.lower()
+        if wanted and not any(part in name for part in wanted):
             continue
         docs = [
             doc for doc in worrells.creditor_documents(

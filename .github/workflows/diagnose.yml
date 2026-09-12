@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       company:
-        description: "pdf-text only: limit the dump to one company"
+        description: "pdf-text only: comma-separated companies to dump"
         default: ""
       legs:
         description: "Which legs to check"
