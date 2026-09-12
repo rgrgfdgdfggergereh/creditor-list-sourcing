@@ -80,6 +80,13 @@ financiers:
     - equipment finance
     - "\\bfactoring\\b"
     - invoice finance
+    - "\\bbizcap\\b"
+    # Card issuers. A card balance is revolving consumer-style credit, not a
+    # receivables ledger. AMEX came in at $205,414 on its own.
+    - american express
+    - "\\bamex\\b"
+    - diners club
+    - "\\bcredit card\\b"
     - "\\bcapital\\b"
     - credit union
     - building society
@@ -103,6 +110,15 @@ landlords_utilities:
     - telstra
     - optus
     - vodafone
+    # Toll accounts. Same shape as a utility bill - a recurring service
+    # billed on account - and the operators are ASX-scale businesses running
+    # their own credit control, not trade credit prospects. Linkt was the
+    # highest-scoring prospect in the 12 September run on four appearances.
+    - "\\blinkt\\b"
+    - transurban
+    - "\\bcitylink\\b"
+    - "\\beastlink\\b"
+    - "\\be-?toll\\b"
 
 professional_services:
   reason: Insolvency / legal / accounting adviser - not a trade supplier
@@ -150,6 +166,13 @@ related_party:
     - family trust
     - superannuation fund
     - "\\bsmsf\\b"
+    # Trustee vehicles. "DOH Investment Pty Ltd ATF the DOH Investment Trust"
+    # was the fourth-highest prospect at $1,000,000 - a holding structure
+    # lending into the company, not a supplier with a receivables ledger.
+    - "\\batf\\b"
+    - as trustee for
+    - investment trust
+    - "\\bunit trust\\b"
 
 # Creditor names that are junk artefacts of PDF parsing rather than companies.
 noise:
@@ -165,3 +188,7 @@ noise:
     - "^sundry"
     - "^n/?a$"
     - "^unknown$"
+    # A company identified only by its ACN has no trading name to call and no
+    # receivables ledger to insure - it is a shelf or holding entity. Kept on
+    # the excluded tab so the judgement is visible rather than silent.
+    - "^a\\.?c\\.?n\\.?[\\s.]*\\d"

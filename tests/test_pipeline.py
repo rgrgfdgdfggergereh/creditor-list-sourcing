@@ -1217,6 +1217,56 @@ class TestAsicCheckOrder:
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
 
 
+class TestNonTradeCreditorsFromTheLiveList:
+    """Names that parsed correctly but are not trade credit prospects.
+
+    All were qualified prospects in the 12 September run, several at the top
+    of the list by score. A trade credit policy insures a supplier's
+    receivables ledger, so the prospect has to be a business that sold goods
+    or services on credit terms.
+    """
+
+    @pytest.mark.parametrize(
+        ("name", "category"),
+        [
+            # Toll accounts: a recurring service billed on account, same shape
+            # as a utility bill. Linkt was the top-scoring prospect on four
+            # appearances.
+            ("Linkt", "landlords_utilities"),
+            ("Transurban Limited", "landlords_utilities"),
+            # Card issuers: revolving credit, not a receivables ledger.
+            ("AMEX", "financiers"),
+            ("American Express Australia Limited", "financiers"),
+            # Non-bank lender.
+            ("Bizcap Au Pty Ltd", "financiers"),
+            # Trustee vehicles lending into the company.
+            ("DOH Investment Pty Ltd ATF the DOH Investment Trust",
+             "related_party"),
+            ("Smith Holdings as trustee for the Smith Family Trust",
+             "related_party"),
+            # No trading name to call.
+            ("A.C.N. 603 303 126 PTY LTD", "noise"),
+            ("ACN 002 738 472 Pty Ltd", "noise"),
+        ],
+    )
+    def test_excluded_with_the_right_reason(self, name, category):
+        hit = qualify.non_trade_reason(name)
+        assert hit is not None, f"{name} was not excluded"
+        assert hit[0] == category
+
+    @pytest.mark.parametrize(
+        "name",
+        # Real trade suppliers from the same run. The patterns above must not
+        # reach them: "Ability Plaster" contains no financier word, and
+        # "Dahlsens Building Centres" is a timber and hardware merchant.
+        ["Ability Plaster", "Dahlsens Building Centres", "Archiclad Pty Ltd",
+         "YE Commercial Interiors", "Studworks", "MBS Architectural",
+         "Melbourne Plaster Labour services", "Bidfood Australia Limited"],
+    )
+    def test_real_suppliers_are_not_excluded(self, name):
+        assert qualify.non_trade_reason(name) is None
+
+
 class TestArtefactsFromTheSecondLiveRun:
     """Three names that reached the qualified prospect list but are not companies.
 
