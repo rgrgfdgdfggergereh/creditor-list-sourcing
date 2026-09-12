@@ -1041,6 +1041,42 @@ class TestWorrellsHarvest:
         names = {r["creditor_name"] for r in json.loads(path.read_text())}
         assert names == {"Bidfood Australia Limited", "Untouched Pty Ltd"}
 
+    def test_a_reparse_that_yields_nothing_clears_the_old_rows(self, tmp_path):
+        # The parser fix that stopped producing "Report for NAVIQ GROUP PTY
+        # LTD (Administrator Appointed)" left the row in place: the matter
+        # re-parsed to zero creditors, and only matters present in the new
+        # batch were being replaced. The fix landed and the bad creditor
+        # stayed in the workbook.
+        from creditor_sourcing.cli import _append_creditors
+
+        path = tmp_path / "creditors.json"
+        stale = [Creditor("Report for NAVIQ GROUP PTY LTD (Administrator "
+                          "Appointed)", "NAVIQ GROUP PTY LTD", "m1", 747812.53)]
+        other = [Creditor("Untouched Pty Ltd", "Other Co", "m2", 0.0)]
+        _append_creditors(path, stale + other)
+
+        _append_creditors(path, [], reparsed={"m1"})
+
+        import json
+
+        names = {r["creditor_name"] for r in json.loads(path.read_text())}
+        assert names == {"Untouched Pty Ltd"}
+
+    def test_a_matter_that_was_not_read_keeps_its_rows(self, tmp_path):
+        # A transport failure or a scanned document is not evidence that the
+        # creditors already recorded are wrong.
+        from creditor_sourcing.cli import _append_creditors
+
+        path = tmp_path / "creditors.json"
+        held = [Creditor("Bidfood Australia Limited", "RFCVIC PTY LTD", "m1", 0.0)]
+        _append_creditors(path, held)
+        _append_creditors(path, [], reparsed=set())
+
+        import json
+
+        assert [r["creditor_name"] for r in json.loads(path.read_text())] == [
+            "Bidfood Australia Limited"]
+
 
 
 class TestOpenMatterLifecycle:

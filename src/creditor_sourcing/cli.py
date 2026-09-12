@@ -86,16 +86,33 @@ def cmd_collect(args: argparse.Namespace) -> int:
     return 0
 
 
-def _append_creditors(path: Path, creditors: list[Creditor]) -> None:
+# Harvest statuses that mean the document was fetched and read to a definite
+# conclusion, so whatever rows a previous run stored for that matter are now
+# known to be wrong. "ok" replaces them; "no-section" and "table-unreadable"
+# clear them. Every other status - failed, scanned, no-documents - means we
+# did not get a reading, and the rows already held are the best data there is.
+CONCLUSIVE = ("ok", "no-section", "table-unreadable")
+
+
+def _append_creditors(
+    path: Path, creditors: list[Creditor], reparsed: set[str] | None = None,
+) -> None:
     """Add creditor rows to the running JSON, replacing any for the same matter.
 
     Replacing rather than appending means re-harvesting a matter (after a
     practitioner lodges a fuller document, say) corrects the data instead of
     duplicating every creditor.
+
+    `reparsed` carries the matters that were read to a conclusion this run,
+    including those that yielded nothing. Without it a re-parse that correctly
+    drops every row for a matter leaves the old rows in place: the fix to the
+    parser lands, and the bad creditor stays in the workbook. That is exactly
+    what happened to "Report for NAVIQ GROUP PTY LTD (Administrator
+    Appointed)", which survived the run that stopped the parser producing it.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = json.loads(path.read_text()) if path.exists() else []
-    touched = {c.matter_id for c in creditors}
+    touched = {c.matter_id for c in creditors} | (reparsed or set())
     kept = [row for row in existing if row.get("matter_id") not in touched]
     kept.extend(c.to_dict() for c in creditors)
     path.write_text(json.dumps(kept, indent=2, ensure_ascii=False) + "\n")
@@ -126,6 +143,7 @@ def cmd_watch(args: argparse.Namespace) -> int:
     settings = config.settings()
     client = Client()
     creditors: list[Creditor] = []
+    reparsed: set[str] = set()
     harvested = no_documents = 0
 
     # --- Worrells: harvest the published listing directly -------------------
@@ -135,6 +153,8 @@ def cmd_watch(args: argparse.Namespace) -> int:
         record.update(updates)
         record["last_checked"] = date.today().isoformat()
         record["document_status"] = status
+        if status in CONCLUSIVE:
+            reparsed.add(record["matter_id"])
         if status == "ok":
             # Carry the debtor's sector onto every creditor row. Without this
             # the Worrells leg loses the industry entirely, and "Debtor
@@ -173,8 +193,8 @@ def cmd_watch(args: argparse.Namespace) -> int:
             record["form_5604_doc_number"] = matter.form_5604_doc_number
         asic_checked += 1
 
-    if creditors:
-        _append_creditors(Path(args.out), creditors)
+    if creditors or reparsed:
+        _append_creditors(Path(args.out), creditors, reparsed)
 
     ledger.save_matters(known)
     queue = ledger.queue_for_purchase(list(known.values()))
