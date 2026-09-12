@@ -111,6 +111,29 @@ COLUMN_HEADER = re.compile(
     re.IGNORECASE,
 )
 
+# Header words, for cells that are made of nothing else. A two-amount table
+# ("ROCAP / Identified") splits its header across cells, so fragments like
+# "ROCAP /" and a bare "Identified" reach the row buffer and become the first
+# creditor's name. Observed live: ten rows across nine insolvencies, one of
+# them carrying $160,000 - a prospect named "Identified" owed $160k would have
+# reached the sales team.
+#
+# This matches only cells made ENTIRELY of header vocabulary, so a real
+# company whose name happens to contain one of these words is unaffected.
+HEADER_WORDS = {
+    "rocap", "identified", "estimated", "claimed", "stated", "amount",
+    "amounts", "owed", "name", "names", "address", "related", "party",
+    "parties", "creditor", "creditors", "type", "return", "balance", "total",
+    "subtotal", "value", "debt", "claim", "yes", "no", "and", "or", "of",
+}
+_WORDS = re.compile(r"[A-Za-z]+")
+
+
+def is_header_fragment(cell: str) -> bool:
+    """True when a cell is made of nothing but column-header vocabulary."""
+    words = _WORDS.findall(cell)
+    return bool(words) and all(word.lower() in HEADER_WORDS for word in words)
+
 LEADERS = re.compile(r"\.{4,}")
 AMOUNT_RE = re.compile(r"\$?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})\s*$")
 RELATED_RE = re.compile(r"\b(yes|no)\b", re.IGNORECASE)
@@ -217,6 +240,7 @@ def parse_cells(
             cells = [
                 c for c in cells
                 if not COLUMN_HEADER.match(c)
+                and not is_header_fragment(c)
                 and not PAGE_FURNITURE.match(c)
                 and not any(h in c.lower() for h in HEADINGS)
                 and not ANNEXURE.match(c)

@@ -1025,3 +1025,50 @@ class TestAsicCheckOrder:
     def test_missing_fields_do_not_raise(self):
         # Matters collected before a field existed, or with a blank type.
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
+
+
+class TestHeaderFragments:
+    """Column headers must never become creditors.
+
+    Every string here came out of the first live pipeline run over 29 real
+    insolvencies. A two-amount table ("ROCAP / Identified") splits its header
+    across cells, so fragments reached the row buffer and became creditor
+    names: ten rows across nine insolvencies, one carrying $160,000. A
+    prospect named "Identified" owed $160k would have reached the sales team.
+    """
+
+    @pytest.mark.parametrize(
+        "cell",
+        ["ROCAP / Identified", "Identified", "ROCAP /", "Estimated Amount",
+         "Related Party", "Amount Owed", "Creditor Name", "Total", "Yes", "No"],
+    )
+    def test_header_vocabulary_is_rejected(self, cell):
+        assert creditor_tables.is_header_fragment(cell)
+
+    @pytest.mark.parametrize(
+        "name",
+        # All real creditors from the live run. The first three start with
+        # "No" and the rest contain a header word - a cruder rule would have
+        # deleted genuine companies.
+        ["No Splash Concrete Pumping", "NOBLE INSUL & CO Pty Ltd",
+         "Noteg Pty Ltd", "Realtime Flowers", "Lynch Group (Flower HQ)",
+         "Coast Cafe Supplies", "Petal Peddlers", "Square Australia Pty Ltd",
+         "Identified Pty Ltd", "Total Tools Pty Ltd", "Balance Nutrition Pty Ltd"],
+    )
+    def test_real_companies_survive(self, name):
+        assert not creditor_tables.is_header_fragment(name)
+
+    def test_a_two_amount_table_does_not_leak_its_header(self):
+        page = "\n".join([
+            "Listing of known creditors",
+            "Name", "Address", "Related Party", "ROCAP /", "Identified",
+            "Coast Cafe Supplies", "12 Trade St Brisbane QLD", "No",
+            "406.00", "406.00",
+            "Realtime Flowers", "9 Market Rd Sydney NSW", "No",
+            "110,100.18", "110,100.18",
+        ])
+        rows = creditor_tables.parse_cells(
+            page.splitlines(), "Kor Enterprise Pty Ltd", "m1", "worrells")
+        assert [r.creditor_name for r in rows] == [
+            "Coast Cafe Supplies", "Realtime Flowers"]
+        assert rows[0].amount_aud == 406.0
