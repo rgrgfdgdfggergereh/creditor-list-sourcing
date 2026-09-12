@@ -8,208 +8,6 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
-      "Hospitality",
-      "Unknown"
-    ],
-    "display_name": "Party",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 7,
-    "matters": [
-      {
-        "amount_aud": 30000.0,
-        "amount_known": true,
-        "debtor_company": "MONT. NOMINEES PTY. LTD.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "1013feaa7e6ba1ec",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      },
-      {
-        "amount_aud": 1600.0,
-        "amount_known": true,
-        "debtor_company": "TOWM FOOD PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "10f086672361672c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 69728.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      },
-      {
-        "amount_aud": 250000.0,
-        "amount_known": true,
-        "debtor_company": "Elihu Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "12f3229f95aa273c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "ROLLS PRINTING PTY. LTD.",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1a68c8ce8e78bebc",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 85819.56,
-        "amount_known": true,
-        "debtor_company": "HELKOLD PTY. LIMITED",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1f1f9e36b98fb54d",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 3013.9,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "party",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 100,
-    "state": null,
-    "total_exposure_aud": 440161.46,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction",
-      "Hospitality",
-      "Other",
-      "Professional Services",
-      "Unknown"
-    ],
-    "display_name": "Identified",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 7,
-    "matters": [
-      {
-        "amount_aud": 1018.0,
-        "amount_known": true,
-        "debtor_company": "J & J Hair Studio Pty Ltd",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "083ce36acd940d45",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "FRONTLINE TRADES SOLUTIONS PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1126f8fcdbbdf105",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 160000.0,
-        "amount_known": true,
-        "debtor_company": "Soulis Excavation & Drainage Pty. Limited",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "141a9e5d3d06a422",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "Airgonomics Pty Ltd",
-        "debtor_industry": "Professional Services",
-        "debtor_state": null,
-        "matter_id": "1b5b5a8ea9be583b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "McEwan Concreting Pty. Limited",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "227367409a047880",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 427.0,
-        "amount_known": true,
-        "debtor_company": "Deluca Restaurant Pty. Ltd.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "257ebdb90402c468",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "identified",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 100,
-    "state": null,
-    "total_exposure_aud": 161445.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction",
       "Other",
       "Unknown"
     ],
@@ -318,6 +116,55 @@
     "score": 71,
     "state": null,
     "total_exposure_aud": 45676.87,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Unknown"
+    ],
+    "display_name": "A.C.N. 603 303 126 PTY LTD",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 17888.47,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "a c n 603 303 126",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 67,
+    "state": null,
+    "total_exposure_aud": 17888.47,
     "website": null
   },
   {
@@ -794,6 +641,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Garry Foreman",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 303612.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "garry foreman",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 54,
+    "state": null,
+    "total_exposure_aud": 303612.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Dahlsens Building Centres",
@@ -1060,6 +945,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Shift",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 137716.13,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "shift",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 51,
+    "state": null,
+    "total_exposure_aud": 137716.13,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Trumark Group",
@@ -1278,44 +1201,6 @@
     "score": 49,
     "state": null,
     "total_exposure_aud": 98533.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Professional Services"
-    ],
-    "display_name": "Debt Amount",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 96122.6,
-        "amount_known": true,
-        "debtor_company": "Ellisco Pty Ltd",
-        "debtor_industry": "Professional Services",
-        "debtor_state": null,
-        "matter_id": "20d7d45d3d22fc0c",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "debt amount",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 49,
-    "state": null,
-    "total_exposure_aud": 96122.6,
     "website": null
   },
   {
@@ -1564,6 +1449,44 @@
     "score": 48,
     "state": null,
     "total_exposure_aud": 75000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "American Express",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 69728.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "american express",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 48,
+    "state": null,
+    "total_exposure_aud": 69728.0,
     "website": null
   },
   {
@@ -2954,44 +2877,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "A.C.N. 603 303 126 PTY LTD",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 17888.47,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "a c n 603 303 126",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 17888.47,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Cal Bail",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -3664,44 +3549,6 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10091.45,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "ROCAP / Identified",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 9962.18,
-        "amount_known": true,
-        "debtor_company": "Patchworx Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "02678f0101caf513",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "rocap identified",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 39,
-    "state": null,
-    "total_exposure_aud": 9962.18,
     "website": null
   },
   {
@@ -4786,6 +4633,247 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Flexikitch Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "flexikitch",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Hospitality",
+      "Other",
+      "Professional Services",
+      "Retail/Wholesale",
+      "Unknown"
+    ],
+    "display_name": "Australian Taxation Office (Insolvencies)",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 17,
+    "matters": [
+      {
+        "amount_aud": 223694.0,
+        "amount_known": true,
+        "debtor_company": "Patchworx Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "02678f0101caf513",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 92703.65,
+        "amount_known": true,
+        "debtor_company": "J & J Hair Studio Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "083ce36acd940d45",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 30000.0,
+        "amount_known": true,
+        "debtor_company": "MONT. NOMINEES PTY. LTD.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "1013feaa7e6ba1ec",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 98533.0,
+        "amount_known": true,
+        "debtor_company": "TOWM FOOD PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "10f086672361672c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "BEAUTY CAFE PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "1193a065c762a0f4",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 247183.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 160000.0,
+        "amount_known": true,
+        "debtor_company": "Soulis Excavation & Drainage Pty. Limited",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "141a9e5d3d06a422",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "ROLLS PRINTING PTY. LTD.",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1a68c8ce8e78bebc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "Airgonomics Pty Ltd",
+        "debtor_industry": "Professional Services",
+        "debtor_state": null,
+        "matter_id": "1b5b5a8ea9be583b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 85819.56,
+        "amount_known": true,
+        "debtor_company": "HELKOLD PTY. LIMITED",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1f1f9e36b98fb54d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 96122.6,
+        "amount_known": true,
+        "debtor_company": "Ellisco Pty Ltd",
+        "debtor_industry": "Professional Services",
+        "debtor_state": null,
+        "matter_id": "20d7d45d3d22fc0c",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "McEwan Concreting Pty. Limited",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "227367409a047880",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "23cf075b7e9622a6",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 216413.02,
+        "amount_known": true,
+        "debtor_company": "Deluca Restaurant Pty. Ltd.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 350655.76,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "australian taxation office insolvencies",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 100,
+    "state": null,
+    "total_exposure_aud": 1601124.59,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction",
       "Hospitality",
       "Unknown"
@@ -4847,134 +4935,13 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
-      "Hospitality",
-      "Other",
-      "Unknown"
-    ],
-    "display_name": "Australian Taxation Office (Insolvencies)",
-    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
-    "exposure_known": true,
-    "matter_count": 9,
-    "matters": [
-      {
-        "amount_aud": 223694.0,
-        "amount_known": true,
-        "debtor_company": "Patchworx Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "02678f0101caf513",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 92703.65,
-        "amount_known": true,
-        "debtor_company": "J & J Hair Studio Pty Ltd",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "083ce36acd940d45",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 98533.0,
-        "amount_known": true,
-        "debtor_company": "TOWM FOOD PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "10f086672361672c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "BEAUTY CAFE PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "1193a065c762a0f4",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 247183.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "McEwan Concreting Pty. Limited",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "227367409a047880",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "23cf075b7e9622a6",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 216413.02,
-        "amount_known": true,
-        "debtor_company": "Deluca Restaurant Pty. Ltd.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "257ebdb90402c468",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 350655.76,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "australian taxation office insolvencies",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 100,
-    "state": null,
-    "total_exposure_aud": 1229182.43,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction",
       "Other",
       "Retail/Wholesale"
     ],
     "display_name": "Australian Taxation Office",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 4,
+    "matter_count": 5,
     "matters": [
       {
         "amount_aud": 178000.0,
@@ -4983,6 +4950,16 @@
         "debtor_industry": "Other",
         "debtor_state": null,
         "matter_id": "0b6d9c9f669407ed",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "FRONTLINE TRADES SOLUTIONS PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1126f8fcdbbdf105",
         "source": "worrells",
         "source_document": "Initial Advice"
       },
@@ -5057,15 +5034,75 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality",
+      "Other"
+    ],
+    "display_name": "ATO (Insolvency) Qld",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 11249.0,
+        "amount_known": true,
+        "debtor_company": "Complete Freedom Property Investment Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "074b122e004907ce",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 485577.08,
+        "amount_known": true,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 250000.0,
+        "amount_known": true,
+        "debtor_company": "Elihu Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "12f3229f95aa273c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "ato insolvency qld",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 100,
+    "state": null,
+    "total_exposure_aud": 746826.08,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction",
       "Hospitality",
       "Professional Services",
+      "Retail/Wholesale",
       "Unknown"
     ],
     "display_name": "Australian Taxation Office (Super Guarantee)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 6,
+    "matter_count": 7,
     "matters": [
       {
         "amount_aud": 121000.0,
@@ -5126,6 +5163,16 @@
         "matter_id": "269805005d868646",
         "source": "worrells",
         "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 32402.96,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office super guarantee",
@@ -5137,7 +5184,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 421723.15,
+    "total_exposure_aud": 454126.11,
     "website": null
   },
   {
@@ -5157,7 +5204,7 @@
     "display_name": "Revenue NSW",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 6,
+    "matter_count": 7,
     "matters": [
       {
         "amount_aud": 20945.0,
@@ -5216,6 +5263,16 @@
         "debtor_industry": "Hospitality",
         "debtor_state": null,
         "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
         "source": "worrells",
         "source_document": "Initial Advice"
       }
@@ -5300,55 +5357,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality",
-      "Other"
-    ],
-    "display_name": "ATO (Insolvency) Qld",
-    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 11249.0,
-        "amount_known": true,
-        "debtor_company": "Complete Freedom Property Investment Pty Ltd",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "074b122e004907ce",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 485577.08,
-        "amount_known": true,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "ato insolvency qld",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 81,
-    "state": null,
-    "total_exposure_aud": 496826.08,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction",
       "Hospitality"
     ],
@@ -5388,6 +5396,126 @@
     "score": 78,
     "state": null,
     "total_exposure_aud": 250967.11,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Unknown"
+    ],
+    "display_name": "Commonwealth Bank",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 194842.0,
+        "amount_known": true,
+        "debtor_company": "Patchworx Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "02678f0101caf513",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "commonwealth bank",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 77,
+    "state": null,
+    "total_exposure_aud": 194842.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Hospitality",
+      "Retail/Wholesale",
+      "Unknown"
+    ],
+    "display_name": "PEPPER ASSET FINANCE PTY LTD",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 4,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "pepper asset finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 75,
+    "state": null,
+    "total_exposure_aud": 0.0,
     "website": null
   },
   {
@@ -5496,6 +5624,55 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction",
+      "Hospitality"
+    ],
+    "display_name": "AGL",
+    "disqualified_reason": "Exposure $2,201 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 1600.0,
+        "amount_known": true,
+        "debtor_company": "TOWM FOOD PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "10f086672361672c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 601.02,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "agl",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 58,
+    "state": null,
+    "total_exposure_aud": 2201.02,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Capital JDZ",
@@ -5534,6 +5711,55 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality",
+      "Other"
+    ],
+    "display_name": "ASIC",
+    "disqualified_reason": "Exposure $1,445 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 1018.0,
+        "amount_known": true,
+        "debtor_company": "J & J Hair Studio Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "083ce36acd940d45",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 427.0,
+        "amount_known": true,
+        "debtor_company": "Deluca Restaurant Pty. Ltd.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "asic",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 56,
+    "state": null,
+    "total_exposure_aud": 1445.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "St George Bank",
@@ -5562,44 +5788,6 @@
     "score": 53,
     "state": null,
     "total_exposure_aud": 224847.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Commonwealth Bank",
-    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 194842.0,
-        "amount_known": true,
-        "debtor_company": "Patchworx Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "02678f0101caf513",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "commonwealth bank",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 52,
-    "state": null,
-    "total_exposure_aud": 194842.0,
     "website": null
   },
   {
@@ -6038,6 +6226,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Allianz Australia Workers Compensation",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 9962.18,
+        "amount_known": true,
+        "debtor_company": "Patchworx Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "02678f0101caf513",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "allianz workers compensation",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 9962.18,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Mount Beauty Electricity",
@@ -6066,6 +6292,44 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 7707.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Hayden Real Estate",
+    "disqualified_reason": "Landlord or utility - not a trade receivable",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7472.84,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "hayden real estate",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7472.84,
     "website": null
   },
   {
@@ -6332,6 +6596,44 @@
     "score": 36,
     "state": null,
     "total_exposure_aud": 4525.92,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "KDF Bookkeeping",
+    "disqualified_reason": "Exposure $4,512 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 4512.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "kdf bookkeeping",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 4512.5,
     "website": null
   },
   {
@@ -7054,6 +7356,82 @@
     "score": 34,
     "state": null,
     "total_exposure_aud": 3107.07,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Market Grocer",
+    "disqualified_reason": "Exposure $3,092 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3091.54,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "market grocer",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 3091.54,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "AB Morison conveyancing",
+    "disqualified_reason": "Exposure $3,014 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3013.9,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "ab morison conveyancing",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 3013.9,
     "website": null
   },
   {
@@ -7976,6 +8354,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Otway Blueberries",
+    "disqualified_reason": "Exposure $2,200 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2200.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "otway blueberries",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2200.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "PFD Food Services Pty Ltd",
@@ -8204,6 +8620,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Mc Henry Accounting",
+    "disqualified_reason": "Exposure $1,928 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1928.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "mc henry accounting",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1928.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Principal Finance Pty Ltd T/as Arteva",
@@ -8270,6 +8724,82 @@
     "score": 32,
     "state": null,
     "total_exposure_aud": 1870.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Bellarine Fresh Fruit & Veg",
+    "disqualified_reason": "Exposure $1,842 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1841.75,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "bellarine fresh fruit veg",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1841.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Allianz",
+    "disqualified_reason": "Exposure $1,838 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1838.1,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "allianz",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1838.1,
     "website": null
   },
   {
@@ -8422,6 +8952,44 @@
     "score": 32,
     "state": null,
     "total_exposure_aud": 1762.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Keans Free Range Eggs",
+    "disqualified_reason": "Exposure $1,722 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1722.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "keans free range eggs",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1722.0,
     "website": null
   },
   {
@@ -8850,6 +9418,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Hello Coffee",
+    "disqualified_reason": "Exposure $1,290 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1290.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "hello coffee",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1290.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Frankston City Council",
@@ -9118,6 +9724,44 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
+    "display_name": "Spiral Foods Pty Ltd",
+    "disqualified_reason": "Exposure $1,175 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1174.63,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "spiral foods",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1174.63,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
     "display_name": "Gary and Nieske Sanchez",
     "disqualified_reason": "Exposure $1,151 is under the $5,000 minimum",
     "exposure_known": true,
@@ -9144,6 +9788,44 @@
     "score": 30,
     "state": null,
     "total_exposure_aud": 1151.3,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Arc Cafe",
+    "disqualified_reason": "Exposure $1,128 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1128.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "arc cafe",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1128.5,
     "website": null
   },
   {
@@ -9458,6 +10140,82 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Geelong Honey Pty Ltd",
+    "disqualified_reason": "Exposure $936 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 935.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "geelong honey",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 935.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Geelong Confectionery",
+    "disqualified_reason": "Exposure $907 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 906.77,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "geelong confectionery",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 906.77,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Jarek Durys",
@@ -9562,6 +10320,44 @@
     "score": 29,
     "state": null,
     "total_exposure_aud": 808.2,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Happy Green",
+    "disqualified_reason": "Exposure $794 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 793.93,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "happy green",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 28,
+    "state": null,
+    "total_exposure_aud": 793.93,
     "website": null
   },
   {
@@ -10066,25 +10862,25 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Building/Construction"
+      "Retail/Wholesale"
     ],
-    "display_name": "AGL",
-    "disqualified_reason": "Exposure $601 is under the $5,000 minimum",
+    "display_name": "Raw Materials",
+    "disqualified_reason": "Exposure $605 is under the $5,000 minimum",
     "exposure_known": true,
     "matter_count": 1,
     "matters": [
       {
-        "amount_aud": 601.02,
+        "amount_aud": 604.55,
         "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
         "debtor_state": null,
-        "matter_id": "269805005d868646",
+        "matter_id": "295ec8a099e40a2b",
         "source": "worrells",
-        "source_document": "Initial advice"
+        "source_document": "Initial Advice"
       }
     ],
-    "name_key": "agl",
+    "name_key": "raw materials",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -10093,7 +10889,45 @@
     "qualified": false,
     "score": 27,
     "state": null,
-    "total_exposure_aud": 601.02,
+    "total_exposure_aud": 604.55,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Belle Daffy",
+    "disqualified_reason": "Exposure $603 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 603.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "belle daffy",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 603.0,
     "website": null
   },
   {
@@ -10132,6 +10966,82 @@
     "score": 27,
     "state": null,
     "total_exposure_aud": 600.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "M & J Nolan Pty Ltd ATF Nolan Family Trust",
+    "disqualified_reason": "Exposure $554 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 554.27,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "m j nolan atf nolan family trust",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 554.27,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Harrison Stanly",
+    "disqualified_reason": "Exposure $548 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 548.31,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "harrison stanly",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 548.31,
     "website": null
   },
   {
@@ -10208,6 +11118,82 @@
     "score": 27,
     "state": null,
     "total_exposure_aud": 524.55,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Pranay Singh",
+    "disqualified_reason": "Exposure $517 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 517.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "pranay singh",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 517.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Tara Cunningham",
+    "disqualified_reason": "Exposure $421 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 421.48,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "tara cunningham",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 26,
+    "state": null,
+    "total_exposure_aud": 421.48,
     "website": null
   },
   {
@@ -10486,6 +11472,44 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
+    "display_name": "Mako Air",
+    "disqualified_reason": "Exposure $346 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 346.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "mako air",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 346.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
     "display_name": "Kerryanne Toyer",
     "disqualified_reason": "Exposure $341 is under the $5,000 minimum",
     "exposure_known": true,
@@ -10588,55 +11612,6 @@
     "score": 25,
     "state": null,
     "total_exposure_aud": 330.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction",
-      "Hospitality"
-    ],
-    "display_name": "PEPPER ASSET FINANCE PTY LTD",
-    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "pepper asset finance",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 25,
-    "state": null,
-    "total_exposure_aud": 0.0,
     "website": null
   },
   {
@@ -10859,6 +11834,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Slice Alley Pizzas",
+    "disqualified_reason": "Exposure $276 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 275.7,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "slice alley pizzas",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 24,
+    "state": null,
+    "total_exposure_aud": 275.7,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Swansea Lakeview Laundrette",
@@ -10963,6 +11976,82 @@
     "score": 24,
     "state": null,
     "total_exposure_aud": 259.78,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Gulli Food Distributors",
+    "disqualified_reason": "Exposure $216 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 216.07,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "gulli food distributors",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 23,
+    "state": null,
+    "total_exposure_aud": 216.07,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Torino Food Service Pty Ltd",
+    "disqualified_reason": "Exposure $216 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 216.07,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "torino food service",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 23,
+    "state": null,
+    "total_exposure_aud": 216.07,
     "website": null
   },
   {
@@ -11153,6 +12242,44 @@
     "score": 22,
     "state": null,
     "total_exposure_aud": 185.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Supermarketing",
+    "disqualified_reason": "Exposure $171 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 171.21,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "supermarketing",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 22,
+    "state": null,
+    "total_exposure_aud": 171.21,
     "website": null
   },
   {
@@ -11507,6 +12634,44 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
+    "display_name": "Lisa Cummins",
+    "disqualified_reason": "Exposure $86 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 85.5,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "lisa cummins",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 19,
+    "state": null,
+    "total_exposure_aud": 85.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
     "display_name": "CRT Network Solutions",
     "disqualified_reason": "Exposure $54 is under the $5,000 minimum",
     "exposure_known": true,
@@ -11676,6 +12841,44 @@
       }
     ],
     "name_key": "bmw finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "AMERICOLD LOGISTICS LIMITED",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "americold logistics",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -12341,6 +13544,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Acrow Formwork And Scaffolding Pty Ltd",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "McEwan Concreting Pty. Limited",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "227367409a047880",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "acrow formwork scaffolding",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Barry Daniels and Laura Daniels C/-",
@@ -12901,6 +14142,538 @@
     "score": 0,
     "state": null,
     "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "AZORA ASSET FINANCE PTY LTD",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "azora asset finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Fair Entitlements Guarantee",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "fair entitlements guarantee",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "FLEXICOMMERCIAL PTY LTD",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "flexicommercial",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "IQumulate Premium Funding Pty Ltd",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "iqumulate premium funding",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Jackson Windus",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "jackson windus",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Matthew Job",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "matthew job",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "NISSAN FINANCIAL SERVICES",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "nissan financial services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Sam Cronin",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "sam cronin",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "SNAP-ON TOOLS (AUSTRALIA) PTY.",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "snap on tools",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "William Longhurst 002",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "william longhurst 002",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Forbes Engineering Pty Ltd",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "forbes engineering",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Matthew Cummins",
+    "disqualified_reason": "Exposure $0 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "matthew cummins",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Morris Finance Ltd",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "morris finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Resimac Asset Finance Pty Limited",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "resimac asset finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
     "website": null
   }
 ]
