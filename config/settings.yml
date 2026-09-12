@@ -36,6 +36,13 @@ sources:
     # A 5604 is due within 10 business days of the CVL resolution, but is often
     # lodged and imaged later. Keep re-checking a matter for this long.
     watch_days: 120
+    # Cap ASIC Connect lookups per run. The 60-day window tracks ~1,600 open
+    # matters, so an uncapped pass is 1,600 requests at 400ms - eleven minutes
+    # that grows every week until it blows the job timeout, and a lot of load
+    # on ASIC for no added yield. Matters rotate through the cap by priority
+    # (see check_order), so nothing is starved; a 5604 lodged this week is
+    # found next week at the latest.
+    max_matters_per_run: 150
   asic_stats:
     # PRIMARY named-company feed: the "Data set" sheet lists every company that
     # entered external administration, one row per appointment. (The Series 1/2

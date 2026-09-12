@@ -20,7 +20,7 @@ from creditor_sourcing import aggregate, ledger, qualify
 from creditor_sourcing.models import Creditor, Matter, normalise_name
 from creditor_sourcing.parse import creditor_tables
 from creditor_sourcing.parse.creditor_tables import parse_lines
-from creditor_sourcing.sources import asic_dataset, worrells
+from creditor_sourcing.sources import asic_connect, asic_dataset, worrells
 from creditor_sourcing.sources.worrells import details_view_url
 
 
@@ -962,3 +962,66 @@ class TestCliArgumentPositions:
     def test_the_stage_is_still_required(self):
         with pytest.raises(SystemExit):
             self.parse(["--verbose"])
+
+
+class TestAsicCheckOrder:
+    """How a capped run spends its ASIC Connect requests.
+
+    The 60-day window tracks ~1,600 open matters and grows every week. An
+    uncapped pass is 1,600 requests at 400ms — eleven minutes that eventually
+    outlasts the job timeout, most of it spent on appointment types that never
+    produce a Form 5604.
+    """
+
+    @staticmethod
+    def record(name, kind, appointed, checked=None):
+        return {"company_name": name, "appointment_type": kind,
+                "appointment_date": appointed, "last_checked": checked}
+
+    def ordered(self, records):
+        return [r["company_name"] for r in asic_connect.check_order(records)]
+
+    def test_cvls_come_before_other_appointment_types(self):
+        # Only a creditors' voluntary liquidation reliably produces a 5604.
+        records = [
+            self.record("court", "Court liquidation", "2026-09-05"),
+            self.record("cvl", "Creditors' voluntary liquidation", "2026-09-01"),
+        ]
+        assert self.ordered(records)[0] == "cvl"
+
+    def test_never_checked_comes_before_already_checked(self):
+        # Otherwise a capped run re-asks about the same matters every week and
+        # never reaches the backlog behind them.
+        records = [
+            self.record("checked", "Creditors' voluntary liquidation",
+                        "2026-09-05", "2026-09-11"),
+            self.record("fresh", "Creditors' voluntary liquidation", "2026-09-01"),
+        ]
+        assert self.ordered(records)[0] == "fresh"
+
+    def test_newest_appointment_first_within_a_tier(self):
+        # A recent CVL is the most likely to have just lodged its 5604.
+        records = [
+            self.record("older", "Creditors' voluntary liquidation", "2026-07-15"),
+            self.record("newer", "Creditors' voluntary liquidation", "2026-09-01"),
+        ]
+        assert self.ordered(records) == ["newer", "older"]
+
+    def test_the_least_recently_checked_rotates_to_the_front(self):
+        records = [
+            self.record("yesterday", "Creditors' voluntary liquidation",
+                        "2026-09-05", "2026-09-11"),
+            self.record("last month", "Creditors' voluntary liquidation",
+                        "2026-09-05", "2026-08-11"),
+        ]
+        assert self.ordered(records)[0] == "last month"
+
+    def test_nothing_is_dropped_by_ordering(self):
+        records = [
+            self.record(f"c{i}", "Court liquidation", "2026-09-05") for i in range(5)
+        ]
+        assert len(asic_connect.check_order(records)) == 5
+
+    def test_missing_fields_do_not_raise(self):
+        # Matters collected before a field existed, or with a blank type.
+        assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1

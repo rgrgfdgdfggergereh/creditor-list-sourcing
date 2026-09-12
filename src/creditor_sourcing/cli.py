@@ -150,7 +150,16 @@ def cmd_watch(args: argparse.Namespace) -> int:
             no_documents += 1
 
     # --- ASIC: free detection now, paid purchase later ----------------------
-    for record in asic_open[: args.limit] if args.limit else asic_open:
+    # Capped and prioritised: the open set is ~1,600 matters and grows weekly,
+    # so an uncapped pass would eventually outlast the job timeout while
+    # spending most of its requests on appointment types that never produce a
+    # 5604. check_order puts the likely ones and the least recently checked
+    # first, so the cap rotates rather than starves.
+    asic_cap = args.limit or settings["sources"]["asic_connect"].get(
+        "max_matters_per_run", 150
+    )
+    asic_checked = 0
+    for record in asic_connect.check_order(asic_open)[:asic_cap]:
         matter = Matter(
             source=record["source"],
             company_name=record["company_name"],
@@ -162,6 +171,7 @@ def cmd_watch(args: argparse.Namespace) -> int:
             record["form_5604_lodged"] = True
             record["form_5604_date"] = matter.form_5604_date
             record["form_5604_doc_number"] = matter.form_5604_doc_number
+        asic_checked += 1
 
     if creditors:
         _append_creditors(Path(args.out), creditors)
@@ -171,9 +181,16 @@ def cmd_watch(args: argparse.Namespace) -> int:
     ledger.save_queue(queue)
     log.info(
         "Watch: %d Worrells matters harvested (%d creditors), %d not lodged yet; "
-        "%d ASIC documents queued for purchase",
-        harvested, len(creditors), no_documents, len(queue),
+        "%d of %d open ASIC matters checked; %d documents queued for purchase",
+        harvested, len(creditors), no_documents,
+        asic_checked, len(asic_open), len(queue),
     )
+    if asic_checked < len(asic_open):
+        log.info(
+            "ASIC backlog: %d matters not reached this run - they sort first "
+            "next week, so nothing is dropped",
+            len(asic_open) - asic_checked,
+        )
     return 0
 
 

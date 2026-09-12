@@ -23,6 +23,7 @@ from __future__ import annotations
 import logging
 import re
 from datetime import date, datetime
+from typing import Any
 
 from bs4 import BeautifulSoup
 
@@ -97,6 +98,42 @@ def find_form_5604(html: str) -> dict[str, str] | None:
                 lodged = _parse_date(cell)
         return {"form": match.group(1), "doc_number": doc_number or "", "date": lodged or ""}
     return None
+
+
+# Only a creditors' voluntary liquidation reliably produces a Form 5604 - it
+# is 47.3% of appointments and the form is mandatory within 10 business days
+# of the resolution. Court liquidations and administrations sometimes carry
+# creditor information on other forms, so they are checked, just later.
+LIKELY_5604 = ("creditors' voluntary", "creditors voluntary")
+
+
+def check_order(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Order open matters so a capped run spends its requests where they pay.
+
+    Three tiers, and the last one is what keeps the rotation fair:
+      1. Appointment types that actually produce a 5604, newest first - a
+         recent CVL is the most likely to have just lodged one.
+      2. Everything else, newest first.
+      3. Within each tier, matters never checked come before matters checked
+         recently, so a capped run works through the backlog instead of
+         re-asking about the same 150 companies every week.
+    """
+    def key(record: dict[str, Any]) -> tuple:
+        kind = (record.get("appointment_type") or "").lower()
+        likely = any(marker in kind for marker in LIKELY_5604)
+        return (
+            0 if likely else 1,
+            record.get("last_checked") or "",
+            # Newest appointment first within the same check age.
+            _invert(record.get("appointment_date") or ""),
+        )
+
+    return sorted(records, key=key)
+
+
+def _invert(date_text: str) -> str:
+    """Sort ISO dates descending inside an ascending sort key."""
+    return "".join(chr(0x10FFFD - ord(ch)) for ch in date_text)
 
 
 def check(matter: Matter, client: Client | None = None) -> Matter:
