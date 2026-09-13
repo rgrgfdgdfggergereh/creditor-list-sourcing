@@ -483,11 +483,74 @@ def diagnose_asic_connect() -> None:
      fixed before the ASIC half of the pipeline is worth anything.
 """)
 
+
+# --------------------------------------------------------------------------
+# ABN Lookup and IRIS - the route from a company to NCI's own limit history
+# --------------------------------------------------------------------------
+def diagnose_abn_and_iris() -> None:
+    heading("LEG 5 - ABN Lookup markup, and whether IRIS is reachable at all")
+    print("""
+  IRIS is searched by ABN, and the pipeline only has company names and ACNs.
+  So two things have to be true before "did NCI have limit activity on this
+  debtor" can sit next to a purchase candidate: ABN Lookup has to give up the
+  ABN for an ACN, and IRIS has to be reachable from wherever the job runs.
+
+  This checks both. It sends NO credentials and attempts no login - it only
+  asks what an unauthenticated request gets back.
+""")
+    client = Client()
+
+    print("  ABN Lookup - resolving an ACN to an ABN\n")
+    samples = [("683236259", "SUELL EARTHMOVING PTY LTD"),
+               ("626084008", "BREADROLL ENTERPRISES PTY LTD")]
+    for acn, name in samples:
+        url = f"https://abr.business.gov.au/Search/ResultsActive?SearchText={acn}"
+        try:
+            response = client.get(url)
+        except Exception as exc:  # noqa: BLE001
+            print(f"    {name}: {type(exc).__name__}: {str(exc)[:90]}")
+            continue
+        soup = BeautifulSoup(response.text, "lxml")
+        title = soup.title.get_text(strip=True) if soup.title else ""
+        print(f"    {name[:40]:<40} ACN {acn}")
+        print(f"      title={title[:66]!r}")
+        # The markup this parser will have to read. Print the shape of it
+        # rather than guessing selectors from memory.
+        for label in ("ABN", "Entity name", "ABN status", "Entity type"):
+            cell = soup.find("th", string=re.compile(label, re.I))
+            value = ""
+            if cell and cell.find_next("td"):
+                value = " ".join(cell.find_next("td").get_text(" ", strip=True).split())
+            print(f"      th {label!r:<16} -> {value[:56]!r}")
+        print()
+
+    print("  IRIS - unauthenticated reachability only, no credentials sent\n")
+    for url in ["https://iris.nci.com.au/index.html",
+                "https://iris.nci.com.au/"]:
+        try:
+            response = client.get(url)
+            soup = BeautifulSoup(response.text, "lxml")
+            title = soup.title.get_text(strip=True) if soup.title else ""
+            print(f"    {url}")
+            print(f"      -> HTTP {response.status_code}  {len(response.text):,} bytes"
+                  f"  title={title[:50]!r}")
+            print(f"         login page={looks_like_login(response.text)}  "
+                  f"final={response.url[:80]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"    {url}\n      -> {type(exc).__name__}: {str(exc)[:100]}")
+    print("""
+    Reachable-but-login means an automated IRIS lookup needs a credential
+    and NCI's say-so. Unreachable means the runner cannot see it at all and
+    the signal has to come from an export instead.
+""")
+
+
 LEGS = {
     "asic": diagnose_asic,
     "notices": diagnose_published_notices,
     "worrells": diagnose_worrells,
     "connect": diagnose_asic_connect,
+    "iris": diagnose_abn_and_iris,
 }
 
 
