@@ -168,6 +168,11 @@ def starts_like_a_name(text: str) -> bool:
     )
 
 
+# A trailing care-of marker is address text that bled into the name cell:
+# "Caves Beach Holdings Pty Ltd C/-" is not what the company is called, and
+# "Barry Daniels and Laura Daniels C/-" stopped reading as two people.
+CARE_OF_TAIL = re.compile(r"[\s,]*\bc/[-o]\s*$", re.IGNORECASE)
+
 LEADERS = re.compile(r"\.{4,}")
 AMOUNT_RE = re.compile(r"\$?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})\s*$")
 RELATED_RE = re.compile(r"\b(yes|no)\b", re.IGNORECASE)
@@ -335,7 +340,7 @@ def parse_cells(
                 and not ANNEXURE.match(c)
             ]
             if cells and amount is not None:
-                name = cells[0]
+                name = CARE_OF_TAIL.sub("", cells[0]).strip()
                 address = " ".join(cells[1:]) or None
                 if (
                     NAME_RE.search(name)
@@ -416,6 +421,7 @@ def parse_lines(
         if split and split.start() > 3:
             name, address = head[: split.start()].strip(), head[split.start():].strip()
 
+        name = CARE_OF_TAIL.sub("", name).strip()
         if len(name) < 3 or names_the_debtor(name, debtor_company):
             continue
         creditors.append(

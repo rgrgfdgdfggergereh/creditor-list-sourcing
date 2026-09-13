@@ -6,6 +6,9 @@ The rules are the ones agreed with the business:
   * existing NCI policyholder       -> drop (already a client)
   * not an arm's length trade supplier -> drop (statutory, employee, financier,
     landlord, adviser, insurer, related party)
+  * a person rather than a business -> drop (an individual creditor in an
+    insolvency is an employee, a director loan or a private lender; there is
+    no receivables ledger to insure)
   * already in Pipedrive            -> KEEP, and flag for a note on the
     existing organisation rather than a duplicate prospect
 
@@ -18,6 +21,7 @@ from __future__ import annotations
 import math
 import re
 from collections.abc import Iterable
+from typing import Any
 
 from rapidfuzz import fuzz, process
 
@@ -54,6 +58,73 @@ def non_trade_reason(creditor_name: str) -> tuple[str, str] | None:
         if pattern.search(creditor_name or ""):
             return category, reason
     return None
+
+
+
+# --- Person or business -----------------------------------------------------
+#
+# Individual creditors were about a quarter of the first qualified list, two of
+# them over $400,000. The documents carry no signal that separates them - one
+# row in 452 had the "Withheld due to privacy legislation" address - so the
+# only evidence is the name. config/individuals.yml holds the vocabulary and
+# the reasoning; this is deliberately one-sided, treating a name as a person
+# only when it carries no business signal at all.
+
+_ACRONYM = re.compile(r"^[A-Z]{2,}$")
+_INITIAL = re.compile(r"^[A-Z]\.?$")
+_WORDLIKE = re.compile(r"^[A-Za-z][A-Za-z'\-]*$")
+# "Barry Daniels and Laura Daniels C/-" - the care-of marker is address text
+# that bled into the name column.
+_CARE_OF = re.compile(r"\bc/[-o].*$", re.IGNORECASE)
+_JOINED = re.compile(r"\s+and\s+", re.IGNORECASE)
+
+_PEOPLE_CFG: dict[str, Any] | None = None
+
+
+def _people_config() -> dict[str, Any]:
+    global _PEOPLE_CFG
+    if _PEOPLE_CFG is None:
+        raw = config.individuals()
+        _PEOPLE_CFG = {
+            "titles": {t.lower() for t in raw.get("titles", [])},
+            "business_words": {w.lower() for w in raw.get("business_words", [])},
+            "keep": {normalise_name(k) for k in raw.get("keep", [])},
+        }
+    return _PEOPLE_CFG
+
+
+def looks_like_a_person(name: str, _depth: int = 0) -> bool:
+    """Is this creditor a natural person rather than a business?"""
+    cfg = _people_config()
+    if normalise_name(name) in cfg["keep"]:
+        return False
+
+    text = _CARE_OF.sub("", name or "").strip(" .,-")
+    if not text or any(ch.isdigit() for ch in text) or "&" in text:
+        return False
+
+    tokens = text.split()
+    if tokens and tokens[0].lower().strip(".") in cfg["titles"]:
+        return True
+
+    # Two people on one row: "Barry Daniels and Laura Daniels". Only one level
+    # deep, so a business name containing "and" cannot recurse indefinitely.
+    if _depth == 0:
+        parts = [p for p in _JOINED.split(text) if p.strip()]
+        if len(parts) > 1:
+            return all(looks_like_a_person(part, 1) for part in parts)
+
+    if not 2 <= len(tokens) <= 4:
+        return False
+    for token in tokens:
+        bare = token.strip(".,")
+        if _INITIAL.match(bare):
+            continue
+        if not _WORDLIKE.match(bare) or _ACRONYM.match(bare):
+            return False
+        if not bare[:1].isupper() or bare.lower() in cfg["business_words"]:
+            return False
+    return True
 
 
 def policylist_match(name: str, policy_keys: dict[str, str]) -> str | None:
@@ -131,6 +202,16 @@ def apply(
                 prospect.disqualified_reason = hit[1]
                 out.append(prospect)
                 continue
+
+        if cfg.get("drop_individuals", True) and looks_like_a_person(
+            prospect.display_name
+        ):
+            prospect.qualified = False
+            prospect.disqualified_reason = (
+                "Individual, not a business - no receivables ledger to insure"
+            )
+            out.append(prospect)
+            continue
 
         if cfg["drop_policylist_clients"]:
             match = policylist_match(prospect.display_name, policy_keys)

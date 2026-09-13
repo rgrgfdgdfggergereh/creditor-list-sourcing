@@ -87,6 +87,10 @@ qualify:
   drop_policylist_clients: true
   # Companies already in Pipedrive are KEPT. They get a note on the existing
   # organisation instead of being re-prospected as new.
+  # An individual creditor is an employee, a director loan or a private
+  # lender - never a business with a receivables ledger. See
+  # config/individuals.yml for how a person is told from a business.
+  drop_individuals: true
   drop_pipedrive_matches: false
   # Non-trade creditors are dropped - they do not buy trade credit insurance
   # on this exposure. Patterns live in config/exclusions.yml.

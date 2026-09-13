@@ -27,6 +27,8 @@ statutory:
     - services australia
     - centrelink
     - fair work
+    - fair entitlements guarantee
+    - "\\bfeg\\b"
     - australian securities and investments commission
     - "\\basic\\b"
     - council$

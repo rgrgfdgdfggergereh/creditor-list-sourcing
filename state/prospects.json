@@ -45,44 +45,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Nadia Montesano",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 711946.0,
-        "amount_known": true,
-        "debtor_company": "MONT. NOMINEES PTY. LTD.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "1013feaa7e6ba1ec",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "nadia montesano",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 58,
-    "state": null,
-    "total_exposure_aud": 711946.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "MBS Architectural",
@@ -169,44 +131,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Chad Aaron Gardiner",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 415345.98,
-        "amount_known": true,
-        "debtor_company": "Deluca Restaurant Pty. Ltd.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "257ebdb90402c468",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "chad aaron gardiner",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 56,
-    "state": null,
-    "total_exposure_aud": 415345.98,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "RAR Developments",
@@ -235,44 +159,6 @@
     "score": 56,
     "state": null,
     "total_exposure_aud": 404915.06,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Maisie Sansovini",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 360000.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "maisie sansovini",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 55,
-    "state": null,
-    "total_exposure_aud": 360000.0,
     "website": null
   },
   {
@@ -359,44 +245,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Garry Foreman",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 303612.0,
-        "amount_known": true,
-        "debtor_company": "Uforic Enterprises Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "295ec8a099e40a2b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "garry foreman",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 54,
-    "state": null,
-    "total_exposure_aud": 303612.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Dahlsens Building Centres",
@@ -425,44 +273,6 @@
     "score": 54,
     "state": null,
     "total_exposure_aud": 299431.42,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Barry Daniels and Laura Daniels C/-",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 203579.28,
-        "amount_known": true,
-        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "23cf075b7e9622a6",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "barry daniels laura daniels c",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 53,
-    "state": null,
-    "total_exposure_aud": 203579.28,
     "website": null
   },
   {
@@ -767,44 +577,6 @@
     "score": 51,
     "state": null,
     "total_exposure_aud": 132300.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Jennifer Ann Taylor and Alan Taylor C/-",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 123517.25,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "jennifer ann taylor alan taylor c",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 50,
-    "state": null,
-    "total_exposure_aud": 123517.25,
     "website": null
   },
   {
@@ -2355,82 +2127,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Lisa Martin",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 20433.16,
-        "amount_known": true,
-        "debtor_company": "Deluca Restaurant Pty. Ltd.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "257ebdb90402c468",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "lisa martin",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 43,
-    "state": null,
-    "total_exposure_aud": 20433.16,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Mick Buckley",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 19928.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "mick buckley",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 19928.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "DLK Advisory",
@@ -2459,82 +2155,6 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 19657.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Karen McIntosh",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 19317.42,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "karen mcintosh",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 19317.42,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Cal Bail",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 17722.48,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "cal bail",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 17722.48,
     "website": null
   },
   {
@@ -2611,82 +2231,6 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 16500.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Blagoja Stojanovski",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 16062.75,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "blagoja stojanovski",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 16062.75,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Martin Luczkowski",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 15671.45,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "martin luczkowski",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 41,
-    "state": null,
-    "total_exposure_aud": 15671.45,
     "website": null
   },
   {
@@ -2801,44 +2345,6 @@
     "score": 41,
     "state": null,
     "total_exposure_aud": 14427.95,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Kaine Hockey",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 13200.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "kaine hockey",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 41,
-    "state": null,
-    "total_exposure_aud": 13200.0,
     "website": null
   },
   {
@@ -3155,44 +2661,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Li Xiang Feng",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 10091.45,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "li xiang feng",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 40,
-    "state": null,
-    "total_exposure_aud": 10091.45,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Digital Horizons",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -3381,44 +2849,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Robert Bierman",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 8255.56,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "robert bierman",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 39,
-    "state": null,
-    "total_exposure_aud": 8255.56,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Other"
     ],
     "display_name": "Sasi Group",
@@ -3535,82 +2965,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Gabrielle Koster",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 7177.29,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "gabrielle koster",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 7177.29,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Ward Havens",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 7137.85,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "ward havens",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 7137.85,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Larnec Pty Ltd",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -3695,44 +3049,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Jason Haynes",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 7092.86,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "jason haynes",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 7092.86,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Unknown"
     ],
     "display_name": "IMax Painting Services",
@@ -3799,196 +3115,6 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 7000.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "John Pye",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 6875.4,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "john pye",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 6875.4,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Weihua Li",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 6741.27,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "weihua li",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 6741.27,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Elizabeth Donpon",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 6087.22,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "elizabeth donpon",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 37,
-    "state": null,
-    "total_exposure_aud": 6087.22,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Matthew Job",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 6071.73,
-        "amount_known": true,
-        "debtor_company": "JC Mechanical Repairs Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "283890d36609b5e2",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "matthew job",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 37,
-    "state": null,
-    "total_exposure_aud": 6071.73,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Ajay Kumar",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 5765.94,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "ajay kumar",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 37,
-    "state": null,
-    "total_exposure_aud": 5765.94,
     "website": null
   },
   {
@@ -4103,82 +3229,6 @@
     "score": 37,
     "state": null,
     "total_exposure_aud": 5258.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Roger Welch",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 5000.0,
-        "amount_known": true,
-        "debtor_company": "HOMEMAKERS S.C PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "113f429740c9fc66",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "roger welch",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 36,
-    "state": null,
-    "total_exposure_aud": 5000.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Todd Stanley",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 5000.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "todd stanley",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 36,
-    "state": null,
-    "total_exposure_aud": 5000.0,
     "website": null
   },
   {
@@ -5190,44 +4240,6 @@
     "debtor_industries": [
       "Unknown"
     ],
-    "display_name": "Fair Entitlements Guarantee",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "JC Mechanical Repairs Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "283890d36609b5e2",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "fair entitlements guarantee",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
     "display_name": "FLEXICOMMERCIAL PTY LTD",
     "disqualified_reason": null,
     "exposure_known": false,
@@ -5397,44 +4409,6 @@
       }
     ],
     "name_key": "flexikitch",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Matthew Cummins",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Uforic Enterprises Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "295ec8a099e40a2b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "matthew cummins",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -6764,6 +5738,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Nadia Montesano",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 711946.0,
+        "amount_known": true,
+        "debtor_company": "MONT. NOMINEES PTY. LTD.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "1013feaa7e6ba1ec",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "nadia montesano",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 58,
+    "state": null,
+    "total_exposure_aud": 711946.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction",
       "Hospitality"
     ],
@@ -6851,6 +5863,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Chad Aaron Gardiner",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 415345.98,
+        "amount_known": true,
+        "debtor_company": "Deluca Restaurant Pty. Ltd.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "chad aaron gardiner",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 56,
+    "state": null,
+    "total_exposure_aud": 415345.98,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality",
       "Other"
     ],
@@ -6890,6 +5940,82 @@
     "score": 56,
     "state": null,
     "total_exposure_aud": 1445.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Maisie Sansovini",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 360000.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "maisie sansovini",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 55,
+    "state": null,
+    "total_exposure_aud": 360000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Garry Foreman",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 303612.0,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "garry foreman",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 54,
+    "state": null,
+    "total_exposure_aud": 303612.0,
     "website": null
   },
   {
@@ -6966,6 +6092,44 @@
     "score": 53,
     "state": null,
     "total_exposure_aud": 205414.47,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Barry Daniels and Laura Daniels C/-",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 203579.28,
+        "amount_known": true,
+        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "23cf075b7e9622a6",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "barry daniels laura daniels c",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 53,
+    "state": null,
+    "total_exposure_aud": 203579.28,
     "website": null
   },
   {
@@ -7090,6 +6254,44 @@
     "score": 51,
     "state": null,
     "total_exposure_aud": 134000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Jennifer Ann Taylor and Alan Taylor C/-",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 123517.25,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "jennifer ann taylor alan taylor c",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 50,
+    "state": null,
+    "total_exposure_aud": 123517.25,
     "website": null
   },
   {
@@ -7404,6 +6606,158 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Lisa Martin",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 20433.16,
+        "amount_known": true,
+        "debtor_company": "Deluca Restaurant Pty. Ltd.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "lisa martin",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 43,
+    "state": null,
+    "total_exposure_aud": 20433.16,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Mick Buckley",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 19928.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "mick buckley",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 19928.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Karen McIntosh",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 19317.42,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "karen mcintosh",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 19317.42,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Cal Bail",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 17722.48,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "cal bail",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 17722.48,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "New South Lawyers",
@@ -7432,6 +6786,82 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 17074.8,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Blagoja Stojanovski",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 16062.75,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "blagoja stojanovski",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 16062.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Martin Luczkowski",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 15671.45,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "martin luczkowski",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 15671.45,
     "website": null
   },
   {
@@ -7482,6 +6912,44 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "Kaine Hockey",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 13200.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "kaine hockey",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 13200.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "RMB Lawyers",
     "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
     "exposure_known": true,
@@ -7508,6 +6976,44 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10324.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Li Xiang Feng",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10091.45,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "li xiang feng",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10091.45,
     "website": null
   },
   {
@@ -7584,6 +7090,44 @@
     "score": 39,
     "state": null,
     "total_exposure_aud": 9120.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Robert Bierman",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 8255.56,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "robert bierman",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 8255.56,
     "website": null
   },
   {
@@ -7672,6 +7216,120 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "Gabrielle Koster",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7177.29,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "gabrielle koster",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7177.29,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Ward Havens",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7137.85,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "ward havens",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7137.85,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Jason Haynes",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7092.86,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "jason haynes",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7092.86,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "Peter Dostovaloff Family Trust",
     "disqualified_reason": "Related party of the insolvent company - not an arm's length supplier",
     "exposure_known": true,
@@ -7698,6 +7356,158 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 6880.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "John Pye",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6875.4,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "john pye",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6875.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Weihua Li",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6741.27,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "weihua li",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6741.27,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Elizabeth Donpon",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6087.22,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "elizabeth donpon",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 37,
+    "state": null,
+    "total_exposure_aud": 6087.22,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Matthew Job",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6071.73,
+        "amount_known": true,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "matthew job",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 37,
+    "state": null,
+    "total_exposure_aud": 6071.73,
     "website": null
   },
   {
@@ -7736,6 +7546,120 @@
     "score": 37,
     "state": null,
     "total_exposure_aud": 6000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Ajay Kumar",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 5765.94,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "ajay kumar",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 37,
+    "state": null,
+    "total_exposure_aud": 5765.94,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Roger Welch",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 5000.0,
+        "amount_known": true,
+        "debtor_company": "HOMEMAKERS S.C PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "113f429740c9fc66",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "roger welch",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 5000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Todd Stanley",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 5000.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "todd stanley",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 5000.0,
     "website": null
   },
   {
@@ -14703,6 +14627,82 @@
       }
     ],
     "name_key": "azora asset finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Fair Entitlements Guarantee",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "fair entitlements guarantee",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Matthew Cummins",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "matthew cummins",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,

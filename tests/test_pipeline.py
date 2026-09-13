@@ -1217,6 +1217,85 @@ class TestAsicCheckOrder:
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
 
 
+class TestIndividualsAreNotProspects:
+    """A person is not a business with a receivables ledger.
+
+    Individuals were 24 of the 142 qualified prospects in the 12 September run,
+    four of them over $300,000. The documents give no signal - one creditor row
+    in 452 carried the "Withheld due to privacy legislation" address - so the
+    only evidence is the name, and the rule is one-sided: a name is a person
+    only when it carries no business signal at all.
+
+    Every name below is verbatim from that run.
+    """
+
+    @pytest.mark.parametrize(
+        "name",
+        ["Nadia Montesano", "Chad Aaron Gardiner", "Maisie Sansovini",
+         "Garry Foreman", "Karen McIntosh", "Blagoja Stojanovski",
+         "Li Xiang Feng", "Weihua Li", "Ajay Kumar", "Matthew Job",
+         "Cal Bail", "John Pye",
+         # Two people on one row, with the care-of marker that bled in from
+         # the address column.
+         "Barry Daniels and Laura Daniels C/-",
+         "Jennifer Ann Taylor and Alan Taylor C/-"],
+    )
+    def test_people_are_recognised(self, name):
+        assert qualify.looks_like_a_person(name)
+
+    @pytest.mark.parametrize(
+        "name",
+        # Real businesses from the same run. The first six read like personal
+        # names to a careless rule: two capitalised words and nothing else.
+        ["The Meat Place", "Trade Risk", "Best Build Melb", "Studworks",
+         "Bowens", "Masterlite Window Installations",
+         "Gross Waddell",  # a commercial property agency, in individuals.yml
+         "Dahlsens Building Centres", "KGF Cleaning Team", "Ability Plaster",
+         "MBS Architectural", "Archiclad Pty Ltd", "Mitre 10",
+         "Caves Beach Holdings Pty Ltd C/-", "PCG Development 3",
+         "Century & Co", "Bidfood Australia Limited"],
+    )
+    def test_businesses_are_not_mistaken_for_people(self, name):
+        assert not qualify.looks_like_a_person(name)
+
+    def test_an_individual_is_dropped_with_a_reason(self):
+        rows = [
+            Creditor("Nadia Montesano", "MULTITUDE PLASTER PTY LTD", "m1", 711946.0),
+            Creditor("Ability Plaster", "MULTITUDE PLASTER PTY LTD", "m1", 307715.0),
+        ]
+        prospects = qualify.apply(aggregate.build(rows))
+        by_name = {p.display_name: p for p in prospects}
+        assert not by_name["Nadia Montesano"].qualified
+        assert "Individual" in by_name["Nadia Montesano"].disqualified_reason
+        assert by_name["Ability Plaster"].qualified
+
+    def test_a_title_is_enough_on_its_own(self):
+        assert qualify.looks_like_a_person("Mr J Smith")
+        assert qualify.looks_like_a_person("Dr Helen Nguyen")
+
+
+class TestCareOfMarkers:
+    """"C/-" at the end of a name is address text, not part of the name."""
+
+    def test_the_marker_is_trimmed_off_the_name(self):
+        page = "\n".join([
+            "Listing of known creditors",
+            "Name", "Address", "Related Party", "Amount",
+            "Caves Beach Holdings Pty Ltd C/-",
+            "Sutton Laurence King Lawyers Level 3, 405 Collins Street", "No",
+            "141,216.00",
+            "Barry Daniels and Laura Daniels C/-",
+            "Level 3, 405 Collins Street Melbourne VIC 3000", "No",
+            "203,579.00",
+        ])
+        names = [
+            r.creditor_name for r in creditor_tables.parse_cells(
+                page.splitlines(), "Some Debtor Pty Ltd", "m1", "worrells")
+        ]
+        assert names == [
+            "Caves Beach Holdings Pty Ltd", "Barry Daniels and Laura Daniels"]
+
+
 class TestNonTradeCreditorsFromTheLiveList:
     """Names that parsed correctly but are not trade credit prospects.
 
