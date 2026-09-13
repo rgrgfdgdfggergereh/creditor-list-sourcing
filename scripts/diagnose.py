@@ -389,6 +389,56 @@ def diagnose_asic_connect() -> None:
         f"{reachable} of {len(sample)} organisation pages actually resolved to the "
         f"company; {with_documents} carried a document table.",
     )
+
+    if reachable:
+        return
+
+    # The configured path is wrong. Rather than guess a replacement from
+    # memory, ask the site which of the plausible entry points exist. Whatever
+    # answers 200 with a search form is where the register actually lives.
+    acn = sample[0]["acn"] if sample else "683236259"
+    print("\n  Probing candidate ASIC Connect entry points:\n")
+    candidates = [
+        "https://connectonline.asic.gov.au/",
+        "https://connectonline.asic.gov.au/robots.txt",
+        "https://connectonline.asic.gov.au/RegistrySearch/",
+        "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/SearchRegisters.jspx",
+        "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/panelSearch.jspx"
+        f"?searchText={acn}&searchType=OrgAndBusNm&sType=OrgAndBusNm",
+        "https://connectonline.asic.gov.au/onlineservices/SearchRegisters/"
+        "SearchOrganisationAndBusinessNames.aspx",
+    ]
+    for url in candidates:
+        try:
+            response = client.get(url)
+        except Exception as exc:  # noqa: BLE001
+            print(f"    {url[:96]}\n      -> {type(exc).__name__}: "
+                  f"{str(exc)[:100]}")
+            continue
+        soup = BeautifulSoup(response.text, "lxml")
+        title = soup.title.get_text(strip=True) if soup.title else ""
+        forms = len(soup.find_all("form"))
+        print(f"    {url[:96]}")
+        print(f"      -> HTTP {response.status_code}  final={response.url[:96]}")
+        print(f"         title={title[:64]!r}  forms={forms}  "
+              f"{len(response.text):,} bytes  acn-on-page={acn in response.text}")
+
+    # ABN Lookup: a public JSON search, and the route from a company name to
+    # the ABN that IRIS searches on. Checked here so a failure upstream is not
+    # mistaken for a problem with this pipeline.
+    print("\n  ABN Lookup (public, and the ACN -> ABN route IRIS needs):\n")
+    for url in [
+        "https://abr.business.gov.au/ABN/View?abn=" + acn,
+        f"https://abr.business.gov.au/Search/ResultsActive?SearchText={acn}",
+    ]:
+        try:
+            response = client.get(url)
+            soup = BeautifulSoup(response.text, "lxml")
+            title = soup.title.get_text(strip=True) if soup.title else ""
+            print(f"    {url[:96]}\n      -> HTTP {response.status_code} "
+                  f"title={title[:60]!r} {len(response.text):,} bytes")
+        except Exception as exc:  # noqa: BLE001
+            print(f"    {url[:96]}\n      -> {type(exc).__name__}: {str(exc)[:100]}")
     if not reachable:
         print("""
   -> A direct GET on OrganisationDetails.aspx does not reach the company.
