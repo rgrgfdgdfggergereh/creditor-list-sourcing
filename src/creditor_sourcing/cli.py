@@ -26,7 +26,13 @@ from . import aggregate, config, ledger, qualify, workbook
 from .enrich import pipedrive, policylist
 from .models import Creditor, Matter
 from .parse.creditor_tables import extract_pdf
-from .sources import asic_connect, asic_dataset, asic_notices, worrells
+from .sources import (
+    abn_lookup,
+    asic_connect,
+    asic_dataset,
+    asic_notices,
+    worrells,
+)
 from .sources.http import Client
 
 log = logging.getLogger("creditor_sourcing")
@@ -195,6 +201,24 @@ def cmd_watch(args: argparse.Namespace) -> int:
             record["form_5604_date"] = matter.form_5604_date
             record["form_5604_doc_number"] = matter.form_5604_doc_number
         asic_checked += 1
+
+    # Resolve the ABN for anything that has reached the buy list. IRIS is
+    # searched by ABN, and this is what lets a rep check whether NCI already
+    # had limit activity on the debtor before spending money on the document.
+    # Only buy-list matters, because that is the only place the answer changes
+    # a decision - resolving 1,900 matters would be 1,900 requests for nothing.
+    resolved = 0
+    for record in known.values():
+        if not record.get("form_5604_lodged") or record.get("form_5604_purchased"):
+            continue
+        if record.get("abn") or record.get("creditors_captured"):
+            continue
+        abn = abn_lookup.resolve(record.get("acn") or record.get("company_name"), client)
+        if abn:
+            record["abn"] = abn
+            resolved += 1
+    if resolved:
+        log.info("Resolved %d ABN(s) for the purchase queue", resolved)
 
     # A source that answers nothing is a broken source, not a quiet week. Say
     # so loudly: the first run checked 744 companies against an endpoint that

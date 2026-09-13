@@ -44,6 +44,10 @@ class Matter:
     source: str                      # "asic" | "worrells"
     company_name: str
     acn: str | None = None
+    # Resolved from ABN Lookup, and only for matters that reach the purchase
+    # queue. IRIS is searched by ABN, so this is what a rep pastes in to see
+    # whether NCI already had limit activity on the debtor.
+    abn: str | None = None
     appointment_type: str | None = None
     appointment_date: str | None = None      # ISO date
     practitioner: str | None = None

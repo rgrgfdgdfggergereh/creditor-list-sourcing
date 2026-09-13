@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from creditor_sourcing import config  # noqa: E402
 from creditor_sourcing.sources import (  # noqa: E402
+    abn_lookup,
     asic_connect,
     asic_dataset,
     asic_notices,
@@ -523,6 +524,15 @@ def diagnose_abn_and_iris() -> None:
                 value = " ".join(cell.find_next("td").get_text(" ", strip=True).split())
             print(f"      th {label!r:<16} -> {value[:56]!r}")
         print()
+
+    print("  abn_lookup.resolve() against the live pages\n")
+    for acn, name in samples:
+        abn = abn_lookup.resolve(acn, client)
+        ok = abn and abn_lookup.is_valid_abn(abn)
+        print(f"    {name[:40]:<40} -> "
+              f"{abn_lookup.format_abn(abn) if abn else 'NOT RESOLVED':<16} "
+              f"checksum={'valid' if ok else 'FAILED'}")
+    print()
 
     print("  IRIS - unauthenticated reachability only, no credentials sent\n")
     for url in ["https://iris.nci.com.au/index.html",

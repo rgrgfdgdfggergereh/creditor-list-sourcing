@@ -17,10 +17,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import pytest
 
 from creditor_sourcing import aggregate, ledger, qualify
+from creditor_sourcing.enrich import iris
 from creditor_sourcing.models import Creditor, Matter, normalise_name
 from creditor_sourcing.parse import creditor_tables
 from creditor_sourcing.parse.creditor_tables import parse_lines
-from creditor_sourcing.sources import asic_connect, asic_dataset, worrells
+from creditor_sourcing.sources import (
+    abn_lookup,
+    asic_connect,
+    asic_dataset,
+    worrells,
+)
 from creditor_sourcing.sources.worrells import details_view_url
 
 
@@ -1215,6 +1221,81 @@ class TestAsicCheckOrder:
     def test_missing_fields_do_not_raise(self):
         # Matters collected before a field existed, or with a blank type.
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
+
+
+class TestAbnLookup:
+    """Resolving the ABN that IRIS is searched by.
+
+    Both title strings below are verbatim from ABN Lookup, captured by the
+    diagnose workflow against real ACNs out of committed state.
+    """
+
+    SUELL = (
+        "<html><head><title>Current details for ABN 50 683 236 259 | ABN Lookup"
+        "</title></head><body>"
+        "<table><tr><th>ABN</th><td>Active from 19 Dec 2024</td></tr>"
+        "<tr><th>Entity name</th><td>SUELL EARTHMOVING PTY LTD</td></tr></table>"
+        "</body></html>"
+    )
+    BREADROLL = (
+        "<html><head><title>Current details for ABN 93 626 084 008 | ABN Lookup"
+        "</title></head><body>BREADROLL ENTERPRISES PTY LTD</body></html>"
+    )
+    NOT_FOUND = (
+        "<html><head><title>ACN not found | ABN Lookup</title></head>"
+        "<body>No matching records</body></html>"
+    )
+
+    def test_the_abn_comes_from_the_title(self):
+        assert abn_lookup.find_abn(self.SUELL) == "50683236259"
+        assert abn_lookup.find_abn(self.BREADROLL) == "93626084008"
+
+    def test_the_body_table_is_not_trusted_over_the_title(self):
+        # Measured live: the cell after the "ABN" header holds the status,
+        # "Active from 19 Dec 2024", not the number. Reading the table first
+        # would return a date.
+        assert abn_lookup.find_abn(self.SUELL) == "50683236259"
+
+    def test_a_page_with_no_abn_yields_nothing(self):
+        assert abn_lookup.find_abn(self.NOT_FOUND) is None
+
+    @pytest.mark.parametrize(
+        "abn", ["50 683 236 259", "93626084008", "51824753556"],
+    )
+    def test_real_abns_pass_the_checksum(self, abn):
+        assert abn_lookup.is_valid_abn(abn)
+
+    @pytest.mark.parametrize(
+        # Eleven digits that are not an ABN: a transposition of a real one, a
+        # run of zeros, and too few digits. The checksum is what stops a phone
+        # number or a registration number being handed to a rep as an ABN.
+        "text", ["50 683 236 295", "00000000000", "683236259", "", "abc"],
+    )
+    def test_non_abns_are_refused(self, text):
+        assert not abn_lookup.is_valid_abn(text)
+
+    def test_formatting_matches_how_abn_lookup_prints_it(self):
+        assert abn_lookup.format_abn("50683236259") == "50 683 236 259"
+
+    def test_the_search_url_is_the_one_that_works(self):
+        # /ABN/View?abn=<acn> returns "ACN not found"; the search path
+        # redirects to the record. Measured live on both.
+        url = abn_lookup.search_url("683236259")
+        assert url.startswith("https://abr.business.gov.au/Search/ResultsActive")
+        assert "683236259" in url
+
+
+class TestIrisLinks:
+    """IRIS has no per-debtor URL, and the workbook must not pretend otherwise."""
+
+    def test_only_the_search_screen_is_linked(self):
+        url = iris.debtor_search_url()
+        assert url == "https://iris.nci.com.au/index.html#oDashboard/oSelectDebtor"
+        # No instance ids. Both live URLs carried oSelectDebtorSearch-1644824 -
+        # identical before and after a debtor was chosen, so it identifies a
+        # screen, not a company. A link built from it would open whichever
+        # record that instance resolves to in the viewer's own session.
+        assert "1644824" not in url and "oZoomDebtor" not in url
 
 
 class TestAFailedLookupIsNotAnAnswer:
