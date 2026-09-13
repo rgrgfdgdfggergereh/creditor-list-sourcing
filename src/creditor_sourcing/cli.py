@@ -178,20 +178,36 @@ def cmd_watch(args: argparse.Namespace) -> int:
     asic_cap = args.limit or settings["sources"]["asic_connect"].get(
         "max_matters_per_run", 150
     )
-    asic_checked = 0
+    asic_checked = asic_unreachable = 0
     for record in asic_connect.check_order(asic_open)[:asic_cap]:
         matter = Matter(
             source=record["source"],
             company_name=record["company_name"],
             acn=record.get("acn"),
         )
-        matter = asic_connect.check(matter, client)
+        matter, reached = asic_connect.check(matter, client)
+        if not reached:
+            asic_unreachable += 1
+            continue
         record["last_checked"] = matter.last_checked
         if matter.form_5604_lodged:
             record["form_5604_lodged"] = True
             record["form_5604_date"] = matter.form_5604_date
             record["form_5604_doc_number"] = matter.form_5604_doc_number
         asic_checked += 1
+
+    # A source that answers nothing is a broken source, not a quiet week. Say
+    # so loudly: the first run checked 744 companies against an endpoint that
+    # 404'd every time and reported it as 744 clean checks with no documents
+    # found.
+    attempted = asic_checked + asic_unreachable
+    if attempted and asic_unreachable > attempted // 2:
+        log.error(
+            "ASIC Connect answered %d of %d lookups. Treat the 5604 results "
+            "from this run as absent, not as evidence that no 5604 exists. "
+            "Run the `connect` diagnose leg.",
+            asic_checked, attempted,
+        )
 
     if creditors or reparsed:
         _append_creditors(Path(args.out), creditors, reparsed)

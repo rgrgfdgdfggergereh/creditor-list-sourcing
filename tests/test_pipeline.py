@@ -1217,6 +1217,49 @@ class TestAsicCheckOrder:
         assert len(asic_connect.check_order([{"company_name": "bare"}])) == 1
 
 
+class TestAFailedLookupIsNotAnAnswer:
+    """A matter whose lookup failed must not be recorded as checked.
+
+    The first run reported 744 creditors' voluntary liquidations checked with
+    zero Form 5604s found. Every one of those requests had returned HTTP 404 -
+    the endpoint does not serve that page - and the failure was swallowed per
+    company, so "no 5604 exists" and "we never got an answer" were recorded
+    identically. A whole leg of the pipeline looked healthy while doing
+    nothing.
+    """
+
+    class Boom:
+        def get(self, url, **kwargs):
+            raise RuntimeError("404 Client Error: Not Found")
+
+    class Empty:
+        def get(self, url, **kwargs):
+            class Response:
+                text = "<html><body>No documents</body></html>"
+            return Response()
+
+    def matter(self):
+        return Matter(source="asic", company_name="SUELL EARTHMOVING PTY LTD",
+                      acn="683236259")
+
+    def test_an_unreachable_lookup_is_reported_as_unreached(self):
+        matter, reached = asic_connect.check(self.matter(), self.Boom())
+        assert not reached
+        assert matter.last_checked is None
+        assert not matter.form_5604_lodged
+
+    def test_a_real_answer_with_no_5604_is_reported_as_reached(self):
+        matter, reached = asic_connect.check(self.matter(), self.Empty())
+        assert reached
+        assert matter.last_checked
+        assert not matter.form_5604_lodged
+
+    def test_a_matter_with_no_acn_is_not_retried_forever(self):
+        bare = Matter(source="asic", company_name="No ACN Pty Ltd", acn=None)
+        matter, reached = asic_connect.check(bare, self.Boom())
+        assert reached and matter.last_checked
+
+
 class TestIndividualsAreNotProspects:
     """A person is not a business with a receivables ledger.
 

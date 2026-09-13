@@ -136,24 +136,32 @@ def _invert(date_text: str) -> str:
     return "".join(chr(0x10FFFD - ord(ch)) for ch in date_text)
 
 
-def check(matter: Matter, client: Client | None = None) -> Matter:
-    """Update one Matter with its Form 5604 status. Safe to call repeatedly."""
-    matter.last_checked = date.today().isoformat()
+def check(matter: Matter, client: Client | None = None) -> tuple[Matter, bool]:
+    """Update one Matter with its Form 5604 status. Safe to call repeatedly.
+
+    Returns (matter, reached) where `reached` says whether ASIC actually
+    answered. That distinction is the whole point: 744 CVLs were marked
+    checked, and found no 5604, when every single request had 404'd. A matter
+    whose lookup failed is not stamped as checked, so it stays at the front of
+    the rotation instead of being retired on evidence that was never gathered.
+    """
     if not matter.acn:
         log.debug("%s has no ACN - cannot check ASIC Connect", matter.company_name)
-        return matter
+        matter.last_checked = date.today().isoformat()
+        return matter, True
 
     client = client or Client()
     try:
         html = client.get(organisation_url(matter.acn)).text
     except Exception as exc:  # noqa: BLE001 - one bad company must not stop the run
         log.warning("ASIC Connect lookup failed for %s: %s", matter.company_name, exc)
-        return matter
+        return matter, False
 
+    matter.last_checked = date.today().isoformat()
     found = find_form_5604(html)
     if found:
         matter.form_5604_lodged = True
         matter.form_5604_date = found["date"] or None
         matter.form_5604_doc_number = found["doc_number"] or None
         log.info("5604 found for %s (doc %s)", matter.company_name, found["doc_number"])
-    return matter
+    return matter, True
