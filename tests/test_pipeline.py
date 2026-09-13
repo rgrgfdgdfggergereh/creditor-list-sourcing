@@ -1698,3 +1698,68 @@ class TestPolicyListExcludesExistingClients:
         keys = policylist.load(path)
         assert len(keys) > 3000
         assert qualify.policylist_match("Mitre 10", keys) == "MITRE 10 AUSTRALIA PTY LTD"
+
+
+class TestNonTradeCreditorsFromTheThirteenSeptemberList:
+    """Twenty-five qualified prospects on the 13 September workbook that are
+    not trade suppliers - fintech lenders, a fuel card, workers' compensation
+    agents, an insurance broker, accountants, a utility written as one word,
+    a building regulator, a body corporate and a bare category word."""
+
+    @pytest.mark.parametrize(
+        ("name", "category"),
+        [
+            ("Shift", "financiers"),
+            ("Lumi", "financiers"),
+            ("OnDeck", "financiers"),
+            ("Dynamoney", "financiers"),
+            ("MONEYME FINANCIAL GROUP PTY LTD", "financiers"),
+            ("Square Australia Pty Ltd", "financiers"),
+            ("Procuret Operating Pty Limited", "financiers"),
+            ("Procuret Funding No. 5 Pty Ltd", "financiers"),
+            ("FLEXICOMMERCIAL PTY LTD", "financiers"),
+            ("NISSAN FINANCIAL SERVICES", "financiers"),
+            ("Motorpass", "financiers"),
+            ("Gallagher Bassett Services Workers Compensation VIC P/L", "insurance"),
+            ("Gallagher Bassett Services", "insurance"),
+            ("Trade Risk", "insurance"),
+            ("KHI Partners", "professional_services"),
+            ("DLK Advisory", "professional_services"),
+            ("Platinum Advisory Accountants", "professional_services"),
+            ("Bell Partners Newcastle", "professional_services"),
+            ("Mergers and Acquisitions", "professional_services"),
+            ("EnergyAustralia", "landlords_utilities"),
+            ("The Owners - Units Plan No 4312", "landlords_utilities"),
+            ("Building and Plumbing Commission", "statutory"),
+            ("Pharmacy", "noise"),
+        ],
+    )
+    def test_excluded_with_the_right_reason(self, name, category):
+        hit = qualify.non_trade_reason(name)
+        assert hit is not None, f"{name} was not excluded"
+        assert hit[0] == category
+
+    @pytest.mark.parametrize(
+        "name",
+        # Real suppliers from the same list that share a word or a shape with
+        # the patterns above and must survive them.
+        ["Bowens", "Crimsafe Security Systems", "Criterion Industries",
+         "Nexdoor Systems", "Universal Fluid Power Pty Ltd", "Realtime Flowers",
+         "The Meat Place", "Digital Horizons", "Night Shift Plastering Pty Ltd",
+         "Square Peg Joinery", "Knauf Gypsum Pty Ltd", "Spicers Australia Pty Ltd",
+         "Trumark Group", "Battmans Insulation Services", "RAR Developments"],
+    )
+    def test_real_suppliers_are_not_excluded(self, name):
+        assert qualify.non_trade_reason(name) is None
+
+    @pytest.mark.parametrize(
+        "name", ["Phyllis (Meiping ) Yang", "William Longhurst 002"],
+    )
+    def test_decorated_person_names_are_people(self, name):
+        assert qualify.looks_like_a_person(name) is True
+
+    @pytest.mark.parametrize(
+        "name", ["Mitre 10", "PCG Development 3", "Studio 54 Design", "M2 Plaster Pty Ltd"],
+    )
+    def test_a_digit_inside_a_name_still_means_business(self, name):
+        assert qualify.looks_like_a_person(name) is False

@@ -76,6 +76,11 @@ _WORDLIKE = re.compile(r"^[A-Za-z][A-Za-z'\-]*$")
 # "Barry Daniels and Laura Daniels C/-" - the care-of marker is address text
 # that bled into the name column.
 _CARE_OF = re.compile(r"\bc/[-o].*$", re.IGNORECASE)
+# "Phyllis (Meiping ) Yang" - a preferred name in brackets - and
+# "William Longhurst 002" - a ledger suffix - are both people. Strip the
+# decoration before deciding; a digit INSIDE a name still means a business.
+_PARENTHETICAL = re.compile(r"\s*\([^)]*\)\s*")
+_TRAILING_CODE = re.compile(r"(\s+\d{1,4})+$")
 _JOINED = re.compile(r"\s+and\s+", re.IGNORECASE)
 
 _PEOPLE_CFG: dict[str, Any] | None = None
@@ -99,7 +104,9 @@ def looks_like_a_person(name: str, _depth: int = 0) -> bool:
     if normalise_name(name) in cfg["keep"]:
         return False
 
-    text = _CARE_OF.sub("", name or "").strip(" .,-")
+    text = _CARE_OF.sub("", name or "")
+    text = _PARENTHETICAL.sub(" ", text)
+    text = _TRAILING_CODE.sub("", text).strip(" .,-")
     if not text or any(ch.isdigit() for ch in text) or "&" in text:
         return False
 

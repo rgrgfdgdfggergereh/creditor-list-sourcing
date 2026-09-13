@@ -34,6 +34,16 @@ statutory:
     - council$
     - city of
     - shire of
+    # Building regulators. "Building and Plumbing Commission" was a qualified
+    # prospect (TBC) on the 13 September list.
+    - building and plumbing commission
+    - building commission
+    - victorian building authority
+    - "\\bvba\\b"
+    - "\\bqbcc\\b"
+    - fair trading
+    - consumer affairs
+    - "\\bcommission$"
 
 employees:
   reason: Employee / personal claim - not a company prospect
@@ -92,6 +102,38 @@ financiers:
     - "\\bcapital\\b"
     - credit union
     - building society
+    # Non-bank and fintech lenders that turned up as qualified prospects on
+    # the 13 September list: Shift ($137,716), Lumi ($50,000), OnDeck
+    # ($49,579), Dynamoney ($40,580), MoneyMe ($31,701), Square ($25,477),
+    # Procuret (twice), FlexiCommercial and Nissan Financial Services (TBC).
+    # Each lends into the company or funds its purchases; none sold it goods
+    # on trade terms.
+    - "^shift$"
+    - shift financial
+    - "^lumi$"
+    - lumi finance
+    - "\\bondeck\\b"
+    - on deck capital
+    - dynamoney
+    - moneyme
+    - "\\bsquare australia\\b"
+    - "\\bsquare au\\b"
+    - procuret
+    - flexicommercial
+    - flexigroup
+    - "\\bhumm\\b"
+    - "\\bzip co\\b"
+    - "\\bfinancial\\b"
+    - "\\blending\\b"
+    - "\\bcredit pty\\b"
+    - "\\bfunding\\b"
+    # Fuel cards. Motorpass ($10,301) is a card issuer billing on account,
+    # the same shape as a toll or card balance.
+    - motorpass
+    - fuel card
+    - fleetcard
+    - "\\bwex\\b"
+    - "\\bshell card\\b"
 
 landlords_utilities:
   reason: Landlord or utility - not a trade receivable
@@ -121,6 +163,19 @@ landlords_utilities:
     - "\\bcitylink\\b"
     - "\\beastlink\\b"
     - "\\be-?toll\\b"
+    # EnergyAustralia writes its name as one word, so "energy" alone missed
+    # it ($10,099 on the 13 September list).
+    - energyaustralia
+    - "\\bgas\\b"
+    - alinta
+    - "\\bsimply energy\\b"
+    - "\\bred energy\\b"
+    # Strata and owners' corporations: "The Owners - Units Plan No 4312" is a
+    # body corporate, a landlord-shaped creditor.
+    - "^the owners"
+    - "\\bunits? plan\\b"
+    - "\\bstrata plan\\b"
+    - "\\bstrata\\b"
 
 professional_services:
   reason: Insolvency / legal / accounting adviser - not a trade supplier
@@ -144,6 +199,22 @@ professional_services:
     - grant thornton
     - "\\brsm\\b"
     - chartered accountants
+    # Accounting and advisory firms on the 13 September list: KHI Partners
+    # ($43,985), DLK Advisory ($19,657), Platinum Advisory Accountants
+    # ($15,500), Bell Partners Newcastle ($7,590), and a row simply named
+    # "Mergers and Acquisitions" ($16,500). Fees for advice are not trade
+    # credit, and an accountant does not insure a receivables ledger on it.
+    - "\\baccountants?\\b"
+    - "\\baccounting\\b"
+    - "\\badvisory\\b"
+    - "\\badvisers?\\b"
+    - "\\badvisors?\\b"
+    - bookkeep
+    - "\\btax agents?\\b"
+    - mergers and acquisitions
+    - khi partners
+    - bell partners
+    - "\\bconsulting accountants\\b"
 
 insurance:
   reason: Insurer or broker - competitor / not a prospect
@@ -159,6 +230,15 @@ insurance:
     - "\\ballianz\\b"
     - "\\bqbe\\b"
     - euler hermes
+    # Workers' compensation agents and insurance brokers. Gallagher Bassett
+    # appeared twice ($82,081 and $22,323); Trade Risk is a broker ($7,096).
+    - gallagher bassett
+    - workers compensation
+    - workers comp
+    - "\\bicare\\b"
+    - trade risk
+    - "\\bbroker\\b"
+    - "\\bbroking\\b"
 
 related_party:
   reason: Related party of the insolvent company - not an arm's length supplier
@@ -190,6 +270,11 @@ noise:
     - "^sundry"
     - "^n/?a$"
     - "^unknown$"
+    # A bare trade or category word is a listing artefact, not a company.
+    - "^pharmacy$"
+    - "^supplier$"
+    - "^contractor$"
+    - "^creditor$"
     # A company identified only by its ACN has no trading name to call and no
     # receivables ledger to insure - it is a shelf or holding entity. Kept on
     # the excluded tab so the judgement is visible rather than silent.
