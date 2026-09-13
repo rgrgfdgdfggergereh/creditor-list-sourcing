@@ -1763,3 +1763,193 @@ class TestNonTradeCreditorsFromTheThirteenSeptemberList:
     )
     def test_a_digit_inside_a_name_still_means_business(self, name):
         assert qualify.looks_like_a_person(name) is False
+
+
+class TestPipedriveMatching:
+    """Item 2 of the handover: enrich/pipedrive.py had never executed.
+
+    The candidate sets below are what Pipedrive's organisation search
+    actually returned for these prospects on 13 September 2026. The old code
+    took the first hit unconditionally, which would have written a creditor
+    note for Melbourne Plaster Labour Services onto Creative Plastering Group.
+    """
+
+    SEARCH = {
+        "Melbourne Plaster Labour services": [
+            {"id": 32504, "name": "Creative Plastering Group Pty. Ltd.", "owner": {"id": 1},
+             "custom_fields": ["151 649 571", "81 151 649 571", "borish@creativeplastering.com.au"]},
+            {"id": 32896, "name": "M & C Plaster Supplies Pty Ltd", "owner": {"id": 1},
+             "custom_fields": ["129 239 407", "18 129 239 407"]},
+            {"id": 33300, "name": "Plaster Now Vic Rural Pty Ltd", "owner": {"id": 1},
+             "custom_fields": []},
+        ],
+        "Archiclad Pty Ltd": [
+            {"id": 25044, "name": "ARCHICLAD PTY LTD", "owner": {"id": 2},
+             "custom_fields": ["82 100 917 191", "ARCHICLAD", "www.archiclad.com.au", "100 917 191"]},
+            {"id": 26198, "name": "Archiclad Building Products Pty Ltd", "owner": {"id": 1},
+             "custom_fields": ["143 831 038", "90 143 831 038"]},
+        ],
+        "Dahlsens Building Centres": [
+            {"id": 23283, "name": "DAHLSENS BUILDING CENTRES PTY. LTD.", "owner": {"id": 3},
+             "custom_fields": ["005 032 333", "30 005 032 333", "ross.casey@dahlsens.com.au"]},
+            {"id": 37004, "name": "MACARTHUR FRAMES & TRUSSES PTY LTD", "owner": {"id": 1},
+             "custom_fields": ["MACARTHUR FRAMES AND TRUSSES PTY LTD c-/ dahlsens"]},
+        ],
+        "Studworks": [
+            {"id": 32871, "name": "Studworks Profile Systems Pty Ltd", "owner": {"id": 3},
+             "custom_fields": ["610 616 585", "72 610 616 585", "BRAD KEALEY"]},
+            {"id": 64814, "name": "SUPAPANEL AUSTRALIA PTY LTD", "owner": {"id": 3},
+             "custom_fields": ["626 071 949", "99 626 071 949"]},
+        ],
+        "Plastamasta Melbourne City": [
+            {"id": 38243, "name": "MELBOURNE PLASTERBOARD PTY LTD", "owner": {"id": 1},
+             "custom_fields": ["PLASTAMASTA MELBOURNE CITY", "159 656 069", "82 159 656 069"]},
+        ],
+        "MBS Architectural": [],
+    }
+    USERS = [{"id": 1, "name": "Library"}, {"id": 2, "name": "Lily Bedford"},
+             {"id": 3, "name": "Peter Simpson"}]
+
+    @pytest.fixture
+    def api(self, monkeypatch):
+        """A fake Pipedrive: records every call, answers search/users/notes."""
+        from creditor_sourcing.enrich import pipedrive
+        calls = {"get": [], "post": []}
+        existing_notes = {}
+
+        class Response:
+            def __init__(self, payload):
+                self._payload = payload
+            def raise_for_status(self):
+                pass
+            def json(self):
+                return self._payload
+
+        def fake_get(url, params=None, timeout=None):
+            calls["get"].append((url, params))
+            if url.endswith("/organizations/search"):
+                items = self.SEARCH.get(params["term"], [])
+                return Response({"data": {"items": [{"item": i} for i in items]}})
+            if url.endswith("/users"):
+                return Response({"data": self.USERS})
+            if url.endswith("/notes"):
+                return Response({"data": existing_notes.get(params["org_id"], [])})
+            raise AssertionError(url)
+
+        def fake_post(url, params=None, json=None, timeout=None):
+            calls["post"].append((url, json))
+            existing_notes.setdefault(json["org_id"], []).append({"content": json["content"]})
+            return Response({"data": {"id": 1}})
+
+        monkeypatch.setattr(pipedrive.requests, "get", fake_get)
+        monkeypatch.setattr(pipedrive.requests, "post", fake_post)
+        monkeypatch.setenv("PIPEDRIVE_API_TOKEN", "test-token")
+        return calls
+
+    def _prospects(self, *names, **kw):
+        return aggregate.build([creditor(n, amount=100000.0, **kw) for n in names])
+
+    def test_a_search_hit_is_not_a_match(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Melbourne Plaster Labour services")
+        assert pipedrive.annotate([p]) == 0
+        assert p.pipedrive_org_id is None
+
+    def test_the_right_archiclad_not_its_neighbour(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Archiclad Pty Ltd")
+        assert pipedrive.annotate([p]) == 1
+        assert p.pipedrive_org_id == 25044
+        assert p.pipedrive_owner == "Lily Bedford"
+        assert p.pipedrive_url == "https://nci.pipedrive.com/organization/25044"
+
+    def test_punctuation_and_suffix_drift(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Dahlsens Building Centres")
+        pipedrive.annotate([p])
+        assert p.pipedrive_org_name == "DAHLSENS BUILDING CENTRES PTY. LTD."
+
+    def test_distinctive_prefix_picks_studworks_not_supapanel(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Studworks")
+        pipedrive.annotate([p])
+        assert p.pipedrive_org_id == 32871
+
+    def test_a_trading_name_in_custom_fields_matches(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Plastamasta Melbourne City")
+        pipedrive.annotate([p])
+        assert p.pipedrive_org_id == 38243
+
+    def test_an_abn_on_the_organisation_is_decisive(self):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Some Trading Name")
+        p.abn = "90 143 831 038"
+        org = pipedrive.match_organisation(p, self.SEARCH["Archiclad Pty Ltd"])
+        assert org["id"] == 26198
+        # The ACN alone (the ABN without its two-digit prefix) also identifies it.
+        p.abn = "82100917191"
+        assert pipedrive.match_organisation(
+            p, [{"id": 9, "name": "Other", "custom_fields": ["100 917 191"]}])["id"] == 9
+
+    def test_no_candidates_no_match(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("MBS Architectural")
+        assert pipedrive.annotate([p]) == 0
+
+    def test_annotate_is_read_only_and_push_is_idempotent(self, api):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects("Archiclad Pty Ltd")
+        pipedrive.annotate([p])
+        assert api["post"] == []
+        assert pipedrive.push_notes([p]) == 1
+        assert pipedrive.NOTE_MARKER in api["post"][0][1]["content"]
+        assert "Bust Co Pty Ltd" in api["post"][0][1]["content"]
+        # The same run next Monday finds the note already there.
+        assert pipedrive.push_notes([p]) == 0
+        assert len(api["post"]) == 1
+
+    def test_note_shows_tbc_for_an_unquantified_exposure(self):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = aggregate.build([creditor("Knauf Gypsum Pty Ltd", amount=0.0, amount_known=False)])
+        body = pipedrive.note_body(p)
+        assert "not yet quantified (TBC)" in body
+        assert "Bust Co Pty Ltd: TBC" in body
+
+    def test_without_a_token_annotate_skips_and_push_refuses(self, monkeypatch):
+        from creditor_sourcing.enrich import pipedrive
+        monkeypatch.delenv("PIPEDRIVE_API_TOKEN", raising=False)
+        [p] = self._prospects("Archiclad Pty Ltd")
+        assert pipedrive.annotate([p]) == 0
+        with pytest.raises(RuntimeError):
+            pipedrive.push_notes([p])
+
+    @pytest.mark.parametrize(
+        ("name", "candidates", "expected"),
+        [
+            # Live candidate sets, 13 September 2026. Moffat Engineering and the
+            # Criterion state branches outrank the right organisation in
+            # Pipedrive's own ordering.
+            ("Moffat Pty Limited",
+             [{"id": 20208, "name": "Moffat Engineering Pty Ltd", "custom_fields": ["Hallco Engineering"]},
+              {"id": 16426, "name": "MOFFAT PTY LIMITED", "custom_fields": ["070 810 721"]},
+              {"id": 21453, "name": "Peter Joseph Moffatt-Perusic", "custom_fields": []}],
+             16426),
+            ("Criterion Industries",
+             [{"id": 29043, "name": "Criterion Industries Pty Ltd", "custom_fields": []},
+              {"id": 72589, "name": "Criterion Industries NSW P/L", "custom_fields": []},
+              {"id": 48068, "name": "Criterion Industries WA Pty Ltd", "custom_fields": []}],
+             29043),
+            # A short single word is not distinctive enough to pin a note on.
+            ("Bowens",
+             [{"id": 73040, "name": "BOWENS TIMBER & HARDWARE", "custom_fields": ["78 004 174 887"]},
+              {"id": 66044, "name": "Bowens Timber", "custom_fields": ["78 004 174 887"]},
+              {"id": 66223, "name": "BOWEN STORAGE PTY LTD", "custom_fields": []}],
+             None),
+        ],
+    )
+    def test_live_candidate_sets(self, name, candidates, expected):
+        from creditor_sourcing.enrich import pipedrive
+        [p] = self._prospects(name)
+        org = pipedrive.match_organisation(p, candidates)
+        assert (org["id"] if org else None) == expected

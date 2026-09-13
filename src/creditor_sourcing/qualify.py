@@ -134,36 +134,48 @@ def looks_like_a_person(name: str, _depth: int = 0) -> bool:
     return True
 
 
+def match_name(name: str, candidate_keys: Iterable[str]) -> str | None:
+    """Pick the candidate (a normalised name) that is the same company as `name`.
+
+    Three rungs, tightest first: the same normalised key; a token-sorted
+    fuzzy score at or above FUZZY_THRESHOLD; and a distinctive prefix. The
+    last exists because a creditor listing names a company the way its
+    accounts clerk does - "Studworks" for STUDWORKS PROFILE SYSTEMS PTY LTD -
+    and the fuzzy score of a short name against a long one is low. It is
+    guarded: one generic word ("Pharmacy") is never enough, and a prefix that
+    opens two candidates is ambiguous and refused.
+
+    Used for the PolicyList and for Pipedrive, so both answer "is this the
+    same company?" the same way.
+    """
+    key = normalise_name(name)
+    if not key:
+        return None
+    candidates = list(candidate_keys)
+    if key in candidates:
+        return key
+    hit = process.extractOne(
+        key, candidates, scorer=fuzz.token_sort_ratio, score_cutoff=FUZZY_THRESHOLD,
+    )
+    if hit:
+        return hit[0]
+    if _distinctive(key):
+        prefix = key + " "
+        starts = [k for k in candidates if k.startswith(prefix)]
+        if len(starts) == 1:
+            return starts[0]
+    return None
+
+
 def policylist_match(name: str, policy_keys: dict[str, str]) -> str | None:
-    """Fuzzy-match a prospect against existing NCI policyholders.
+    """The policyholder `name` is, or None.
 
     `policy_keys` maps normalised name -> the original policy company name.
     """
     if not policy_keys:
         return None
-    key = normalise_name(name)
-    if not key:
-        return None
-    if key in policy_keys:
-        return policy_keys[key]
-    hit = process.extractOne(
-        key, policy_keys.keys(), scorer=fuzz.token_sort_ratio,
-        score_cutoff=FUZZY_THRESHOLD,
-    )
-    if hit:
-        return policy_keys[hit[0]]
-
-    # A creditor listing names the client the way its accounts clerk does:
-    # "Studworks" for STUDWORKS PROFILE SYSTEMS PTY LTD. The fuzzy score for
-    # a short name against a long one is low, so a distinctive name that
-    # opens a policyholder's name is also a match. "Distinctive" is the
-    # guard: a single generic word ("Pharmacy") is never enough.
-    if _distinctive(key):
-        prefix = key + " "
-        starts = [k for k in policy_keys if k.startswith(prefix)]
-        if len(starts) == 1:
-            return policy_keys[starts[0]]
-    return None
+    hit = match_name(name, policy_keys.keys())
+    return policy_keys[hit] if hit else None
 
 
 # Minimum length for a one-word name to count as distinctive in the prefix
