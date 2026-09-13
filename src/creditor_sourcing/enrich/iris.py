@@ -22,9 +22,34 @@ open whichever record that instance happens to resolve to in the viewer's own
 session, which is worse than no link at all: a rep would read one company's
 limit history under another company's name.
 
-What is left is the search screen plus the ABN to paste, which is what this
-module builds. A real IRIS signal has to come from an export - the runner
-cannot reach IRIS either, which returns HTTP 403 to it.
+Why no runner can reach IRIS, ever
+----------------------------------
+IRIS sits behind Cloudflare with a network rule, and the rule says so in
+plain words. Measured from a GitHub Actions runner, with no credentials sent:
+
+    HTTP 403, 51 bytes, server: cloudflare, cf-ray: ...-DFW
+    body: "Please connect to the NCI VPN before accessing Iris"
+
+Byte-identical for the project's user agent and a browser's, so this is about
+where the request comes from, not who is asking. The block is at Cloudflare,
+before IRIS sees anything, which rules out the obvious workarounds: a session
+cookie cannot help a request that never arrives, and neither can driving a
+headless browser in CI. This session's own container is refused a connection
+to iris.nci.com.au outright by its egress proxy, one layer earlier again.
+
+So there are exactly three ways an IRIS signal can reach this pipeline:
+
+  1. An export. Debtor ABN plus limit activity, dropped in periodically, the
+     same shape as the PolicyList input. No credentials in CI, nothing to
+     scrape, survives any IRIS UI change. The recommended route.
+  2. A self-hosted GitHub Actions runner on an NCI machine inside the VPN.
+     The weekly job would then do the lookups itself.
+  3. A person, or an agent running in a person's own browser on a machine
+     already on the VPN, reading the screen. Not a scheduled pipeline step -
+     it only happens when someone is at that machine.
+
+What is left for the workbook is the search screen plus the ABN to paste,
+which is what this module builds.
 """
 
 from __future__ import annotations
