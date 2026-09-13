@@ -4,8 +4,13 @@ Written for whoever picks this up next — most likely a Cowork session that can
 reach IRIS. Read this before changing anything: several findings below were
 expensive to get and look like oversights if you do not know the history.
 
-Branch: `claude/trade-credit-creditor-sourcing-5bn617` · PR #1 · 43 commits ·
-220 tests · CI green.
+Branch: `claude/trade-credit-creditor-sourcing-5bn617` · PR #1 · 49 commits ·
+296 tests · CI green.
+
+**Updated 13 September 2026 (Cowork session):** items 3.1 and 3.2 are done
+and the exclusion vocabulary has been extended - see the notes in each
+section. The qualified list is 82, down from 115; every drop is on the
+Excluded tab with its reason.
 
 ---
 
@@ -37,26 +42,27 @@ anyone. Measured on the live data currently committed in `state/`:
 | Creditor rows | 452 |
 | Stated exposure | $21,505,274 |
 | Rows with an unstated amount (TBC) | 77 |
-| Qualified prospects | **115** |
-| Excluded, with a reason | 254 |
+| Qualified prospects | **82** (115 before the 13 Sep fixes) |
+| Excluded, with a reason | 287 |
 
 Top of the current list: Melbourne Plaster Labour services ($716,213),
 MBS Architectural ($667,865), Archiclad Pty Ltd ($484,312).
 
-Why 254 are excluded:
+Why 287 are excluded:
 
 | Count | Reason |
 |---|---|
 | 177 | Under the $5,000 floor |
-| 26 | Individual, not a business |
-| 23 | Secured lender or financier |
-| 13 | Statutory / government creditor |
-| 4 | Landlord or utility |
-| 4 | Insolvency / legal / accounting adviser |
-| 2 | Insurer or broker |
+| 34 | Secured lender or financier |
+| 28 | Individual, not a business |
+| 14 | Statutory / government creditor |
+| 9 | Insolvency / legal / accounting adviser |
+| 8 | Existing NCI client (PolicyList, 4 June 2026 export) |
+| 6 | Landlord or utility |
+| 5 | Insurer or broker |
 | 2 | Employee / personal claim |
 | 2 | Related party |
-| 1 | Not a resolvable company name |
+| 2 | Not a resolvable company name |
 
 Also working: the ASIC statistics workbook feed (schema confirmed against the
 7 September 2026 release), the PDF creditor-table parser, qualification and
@@ -68,25 +74,52 @@ scoring, and the Excel workbook.
 
 Ordered by what will hurt most if it ships as-is.
 
-### 3.1 PolicyList — existing clients are not being excluded  🔴
+### 3.1 PolicyList — existing clients are not being excluded  ✅ done 13 Sep
 
-`enrich/policylist.py` has **zero test references and has never run against a
-real export**. With no PolicyList loaded it matches nothing and every existing
-NCI client sails through as a fresh prospect. The list as it stands may well
-contain companies NCI already insures.
+It was real: against the 4 June 2026 export, **eight of the 115 prospects
+were current NCI clients** - Mitre 10, Supapanel Australia, Fetch Personnel,
+Americold Logistics, Home Timber & Hardware Group, Metal Manufactures, Acrow
+Formwork and Scaffolding, and Studworks (STUDWORKS PROFILE SYSTEMS).
 
-**To finish:** obtain a PolicyList export, wire it in (`run --policylist
-<path>` already accepts one), confirm it matches, and add tests.
+What changed: `config/policylist.csv` is the 4 June export stripped to policy
+number, names, state and industry (no contacts) and is the default; the loader
+reads .csv/.xls/.xlsx, finds the header on row 1 or 2, and folds **both**
+`Policy Name` and `Client Name` (Mitre 10 and Home Timber only appear as policy
+names under the client TOTAL TOOLS & HARDWARE GROUP); `match_name` gained a
+distinctive-prefix rule for the Studworks case. 19 tests.
 
-### 3.2 Pipedrive — the "note, not a drop" rule has never run  🔴
+**Still yours:** refresh `config/policylist.csv` when you next export the
+PolicyList (same five columns), or pass a fresh file with `--policylist`.
 
-`enrich/pipedrive.py` has **zero test references and has never executed**. The
-run currently logs `PIPEDRIVE_API_TOKEN not set - skipping` and carries on.
-This is the agreed rule that a company already in Pipedrive is kept and
-flagged for a note on the existing organisation rather than duplicated.
+### 3.2 Pipedrive — the "note, not a drop" rule has never run  ✅ code done 13 Sep · 🟠 token still needed
 
-**To finish:** set `PIPEDRIVE_API_TOKEN`, run with `--push-notes` off first to
-inspect what it would write, add tests, then enable.
+The code had a correctness bug beyond never running: it took Pipedrive's
+**first search hit unconditionally**. Live, "Melbourne Plaster Labour
+services" returns Creative Plastering Group first - notes would have gone
+onto the wrong organisations. Every candidate now has to pass the same
+"same company?" test as the PolicyList, or carry the prospect's ABN/ACN in
+its custom fields. Owner names are resolved (the search endpoint only returns
+the owner id). `push_notes` is idempotent, so the weekly run does not re-post
+the same note. Verified against 19 live candidate sets via the Pipedrive
+connector: every match was the right organisation (Archiclad, Dahlsens,
+Trumark, Crimsafe, Knauf Gypsum, Spicers, Moffat, Criterion Industries
+head office). 14 tests.
+
+**Still yours:** add `PIPEDRIVE_API_TOKEN` as an Actions secret. Run once
+without `--push-notes` - `annotate()` now logs every match and the note it
+would write - then enable `push_notes` on the workflow.
+
+### 3.2a Non-trade exclusions leaked  ✅ done 13 Sep
+
+Twenty-five qualified prospects on the 13 September list were financiers
+(Shift, Lumi, OnDeck, Dynamoney, MoneyMe, Square, Procuret x2,
+FlexiCommercial, Nissan Financial Services, Motorpass), insurers/brokers
+(Gallagher Bassett x2, Trade Risk), advisers (KHI Partners, DLK Advisory,
+Platinum Advisory Accountants, Bell Partners, "Mergers and Acquisitions"),
+EnergyAustralia, a body corporate, the Building and Plumbing Commission, two
+individuals the detector missed ("Phyllis (Meiping ) Yang", "William
+Longhurst 002") and a bare "Pharmacy". `config/exclusions.yml` and
+`looks_like_a_person` cover them; re-qualifying lost nothing legitimate.
 
 ### 3.3 ASIC Connect 5604 detection — broken, blocks the entire paid half  🔴
 
@@ -108,6 +141,15 @@ What the probe found, Sunday 13 September:
   a client being refused.
 - Either a genuine ASIC Connect outage (it was Sunday morning Australian time)
   or a permanent host-wide redirect. **Not yet distinguished.**
+
+**A reading to test first (added 13 Sep):** Daniel's earlier finding is that
+ASIC Connect blocks datacenter IPs and rate-limits by IP - it is why his
+Cloudflare Worker for 5604 search failed. A GitHub Actions runner is a
+datacenter IP, so the "Service availability" page may be the block, not an
+outage, and the weekday re-test is expected to fail the same way. If it does,
+the working route is the desktop browser scrape loop from Cowork (unspaced
+ACN, reset to `SearchRegisters.jspx` first, AdfPage fetchsize trick), run
+weekly on the new CVLs only - well under 10 lookups/min, ~200 per session.
 
 **To finish:** re-run `Diagnose sourcing legs → legs: connect` on a weekday
 business morning. If ASIC answers, find the real organisation-details path and
@@ -141,7 +183,7 @@ is deliberately disabled. Delete it or mark it parked the way IRIS now is.
 ### 3.7 Setup only Daniel can do  🟠
 
 - Actions secrets: `PIPEDRIVE_API_TOKEN`, `QUEUE_ENDPOINT`, `QUEUE_TOKEN`
-- A PolicyList export
+- ~~A PolicyList export~~ done - refresh `config/policylist.csv` periodically
 - Cloudflare deploy
 - **Connectors on the weekly Routine** (`trig_017heozZUfRSDQ1PaJskTxKV`, fires
   Mon 10:00 Adelaide). This is the only channel that can *push* "N documents to

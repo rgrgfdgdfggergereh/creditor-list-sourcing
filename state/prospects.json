@@ -285,44 +285,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Studworks",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 171800.78,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "studworks",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 52,
-    "state": null,
-    "total_exposure_aud": 171800.78,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "KGF Cleaning Team",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -463,44 +425,6 @@
     "score": 51,
     "state": null,
     "total_exposure_aud": 141216.2,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Shift",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 137716.13,
-        "amount_known": true,
-        "debtor_company": "Uforic Enterprises Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "295ec8a099e40a2b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "shift",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 51,
-    "state": null,
-    "total_exposure_aud": 137716.13,
     "website": null
   },
   {
@@ -787,44 +711,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Gallagher Bassett Services Workers Compensation VIC P/L",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 82081.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "gallagher bassett services workers compensation vic p l",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 49,
-    "state": null,
-    "total_exposure_aud": 82081.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Profess Plaster & Frame Pty Ltd",
@@ -863,44 +749,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Mitre 10",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 51822.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "mitre 10",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 47,
-    "state": null,
-    "total_exposure_aud": 51822.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Mad Group Construction Pty Ltd",
@@ -929,44 +777,6 @@
     "score": 47,
     "state": null,
     "total_exposure_aud": 50323.87,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Other"
-    ],
-    "display_name": "Lumi",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 50000.0,
-        "amount_known": true,
-        "debtor_company": "Social Cut Studio Pty Ltd",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "0b6d9c9f669407ed",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "lumi",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 46,
-    "state": null,
-    "total_exposure_aud": 50000.0,
     "website": null
   },
   {
@@ -1091,82 +901,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "OnDeck",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 49579.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "ondeck",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 46,
-    "state": null,
-    "total_exposure_aud": 49579.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Supapanel australia",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 49296.39,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "supapanel",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 46,
-    "state": null,
-    "total_exposure_aud": 49296.39,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Pro One Interiors",
@@ -1281,44 +1015,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "KHI Partners",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 43985.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "khi partners",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 46,
-    "state": null,
-    "total_exposure_aud": 43985.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Drake Constructions",
@@ -1347,44 +1043,6 @@
     "score": 46,
     "state": null,
     "total_exposure_aud": 42118.73,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Dynamoney",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 40579.5,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "dynamoney",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 46,
-    "state": null,
-    "total_exposure_aud": 40579.5,
     "website": null
   },
   {
@@ -1549,44 +1207,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Fetch Personnel",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 32032.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "fetch personnel",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 45,
-    "state": null,
-    "total_exposure_aud": 32032.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Masterlite Window Installations",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -1613,44 +1233,6 @@
     "score": 45,
     "state": null,
     "total_exposure_aud": 32025.8,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "MONEYME FINANCIAL GROUP PTY LTD",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 31700.75,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "moneyme financial",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 45,
-    "state": null,
-    "total_exposure_aud": 31700.75,
     "website": null
   },
   {
@@ -1851,44 +1433,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Square Australia Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 25476.96,
-        "amount_known": true,
-        "debtor_company": "Kor Enterprise Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "0299c8ef94ef3b22",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "square",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 44,
-    "state": null,
-    "total_exposure_aud": 25476.96,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Entro Global Pty Ltd",
@@ -2053,44 +1597,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Gallagher Bassett Services",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 22322.59,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "gallagher bassett services",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 43,
-    "state": null,
-    "total_exposure_aud": 22322.59,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "JD Construction Interiors",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -2129,44 +1635,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "DLK Advisory",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 19657.0,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "dlk advisory",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 19657.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "MHC Interior Pty Ltd",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -2193,82 +1661,6 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 17721.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Mergers and Acquisitions",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 16500.0,
-        "amount_known": true,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "mergers acquisitions",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 16500.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Platinum Advisory Accountants",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 15500.0,
-        "amount_known": true,
-        "debtor_company": "MAGNATE INTERNATIONAL PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "0f6f8d267c44351c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "platinum advisory accountants",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 41,
-    "state": null,
-    "total_exposure_aud": 15500.0,
     "website": null
   },
   {
@@ -2509,44 +1901,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Phyllis (Meiping ) Yang",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 10887.52,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "phyllis meiping yang",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 40,
-    "state": null,
-    "total_exposure_aud": 10887.52,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Nexdoor Systems",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -2573,82 +1927,6 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10676.48,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Motorpass",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 10300.84,
-        "amount_known": true,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "motorpass",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 40,
-    "state": null,
-    "total_exposure_aud": 10300.84,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "EnergyAustralia",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 10099.22,
-        "amount_known": true,
-        "debtor_company": "Deluca Restaurant Pty. Ltd.",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "257ebdb90402c468",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "energyaustralia",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 40,
-    "state": null,
-    "total_exposure_aud": 10099.22,
     "website": null
   },
   {
@@ -2887,44 +2165,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Other"
-    ],
-    "display_name": "Bell Partners Newcastle",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 7590.0,
-        "amount_known": true,
-        "debtor_company": "J & J Hair Studio Pty Ltd",
-        "debtor_industry": "Other",
-        "debtor_state": null,
-        "matter_id": "083ce36acd940d45",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "bell partners newcastle",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 7590.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Plastering Nation",
@@ -3001,44 +2241,6 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 7117.32,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Trade Risk",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 7096.47,
-        "amount_known": true,
-        "debtor_company": "MUD CONCRETING PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1a184f2843239751",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "trade risk",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 7096.47,
     "website": null
   },
   {
@@ -3239,93 +2441,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Building/Construction",
-      "Unknown"
-    ],
-    "display_name": "Procuret Operating Pty Limited",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "procuret operating",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 25,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "AMERICOLD LOGISTICS LIMITED",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "americold logistics",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "ALUMINIUM SPECIALTIES GROUP PTY. LTD.",
@@ -3345,82 +2460,6 @@
       }
     ],
     "name_key": "aluminium specialties",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Pharmacy",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "BEAUTY CAFE PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "1193a065c762a0f4",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "pharmacy",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Home Timber & Hardware Group Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "home timber hardware",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -3708,158 +2747,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "METAL MANUFACTURES PTY LIMITED",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "HELKOLD PTY. LIMITED",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1f1f9e36b98fb54d",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "metal manufactures",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "The Owners - Units Plan No 4312",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "HELKOLD PTY. LIMITED",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "1f1f9e36b98fb54d",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "owners units plan no 4312",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Acrow Formwork And Scaffolding Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "McEwan Concreting Pty. Limited",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "227367409a047880",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "acrow formwork scaffolding",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Building and Plumbing Commission",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "23cf075b7e9622a6",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "building plumbing commission",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "ITI (NSW) PTY LIMITED",
     "disqualified_reason": null,
     "exposure_known": false,
@@ -4126,44 +3013,6 @@
     "debtor_industries": [
       "Building/Construction"
     ],
-    "display_name": "Procuret Funding No. 5 Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "procuret funding no 5",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
     "display_name": "Victas Commercial Pty Ltd",
     "disqualified_reason": null,
     "exposure_known": false,
@@ -4240,82 +3089,6 @@
     "debtor_industries": [
       "Unknown"
     ],
-    "display_name": "FLEXICOMMERCIAL PTY LTD",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "JC Mechanical Repairs Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "283890d36609b5e2",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "flexicommercial",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "NISSAN FINANCIAL SERVICES",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "JC Mechanical Repairs Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "283890d36609b5e2",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "nissan financial services",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
     "display_name": "SNAP-ON TOOLS (AUSTRALIA) PTY.",
     "disqualified_reason": null,
     "exposure_known": false,
@@ -4333,44 +3106,6 @@
       }
     ],
     "name_key": "snap on tools",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "William Longhurst 002",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "JC Mechanical Repairs Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "283890d36609b5e2",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "william longhurst 002",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -6140,6 +4875,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Studworks",
+    "disqualified_reason": "Existing NCI client (STUDWORKS PROFILE SYSTEMS PTY LTD)",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 171800.78,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "studworks",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "STUDWORKS PROFILE SYSTEMS PTY LTD",
+    "qualified": false,
+    "score": 52,
+    "state": null,
+    "total_exposure_aud": 171800.78,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Australian Taxation Office (Tax Withheld)",
@@ -6216,6 +4989,44 @@
     "score": 51,
     "state": null,
     "total_exposure_aud": 152902.56,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Shift",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 137716.13,
+        "amount_known": true,
+        "debtor_company": "Uforic Enterprises Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "295ec8a099e40a2b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "shift",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 51,
+    "state": null,
+    "total_exposure_aud": 137716.13,
     "website": null
   },
   {
@@ -6380,6 +5191,44 @@
     "debtor_industries": [
       "Unknown"
     ],
+    "display_name": "Gallagher Bassett Services Workers Compensation VIC P/L",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 82081.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "gallagher bassett services workers compensation vic p l",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 49,
+    "state": null,
+    "total_exposure_aud": 82081.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
     "display_name": "American Express",
     "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": true,
@@ -6406,6 +5255,234 @@
     "score": 48,
     "state": null,
     "total_exposure_aud": 69728.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Mitre 10",
+    "disqualified_reason": "Existing NCI client (MITRE 10 AUSTRALIA PTY LTD)",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 51822.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "mitre 10",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "MITRE 10 AUSTRALIA PTY LTD",
+    "qualified": false,
+    "score": 47,
+    "state": null,
+    "total_exposure_aud": 51822.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Lumi",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 50000.0,
+        "amount_known": true,
+        "debtor_company": "Social Cut Studio Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "0b6d9c9f669407ed",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "lumi",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 46,
+    "state": null,
+    "total_exposure_aud": 50000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "OnDeck",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 49579.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "ondeck",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 46,
+    "state": null,
+    "total_exposure_aud": 49579.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Supapanel australia",
+    "disqualified_reason": "Existing NCI client (SUPAPANEL AUSTRALIA PTY LTD)",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 49296.39,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "supapanel",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "SUPAPANEL AUSTRALIA PTY LTD",
+    "qualified": false,
+    "score": 46,
+    "state": null,
+    "total_exposure_aud": 49296.39,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "KHI Partners",
+    "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 43985.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "khi partners",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 46,
+    "state": null,
+    "total_exposure_aud": 43985.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Dynamoney",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 40579.5,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "dynamoney",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 46,
+    "state": null,
+    "total_exposure_aud": 40579.5,
     "website": null
   },
   {
@@ -6482,6 +5559,120 @@
     "score": 45,
     "state": null,
     "total_exposure_aud": 34287.6,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Fetch Personnel",
+    "disqualified_reason": "Existing NCI client (FETCH PERSONNEL PTY LTD)",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 32032.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "fetch personnel",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "FETCH PERSONNEL PTY LTD",
+    "qualified": false,
+    "score": 45,
+    "state": null,
+    "total_exposure_aud": 32032.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "MONEYME FINANCIAL GROUP PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 31700.75,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "moneyme financial",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 45,
+    "state": null,
+    "total_exposure_aud": 31700.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Square Australia Pty Ltd",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 25476.96,
+        "amount_known": true,
+        "debtor_company": "Kor Enterprise Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "0299c8ef94ef3b22",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "square",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 44,
+    "state": null,
+    "total_exposure_aud": 25476.96,
     "website": null
   },
   {
@@ -6606,6 +5797,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Gallagher Bassett Services",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 22322.59,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "gallagher bassett services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 43,
+    "state": null,
+    "total_exposure_aud": 22322.59,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Lisa Martin",
@@ -6672,6 +5901,44 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 19928.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "DLK Advisory",
+    "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 19657.0,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "dlk advisory",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 19657.0,
     "website": null
   },
   {
@@ -6796,6 +6063,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Mergers and Acquisitions",
+    "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 16500.0,
+        "amount_known": true,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "mergers acquisitions",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 16500.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Blagoja Stojanovski",
@@ -6862,6 +6167,44 @@
     "score": 41,
     "state": null,
     "total_exposure_aud": 15671.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Platinum Advisory Accountants",
+    "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 15500.0,
+        "amount_known": true,
+        "debtor_company": "MAGNATE INTERNATIONAL PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "0f6f8d267c44351c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "platinum advisory accountants",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 15500.0,
     "website": null
   },
   {
@@ -6950,6 +6293,44 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "Phyllis (Meiping ) Yang",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10887.52,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "phyllis meiping yang",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10887.52,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "RMB Lawyers",
     "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
     "exposure_known": true,
@@ -6976,6 +6357,82 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10324.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Motorpass",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10300.84,
+        "amount_known": true,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "motorpass",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10300.84,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "EnergyAustralia",
+    "disqualified_reason": "Landlord or utility - not a trade receivable",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10099.22,
+        "amount_known": true,
+        "debtor_company": "Deluca Restaurant Pty. Ltd.",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "257ebdb90402c468",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "energyaustralia",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10099.22,
     "website": null
   },
   {
@@ -7176,6 +6633,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Bell Partners Newcastle",
+    "disqualified_reason": "Insolvency / legal / accounting adviser - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7590.0,
+        "amount_known": true,
+        "debtor_company": "J & J Hair Studio Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "083ce36acd940d45",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "bell partners newcastle",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7590.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Hayden Real Estate",
@@ -7280,6 +6775,44 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 7137.85,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Trade Risk",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 7096.47,
+        "amount_known": true,
+        "debtor_company": "MUD CONCRETING PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1a184f2843239751",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "trade risk",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 7096.47,
     "website": null
   },
   {
@@ -13191,6 +12724,55 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction",
+      "Unknown"
+    ],
+    "display_name": "Procuret Operating Pty Limited",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "procuret operating",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale",
       "Unknown"
     ],
@@ -14420,6 +14002,44 @@
     "debtor_industries": [
       "Hospitality"
     ],
+    "display_name": "AMERICOLD LOGISTICS LIMITED",
+    "disqualified_reason": "Existing NCI client (AMERICOLD LOGISTICS LTD)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "americold logistics",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "AMERICOLD LOGISTICS LTD",
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
     "display_name": "PROSPA ADVANCE PTY LTD",
     "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": false,
@@ -14442,6 +14062,82 @@
     "pipedrive_owner": null,
     "pipedrive_url": null,
     "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Pharmacy",
+    "disqualified_reason": "Not a resolvable company name",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "BEAUTY CAFE PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "1193a065c762a0f4",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "pharmacy",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Home Timber & Hardware Group Pty Ltd",
+    "disqualified_reason": "Existing NCI client (HOME TIMBER & HARDWARE GROUP PTY LTD)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "home timber hardware",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "HOME TIMBER & HARDWARE GROUP PTY LTD",
     "qualified": false,
     "score": 0,
     "state": null,
@@ -14534,6 +14230,158 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "METAL MANUFACTURES PTY LIMITED",
+    "disqualified_reason": "Existing NCI client (METAL MANUFACTURES PTY LIMITED)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "HELKOLD PTY. LIMITED",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1f1f9e36b98fb54d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "metal manufactures",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "METAL MANUFACTURES PTY LIMITED",
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "The Owners - Units Plan No 4312",
+    "disqualified_reason": "Landlord or utility - not a trade receivable",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "HELKOLD PTY. LIMITED",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "1f1f9e36b98fb54d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "owners units plan no 4312",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Acrow Formwork And Scaffolding Pty Ltd",
+    "disqualified_reason": "Existing NCI client (ACROW FORMWORK AND SCAFFOLDING PTY LTD)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "McEwan Concreting Pty. Limited",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "227367409a047880",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "acrow formwork scaffolding",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "ACROW FORMWORK AND SCAFFOLDING PTY LTD",
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Building and Plumbing Commission",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "A.C.N. 002 738 472 Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "23cf075b7e9622a6",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "building plumbing commission",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "Maple Asset Finance Pty Ltd",
     "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": false,
@@ -14551,6 +14399,44 @@
       }
     ],
     "name_key": "maple asset finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Procuret Funding No. 5 Pty Ltd",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      }
+    ],
+    "name_key": "procuret funding no 5",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -14665,6 +14551,120 @@
       }
     ],
     "name_key": "fair entitlements guarantee",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "FLEXICOMMERCIAL PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "flexicommercial",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "NISSAN FINANCIAL SERVICES",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "nissan financial services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "William Longhurst 002",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "JC Mechanical Repairs Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "283890d36609b5e2",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "william longhurst 002",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
