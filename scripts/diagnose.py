@@ -535,23 +535,44 @@ def diagnose_abn_and_iris() -> None:
     print()
 
     print("  IRIS - unauthenticated reachability only, no credentials sent\n")
-    for url in ["https://iris.nci.com.au/index.html",
-                "https://iris.nci.com.au/"]:
+    print("""    A 403 alone does not say why. Three causes need different answers:
+      app-level  - "you are not signed in". A session cookie from a logged-in
+                   browser would then work from CI, the way
+                   WORRELLS_SESSION_COOKIE already does.
+      edge/WAF   - a Cloudflare/Akamai style block on the client or its IP
+                   range. No cookie helps; the request never reaches IRIS.
+      IP allow   - NCI only admits its own network. Same conclusion as a WAF.
+    So print the response itself rather than just the status code.
+""")
+    import requests
+
+    browser = (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    )
+    for label, agent in (("project", None), ("browser", browser)):
+        session = requests.Session()
+        session.headers.update({"User-Agent": agent or Client().session.headers["User-Agent"]})
         try:
-            response = client.get(url)
-            soup = BeautifulSoup(response.text, "lxml")
-            title = soup.title.get_text(strip=True) if soup.title else ""
-            print(f"    {url}")
-            print(f"      -> HTTP {response.status_code}  {len(response.text):,} bytes"
-                  f"  title={title[:50]!r}")
-            print(f"         login page={looks_like_login(response.text)}  "
-                  f"final={response.url[:80]}")
+            response = session.get("https://iris.nci.com.au/index.html",
+                                   timeout=30, allow_redirects=True)
         except Exception as exc:  # noqa: BLE001
-            print(f"    {url}\n      -> {type(exc).__name__}: {str(exc)[:100]}")
-    print("""
-    Reachable-but-login means an automated IRIS lookup needs a credential
-    and NCI's say-so. Unreachable means the runner cannot see it at all and
-    the signal has to come from an export instead.
+            print(f"    {label:<8} {type(exc).__name__}: {str(exc)[:90]}")
+            continue
+        print(f"    {label:<8} HTTP {response.status_code}  "
+              f"{len(response.content):,} bytes  final={response.url[:60]}")
+        # The headers that name the blocker, and nothing else.
+        for header in ("server", "cf-ray", "cf-mitigated", "x-amz-cf-id",
+                       "x-akamai-transformed", "via", "www-authenticate",
+                       "x-frame-options", "content-type"):
+            if header in response.headers:
+                print(f"             {header}: {response.headers[header][:70]}")
+        body = " ".join(response.text.split())[:300]
+        print(f"             body: {body!r}")
+        print()
+    print("""    A Cloudflare/Akamai signature, or a body that talks about access
+    being denied rather than about signing in, means the browser route is
+    the only route and it has to run on a machine NCI admits.
 """)
 
 
