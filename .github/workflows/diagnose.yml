@@ -16,7 +16,7 @@ on:
         description: "Which legs to check"
         type: choice
         default: all
-        options: [all, asic, notices, worrells, pdf-text, survey]
+        options: [all, asic, connect, notices, worrells, pdf-text, survey]
 
 jobs:
   diagnose:

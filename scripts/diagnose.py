@@ -11,17 +11,22 @@ It writes only to stdout - nothing here changes state or spends money.
 from __future__ import annotations
 
 import io
+import json
+import re
 import sys
 import traceback
 from collections import Counter
 from datetime import date
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from creditor_sourcing import config  # noqa: E402
 from creditor_sourcing.sources import (  # noqa: E402
+    asic_connect,
     asic_dataset,
     asic_notices,
     worrells,
@@ -312,10 +317,97 @@ def diagnose_worrells() -> None:
         print("     local run driven through a logged-in browser.")
 
 
+
+# --------------------------------------------------------------------------
+# ASIC Connect - does the free 5604 detection actually detect anything?
+# --------------------------------------------------------------------------
+def diagnose_asic_connect() -> None:
+    heading("LEG 4 - ASIC Connect Form 5604 detection")
+    print("""
+  Why: the 12 September run checked 744 creditors' voluntary liquidations on
+  ASIC Connect and found ZERO Form 5604s. Across 744 CVLs, where the form is
+  mandatory within 10 business days and free to lodge, zero is not a credible
+  answer - it is what a silently failing lookup looks like. Nothing reaches the
+  purchase queue until this works, so the paid leg has never produced a row.
+
+  This fetches the organisation page for real CVL ACNs from committed state and
+  reports what actually comes back.
+""")
+    client = Client()
+
+    state = ROOT / "state" / "matters.json"
+    if not state.exists():
+        print("  No committed state to sample ACNs from.")
+        return
+    matters = json.loads(state.read_text())
+    cvls = [
+        m for m in matters.values()
+        if m.get("source") != "worrells"
+        and m.get("acn")
+        and "voluntary liquidation" in (m.get("appointment_type") or "").lower()
+    ]
+    cvls.sort(key=lambda m: m.get("appointment_date") or "", reverse=True)
+    sample = cvls[:5]
+    print(f"  Sampling {len(sample)} of {len(cvls)} tracked CVLs, newest first.\n")
+
+    reachable = 0
+    with_documents = 0
+    for matter in sample:
+        url = asic_connect.organisation_url(matter["acn"])
+        print(f"  {matter['company_name'][:52]:<52} ACN {matter['acn']}")
+        print(f"    {url}")
+        try:
+            response = client.get(url)
+        except Exception as exc:  # noqa: BLE001
+            print(f"    FETCH FAILED: {type(exc).__name__}: {exc}\n")
+            continue
+
+        html = response.text
+        soup = BeautifulSoup(html, "lxml")
+        title = soup.title.get_text(strip=True) if soup.title else "(no title)"
+        rows = soup.find_all("tr")
+        # Does the company's own name appear? If not, we are not on its page.
+        stem = re.split(r"\bPTY\b|\bLTD\b", matter["company_name"], flags=re.I)[0]
+        stem = stem.strip()[:18]
+        on_page = bool(stem) and stem.lower() in html.lower()
+        print(f"    HTTP {response.status_code}  final={response.url}")
+        print(f"    title={title[:70]!r}")
+        print(f"    {len(html):,} bytes, {len(rows)} table rows, "
+              f"company name on page={on_page}, login-ish={looks_like_login(html)}")
+        if on_page:
+            reachable += 1
+        if len(rows) > 3:
+            with_documents += 1
+        hit = asic_connect.find_form_5604(html)
+        print(f"    find_form_5604 -> {hit}")
+        if "5604" in html:
+            print("    NOTE: the string '5604' IS present in the page source.")
+        print()
+
+    verdict(
+        reachable > 0,
+        f"{reachable} of {len(sample)} organisation pages actually resolved to the "
+        f"company; {with_documents} carried a document table.",
+    )
+    if not reachable:
+        print("""
+  -> A direct GET on OrganisationDetails.aspx does not reach the company.
+     ASIC Connect is an ASP.NET app: the register search is a POST that sets up
+     session state, and the deep link alone lands on a search or error page.
+     That is the same shape as the Published Notices leg, which was disabled
+     for exactly this reason.
+
+     What this means for the pipeline: the free "has a 5604 been lodged"
+     detection does not work, so the purchase queue can never fill, so the one
+     manual step - buying the document - never gets a candidate. This must be
+     fixed before the ASIC half of the pipeline is worth anything.
+""")
+
 LEGS = {
     "asic": diagnose_asic,
     "notices": diagnose_published_notices,
     "worrells": diagnose_worrells,
+    "connect": diagnose_asic_connect,
 }
 
 
