@@ -113,7 +113,7 @@ def load(path: Path) -> dict[str, str]:
     header, columns = found
 
     clients = fold_names(
-        (row[c] for row in rows for c in columns if c < len(row))
+        row[c] for row in rows for c in columns if c < len(row)
     )
     log.info(
         "PolicyList: %d client names loaded from %s (columns: %s)",

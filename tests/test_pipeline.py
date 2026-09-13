@@ -1664,6 +1664,7 @@ class TestPolicyListExcludesExistingClients:
 
     def test_xlsx_export_with_a_title_row_above_the_header(self, tmp_path):
         from openpyxl import Workbook
+
         from creditor_sourcing.enrich import policylist
         path = tmp_path / "PolicyList.xlsx"
         wb = Workbook()
@@ -1689,6 +1690,7 @@ class TestPolicyListExcludesExistingClients:
 
     def test_the_committed_export_is_contact_free_and_loads(self):
         import csv
+
         from creditor_sourcing import config
         from creditor_sourcing.enrich import policylist
         path = config.REPO_ROOT / config.settings()["qualify"]["policylist_path"]
