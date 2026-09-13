@@ -1563,3 +1563,138 @@ class TestHeaderFragments:
         assert [r.creditor_name for r in rows] == [
             "Coast Cafe Supplies", "Realtime Flowers"]
         assert rows[0].amount_aud == 406.0
+
+
+class TestPolicyListExcludesExistingClients:
+    """Item 1 of the handover: the PolicyList had never been run.
+
+    Against the 4 June 2026 export, eight of the 115 prospects on the 13
+    September list were current NCI clients. Five matched on the client
+    name; Mitre 10 and Home Timber & Hardware only appear in the POLICY name
+    column (their client is TOTAL TOOLS & HARDWARE GROUP), and Studworks is
+    how a creditor listing abbreviates STUDWORKS PROFILE SYSTEMS.
+    """
+
+    POLICIES = [
+        ("NCI8854V", "MITRE 10 AUSTRALIA PTY LTD", "TOTAL TOOLS & HARDWARE GROUP"),
+        ("NCI8852V", "HOME TIMBER & HARDWARE GROUP PTY LTD", "TOTAL TOOLS & HARDWARE GROUP"),
+        ("NCI7912V", "STUDWORKS PROFILE SYSTEMS PTY LTD", "STUDWORKS PROFILE SYSTEMS PTY LTD"),
+        ("NCI8737V", "SUPAPANEL AUSTRALIA PTY LTD", "SUPAPANEL AUSTRALIA PTY LTD"),
+        ("NCI7792V", "FETCH PERSONNEL PTY LTD", "FETCH PERSONNEL PTY LTD"),
+        ("898191", "AMERICOLD LOGISTICS LTD", "AMERICOLD LOGISTICS LTD"),
+        ("NCI8206N", "ANTEC GROUP PTY LIMITED", "METAL MANUFACTURES PTY LIMITED"),
+        ("NCI5366V", "ACROW FORMWORK AND SCAFFOLDING PTY LTD", "ACROW FORMWORK AND SCAFFOLDING PTY LTD"),
+        ("NCI7801S", "CENTURY PRODUCTS (S.A.) PROPRIETARY LIMITED", "CENTURY PRODUCTS (S.A.) PROPRIETARY LIMITED"),
+        ("AU25143500", "WELLPHARM PTY LTD AND MATTHEW BELLGROVE PHARMACY PTY LTD", "WELLPHARM PTY LTD"),
+        ("NCI0001", "MELBOURNE COMMERCIAL CARPENTRY PTY LTD", "MELBOURNE COMMERCIAL CARPENTRY PTY LTD"),
+        ("NCI0002", "MELBOURNE COMMERCIAL CLEANING PTY LTD", "MELBOURNE COMMERCIAL CLEANING PTY LTD"),
+    ]
+
+    @pytest.fixture
+    def keys(self):
+        from creditor_sourcing.enrich import policylist
+        return policylist.fold_names(
+            name for _, policy, client in self.POLICIES for name in (policy, client)
+        )
+
+    @pytest.mark.parametrize(
+        ("creditor", "policyholder"),
+        [
+            ("Supapanel australia", "SUPAPANEL AUSTRALIA PTY LTD"),
+            ("Fetch Personnel", "FETCH PERSONNEL PTY LTD"),
+            ("AMERICOLD LOGISTICS LIMITED", "AMERICOLD LOGISTICS LTD"),
+            ("METAL MANUFACTURES PTY LIMITED", "METAL MANUFACTURES PTY LIMITED"),
+            ("Acrow Formwork And Scaffolding Pty Ltd",
+             "ACROW FORMWORK AND SCAFFOLDING PTY LTD"),
+            # Policy-name column only.
+            ("Mitre 10", "MITRE 10 AUSTRALIA PTY LTD"),
+            ("Home Timber & Hardware Group Pty Ltd",
+             "HOME TIMBER & HARDWARE GROUP PTY LTD"),
+            # Distinctive prefix of the policyholder's name.
+            ("Studworks", "STUDWORKS PROFILE SYSTEMS PTY LTD"),
+        ],
+    )
+    def test_existing_clients_match(self, keys, creditor, policyholder):
+        assert qualify.policylist_match(creditor, keys) == policyholder
+
+    @pytest.mark.parametrize(
+        "creditor",
+        [
+            "Pharmacy",                      # one generic word, prefix rule refused
+            "Century & Co",                  # shares a word with Century Products
+            "Melbourne Plaster Labour services",
+            "Melbourne Commercial",          # prefixes TWO policyholders - ambiguous
+            "Dahlsens Building Centres",
+            "",
+        ],
+    )
+    def test_other_creditors_do_not_match(self, keys, creditor):
+        assert qualify.policylist_match(creditor, keys) is None
+
+    def test_apply_drops_a_client_with_a_visible_reason(self, keys):
+        prospects = aggregate.build([creditor("Mitre 10", amount=51822.0)])
+        [prospect] = qualify.apply(prospects, keys)
+        assert prospect.qualified is False
+        assert prospect.policylist_match == "MITRE 10 AUSTRALIA PTY LTD"
+        assert "Existing NCI client" in prospect.disqualified_reason
+
+    def _write_csv(self, path, header, rows, title_row=None):
+        import csv
+        with path.open("w", newline="", encoding="utf-8") as fh:
+            writer = csv.writer(fh)
+            if title_row is not None:
+                writer.writerow(title_row)
+            writer.writerow(header)
+            writer.writerows(rows)
+
+    def test_csv_loads_both_name_columns(self, tmp_path):
+        from creditor_sourcing.enrich import policylist
+        path = tmp_path / "policylist.csv"
+        self._write_csv(
+            path,
+            ["policy_no", "policy_name", "client_name", "contact_first", "email", "state"],
+            [[p, policy, client, "Kim", "kim@example.com", "VIC"]
+             for p, policy, client in self.POLICIES],
+        )
+        keys = policylist.load(path)
+        assert normalise_name("MITRE 10 AUSTRALIA PTY LTD") in keys
+        assert normalise_name("TOTAL TOOLS & HARDWARE GROUP") in keys
+        # Contact columns are never read as company names.
+        assert "kim" not in keys
+
+    def test_xlsx_export_with_a_title_row_above_the_header(self, tmp_path):
+        from openpyxl import Workbook
+        from creditor_sourcing.enrich import policylist
+        path = tmp_path / "PolicyList.xlsx"
+        wb = Workbook()
+        ws = wb.active
+        ws.append(["Policy List Report - 04/06/2026"])
+        ws.append(["Policy No", "Policy Name", "Client Name", "State", "Industry"])
+        for p, policy, client in self.POLICIES:
+            ws.append([p, policy, client, "VIC", "BUILDING / HARDWARE"])
+        wb.save(path)
+        keys = policylist.load(path)
+        assert len(keys) == len(policylist.fold_names(
+            n for _, a, b in self.POLICIES for n in (a, b)))
+        assert normalise_name("STUDWORKS PROFILE SYSTEMS PTY LTD") in keys
+
+    def test_missing_or_headerless_file_switches_exclusion_off(self, tmp_path, caplog):
+        from creditor_sourcing.enrich import policylist
+        assert policylist.load(tmp_path / "nope.csv") == {}
+        path = tmp_path / "junk.csv"
+        self._write_csv(path, ["a", "b"], [["1", "2"]])
+        with caplog.at_level("WARNING"):
+            assert policylist.load(path) == {}
+        assert "client exclusion is OFF" in caplog.text
+
+    def test_the_committed_export_is_contact_free_and_loads(self):
+        import csv
+        from creditor_sourcing import config
+        from creditor_sourcing.enrich import policylist
+        path = config.REPO_ROOT / config.settings()["qualify"]["policylist_path"]
+        with path.open(encoding="utf-8") as fh:
+            header = next(csv.reader(fh))
+        assert header == ["policy_no", "policy_name", "client_name", "state", "industry"]
+        keys = policylist.load(path)
+        assert len(keys) > 3000
+        assert qualify.policylist_match("Mitre 10", keys) == "MITRE 10 AUSTRALIA PTY LTD"

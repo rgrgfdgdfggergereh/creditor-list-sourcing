@@ -310,6 +310,11 @@ def cmd_ingest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _default_policylist() -> Path:
+    """The committed PolicyList, used unless --policylist names a fresher one."""
+    return config.REPO_ROOT / config.settings()["qualify"]["policylist_path"]
+
+
 def cmd_report(args: argparse.Namespace) -> int:
     settings = config.settings()
     creditors_path = Path(args.creditors)
@@ -332,7 +337,7 @@ def cmd_report(args: argparse.Namespace) -> int:
         for r in raw
     ]
 
-    policy_keys = policylist.load(Path(args.policylist)) if args.policylist else {}
+    policy_keys = policylist.load(Path(args.policylist or _default_policylist()))
     prospects = qualify.apply(aggregate.build(creditors), policy_keys)
 
     if not args.no_crm:
@@ -445,7 +450,8 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--matter-id")
         p.add_argument("--out", default=str(config.STATE_DIR / "creditors.json"))
         p.add_argument("--creditors", default=str(config.STATE_DIR / "creditors.json"))
-        p.add_argument("--policylist", default="")
+        p.add_argument("--policylist", default="",
+                       help="PolicyList export (.csv/.xls/.xlsx); default: the committed one")
         p.add_argument("--out-dir", default="")
         p.add_argument("--no-crm", action="store_true")
         p.add_argument("--push-notes", action="store_true")

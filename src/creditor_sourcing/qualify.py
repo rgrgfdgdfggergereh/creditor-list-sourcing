@@ -135,13 +135,40 @@ def policylist_match(name: str, policy_keys: dict[str, str]) -> str | None:
     if not policy_keys:
         return None
     key = normalise_name(name)
+    if not key:
+        return None
     if key in policy_keys:
         return policy_keys[key]
     hit = process.extractOne(
         key, policy_keys.keys(), scorer=fuzz.token_sort_ratio,
         score_cutoff=FUZZY_THRESHOLD,
     )
-    return policy_keys[hit[0]] if hit else None
+    if hit:
+        return policy_keys[hit[0]]
+
+    # A creditor listing names the client the way its accounts clerk does:
+    # "Studworks" for STUDWORKS PROFILE SYSTEMS PTY LTD. The fuzzy score for
+    # a short name against a long one is low, so a distinctive name that
+    # opens a policyholder's name is also a match. "Distinctive" is the
+    # guard: a single generic word ("Pharmacy") is never enough.
+    if _distinctive(key):
+        prefix = key + " "
+        starts = [k for k in policy_keys if k.startswith(prefix)]
+        if len(starts) == 1:
+            return policy_keys[starts[0]]
+    return None
+
+
+# Minimum length for a one-word name to count as distinctive in the prefix
+# rule above. "pharmacy", "building", "plumbing" all fall under it.
+PREFIX_MIN_CHARS = 9
+
+
+def _distinctive(key: str) -> bool:
+    tokens = key.split()
+    if len(tokens) >= 2:
+        return len(key) >= PREFIX_MIN_CHARS
+    return len(key) >= PREFIX_MIN_CHARS and not key.isdigit()
 
 
 def score(prospect: Prospect) -> int:

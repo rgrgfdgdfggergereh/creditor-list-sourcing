@@ -83,8 +83,12 @@ qualify:
   # A creditor owed less than this is dropped - too small to signal a real
   # trade book worth insuring.
   min_exposure_aud: 5000
-  # Existing NCI policyholders are dropped outright.
+  # Existing NCI policyholders are dropped outright. The export lives in the
+  # repo, stripped to policy number, names, state and industry - no contacts.
+  # Refresh it by exporting the PolicyList and re-saving these five columns
+  # (or pass a fresh export with --policylist; .csv, .xls and .xlsx all load).
   drop_policylist_clients: true
+  policylist_path: config/policylist.csv   # as at 04/06/2026
   # Companies already in Pipedrive are KEPT. They get a note on the existing
   # organisation instead of being re-prospected as new.
   # An individual creditor is an employee, a director loan or a private
