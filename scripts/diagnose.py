@@ -423,6 +423,36 @@ def diagnose_asic_connect() -> None:
         print(f"         title={title[:64]!r}  forms={forms}  "
               f"{len(response.text):,} bytes  acn-on-page={acn in response.text}")
 
+    # Every candidate above landed on the same "Service availability" page,
+    # which is either a real ASIC outage or ASIC refusing this client. Those
+    # need different fixes, so ask the same URL twice with different identities
+    # and see whether the answer changes.
+    print("\n  Same URL, two identities:\n")
+    browser = (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+    )
+    target = "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/SearchRegisters.jspx"
+    for label, agent in (("project", None), ("browser", browser)):
+        probe_client = Client()
+        if agent:
+            probe_client.session.headers["User-Agent"] = agent
+        try:
+            response = probe_client.get(target)
+            soup = BeautifulSoup(response.text, "lxml")
+            title = soup.title.get_text(strip=True) if soup.title else ""
+            print(f"    {label:<8} HTTP {response.status_code}  "
+                  f"{len(response.text):,} bytes  title={title[:50]!r}")
+            print(f"             final={response.url[:92]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"    {label:<8} {type(exc).__name__}: {str(exc)[:90]}")
+    print("""
+    Same answer to both identities means ASIC Connect is genuinely
+    unavailable right now, and this must be re-run on a weekday before the
+    leg is called broken. A different answer means the client is being
+    refused, which is a fix in this repo.
+""")
+
     # ABN Lookup: a public JSON search, and the route from a company name to
     # the ABN that IRIS searches on. Checked here so a failure upstream is not
     # mistaken for a problem with this pipeline.
