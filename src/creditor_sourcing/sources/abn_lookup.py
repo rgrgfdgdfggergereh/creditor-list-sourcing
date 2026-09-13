@@ -1,6 +1,8 @@
-"""Resolve a company's ABN, so a debtor can be looked up in IRIS.
+"""Resolve a company's ABN from its ACN or name.
 
-IRIS is searched by ABN. This pipeline holds company names and ACNs, so
+An ABN identifies a debtor unambiguously, which an ACN alone stops doing as
+soon as a company trades under a business name, and it is the key most
+Australian systems are searched by. This pipeline holds names and ACNs, so
 something has to bridge the two, and ABN Lookup (abr.business.gov.au) is the
 public register that does it.
 

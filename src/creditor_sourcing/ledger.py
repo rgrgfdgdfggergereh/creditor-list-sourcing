@@ -104,7 +104,6 @@ def save_queue(rows: list[dict[str, Any]]) -> None:
 
 def queue_for_purchase(matters: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Build the buy list: 5604 lodged, not yet purchased, creditors not captured."""
-    from .enrich.iris import debtor_search_url
     from .sources.abn_lookup import format_abn
     from .sources.asic_connect import organisation_url
 
@@ -123,11 +122,9 @@ def queue_for_purchase(matters: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "lodged_date": m.get("form_5604_date"),
                 "appointment_type": m.get("appointment_type"),
                 "asic_connect_url": organisation_url(m["acn"]) if m.get("acn") else None,
-                # For the IRIS check before spending money on the document:
-                # the ABN to paste, and the screen to paste it into. IRIS has
-                # no per-debtor URL - see enrich/iris.py for why.
+                # Identifies the debtor unambiguously, which an ACN alone
+                # does not once a company trades under a business name.
                 "abn": format_abn(m["abn"]) if m.get("abn") else None,
-                "iris_search_url": debtor_search_url(),
                 "queued_at": datetime.now().isoformat(timespec="seconds"),
             }
         )

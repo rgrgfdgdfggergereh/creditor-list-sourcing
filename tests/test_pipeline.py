@@ -17,7 +17,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import pytest
 
 from creditor_sourcing import aggregate, ledger, qualify
-from creditor_sourcing.enrich import iris
 from creditor_sourcing.models import Creditor, Matter, normalise_name
 from creditor_sourcing.parse import creditor_tables
 from creditor_sourcing.parse.creditor_tables import parse_lines
@@ -1283,19 +1282,6 @@ class TestAbnLookup:
         url = abn_lookup.search_url("683236259")
         assert url.startswith("https://abr.business.gov.au/Search/ResultsActive")
         assert "683236259" in url
-
-
-class TestIrisLinks:
-    """IRIS has no per-debtor URL, and the workbook must not pretend otherwise."""
-
-    def test_only_the_search_screen_is_linked(self):
-        url = iris.debtor_search_url()
-        assert url == "https://iris.nci.com.au/index.html#oDashboard/oSelectDebtor"
-        # No instance ids. Both live URLs carried oSelectDebtorSearch-1644824 -
-        # identical before and after a debtor was chosen, so it identifies a
-        # screen, not a company. A link built from it would open whichever
-        # record that instance resolves to in the viewer's own session.
-        assert "1644824" not in url and "oZoomDebtor" not in url
 
 
 class TestAFailedLookupIsNotAnAnswer:

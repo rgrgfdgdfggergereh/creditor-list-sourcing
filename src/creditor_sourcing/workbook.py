@@ -126,9 +126,9 @@ def build(
     _finish(repeat, widths)
 
     queue_headers = [
-        "Company (insolvent)", "ACN", "ABN (paste into IRIS)", "Form",
-        "Document number", "Lodged", "Appointment type",
-        "ASIC Connect link (buy here)", "IRIS debtor search", "Queued",
+        "Company (insolvent)", "ACN", "ABN", "Form", "Document number",
+        "Lodged", "Appointment type", "ASIC Connect link (buy here)",
+        "Queued",
     ]
     queue_sheet = _sheet(workbook, "Purchase Queue", queue_headers)
     for row in queue:
@@ -137,10 +137,10 @@ def build(
                 row.get("company_name"), row.get("acn"), row.get("abn"), "5604",
                 row.get("document_number"), row.get("lodged_date"),
                 row.get("appointment_type"), row.get("asic_connect_url"),
-                row.get("iris_search_url"), row.get("queued_at"),
+                row.get("queued_at"),
             ]
         )
-    _finish(queue_sheet, [38, 14, 18, 8, 20, 13, 26, 62, 46, 20])
+    _finish(queue_sheet, [38, 14, 18, 8, 20, 13, 26, 62, 20])
 
     excluded_headers = ["Creditor", "Total exposure", "# insolvencies",
                         "Why it was excluded"]

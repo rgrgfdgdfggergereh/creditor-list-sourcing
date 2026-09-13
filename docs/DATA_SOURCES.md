@@ -327,6 +327,54 @@ swap the path segment:
 `sources/worrells.py:details_view_url()` does this, and accepts either URL form
 or a bare id.
 
+## IRIS — parked, not possible from a runner
+
+Checking whether NCI already had limit activity on an insolvent debtor would
+narrow down which Form 5604s are worth paying for. It is **out of scope for
+this build**, and the reason is worth recording so it is not re-litigated.
+
+**IRIS is VPN-only, enforced at Cloudflare.** From a GitHub Actions runner,
+with no credentials sent:
+
+```
+HTTP 403, 51 bytes, server: cloudflare, cf-ray: ...-DFW
+body: "Please connect to the NCI VPN before accessing Iris"
+```
+
+Byte-identical for the project's user agent and a browser's, so it is about
+where the request comes from, not who is asking. The block sits in front of
+IRIS, so a session cookie cannot help — the request never arrives to have a
+session — and neither can driving a headless browser in CI.
+
+**IRIS also has no per-debtor URL.** It is a single-page app and everything
+after the `#` is a client-side route that never reaches the server:
+
+```
+.../index.html#oDashboard/oSelectDebtor/oSelectDebtorSearch-1644824
+.../index.html#oDashboard/oSelectDebtor/oSelectDebtorSearch-1644824/oZoomDebtor1-1122
+```
+
+The second is the first after zooming into a debtor. `oSelectDebtorSearch-1644824`
+is byte-identical in both and was already there before a debtor was chosen, so
+it identifies a screen instance, not a company. Neither URL carries an ABN, an
+ACN or a name, so a per-debtor deep link cannot be constructed: substituting a
+number would open whichever record that instance resolves to in the viewer's
+own session, and a rep would read one company's history under another's name.
+
+If it is picked up again, there are three routes and only two of them automate:
+
+1. **An export** — debtor ABN plus limit activity, dropped in periodically,
+   the same shape as the PolicyList input. Nothing to scrape, no credentials
+   in CI, survives any IRIS UI change.
+2. **A self-hosted GitHub Actions runner on an NCI machine inside the VPN** —
+   the weekly job would then do the lookups itself, unattended.
+3. **A browser on the VPN** — a person, or an agent running in their browser.
+   Works, but only when someone is at that machine; not a scheduled step.
+
+The ABN resolution built for this (`sources/abn_lookup.py`) stays. It
+identifies a debtor unambiguously and is the key any NCI system is searched
+by, so it is useful regardless.
+
 ## Scraper calibration
 
 The environment these parsers were written in has no outbound network access,
