@@ -193,7 +193,52 @@ an appointment, while the workbook is republished monthly. It is a secondary
 source — enabled with `--sources asic-notices` — and catches this month's
 appointments before the next workbook lands.
 
-## ASIC Connect — Form 5604 detection
+## ASIC Connect — Form 5604 detection — BROKEN, decision needed
+
+**Status as at 15 September 2026, verified on a weekday with the site up.**
+
+The Sunday 13 September probe found every path serving an asic.gov.au
+"Service availability" page. That was an outage. On Monday the register
+answers normally — but the leg still does not work, for a different reason.
+
+**The configured path is gone.** `/onlineservices/SearchRegisters/OrganisationDetails.aspx`
+returns 404. The register now lives at `/RegistrySearch/faces/landing/` and is
+an **Oracle ADF (JSF/Trinidad) app**, not ASP.NET:
+
+```
+/RegistrySearch/faces/landing/SearchRegisters.jspx
+  HTTP 200  'Search Company and Other Registers'  2 forms  89,623 bytes
+/RegistrySearch/faces/landing/panelSearch.jspx?searchText=<acn>
+  HTTP 200  'Search Results - Organisations and Business Names'  87,720 bytes
+```
+
+**Finding the new path does not fix it.** The results GET returns the search
+*shell*, not results — the ACN appears nowhere on the page, there is no "no
+results" message, and there is not one link to an organisation or a document
+list. The rows arrive on an ADF postback. The landing form is `method=POST`
+carrying `org.apache.myfaces.trinidad.faces.FORM`, `Adf-Window-Id`, a
+`javax.faces.ViewState` token and a `JSESSIONID`; a `__cf_bm` cookie is set,
+so Cloudflare bot management sits in front of it.
+
+**Three ways forward.**
+
+1. **Replay the ADF postback** — carry cookies, ViewState and Trinidad field
+   ids. Possible, and brittle: the ids change when ASIC redeploys, and
+   `__cf_bm` means the bot check can tighten at any time. Budget for
+   re-fixing it periodically.
+2. **Drive a real browser.** Robust against markup changes, heavy to run
+   weekly, still subject to the bot check.
+3. **Drop ASIC Connect.** Its only job here is to learn that a creditor list
+   exists so a human can buy it. The Worrells leg already gets *complete*
+   creditor lists free, without a login, and it is the half of this pipeline
+   that works. Extending that approach to the other large insolvency
+   practitioners' portals would likely yield more prospects, at no cost per
+   document, than fighting an ADF app for the right to pay ASIC per PDF.
+
+Until one is chosen, the purchase queue stays empty and `cmd_ingest` remains
+unexercised on a real document.
+
+## ASIC Connect — original notes
 
 <https://connectonline.asic.gov.au>
 

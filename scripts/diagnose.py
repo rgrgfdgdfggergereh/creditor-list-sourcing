@@ -530,16 +530,38 @@ def diagnose_asic_connect() -> None:
             print(f"    {url[:96]}\n      -> {type(exc).__name__}: {str(exc)[:100]}")
     if not reachable:
         print("""
-  -> A direct GET on OrganisationDetails.aspx does not reach the company.
-     ASIC Connect is an ASP.NET app: the register search is a POST that sets up
-     session state, and the deep link alone lands on a search or error page.
-     That is the same shape as the Published Notices leg, which was disabled
-     for exactly this reason.
+  -> Settled on 15 September, on a weekday, with the site up.
 
-     What this means for the pipeline: the free "has a 5604 been lodged"
-     detection does not work, so the purchase queue can never fill, so the one
-     manual step - buying the document - never gets a candidate. This must be
-     fixed before the ASIC half of the pipeline is worth anything.
+     The configured path is simply gone: /onlineservices/SearchRegisters/
+     OrganisationDetails.aspx 404s. The register now lives at
+     /RegistrySearch/faces/landing/ and is an Oracle ADF (JSF/Trinidad) app,
+     not ASP.NET.
+
+     Finding the new path does not fix the leg. A GET on panelSearch.jspx
+     with the ACN returns the search SHELL, not results: 87,720 bytes with
+     the ACN nowhere on the page, no "no results" message, and not one link
+     to an organisation or a document list. The rows arrive on an ADF
+     postback - the landing form is method=POST carrying
+     org.apache.myfaces.trinidad.faces.FORM, Adf-Window-Id, a
+     javax.faces.ViewState token and a JSESSIONID. A __cf_bm cookie is set
+     too, so Cloudflare bot management sits in front of it.
+
+     So the free "has a 5604 been lodged" detection cannot be done with a
+     plain GET. Three ways forward, and the third deserves the most thought:
+
+       1. Replay the ADF postback - carry the cookies, ViewState and
+          Trinidad field ids. Possible, and brittle: those ids change when
+          ASIC redeploys, and __cf_bm means the bot check can tighten at any
+          time. Expect to re-fix it periodically.
+       2. Drive a real browser. Robust against markup changes, heavy to run
+          weekly, and still subject to the bot check.
+       3. Do not use ASIC Connect at all. Its only job here is to find out
+          that a creditor list exists so a human can buy it. The Worrells leg
+          already gets complete creditor lists free, without a login, and it
+          is the half of this pipeline that works. Extending that approach to
+          the other large insolvency practitioners' portals would likely
+          yield more prospects, at no cost per document, than fighting an ADF
+          app for the right to pay ASIC per PDF.
 """)
 
 
