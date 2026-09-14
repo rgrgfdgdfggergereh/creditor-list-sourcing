@@ -454,6 +454,64 @@ def diagnose_asic_connect() -> None:
     refused, which is a fix in this repo.
 """)
 
+    # ASIC Connect answered on a weekday, so the Sunday result was an outage.
+    # The register lives under /RegistrySearch/faces/landing/, not the
+    # configured .aspx path. What is still unknown is how a search result
+    # reaches a company's DOCUMENT LIST - the results page did not even
+    # contain the ACN that was searched for, which is what an Oracle ADF app
+    # looks like when the results arrive by stateful postback rather than in
+    # the GET. So: follow the search as a browser would and print the route.
+    print("\n  Following a real search for one ACN:\n")
+    follow = Client()
+    follow.session.headers.update({
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-AU,en;q=0.9",
+    })
+    landing = "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/SearchRegisters.jspx"
+    try:
+        first = follow.get(landing)
+        print(f"    landing  HTTP {first.status_code}  {len(first.text):,} bytes  "
+              f"cookies={list(follow.session.cookies.keys())}")
+        soup = BeautifulSoup(first.text, "lxml")
+        # Form fields an ADF postback would need.
+        for form in soup.find_all("form"):
+            names = [i.get("name") for i in form.find_all(["input", "select"])
+                     if i.get("name")]
+            print(f"    form action={str(form.get('action'))[:70]!r} "
+                  f"method={form.get('method')} fields={names[:12]}")
+        for hidden in ("javax.faces.ViewState", "oracle.adf.view.rich.STATE"):
+            tag = soup.find("input", {"name": hidden})
+            if tag:
+                print(f"    {hidden} present, len={len(tag.get('value') or '')}")
+
+        results = follow.get(
+            "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/"
+            f"panelSearch.jspx?searchText={acn}&searchType=OrgAndBusNm"
+        )
+        rsoup = BeautifulSoup(results.text, "lxml")
+        text = rsoup.get_text(" ", strip=True)
+        print(f"\n    results  HTTP {results.status_code}  {len(results.text):,} bytes")
+        print(f"    acn digits on page = {acn in text.replace(' ', '')}")
+        print(f"    'no results'-ish   = "
+              f"{any(p in text.lower() for p in ('no match', 'no results', 'not found'))}")
+        # Any link that could lead to a company or its documents.
+        seen = set()
+        for a in rsoup.find_all("a", href=True):
+            href = a["href"]
+            if any(k in href.lower() for k in
+                   ("organisation", "companydetails", "documents", "detail", "extract")):
+                key = href[:90]
+                if key not in seen:
+                    seen.add(key)
+                    print(f"    link {a.get_text(' ', strip=True)[:32]!r:<36} -> {key}")
+        if not seen:
+            print("    NO organisation/detail links in the results HTML.")
+            print("    -> the result rows are not in the GET response; the ADF")
+            print("       app fetches them on a postback. A plain GET cannot")
+            print("       reach the document list.")
+    except Exception as exc:  # noqa: BLE001
+        print(f"    FAILED: {type(exc).__name__}: {str(exc)[:120]}")
+
     # ABN Lookup: a public JSON search, and the route from a company name to
     # the ABN that IRIS searches on. Checked here so a failure upstream is not
     # mistaken for a problem with this pipeline.
