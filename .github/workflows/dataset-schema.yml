@@ -1,0 +1,45 @@
+name: ASIC data set schema
+
+# Prints the real shape of the "data set" sheet in ASIC's insolvency statistics
+# workbook: sheet names, the detected header row, which columns mapped onto
+# which fields, and any header it did not recognise.
+#
+# The development sandbox cannot reach download.asic.gov.au, so this is how the
+# column names are established from the actual file rather than assumed. Run it
+# whenever ASIC republishes the workbook and `collect` stops finding rows.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Workbook URL (blank = resolve the latest from ASIC)"
+        default: ""
+  schedule:
+    # ASIC republishes monthly. Check the schema the day after the usual slot
+    # so a column rename surfaces before it breaks a Monday run.
+    - cron: "15 2 8 * *"
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Dump the workbook schema
+        env:
+          PYTHONPATH: src
+        run: |
+          mkdir -p out
+          python -m creditor_sourcing -v schema \
+            ${{ inputs.url && format('--url {0}', inputs.url) || '' }} \
+            --save out/asic-insolvency-statistics.xlsx \
+            | tee out/schema.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asic-dataset
+          path: out/
+          retention-days: 30

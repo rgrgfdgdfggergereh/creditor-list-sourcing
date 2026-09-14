@@ -7,6 +7,8 @@ required of anyone unless there are documents to buy.
 
 1. Open the **run summary** on the Actions run — prospect counts, the top
    repeat-exposure companies, and the list of documents waiting to be bought.
+   Worrells creditors are already in there: that leg harvests itself and needs
+   nothing from you.
 2. If documents are queued, open the **purchase dashboard**, buy them on ASIC
    Connect (the links go straight to each company), and drop the PDFs back on
    the page.
@@ -43,10 +45,26 @@ python -m creditor_sourcing run --policylist ~/Downloads/PolicyList.xlsx
 The run degrades gracefully: every missing secret disables its step and logs
 why, rather than failing the run.
 
-### 2. Calibrate the scrapers — do this first
+### 2. Confirm the ASIC data set schema — do this first
 
-The parsers were written without network access to the live sites. Before
-trusting any source, capture its real markup:
+The primary feed is the `Data set` sheet of ASIC's insolvency statistics
+workbook. Its schema is already confirmed against the 7 September 2026 release
+(see [DATA_SOURCES.md](DATA_SOURCES.md)); re-confirm after a republish:
+
+```
+Actions → ASIC data set schema → Run workflow
+```
+
+The log prints the sheet names, the detected header row, every column that
+mapped onto a field, and any header it did not recognise. If a header is
+unmapped and useful, add it to `HEADER_ALIASES` in `sources/asic_dataset.py`.
+This workflow also runs monthly so a rename surfaces on its own.
+
+### 3. Calibrate the scrapers
+
+The two scraped sources — Published Notices and the Worrells portal — were
+written without network access to the live sites. Before relying on either,
+capture its real markup:
 
 ```
 Actions → Probe live sources → Run workflow → source: asic-notices
@@ -59,7 +77,7 @@ Repeat for `worrells` and for `asic-connect` with a known ACN.
 **A source returning 0 rows means the selectors need recalibrating, not that
 there were no insolvencies that week.** Probe again.
 
-### 3. Cloudflare dashboard
+### 4. Cloudflare dashboard
 
 ```bash
 cd cloudflare
@@ -75,7 +93,7 @@ covering the Worker's route, restricted to the NCI email domain. The `/api`
 routes used by Actions authenticate with `QUEUE_TOKEN` independently, so
 automation does not depend on Access.
 
-### 4. PolicyList
+### 5. PolicyList
 
 Client exclusion is off until a PolicyList export is supplied. Pass it with
 `--policylist <path>`, or commit it and set the path in the workflow. Without
@@ -96,7 +114,10 @@ shows every dropped company and the rule that dropped it.
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| A source returns 0 rows | site markup changed | run the probe workflow, recalibrate |
+| `collect` raises "company-name column" | the data set sheet was renamed | run the ASIC data set schema workflow, update `HEADER_ALIASES` |
+| A scraped source returns 0 rows | site markup changed | run the probe workflow, recalibrate |
+| Worrells matters collected but no creditors | most are days old with nothing lodged | normal — they stay open and are re-checked weekly |
+| A Worrells matter shows `no-section` | its documents carry no listing | expected on a First Advice; the matter stops being re-fetched |
 | Creditor names have address fragments | run-together PDF cells | acceptable; tune the split in `parse/creditor_tables.py` |
 | A document is `scanned` | image-only PDF | read it by hand — OCR is not trusted to publish names |
 | A document is `missing` | ASIC/portal returned 404 | leave it; the matter stays open and retries next week |
