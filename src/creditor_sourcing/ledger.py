@@ -86,6 +86,11 @@ def open_matters(known: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
         for m in known.values()
         if not m.get("creditors_captured")
         and (m.get("first_seen") or cutoff) >= cutoff
+        # A Worrells matter whose documents exist but carry no listing will
+        # not grow one; re-fetching it every week is pure portal load. One
+        # with nothing lodged yet is the opposite - that is most of the
+        # intake, and it is exactly what we are waiting on.
+        and m.get("document_status") not in ("no-section", "scanned")
     ]
 
 
@@ -99,6 +104,7 @@ def save_queue(rows: list[dict[str, Any]]) -> None:
 
 def queue_for_purchase(matters: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Build the buy list: 5604 lodged, not yet purchased, creditors not captured."""
+    from .sources.abn_lookup import format_abn
     from .sources.asic_connect import organisation_url
 
     rows = []
@@ -116,6 +122,9 @@ def queue_for_purchase(matters: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "lodged_date": m.get("form_5604_date"),
                 "appointment_type": m.get("appointment_type"),
                 "asic_connect_url": organisation_url(m["acn"]) if m.get("acn") else None,
+                # Identifies the debtor unambiguously, which an ACN alone
+                # does not once a company trades under a business name.
+                "abn": format_abn(m["abn"]) if m.get("abn") else None,
                 "queued_at": datetime.now().isoformat(timespec="seconds"),
             }
         )

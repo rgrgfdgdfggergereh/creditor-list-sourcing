@@ -1,0 +1,302 @@
+# Telling a person apart from a business, by name alone.
+#
+# An individual creditor in an insolvency is almost always an employee, a
+# director loan or a private lender - not a supplier with a receivables ledger
+# to insure. The documents give no direct signal: only one creditor row in 452
+# carried the "Withheld due to privacy legislation" address that would mark a
+# natural person. So the test is the name itself.
+#
+# The rule is deliberately one-sided. A name counts as a person only when it
+# carries NO business signal at all and reads as two to four given/family
+# names. Anything with a legal suffix, a trade word, an acronym, a digit or an
+# ampersand is a business. Every drop still lands on the Excluded tab with its
+# reason, so a wrong call is visible and this list can be tuned.
+#
+# Known limitation: a partnership trading under two surnames - "Gross Waddell",
+# a real commercial property agency - is indistinguishable from a person by
+# name alone, and will be dropped. Add such names to `keep` below.
+
+titles: [mr, mrs, ms, miss, mx, dr, prof, sir, madam]
+
+# Names that look like people but are businesses. Checked before anything else.
+keep:
+  - Gross Waddell
+
+# Any one of these words anywhere in the name means it is a business.
+business_words:
+  # Legal and corporate form
+  - pty
+  - ltd
+  - limited
+  - inc
+  - incorporated
+  - corp
+  - corporation
+  - co
+  - company
+  - group
+  - holdings
+  - enterprises
+  - enterprise
+  - industries
+  - international
+  - national
+  - the
+  - trust
+  - trustee
+  - partners
+  - partnership
+  - associates
+  - nominees
+  - investments
+  - capital
+  - ventures
+  - brands
+  - collective
+  - agency
+  - advisory
+  - accountants
+  - consulting
+  - consultants
+  - management
+  - procurement
+  # Place and jurisdiction
+  - australia
+  - australian
+  - aust
+  - melbourne
+  - melb
+  - sydney
+  - brisbane
+  - adelaide
+  - perth
+  - canberra
+  - darwin
+  - hobart
+  - nsw
+  - vic
+  - qld
+  - tas
+  # Generic trading words
+  - services
+  - service
+  - solutions
+  - systems
+  - supplies
+  - supply
+  - products
+  - equipment
+  - tools
+  - machinery
+  - plant
+  - hire
+  - rentals
+  - rental
+  - trading
+  - traders
+  - wholesale
+  - wholesalers
+  - retail
+  - imports
+  - exports
+  - distribution
+  - distributors
+  - centres
+  - centre
+  - center
+  - depot
+  - warehouse
+  - factory
+  - works
+  - workshop
+  - industrial
+  - commercial
+  - residential
+  - team
+  - crew
+  - place
+  - best
+  - risk
+  - trade
+  - guarantee
+  - entitlements
+  - fair
+  # Transport and logistics
+  - transport
+  - logistics
+  - freight
+  - haulage
+  - couriers
+  - carriers
+  - removals
+  - storage
+  # Construction and trades
+  - builders
+  - build
+  - builds
+  - building
+  - buildings
+  - construction
+  - constructions
+  - developments
+  - development
+  - projects
+  - project
+  - contracting
+  - contractors
+  - contracts
+  - engineering
+  - fabrication
+  - manufacturing
+  - electrical
+  - electrics
+  - plumbing
+  - concreting
+  - concrete
+  - cement
+  - paving
+  - roofing
+  - roof
+  - scaffolding
+  - plastering
+  - plaster
+  - painting
+  - painters
+  - carpentry
+  - joinery
+  - cabinets
+  - glass
+  - glazing
+  - steel
+  - timber
+  - hardware
+  - excavation
+  - excavations
+  - earthmoving
+  - drainage
+  - landscaping
+  - insulation
+  - fencing
+  - gates
+  - doors
+  - windows
+  - window
+  - installations
+  - installation
+  - blinds
+  - kitchens
+  - bathrooms
+  - flooring
+  - tiles
+  - tiling
+  - bricks
+  - bricklaying
+  - interiors
+  - architectural
+  - architects
+  - design
+  - signage
+  - panel
+  - panels
+  - frame
+  - frames
+  - pools
+  - irrigation
+  - pumps
+  - pumping
+  - drilling
+  - mining
+  - quarry
+  # Food, retail and services
+  - farms
+  - farming
+  - agriculture
+  - produce
+  - foods
+  - food
+  - meat
+  - meats
+  - beverages
+  - catering
+  - cafe
+  - restaurant
+  - bakery
+  - butchers
+  - fruit
+  - seafood
+  - liquor
+  - brewing
+  - dairy
+  - nursery
+  - florist
+  - flowers
+  - pharmacy
+  - medical
+  - dental
+  - health
+  - fitness
+  - salon
+  - hair
+  - beauty
+  - laundry
+  - cleaning
+  - hygiene
+  - waste
+  - recycling
+  - security
+  - traffic
+  - printing
+  - print
+  - media
+  - marketing
+  # Vehicles, energy, technology
+  - motors
+  - automotive
+  - auto
+  - tyres
+  - smash
+  - mechanical
+  - diesel
+  - marine
+  - aviation
+  - rail
+  - energy
+  - solar
+  - electricity
+  - gas
+  - fuel
+  - petroleum
+  - water
+  - telecom
+  - telecommunications
+  - communications
+  - technology
+  - technologies
+  - tech
+  - software
+  - digital
+  - computers
+  - networks
+  # People and money businesses
+  - recruitment
+  - personnel
+  - staffing
+  - labour
+  - workforce
+  - training
+  - education
+  - academy
+  - college
+  - school
+  - childcare
+  - insurance
+  - finance
+  - financial
+  - credit
+  - lending
+  - mortgage
+  - realty
+  - property
+  - properties
+  - estates
+  - real
