@@ -2395,6 +2395,82 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "Semi Trailer Sales Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10553.4,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "semi trailer sales",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10553.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Barfold Quarry",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10000.0,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "barfold quarry",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "Digital Horizons",
     "disqualified_reason": null,
     "exposure_known": true,
@@ -2963,6 +3039,44 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 7000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Cleanaway Waste Management Limited",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6912.75,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cleanaway waste management",
+    "pipedrive_org_id": 31102,
+    "pipedrive_org_name": "Cleanaway Waste Management Limited",
+    "pipedrive_owner": "Arron Reed",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/31102",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6912.75,
     "website": null
   },
   {
@@ -4931,7 +5045,7 @@
     "display_name": "Australian Taxation Office (Insolvencies)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 28,
+    "matter_count": 31,
     "matters": [
       {
         "amount_aud": 223694.0,
@@ -5212,6 +5326,36 @@
         "matter_id": "417bf35157841c40",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 667995.12,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "K. Lung Finance Investment Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "2052decab9e219fd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 112420.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office insolvencies",
@@ -5223,7 +5367,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 4916668.86,
+    "total_exposure_aud": 5697083.98,
     "website": null
   },
   {
@@ -5504,7 +5648,7 @@
     "display_name": "Australian Taxation Office (Super Guarantee)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 13,
+    "matter_count": 14,
     "matters": [
       {
         "amount_aud": 121000.0,
@@ -5635,6 +5779,16 @@
         "matter_id": "3faaafcf33876105",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 66745.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office super guarantee",
@@ -5646,7 +5800,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 540333.4,
+    "total_exposure_aud": 607078.4,
     "website": null
   },
   {
@@ -5718,13 +5872,14 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
+      "Hospitality",
       "Professional Services",
       "Unknown"
     ],
     "display_name": "Commonwealth Bank",
     "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": true,
-    "matter_count": 3,
+    "matter_count": 4,
     "matters": [
       {
         "amount_aud": 194842.0,
@@ -5755,6 +5910,16 @@
         "matter_id": "414d2aa64b99f499",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 846.86,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "commonwealth bank",
@@ -5766,7 +5931,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 223714.25,
+    "total_exposure_aud": 224561.11,
     "website": null
   },
   {
@@ -6065,7 +6230,7 @@
     "display_name": "iCare Workers Insurance",
     "disqualified_reason": "Insurer or broker - competitor / not a prospect",
     "exposure_known": true,
-    "matter_count": 7,
+    "matter_count": 8,
     "matters": [
       {
         "amount_aud": 0.0,
@@ -6136,6 +6301,16 @@
         "matter_id": "180cf41a4e88643e",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 844.9,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "icare workers insurance",
@@ -6147,7 +6322,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 30709.63,
+    "total_exposure_aud": 31554.53,
     "website": null
   },
   {
@@ -6500,6 +6675,65 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction",
+      "Hospitality"
+    ],
+    "display_name": "Allianz Australia Workers' Compensation (Victoria) Limited",
+    "disqualified_reason": "Exposure $2,779 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 598.82,
+        "amount_known": true,
+        "debtor_company": "VINALB PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "3a66314555bd1bc1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 2179.72,
+        "amount_known": true,
+        "debtor_company": "K. Lung Finance Investment Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "2052decab9e219fd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "allianz workers compensation victoria",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 84,
+    "state": null,
+    "total_exposure_aud": 2778.54,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality",
       "Retail/Wholesale"
     ],
@@ -6647,6 +6881,54 @@
     "score": 76,
     "state": null,
     "total_exposure_aud": 152902.56,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "PROSPA ADVANCE PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 82391.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "prospa advance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 74,
+    "state": null,
+    "total_exposure_aud": 82391.0,
     "website": null
   },
   {
@@ -7005,6 +7287,54 @@
     "score": 60,
     "state": null,
     "total_exposure_aud": 3364.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "SILVER CHEF RENTALS PTY LTD",
+    "disqualified_reason": "Exposure $3,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 3000.0,
+        "amount_known": true,
+        "debtor_company": "Sarward Investments Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "3b2bff4df6ffcef5",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "silver chef rentals",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 59,
+    "state": null,
+    "total_exposure_aud": 3000.0,
     "website": null
   },
   {
@@ -7542,6 +7872,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "MOULA FUNDING PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 182352.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "moula funding",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 52,
+    "state": null,
+    "total_exposure_aud": 182352.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Studworks",
@@ -7885,6 +8253,44 @@
     "score": 48,
     "state": null,
     "total_exposure_aud": 69728.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "SQUARE AU PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 61854.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "square au",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 47,
+    "state": null,
+    "total_exposure_aud": 61854.0,
     "website": null
   },
   {
@@ -9399,6 +9805,44 @@
     "debtor_industries": [
       "Building/Construction"
     ],
+    "display_name": "SHIFT FINANCIAL PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 14598.0,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "shift financial",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 14598.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
     "display_name": "Kaine Hockey",
     "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
     "exposure_known": true,
@@ -9729,6 +10173,82 @@
     "score": 39,
     "state": null,
     "total_exposure_aud": 9120.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Highway Tractor Spares",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 9000.0,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "highway tractor spares",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 9000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Leave Plus",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 8851.59,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "leave plus",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 8851.59,
     "website": null
   },
   {
@@ -11487,6 +12007,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Region Welding Engineering",
+    "disqualified_reason": "Exposure $3,920 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3920.4,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "region welding engineering",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3920.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Sumo Power",
@@ -12133,6 +12691,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "HERMES CAPITAL AUSTRALIA PTY. LIMITED",
+    "disqualified_reason": "Exposure $3,180 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3179.75,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "hermes capital",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3179.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Mike Layt",
@@ -12351,44 +12947,6 @@
     "score": 34,
     "state": null,
     "total_exposure_aud": 3007.83,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "SILVER CHEF RENTALS PTY LTD",
-    "disqualified_reason": "Exposure $3,000 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 3000.0,
-        "amount_known": true,
-        "debtor_company": "Sarward Investments Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "3b2bff4df6ffcef5",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "silver chef rentals",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 34,
-    "state": null,
-    "total_exposure_aud": 3000.0,
     "website": null
   },
   {
@@ -13729,6 +14287,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "KLM Mini Excavator Hire",
+    "disqualified_reason": "Exposure $2,046 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2046.0,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "klm mini excavator hire",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2046.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Origin Energy",
@@ -13871,6 +14467,44 @@
     "score": 32,
     "state": null,
     "total_exposure_aud": 1983.37,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "BORAL LIMITED",
+    "disqualified_reason": "Exposure $1,930 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1930.5,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "boral",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1930.5,
     "website": null
   },
   {
@@ -14757,6 +15391,44 @@
     "debtor_industries": [
       "Hospitality"
     ],
+    "display_name": "Hales Douglass Pty Ltd",
+    "disqualified_reason": "Exposure $1,540 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1540.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "hales douglass",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1540.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
     "display_name": "Elgas",
     "disqualified_reason": "Exposure $1,524 is under the $5,000 minimum",
     "exposure_known": true,
@@ -15049,6 +15721,44 @@
     "score": 31,
     "state": null,
     "total_exposure_aud": 1325.07,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction"
+    ],
+    "display_name": "Accounting Solutions Plus PTY LTD",
+    "disqualified_reason": "Exposure $1,320 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1320.0,
+        "amount_known": true,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "accounting solutions plus",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1320.0,
     "website": null
   },
   {
@@ -16237,6 +16947,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "Coca Cola Euro Pacific Partners",
+    "disqualified_reason": "Exposure $845 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 845.45,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "coca cola euro pacific partners",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 845.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Dunbier Marine Products Pty Ltd",
@@ -17215,44 +17963,6 @@
     "score": 27,
     "state": null,
     "total_exposure_aud": 600.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Allianz Australia Workers Compensation (Victoria) Limited",
-    "disqualified_reason": "Exposure $599 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 598.82,
-        "amount_known": true,
-        "debtor_company": "VINALB PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "3a66314555bd1bc1",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "allianz workers compensation victoria",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 27,
-    "state": null,
-    "total_exposure_aud": 598.82,
     "website": null
   },
   {
@@ -18772,6 +19482,44 @@
     "score": 24,
     "state": null,
     "total_exposure_aud": 314.85,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality"
+    ],
+    "display_name": "ReturnToWorkSA",
+    "disqualified_reason": "Exposure $314 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 313.95,
+        "amount_known": true,
+        "debtor_company": "K. Lung Finance Investment Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "2052decab9e219fd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "returntoworksa",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 24,
+    "state": null,
+    "total_exposure_aud": 313.95,
     "website": null
   },
   {
@@ -20364,44 +21112,6 @@
     "pipedrive_owner": null,
     "pipedrive_url": null,
     "policylist_match": "AMERICOLD LOGISTICS LTD",
-    "qualified": false,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "PROSPA ADVANCE PTY LTD",
-    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "prospa advance",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
     "qualified": false,
     "score": 0,
     "state": null,
