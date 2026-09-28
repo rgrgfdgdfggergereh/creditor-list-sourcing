@@ -11,7 +11,15 @@ schedule:
 
 sources:
   asic_notices:
-    enabled: true
+    # DISABLED. The browse path returns HTTP 404 and the site serves results
+    # through a search POST, so this leg would need real scraper work - and it
+    # no longer earns it. The workbook covers the same named companies with
+    # more fields, and the only thing Notices added was ~19 days of freshness,
+    # which does not matter here: a Form 5604 is due within 10 business days of
+    # the winding-up resolution, so by the time the workbook publishes the form
+    # is already lodged. Re-enable only if same-week appointments become
+    # necessary. See docs/DATA_SOURCES.md.
+    enabled: false
     base_url: https://publishednotices.asic.gov.au
     # Notice types that mean "a company just entered external administration".
     notice_types:
@@ -28,11 +36,30 @@ sources:
     # A 5604 is due within 10 business days of the CVL resolution, but is often
     # lodged and imaged later. Keep re-checking a matter for this long.
     watch_days: 120
+    # Cap ASIC Connect lookups per run. The 60-day window tracks ~1,600 open
+    # matters, so an uncapped pass is 1,600 requests at 400ms - eleven minutes
+    # that grows every week until it blows the job timeout, and a lot of load
+    # on ASIC for no added yield. Matters rotate through the cap by priority
+    # (see check_order), so nothing is starved; a 5604 lodged this week is
+    # found next week at the latest.
+    max_matters_per_run: 150
   asic_stats:
-    # Series 1/2 is AGGREGATE statistics only - no company names. Used for the
-    # trend commentary in the weekly brief, never as a prospect source.
+    # PRIMARY named-company feed: the "Data set" sheet lists every company that
+    # entered external administration, one row per appointment. (The Series 1/2
+    # summary tables in the same workbook are aggregate counts - those are for
+    # trend commentary only.)
     enabled: true
     url: https://download.asic.gov.au/media/tzvbpc4i/asic-insolvency-statistics-series-1-and-series-2-published-7-september-2026.xlsx
+    # ASIC republishes monthly and the file trails reality. Measured on the
+    # 7 September 2026 release: the newest appointment was 23 August, 19 days
+    # before that run - so a 14-day window returned ZERO rows and a weekly run
+    # would have found nothing at all.
+    #
+    # This window therefore has to cover the publication lag plus a full month
+    # of new appointments. 60 days measured 1,627 matters (764 CVL); 30 days
+    # measured 486. Re-seeing a matter costs nothing: ledger.merge() dedupes on
+    # matter_id, so a wide window is safe and a narrow one loses leads.
+    lookback_days: 60
   worrells:
     enabled: true
     base_url: https://customerportal.worrells.net.au
@@ -44,15 +71,30 @@ sources:
     detail_path_from: /FileInformation/FileInformation/
     detail_path_to: /FileInformation/FileInformationDetailsView/
     throttle_ms: 400
+    # Documents are tried best-ranked first and the first that yields a
+    # listing wins, so this is a ceiling, not a target.
+    max_documents_per_matter: 2
+    # Cap detail-page fetches per run. Most matters on the list are days old
+    # and carry nothing yet, so the run re-checks them cheaply over time
+    # rather than hammering the portal in one pass.
+    max_matters_per_run: 60
 
 qualify:
   # A creditor owed less than this is dropped - too small to signal a real
   # trade book worth insuring.
   min_exposure_aud: 5000
-  # Existing NCI policyholders are dropped outright.
+  # Existing NCI policyholders are dropped outright. The export lives in the
+  # repo, stripped to policy number, names, state and industry - no contacts.
+  # Refresh it by exporting the PolicyList and re-saving these five columns
+  # (or pass a fresh export with --policylist; .csv, .xls and .xlsx all load).
   drop_policylist_clients: true
+  policylist_path: config/policylist.csv   # as at 04/06/2026
   # Companies already in Pipedrive are KEPT. They get a note on the existing
   # organisation instead of being re-prospected as new.
+  # An individual creditor is an employee, a director loan or a private
+  # lender - never a business with a receivables ledger. See
+  # config/individuals.yml for how a person is told from a business.
+  drop_individuals: true
   drop_pipedrive_matches: false
   # Non-trade creditors are dropped - they do not buy trade credit insurance
   # on this exposure. Patterns live in config/exclusions.yml.
