@@ -1747,6 +1747,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "C. List of proofs of debt received",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 21911.0,
+        "amount_known": true,
+        "debtor_company": "Russlee Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "472ecdf70bc093ae",
+        "source": "worrells",
+        "source_document": "2nd Advice"
+      }
+    ],
+    "name_key": "c list of proofs of debt received",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 43,
+    "state": null,
+    "total_exposure_aud": 21911.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "JD Construction Interiors",
@@ -1813,6 +1851,44 @@
     "score": 43,
     "state": null,
     "total_exposure_aud": 20625.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Somerset College",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 18667.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "somerset college",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 18667.0,
     "website": null
   },
   {
@@ -1927,6 +2003,44 @@
     "score": 41,
     "state": null,
     "total_exposure_aud": 15474.7,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Capify",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 14499.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "capify",
+    "pipedrive_org_id": 71022,
+    "pipedrive_org_name": "Capify Australia PTY LIMITED",
+    "pipedrive_owner": "Archana Chawla",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/71022",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 14499.0,
     "website": null
   },
   {
@@ -3077,6 +3191,44 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 6912.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Coastal Sound and Lighting",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6612.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "coastal sound lighting",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6612.0,
     "website": null
   },
   {
@@ -4674,10 +4826,10 @@
       }
     ],
     "name_key": "holcim",
-    "pipedrive_org_id": 3439,
-    "pipedrive_org_name": "Holcim (Australia) Pty Ltd",
-    "pipedrive_owner": "Todd Cleminson",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/3439",
+    "pipedrive_org_id": 34963,
+    "pipedrive_org_name": "HOLCIM (AUSTRALIA) HOLDINGS PTY LTD",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/34963",
     "policylist_match": null,
     "qualified": true,
     "score": 0,
@@ -5386,7 +5538,7 @@
     "display_name": "Australian Taxation Office",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 8,
+    "matter_count": 9,
     "matters": [
       {
         "amount_aud": 178000.0,
@@ -5487,6 +5639,16 @@
         "matter_id": "180cf41a4e88643e",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 30521.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office",
@@ -5498,7 +5660,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 1726251.03,
+    "total_exposure_aud": 1756772.03,
     "website": null
   },
   {
@@ -5990,6 +6152,65 @@
     "score": 100,
     "state": null,
     "total_exposure_aud": 188359.61,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality",
+      "Other"
+    ],
+    "display_name": "PROSPA ADVANCE PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Maa Operations Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "089908b58eb7565b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 82391.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 67509.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "prospa advance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 100,
+    "state": null,
+    "total_exposure_aud": 149900.0,
     "website": null
   },
   {
@@ -6675,6 +6896,66 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality",
+      "Other",
+      "Unknown"
+    ],
+    "display_name": "Toyota Finance Australia Ltd",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1203e917448ca5ff",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 82000.0,
+        "amount_known": true,
+        "debtor_company": "Sarward Investments Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "3b2bff4df6ffcef5",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "toyota finance",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 99,
+    "state": null,
+    "total_exposure_aud": 82000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction",
       "Hospitality"
     ],
@@ -6881,103 +7162,6 @@
     "score": 76,
     "state": null,
     "total_exposure_aud": 152902.56,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "PROSPA ADVANCE PTY LTD",
-    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Maa Operations Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "089908b58eb7565b",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 82391.0,
-        "amount_known": true,
-        "debtor_company": "CAKETOYOU PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "24b3530077a78599",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "prospa advance",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 74,
-    "state": null,
-    "total_exposure_aud": 82391.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality",
-      "Unknown"
-    ],
-    "display_name": "Toyota Finance Australia Ltd",
-    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "CHALMERS CONSTRUCTION GROUP PTY LTD",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "1203e917448ca5ff",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      },
-      {
-        "amount_aud": 82000.0,
-        "amount_known": true,
-        "debtor_company": "Sarward Investments Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "3b2bff4df6ffcef5",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "toyota finance",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 74,
-    "state": null,
-    "total_exposure_aud": 82000.0,
     "website": null
   },
   {
@@ -7200,6 +7384,104 @@
     "score": 61,
     "state": null,
     "total_exposure_aud": 4898.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other",
+      "Professional Services"
+    ],
+    "display_name": "Telstra (Insolvencies)",
+    "disqualified_reason": "Exposure $4,872 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 1200.0,
+        "amount_known": true,
+        "debtor_company": "Paul Beseler Pty Ltd",
+        "debtor_industry": "Professional Services",
+        "debtor_state": null,
+        "matter_id": "414d2aa64b99f499",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 3672.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "telstra insolvencies",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 61,
+    "state": null,
+    "total_exposure_aud": 4872.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other",
+      "Retail/Wholesale"
+    ],
+    "display_name": "Bunnings Group Limited",
+    "disqualified_reason": "Exposure $4,033 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 3025.36,
+        "amount_known": true,
+        "debtor_company": "Cameron Dealerships Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "3c51ba9003b69321",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 1007.56,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "bunnings",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 61,
+    "state": null,
+    "total_exposure_aud": 4032.92,
     "website": null
   },
   {
@@ -9841,6 +10123,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Bizcap",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 14595.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "bizcap",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 41,
+    "state": null,
+    "total_exposure_aud": 14595.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Kaine Hockey",
@@ -10249,6 +10569,44 @@
     "score": 39,
     "state": null,
     "total_exposure_aud": 8851.59,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "R James Entertainment",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 8526.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "r james entertainment",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 39,
+    "state": null,
+    "total_exposure_aud": 8526.0,
     "website": null
   },
   {
@@ -11741,6 +12099,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "CoWorx Pty Ltd",
+    "disqualified_reason": "Exposure $4,231 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 4230.8,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "coworx",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 4230.8,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Unknown"
     ],
     "display_name": "SAI Global Pty Ltd",
@@ -11921,6 +12317,44 @@
     "score": 36,
     "state": null,
     "total_exposure_aud": 4000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Cassidy Leo",
+    "disqualified_reason": "Exposure $3,980 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3980.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cassidy leo",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3980.0,
     "website": null
   },
   {
@@ -12273,6 +12707,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Maddison Rae Apilo",
+    "disqualified_reason": "Exposure $3,680 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3680.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "maddison rae apilo",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3680.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Blue NRG",
@@ -12491,6 +12963,44 @@
     "score": 35,
     "state": null,
     "total_exposure_aud": 3448.7,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Gwen Creative Pty Ltd",
+    "disqualified_reason": "Exposure $3,410 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3410.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "gwen creative",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3410.0,
     "website": null
   },
   {
@@ -12843,25 +13353,25 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Retail/Wholesale"
+      "Other"
     ],
-    "display_name": "Bunnings Group Limited",
-    "disqualified_reason": "Exposure $3,025 is under the $5,000 minimum",
+    "display_name": "Elantis Insurance Funding",
+    "disqualified_reason": "Exposure $3,039 is under the $5,000 minimum",
     "exposure_known": true,
     "matter_count": 1,
     "matters": [
       {
-        "amount_aud": 3025.36,
+        "amount_aud": 3038.87,
         "amount_known": true,
-        "debtor_company": "Cameron Dealerships Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
         "debtor_state": null,
-        "matter_id": "3c51ba9003b69321",
+        "matter_id": "41d2694714fd2e0b",
         "source": "worrells",
         "source_document": "Initial Advice"
       }
     ],
-    "name_key": "bunnings",
+    "name_key": "elantis insurance funding",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -12870,7 +13380,7 @@
     "qualified": false,
     "score": 34,
     "state": null,
-    "total_exposure_aud": 3025.36,
+    "total_exposure_aud": 3038.87,
     "website": null
   },
   {
@@ -12947,6 +13457,44 @@
     "score": 34,
     "state": null,
     "total_exposure_aud": 3007.83,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Musical Theatre International",
+    "disqualified_reason": "Exposure $3,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3000.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "musical theatre international",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 3000.0,
     "website": null
   },
   {
@@ -13099,6 +13647,44 @@
     "score": 34,
     "state": null,
     "total_exposure_aud": 2812.91,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Postal Address",
+    "disqualified_reason": "Exposure $2,788 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2788.24,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "postal address",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 2788.24,
     "website": null
   },
   {
@@ -13679,6 +14265,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Cross Carpets",
+    "disqualified_reason": "Exposure $2,440 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2440.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cross carpets",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2440.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Raswinder Kaur",
@@ -13821,6 +14445,44 @@
     "score": 33,
     "state": null,
     "total_exposure_aud": 2399.34,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Trinity Fire Services Pty Ltd",
+    "disqualified_reason": "Exposure $2,397 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2397.0,
+        "amount_known": true,
+        "debtor_company": "Russlee Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "472ecdf70bc093ae",
+        "source": "worrells",
+        "source_document": "2nd Advice"
+      }
+    ],
+    "name_key": "trinity fire services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2397.0,
     "website": null
   },
   {
@@ -14201,6 +14863,44 @@
     "score": 33,
     "state": null,
     "total_exposure_aud": 2139.72,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Lewis Warne",
+    "disqualified_reason": "Exposure $2,100 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2100.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "lewis warne",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2100.0,
     "website": null
   },
   {
@@ -15465,6 +16165,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Christiaan Ramsey",
+    "disqualified_reason": "Exposure $1,520 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1520.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "christiaan ramsey",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1520.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "SRW Nominees Pty Ltd TA Big Ben",
@@ -15531,6 +16269,82 @@
     "score": 31,
     "state": null,
     "total_exposure_aud": 1466.23,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Vanessa Moore",
+    "disqualified_reason": "Exposure $1,460 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1460.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "vanessa moore",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1460.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Fresh & Clean",
+    "disqualified_reason": "Exposure $1,447 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1446.98,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "fresh clean",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1446.98,
     "website": null
   },
   {
@@ -15883,6 +16697,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Safe Financial",
+    "disqualified_reason": "Exposure $1,257 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1257.03,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "safe financial",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1257.03,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Sam Allen Wholesale",
@@ -15959,44 +16811,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Professional Services"
-    ],
-    "display_name": "Telstra (Insolvencies)",
-    "disqualified_reason": "Exposure $1,200 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 1200.0,
-        "amount_known": true,
-        "debtor_company": "Paul Beseler Pty Ltd",
-        "debtor_industry": "Professional Services",
-        "debtor_state": null,
-        "matter_id": "414d2aa64b99f499",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "telstra insolvencies",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 30,
-    "state": null,
-    "total_exposure_aud": 1200.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Veronica Jones",
@@ -16063,6 +16877,44 @@
     "score": 30,
     "state": null,
     "total_exposure_aud": 1197.77,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Queenslands Cheapest Mirrors",
+    "disqualified_reason": "Exposure $1,194 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1194.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "queenslands cheapest mirrors",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1194.0,
     "website": null
   },
   {
@@ -16187,6 +17039,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Gold Coast Eisteddfod",
+    "disqualified_reason": "Exposure $1,152 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1152.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "gold coast eisteddfod",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1152.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Gary and Nieske Sanchez",
@@ -16301,6 +17191,82 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Class Act Creative",
+    "disqualified_reason": "Exposure $1,098 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1098.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "class act creative",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1098.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Your Wow",
+    "disqualified_reason": "Exposure $1,098 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1098.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "your wow",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1098.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Advanced Commercial services",
@@ -16329,6 +17295,44 @@
     "score": 30,
     "state": null,
     "total_exposure_aud": 1096.84,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "SPER",
+    "disqualified_reason": "Exposure $1,094 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1094.45,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "sper",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1094.45,
     "website": null
   },
   {
@@ -16643,6 +17647,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "John Taylor Audio Professionals Pty Ltd",
+    "disqualified_reason": "Exposure $1,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1000.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "john taylor audio professionals",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 30,
+    "state": null,
+    "total_exposure_aud": 1000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Kim Freese",
@@ -16671,6 +17713,44 @@
     "score": 29,
     "state": null,
     "total_exposure_aud": 998.9,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Jim's Window and Pressure Cleaning",
+    "disqualified_reason": "Exposure $940 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 940.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "jim s window pressure cleaning",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 940.0,
     "website": null
   },
   {
@@ -17023,6 +18103,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Joshua Hale",
+    "disqualified_reason": "Exposure $832 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 832.5,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "joshua hale",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 832.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Professional Services"
     ],
     "display_name": "Australian Securities & Investments",
@@ -17279,6 +18397,120 @@
     "score": 28,
     "state": null,
     "total_exposure_aud": 759.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Denvah Baker-Moller",
+    "disqualified_reason": "Exposure $750 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 750.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "denvah baker moller",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 28,
+    "state": null,
+    "total_exposure_aud": 750.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "PureBean Pty Ltd",
+    "disqualified_reason": "Exposure $744 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 744.5,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "purebean",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 28,
+    "state": null,
+    "total_exposure_aud": 744.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Afterpay",
+    "disqualified_reason": "Exposure $731 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 731.42,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "afterpay",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 28,
+    "state": null,
+    "total_exposure_aud": 731.42,
     "website": null
   },
   {
@@ -18011,6 +19243,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "PW Farrell",
+    "disqualified_reason": "Exposure $550 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 550.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "pw farrell",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 550.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Harrison Stanly",
@@ -18363,6 +19633,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Music Industry Artists",
+    "disqualified_reason": "Exposure $450 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 450.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "music industry artists",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 26,
+    "state": null,
+    "total_exposure_aud": 450.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "NSW Government (BPAY)",
@@ -18543,6 +19851,44 @@
     "score": 26,
     "state": null,
     "total_exposure_aud": 420.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Indeed",
+    "disqualified_reason": "Exposure $420 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 419.83,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "indeed",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 26,
+    "state": null,
+    "total_exposure_aud": 419.83,
     "website": null
   },
   {
@@ -18847,6 +20193,44 @@
     "score": 25,
     "state": null,
     "total_exposure_aud": 385.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Waterlogic Australia Pty Ltd",
+    "disqualified_reason": "Exposure $368 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 368.49,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "waterlogic",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 368.49,
     "website": null
   },
   {
@@ -19758,6 +21142,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Walker Enterprises Trust",
+    "disqualified_reason": "Exposure $266 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 266.45,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "walker enterprises trust",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 24,
+    "state": null,
+    "total_exposure_aud": 266.45,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Alexander Rodenburg",
@@ -19834,6 +21256,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Computerised Embroidery",
+    "disqualified_reason": "Exposure $256 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 255.75,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "computerised embroidery",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 24,
+    "state": null,
+    "total_exposure_aud": 255.75,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Master Poultry Group",
@@ -19862,6 +21322,44 @@
     "score": 24,
     "state": null,
     "total_exposure_aud": 252.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Lili Bulyk Solicitor & Attorney Office",
+    "disqualified_reason": "Exposure $248 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 248.0,
+        "amount_known": true,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "lili bulyk solicitor attorney office",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 23,
+    "state": null,
+    "total_exposure_aud": 248.0,
     "website": null
   },
   {
@@ -22589,6 +24087,44 @@
       }
     ],
     "name_key": "vestone capital",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "S.E. RENTALS PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Studio Empire Pty Ltd",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "41d2694714fd2e0b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "s e rentals",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
