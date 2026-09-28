@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import sys
 from datetime import date
+from datetime import datetime as date_time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
@@ -1282,6 +1283,73 @@ class TestAbnLookup:
         url = abn_lookup.search_url("683236259")
         assert url.startswith("https://abr.business.gov.au/Search/ResultsActive")
         assert "683236259" in url
+
+
+class TestTheWeeklyGateSurvivesALateCron:
+    """A late cron must still produce the week's list.
+
+    All three dates below are real runs of the same 00:30 UTC cron. The gate
+    used to require the local hour be exactly 10, so the third one - 81
+    minutes late - exited in one second and reported success, throwing away
+    the whole week with no signal that anything was wrong.
+    """
+
+    def gate(self, monkeypatch, tmp_path, local, last_run=None):
+        """Run check_schedule with the clock at `local` Adelaide time."""
+        from datetime import datetime as real_datetime
+
+        from creditor_sourcing import cli
+
+        marker = tmp_path / "last_weekly_run.txt"
+        if last_run:
+            marker.write_text(last_run + "\n")
+        monkeypatch.setattr(cli, "RUN_MARKER", marker)
+
+        class FrozenClock(real_datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return local.replace(tzinfo=tz) if tz else local
+
+        monkeypatch.setattr(cli, "datetime", FrozenClock)
+        return cli.check_schedule()
+
+    def test_on_time_runs(self, monkeypatch, tmp_path):
+        # 14 Sep, 10:52 Adelaide - the cron was 52 minutes late and made it.
+        assert self.gate(monkeypatch, tmp_path, date_time(2026, 9, 14, 10, 52))
+
+    def test_eighty_one_minutes_late_still_runs(self, monkeypatch, tmp_path):
+        # 28 Sep, 11:21 Adelaide. This is the one that was silently skipped.
+        assert self.gate(monkeypatch, tmp_path, date_time(2026, 9, 28, 11, 21))
+
+    def test_hours_late_still_runs(self, monkeypatch, tmp_path):
+        assert self.gate(monkeypatch, tmp_path, date_time(2026, 9, 28, 16, 5))
+
+    def test_before_the_hour_does_not_run(self, monkeypatch, tmp_path):
+        # The 23:30 UTC cron lands at 09:00 Adelaide under ACST. Too early.
+        assert not self.gate(monkeypatch, tmp_path, date_time(2026, 9, 28, 9, 0))
+
+    def test_the_wrong_weekday_does_not_run(self, monkeypatch, tmp_path):
+        assert not self.gate(monkeypatch, tmp_path, date_time(2026, 9, 29, 10, 30))
+
+    def test_it_does_not_run_twice_in_one_day(self, monkeypatch, tmp_path):
+        # Both crons can fire on the same local Monday. The second must not
+        # re-harvest and re-commit everything.
+        assert not self.gate(
+            monkeypatch, tmp_path, date_time(2026, 9, 28, 11, 21),
+            last_run="2026-09-28",
+        )
+
+    def test_last_week_does_not_block_this_week(self, monkeypatch, tmp_path):
+        assert self.gate(
+            monkeypatch, tmp_path, date_time(2026, 9, 28, 10, 30),
+            last_run="2026-09-21",
+        )
+
+    def test_a_missing_marker_is_not_an_error(self, monkeypatch, tmp_path):
+        from creditor_sourcing import cli
+
+        monkeypatch.setattr(cli, "RUN_MARKER", tmp_path / "nope" / "x.txt")
+        assert cli.last_weekly_run() is None
 
 
 class TestAFailedLookupIsNotAnAnswer:

@@ -46,16 +46,55 @@ def _setup_logging(verbose: bool) -> None:
     )
 
 
+# The week's run is recorded here so a late cron can still do the work and a
+# second cron on the same day cannot repeat it. It lives in state/ so the
+# workflow's state commit carries it from one week to the next.
+RUN_MARKER = config.STATE_DIR / "last_weekly_run.txt"
+
+
+def last_weekly_run() -> str | None:
+    """The local date of the last completed weekly run, or None."""
+    try:
+        return RUN_MARKER.read_text().strip() or None
+    except OSError:
+        return None
+
+
+def record_weekly_run(today: str) -> None:
+    RUN_MARKER.parent.mkdir(parents=True, exist_ok=True)
+    RUN_MARKER.write_text(today + "\n")
+
+
 def check_schedule() -> bool:
-    """True if it is the scheduled local hour.
+    """True if this is the week's run and it has not already happened.
 
     GitHub Actions cron is UTC only and the business timezone shifts with
     daylight saving, so the workflow schedules every candidate UTC hour and
     this gate decides whether the run is the real one.
+
+    This used to demand the local hour be exactly the scheduled one, which
+    quietly threw away the entire week's list whenever GitHub ran the cron
+    late - and Actions cron is best-effort, routinely minutes to hours behind
+    under load. Measured on three real runs, all from the same 00:30 UTC cron:
+
+        14 Sep  01:22 UTC  10:52 Adelaide  hour 10  ran, 2m31s
+        21 Sep  01:21 UTC  10:51 Adelaide  hour 10  ran, 3m22s
+        28 Sep  01:51 UTC  11:21 Adelaide  hour 11  SKIPPED, 1s, "success"
+
+    Two of those scraped in with minutes to spare. The third was 81 minutes
+    late, failed the equality check, exited in one second and reported
+    success - no creditor lists, no workbook, no signal that anything was
+    wrong. That is the same shape as the 14-day lookback and the 744 phantom
+    ASIC checks: healthy-looking, doing nothing.
+
+    The gate is now "right weekday, at or after the hour, not already run
+    today". Late is fine; twice is not.
     """
     cfg = config.settings()["schedule"]
     now = datetime.now(ZoneInfo(cfg["timezone"]))
-    return now.hour == cfg["local_hour"] and now.isoweekday() == cfg["weekday"]
+    if now.isoweekday() != cfg["weekday"] or now.hour < cfg["local_hour"]:
+        return False
+    return last_weekly_run() != now.date().isoformat()
 
 
 def cmd_collect(args: argparse.Namespace) -> int:
@@ -411,16 +450,24 @@ def cmd_schema(args: argparse.Namespace) -> int:
 
 
 def cmd_run(args: argparse.Namespace) -> int:
+    cfg = config.settings()["schedule"]
+    now = datetime.now(ZoneInfo(cfg["timezone"]))
     if args.respect_schedule and not check_schedule():
-        cfg = config.settings()["schedule"]
-        now = datetime.now(ZoneInfo(cfg["timezone"]))
-        log.info("Not the scheduled slot (%s local, want %02d:00 on weekday %d) - exiting",
-                 now.strftime("%a %H:%M"), cfg["local_hour"], cfg["weekday"])
+        log.info(
+            "Not this week's slot (%s local; want weekday %d at or after "
+            "%02d:00, last run %s) - exiting",
+            now.strftime("%a %H:%M"), cfg["weekday"], cfg["local_hour"],
+            last_weekly_run() or "never",
+        )
         return 0
     for stage in (cmd_collect, cmd_watch, cmd_ingest, cmd_report):
         code = stage(args)
         if code:
             return code
+    # Only after every stage succeeded: a failed run should be retried by the
+    # next cron, not marked done.
+    if args.respect_schedule:
+        record_weekly_run(now.date().isoformat())
     return 0
 
 

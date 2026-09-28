@@ -5,6 +5,14 @@
 **Monday 10:00 (Australia/Adelaide)** the pipeline runs itself. Nothing is
 required of anyone unless there are documents to buy.
 
+GitHub's cron is best-effort and routinely runs late, so the gate accepts any
+time from 10:00 onwards on the right weekday and records the date in
+`state/last_weekly_run.txt` so a second cron the same day cannot repeat the
+work. It used to demand the local hour be exactly 10, which silently threw
+away the whole week whenever the scheduler was more than an hour behind - on
+28 September it was 81 minutes late, exited in one second and reported
+success.
+
 1. Open the **run summary** on the Actions run — prospect counts, the top
    repeat-exposure companies, and the list of documents waiting to be bought.
    Worrells creditors are already in there: that leg harvests itself and needs
