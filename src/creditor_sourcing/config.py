@@ -29,6 +29,10 @@ def exclusions() -> dict[str, Any]:
     return load("exclusions")
 
 
+def individuals() -> dict[str, Any]:
+    return load("individuals")
+
+
 def secret(name: str, *, required: bool = False) -> str | None:
     """Read a credential from the environment.
 
