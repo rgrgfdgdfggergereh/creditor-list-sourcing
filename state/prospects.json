@@ -7,6 +7,103 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Mitchcap Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 16692.87,
+        "amount_known": true,
+        "debtor_company": "Cameron Dealerships Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "3c51ba9003b69321",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "mitchcap",
+    "pipedrive_org_id": 54241,
+    "pipedrive_org_name": "MITCHCAP PTY LTD",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/54241",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 67,
+    "state": null,
+    "total_exposure_aud": 16692.87,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality",
+      "Retail/Wholesale"
+    ],
+    "display_name": "Cleanaway Waste Management Limited",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 6912.75,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 487.13,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cleanaway waste management",
+    "pipedrive_org_id": 31102,
+    "pipedrive_org_name": "Cleanaway Waste Management Limited",
+    "pipedrive_owner": "Arron Reed",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/31102",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 63,
+    "state": null,
+    "total_exposure_aud": 7399.88,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Melbourne Plaster Labour services",
@@ -1264,7 +1361,7 @@
     "name_key": "crimsafe security systems",
     "pipedrive_org_id": 21064,
     "pipedrive_org_name": "Crimsafe Security Systems Pty Ltd",
-    "pipedrive_owner": "Daniel Mackintosh",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/21064",
     "policylist_match": null,
     "qualified": true,
@@ -1492,7 +1589,7 @@
     "name_key": "two six building",
     "pipedrive_org_id": 77134,
     "pipedrive_org_name": "Two Six Building Group",
-    "pipedrive_owner": "Ethan Taafe",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/77134",
     "policylist_match": null,
     "qualified": true,
@@ -1568,7 +1665,7 @@
     "name_key": "meat place",
     "pipedrive_org_id": 68933,
     "pipedrive_org_name": "The Meat Place",
-    "pipedrive_owner": "Lily Bedford",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/68933",
     "policylist_match": null,
     "qualified": true,
@@ -1937,44 +2034,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Mitchcap Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 16692.87,
-        "amount_known": true,
-        "debtor_company": "Cameron Dealerships Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "3c51ba9003b69321",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "mitchcap",
-    "pipedrive_org_id": 54241,
-    "pipedrive_org_name": "MITCHCAP PTY LTD",
-    "pipedrive_owner": "Library",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/54241",
-    "policylist_match": null,
-    "qualified": true,
-    "score": 42,
-    "state": null,
-    "total_exposure_aud": 16692.87,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Premium Beverages Pty Ltd",
@@ -2034,7 +2093,7 @@
     "name_key": "capify",
     "pipedrive_org_id": 71022,
     "pipedrive_org_name": "Capify Australia PTY LIMITED",
-    "pipedrive_owner": "Archana Chawla",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/71022",
     "policylist_match": null,
     "qualified": true,
@@ -2231,6 +2290,44 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 11984.44,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Allchris Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 11746.42,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "allchris",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 11746.42,
     "website": null
   },
   {
@@ -2604,7 +2701,7 @@
     "name_key": "digital horizons",
     "pipedrive_org_id": 77128,
     "pipedrive_org_name": "Digital Horizons",
-    "pipedrive_owner": "Ethan Taafe",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/77128",
     "policylist_match": null,
     "qualified": true,
@@ -2642,7 +2739,7 @@
     "name_key": "technified",
     "pipedrive_org_id": 71653,
     "pipedrive_org_name": "TECHNIFIED PTY LTD",
-    "pipedrive_owner": "Todd Cleminson",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/71653",
     "policylist_match": null,
     "qualified": true,
@@ -3163,44 +3260,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Cleanaway Waste Management Limited",
-    "disqualified_reason": null,
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 6912.75,
-        "amount_known": true,
-        "debtor_company": "CAKETOYOU PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "24b3530077a78599",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "cleanaway waste management",
-    "pipedrive_org_id": 31102,
-    "pipedrive_org_name": "Cleanaway Waste Management Limited",
-    "pipedrive_owner": "Arron Reed",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/31102",
-    "policylist_match": null,
-    "qualified": true,
-    "score": 38,
-    "state": null,
-    "total_exposure_aud": 6912.75,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Other"
     ],
     "display_name": "Coastal Sound and Lighting",
@@ -3336,7 +3395,7 @@
     "name_key": "netspan",
     "pipedrive_org_id": 32744,
     "pipedrive_org_name": "Netspan Pty Ltd",
-    "pipedrive_owner": "Ethan Taafe",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/32744",
     "policylist_match": null,
     "qualified": true,
@@ -3429,6 +3488,103 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Manufacturing",
+      "Retail/Wholesale"
+    ],
+    "display_name": "Boc Limited",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Cameron Dealerships Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "3c51ba9003b69321",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "boc",
+    "pipedrive_org_id": 34457,
+    "pipedrive_org_name": "BOC Limited",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/34457",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Camec Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Cameron Dealerships Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "3c51ba9003b69321",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "camec",
+    "pipedrive_org_id": 3861,
+    "pipedrive_org_name": "Camec Pty Ltd",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/3861",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "JAYBRO GROUP PTY LTD.",
@@ -3496,10 +3652,10 @@
       }
     ],
     "name_key": "aluminium specialties",
-    "pipedrive_org_id": 45939,
-    "pipedrive_org_name": "ALUMINIUM SPECIALTIES GROUP PTY LTD",
-    "pipedrive_owner": "Daniel Mackintosh",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/45939",
+    "pipedrive_org_id": 75757,
+    "pipedrive_org_name": "ALUMINIUM SPECIALTIES GROUP PTY. LTD.",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/75757",
     "policylist_match": null,
     "qualified": true,
     "score": 0,
@@ -3840,7 +3996,7 @@
     "name_key": "fva",
     "pipedrive_org_id": 1212,
     "pipedrive_org_name": "FVA Group Pty Ltd",
-    "pipedrive_owner": "Archana Chawla",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/1212",
     "policylist_match": null,
     "qualified": true,
@@ -4467,82 +4623,6 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
-    "display_name": "Boc Limited",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Cameron Dealerships Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "3c51ba9003b69321",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "boc",
-    "pipedrive_org_id": 34457,
-    "pipedrive_org_name": "BOC Limited",
-    "pipedrive_owner": "Library",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/34457",
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
-    "display_name": "Camec Pty Ltd",
-    "disqualified_reason": null,
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Cameron Dealerships Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "3c51ba9003b69321",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "camec",
-    "pipedrive_org_id": 3861,
-    "pipedrive_org_name": "Camec Pty Ltd",
-    "pipedrive_owner": "joshua.mahony@nci.com.au",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/3861",
-    "policylist_match": null,
-    "qualified": true,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
     "display_name": "Carsales",
     "disqualified_reason": null,
     "exposure_known": false,
@@ -4826,10 +4906,10 @@
       }
     ],
     "name_key": "holcim",
-    "pipedrive_org_id": 34963,
-    "pipedrive_org_name": "HOLCIM (AUSTRALIA) HOLDINGS PTY LTD",
+    "pipedrive_org_id": 3439,
+    "pipedrive_org_name": "Holcim (Australia) Pty Ltd",
     "pipedrive_owner": "Library",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/34963",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/3439",
     "policylist_match": null,
     "qualified": true,
     "score": 0,
@@ -4866,7 +4946,7 @@
     "name_key": "rapid metal developments",
     "pipedrive_org_id": 53199,
     "pipedrive_org_name": "Rapid Metal Developments (Australia) Proprietary Limited",
-    "pipedrive_owner": "joonky.nah@nci.com.au",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/53199",
     "policylist_match": null,
     "qualified": true,
@@ -4980,7 +5060,7 @@
     "name_key": "xpress steel",
     "pipedrive_org_id": 29834,
     "pipedrive_org_name": "Xpress Steel Pty Ltd",
-    "pipedrive_owner": "Olivia Timothy",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/29834",
     "policylist_match": null,
     "qualified": true,
@@ -5018,7 +5098,7 @@
     "name_key": "lincoln sentry",
     "pipedrive_org_id": 3652,
     "pipedrive_org_name": "LINCOLN SENTRY GROUP PTY LTD",
-    "pipedrive_owner": "Nathaniel Smith",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/3652",
     "policylist_match": null,
     "qualified": true,
@@ -5170,8 +5250,84 @@
     "name_key": "tradelink",
     "pipedrive_org_id": 16350,
     "pipedrive_org_name": "Tradelink Pty Limited",
-    "pipedrive_owner": "Daniel Mackintosh",
+    "pipedrive_owner": "Library",
     "pipedrive_url": "https://nci.pipedrive.com/organization/16350",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "GPC ASIA PACIFIC PTY LTD",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "gpc asia pacific",
+    "pipedrive_org_id": 23631,
+    "pipedrive_org_name": "GPC ASIA PACIFIC (AUST) HOLDINGS PTY LTD",
+    "pipedrive_owner": "Lily Bedford",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/23631",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "LEISURE-TEC AUSTRALIA PTY LTD",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "leisure tec",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
     "policylist_match": null,
     "qualified": true,
     "score": 0,
@@ -5189,6 +5345,7 @@
     "debtor_industries": [
       "Building/Construction",
       "Hospitality",
+      "Manufacturing",
       "Other",
       "Professional Services",
       "Retail/Wholesale",
@@ -5197,7 +5354,7 @@
     "display_name": "Australian Taxation Office (Insolvencies)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 31,
+    "matter_count": 33,
     "matters": [
       {
         "amount_aud": 223694.0,
@@ -5508,6 +5665,26 @@
         "matter_id": "24b3530077a78599",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 115962.0,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 123000.0,
+        "amount_known": true,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office insolvencies",
@@ -5519,7 +5696,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 5697083.98,
+    "total_exposure_aud": 5936045.98,
     "website": null
   },
   {
@@ -5538,7 +5715,7 @@
     "display_name": "Australian Taxation Office",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 9,
+    "matter_count": 10,
     "matters": [
       {
         "amount_aud": 178000.0,
@@ -5649,6 +5826,16 @@
         "matter_id": "41d2694714fd2e0b",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 68900.0,
+        "amount_known": true,
+        "debtor_company": "P.M. Maintenance Works Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "3bf3c50f002d20af",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office",
@@ -5660,7 +5847,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 1756772.03,
+    "total_exposure_aud": 1825672.03,
     "website": null
   },
   {
@@ -5810,7 +5997,7 @@
     "display_name": "Australian Taxation Office (Super Guarantee)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 14,
+    "matter_count": 15,
     "matters": [
       {
         "amount_aud": 121000.0,
@@ -5951,6 +6138,16 @@
         "matter_id": "24b3530077a78599",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 56800.0,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office super guarantee",
@@ -5962,7 +6159,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 607078.4,
+    "total_exposure_aud": 663878.4,
     "website": null
   },
   {
@@ -6667,12 +6864,13 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
+      "Retail/Wholesale",
       "Unknown"
     ],
     "display_name": "A.C.N. 603 303 126 PTY LTD",
     "disqualified_reason": "Not a resolvable company name",
     "exposure_known": true,
-    "matter_count": 4,
+    "matter_count": 6,
     "matters": [
       {
         "amount_aud": 17888.47,
@@ -6711,6 +6909,26 @@
         "debtor_industry": "Unknown",
         "debtor_state": null,
         "matter_id": "3af12c3a5cacf323",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "P.M. Maintenance Works Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "3bf3c50f002d20af",
         "source": "worrells",
         "source_document": "Initial Advice"
       }
@@ -7492,6 +7710,55 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Manufacturing",
+      "Professional Services"
+    ],
+    "display_name": "Workcover",
+    "disqualified_reason": "Exposure $4,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 4000.0,
+        "amount_known": true,
+        "debtor_company": "Paul Beseler Pty Ltd",
+        "debtor_industry": "Professional Services",
+        "debtor_state": null,
+        "matter_id": "414d2aa64b99f499",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "workcover",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 61,
+    "state": null,
+    "total_exposure_aud": 4000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Unknown"
     ],
     "display_name": "DOH Investment Pty Ltd ATF the DOH Investment Trust",
@@ -7569,6 +7836,54 @@
     "score": 60,
     "state": null,
     "total_exposure_aud": 3364.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Origin Energy",
+    "disqualified_reason": "Exposure $3,339 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 2041.0,
+        "amount_known": true,
+        "debtor_company": "Cameron Dealerships Pty Ltd",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "3c51ba9003b69321",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 1298.22,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "origin energy",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 60,
+    "state": null,
+    "total_exposure_aud": 3339.22,
     "website": null
   },
   {
@@ -7829,6 +8144,55 @@
     "score": 56,
     "state": null,
     "total_exposure_aud": 415345.98,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality",
+      "Retail/Wholesale"
+    ],
+    "display_name": "ELGAS LIMITED",
+    "disqualified_reason": "Exposure $1,524 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 1524.07,
+        "amount_known": true,
+        "debtor_company": "Elihu Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "12f3229f95aa273c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "elgas",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 56,
+    "state": null,
+    "total_exposure_aud": 1524.07,
     "website": null
   },
   {
@@ -9657,6 +10021,44 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 19928.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Manufacturing"
+    ],
+    "display_name": "Fines Victoria",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 19750.81,
+        "amount_known": true,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "fines victoria",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 19750.81,
     "website": null
   },
   {
@@ -11567,6 +11969,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Manufacturing"
+    ],
+    "display_name": "Better Waste P/L",
+    "disqualified_reason": "Exposure $4,872 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 4872.12,
+        "amount_known": true,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "better waste p l",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 4872.12,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Chen Yi Chen",
@@ -12137,6 +12577,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Turks",
+    "disqualified_reason": "Exposure $4,181 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 4180.61,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "turks",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 36,
+    "state": null,
+    "total_exposure_aud": 4180.61,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Unknown"
     ],
     "display_name": "SAI Global Pty Ltd",
@@ -12279,44 +12757,6 @@
     "score": 36,
     "state": null,
     "total_exposure_aud": 4140.3,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Professional Services"
-    ],
-    "display_name": "Workcover",
-    "disqualified_reason": "Exposure $4,000 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 4000.0,
-        "amount_known": true,
-        "debtor_company": "Paul Beseler Pty Ltd",
-        "debtor_industry": "Professional Services",
-        "debtor_state": null,
-        "matter_id": "414d2aa64b99f499",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "workcover",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 36,
-    "state": null,
-    "total_exposure_aud": 4000.0,
     "website": null
   },
   {
@@ -13317,6 +13757,44 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
+    "display_name": "Billistic Logistics",
+    "disqualified_reason": "Exposure $3,095 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3094.98,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "billistic logistics",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 3094.98,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
     "display_name": "Market Grocer",
     "disqualified_reason": "Exposure $3,092 is under the $5,000 minimum",
     "exposure_known": true,
@@ -13486,6 +13964,44 @@
       }
     ],
     "name_key": "musical theatre international",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 34,
+    "state": null,
+    "total_exposure_aud": 3000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Expoz Pty Ltd",
+    "disqualified_reason": "Exposure $3,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3000.0,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "expoz",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -15027,44 +15543,6 @@
     "debtor_industries": [
       "Retail/Wholesale"
     ],
-    "display_name": "Origin Energy",
-    "disqualified_reason": "Exposure $2,041 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 2041.0,
-        "amount_known": true,
-        "debtor_company": "Cameron Dealerships Pty Ltd",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "3c51ba9003b69321",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "origin energy",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 33,
-    "state": null,
-    "total_exposure_aud": 2041.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Retail/Wholesale"
-    ],
     "display_name": "Geoff Baillie",
     "disqualified_reason": "Exposure $2,013 is under the $5,000 minimum",
     "exposure_known": true,
@@ -15167,6 +15645,44 @@
     "score": 32,
     "state": null,
     "total_exposure_aud": 1983.37,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Quicktax Holdings Pty Limited",
+    "disqualified_reason": "Exposure $1,936 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1936.0,
+        "amount_known": true,
+        "debtor_company": "P.M. Maintenance Works Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "3bf3c50f002d20af",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "quicktax",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1936.0,
     "website": null
   },
   {
@@ -15747,6 +16263,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Manufacturing"
+    ],
+    "display_name": "Fire Protection Services",
+    "disqualified_reason": "Exposure $1,671 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1671.05,
+        "amount_known": true,
+        "debtor_company": "VALECAP PTY LTD",
+        "debtor_industry": "Manufacturing",
+        "debtor_state": null,
+        "matter_id": "3c3179d3b7bd000b",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "fire protection services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1671.05,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Renae Kelly",
@@ -16117,44 +16671,6 @@
     "score": 31,
     "state": null,
     "total_exposure_aud": 1540.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Elgas",
-    "disqualified_reason": "Exposure $1,524 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 1524.07,
-        "amount_known": true,
-        "debtor_company": "Elihu Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "12f3229f95aa273c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "elgas",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 31,
-    "state": null,
-    "total_exposure_aud": 1524.07,
     "website": null
   },
   {
@@ -17903,6 +18419,44 @@
     "score": 29,
     "state": null,
     "total_exposure_aud": 906.77,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Retail/Wholesale"
+    ],
+    "display_name": "Davis Moloney",
+    "disqualified_reason": "Exposure $904 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 903.5,
+        "amount_known": true,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "davis moloney",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 903.5,
     "website": null
   },
   {
