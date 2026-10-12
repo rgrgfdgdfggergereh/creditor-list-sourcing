@@ -44,10 +44,18 @@ class Matter:
     source: str                      # "asic" | "worrells"
     company_name: str
     acn: str | None = None
+    # Resolved from ABN Lookup, and only for matters that reach the purchase
+    # queue. IRIS is searched by ABN, so this is what a rep pastes in to see
+    # whether NCI already had limit activity on the debtor.
+    abn: str | None = None
     appointment_type: str | None = None
     appointment_date: str | None = None      # ISO date
     practitioner: str | None = None
     practitioner_firm: str | None = None
+    industry: str | None = None
+    industry_subdivision: str | None = None
+    state: str | None = None
+    postcode: str | None = None
     source_url: str | None = None
     source_id: str | None = None             # Worrells 32-hex id, ASIC notice id
     # Populated by the ASIC Connect watcher.
@@ -75,11 +83,17 @@ class Creditor:
     debtor_company: str                       # who they lost money to
     matter_id: str
     amount_aud: float = 0.0
+    # Practitioners often publish the listing before quantifying the debts -
+    # the ROCAP Amount column reads "TBC". The creditor is still a real
+    # prospect; the exposure is simply not stated yet.
+    amount_known: bool = True
     address: str | None = None
     related_party: bool = False
     creditor_type: str | None = None
     source: str = "asic"
     source_document: str | None = None
+    debtor_industry: str | None = None
+    debtor_state: str | None = None
 
     @property
     def name_key(self) -> str:
@@ -96,8 +110,14 @@ class Prospect:
     name_key: str
     display_name: str
     total_exposure_aud: float = 0.0
+    # False when no matter stated an amount - the practitioner published the
+    # creditor list with the amounts still TBC. The company is a real
+    # prospect; only its exposure is unknown.
+    exposure_known: bool = True
     matter_count: int = 0
     matters: list[dict[str, Any]] = field(default_factory=list)
+    # Which sectors the bad debts came from - useful for industry-led outreach.
+    debtor_industries: list[str] = field(default_factory=list)
     # Qualification.
     qualified: bool = True
     disqualified_reason: str | None = None
