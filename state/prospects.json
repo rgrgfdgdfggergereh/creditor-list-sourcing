@@ -5889,6 +5889,7 @@
       "Building/Construction",
       "Hospitality",
       "Manufacturing",
+      "Motor Vehicle/Transport",
       "Other",
       "Professional Services",
       "Retail/Wholesale",
@@ -5897,7 +5898,7 @@
     "display_name": "Australian Taxation Office (Insolvencies)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 35,
+    "matter_count": 36,
     "matters": [
       {
         "amount_aud": 223694.0,
@@ -6248,6 +6249,16 @@
         "matter_id": "40531f134bd422da",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 170000.0,
+        "amount_known": true,
+        "debtor_company": "Dedicated Transport Pty Ltd",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "08f5757e5b398252",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office insolvencies",
@@ -6259,7 +6270,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 6339812.45,
+    "total_exposure_aud": 6509812.45,
     "website": null
   },
   {
@@ -6271,6 +6282,7 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
+      "Motor Vehicle/Transport",
       "Other",
       "Retail/Wholesale",
       "Unknown"
@@ -6278,7 +6290,7 @@
     "display_name": "Australian Taxation Office",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 11,
+    "matter_count": 13,
     "matters": [
       {
         "amount_aud": 178000.0,
@@ -6409,6 +6421,26 @@
         "matter_id": "12743cf155553057",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 121700.44,
+        "amount_known": true,
+        "debtor_company": "BAMP TRANSPORT PTY LTD",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "2997a1a8b63cc563",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "FREDBERRY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "3a5be894a3504e1a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office",
@@ -6420,7 +6452,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 1825672.03,
+    "total_exposure_aud": 1947372.47,
     "website": null
   },
   {
@@ -6584,6 +6616,7 @@
     "debtor_industries": [
       "Building/Construction",
       "Hospitality",
+      "Motor Vehicle/Transport",
       "Other",
       "Professional Services",
       "Retail/Wholesale",
@@ -6592,7 +6625,7 @@
     "display_name": "Australian Taxation Office (Super Guarantee)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 16,
+    "matter_count": 18,
     "matters": [
       {
         "amount_aud": 121000.0,
@@ -6753,6 +6786,26 @@
         "matter_id": "1463f9ac44df921e",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 67000.0,
+        "amount_known": true,
+        "debtor_company": "Dedicated Transport Pty Ltd",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "08f5757e5b398252",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 7826.16,
+        "amount_known": true,
+        "debtor_company": "BAMP TRANSPORT PTY LTD",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "2997a1a8b63cc563",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office super guarantee",
@@ -6764,7 +6817,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 663878.4,
+    "total_exposure_aud": 738704.56,
     "website": null
   },
   {
@@ -7101,7 +7154,7 @@
     "display_name": "NATIONAL AUSTRALIA BANK LIMITED",
     "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": true,
-    "matter_count": 5,
+    "matter_count": 6,
     "matters": [
       {
         "amount_aud": 0.0,
@@ -7150,6 +7203,16 @@
         "debtor_industry": "Professional Services",
         "debtor_state": null,
         "matter_id": "414d2aa64b99f499",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "TESLER CORPORATION PTY. LTD.",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1b1d0f6fc6dca01e",
         "source": "worrells",
         "source_document": "Initial Advice"
       }
@@ -7751,6 +7814,76 @@
     "debtor_industries": [
       "Building/Construction",
       "Hospitality",
+      "Motor Vehicle/Transport"
+    ],
+    "display_name": "Allianz Australia Workers' Compensation (Victoria) Limited",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 4,
+    "matters": [
+      {
+        "amount_aud": 598.82,
+        "amount_known": true,
+        "debtor_company": "VINALB PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "3a66314555bd1bc1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "037f08ac6ffa86c1",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 2179.72,
+        "amount_known": true,
+        "debtor_company": "K. Lung Finance Investment Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "2052decab9e219fd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 2821.79,
+        "amount_known": true,
+        "debtor_company": "Dedicated Transport Pty Ltd",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "08f5757e5b398252",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "allianz workers compensation victoria",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 100,
+    "state": null,
+    "total_exposure_aud": 5600.33,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Hospitality",
       "Retail/Wholesale",
       "Unknown"
     ],
@@ -7901,54 +8034,54 @@
     "contact_title": null,
     "debtor_industries": [
       "Building/Construction",
-      "Hospitality"
+      "Unknown"
     ],
-    "display_name": "Allianz Australia Workers' Compensation (Victoria) Limited",
-    "disqualified_reason": "Exposure $2,779 is under the $5,000 minimum",
+    "display_name": "SHIFT FINANCE AUSTRALIA PTY LTD",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
     "exposure_known": true,
     "matter_count": 3,
     "matters": [
       {
-        "amount_aud": 598.82,
-        "amount_known": true,
-        "debtor_company": "VINALB PTY LTD",
-        "debtor_industry": "Hospitality",
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Interior Electrics (NSW) Pty Limited",
+        "debtor_industry": "Building/Construction",
         "debtor_state": null,
-        "matter_id": "3a66314555bd1bc1",
+        "matter_id": "180cf41a4e88643e",
         "source": "worrells",
         "source_document": "Initial Advice"
       },
       {
         "amount_aud": 0.0,
         "amount_known": false,
-        "debtor_company": "MP Earthmoving Services Pty Ltd",
+        "debtor_company": "D-Way Constructions Pty Ltd",
         "debtor_industry": "Building/Construction",
         "debtor_state": null,
-        "matter_id": "037f08ac6ffa86c1",
+        "matter_id": "3faaafcf33876105",
         "source": "worrells",
         "source_document": "Initial Advice"
       },
       {
-        "amount_aud": 2179.72,
+        "amount_aud": 31000.0,
         "amount_known": true,
-        "debtor_company": "K. Lung Finance Investment Pty Ltd",
-        "debtor_industry": "Hospitality",
+        "debtor_company": "TESLER CORPORATION PTY. LTD.",
+        "debtor_industry": "Unknown",
         "debtor_state": null,
-        "matter_id": "2052decab9e219fd",
+        "matter_id": "1b1d0f6fc6dca01e",
         "source": "worrells",
         "source_document": "Initial Advice"
       }
     ],
-    "name_key": "allianz workers compensation victoria",
+    "name_key": "shift finance",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
     "pipedrive_url": null,
     "policylist_match": null,
     "qualified": false,
-    "score": 84,
+    "score": 94,
     "state": null,
-    "total_exposure_aud": 2778.54,
+    "total_exposure_aud": 31000.0,
     "website": null
   },
   {
@@ -10692,6 +10825,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Australian Taxation Office (Insolvencies) B6310NSW PO Box 9003 Penrith NSW 2740",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 24000.0,
+        "amount_known": true,
+        "debtor_company": "TESLER CORPORATION PTY. LTD.",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1b1d0f6fc6dca01e",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "australian taxation office insolvencies b6310nsw po box 9003 penrith nsw 2740",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 43,
+    "state": null,
+    "total_exposure_aud": 24000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Kennards Hire",
@@ -11062,6 +11233,44 @@
     "score": 42,
     "state": null,
     "total_exposure_aud": 17675.1,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Motor Vehicle/Transport"
+    ],
+    "display_name": "AUTOMOTIVE LENDING SOLUTIONS AUSTRALIA PTY",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 17192.64,
+        "amount_known": true,
+        "debtor_company": "Dedicated Transport Pty Ltd",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "08f5757e5b398252",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "automotive lending solutions",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 17192.64,
     "website": null
   },
   {
@@ -16544,6 +16753,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Motor Vehicle/Transport"
+    ],
+    "display_name": "Frontgate Advisory",
+    "disqualified_reason": "Exposure $2,000 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2000.0,
+        "amount_known": true,
+        "debtor_company": "BAMP TRANSPORT PTY LTD",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "2997a1a8b63cc563",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "frontgate advisory",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2000.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "IPower 2 Pty Limited & IPower Pty Ltd",
@@ -20914,6 +21161,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Rubin Partners",
+    "disqualified_reason": "Exposure $550 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 550.0,
+        "amount_known": true,
+        "debtor_company": "TESLER CORPORATION PTY. LTD.",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "1b1d0f6fc6dca01e",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "rubin partners",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 27,
+    "state": null,
+    "total_exposure_aud": 550.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Harrison Stanly",
@@ -22495,54 +22780,6 @@
     "pipedrive_owner": null,
     "pipedrive_url": null,
     "policylist_match": "AUSTRALIAN REGIONAL WHOLESALERS PTY LTD",
-    "qualified": false,
-    "score": 25,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "SHIFT FINANCE AUSTRALIA PTY LTD",
-    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
-    "exposure_known": false,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Interior Electrics (NSW) Pty Limited",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "180cf41a4e88643e",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "D-Way Constructions Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "3faaafcf33876105",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "shift finance",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
     "qualified": false,
     "score": 25,
     "state": null,
@@ -25882,6 +26119,44 @@
       }
     ],
     "name_key": "s e rentals",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Finance One Commercial Pty Ltd",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "FREDBERRY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "3a5be894a3504e1a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "finance one commercial",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
