@@ -5,3 +5,4 @@ openpyxl>=3.1
 PyYAML>=6.0
 rapidfuzz>=3.9
 pymupdf>=1.24
+xlrd>=2.0
