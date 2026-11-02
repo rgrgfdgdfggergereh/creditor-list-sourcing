@@ -72,7 +72,7 @@ jobs:
           fi
           STAGE="${{ inputs.stages || 'all' }}"
           if [ "$STAGE" = "all" ]; then STAGE="run"; fi
-          python -m creditor_sourcing "$STAGE" $FLAGS --verbose
+          python -m creditor_sourcing -v "$STAGE" $FLAGS
 
       - name: Publish the purchase queue to the Cloudflare dashboard
         if: env.QUEUE_ENDPOINT != ''
