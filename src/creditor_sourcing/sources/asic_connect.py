@@ -23,6 +23,7 @@ from __future__ import annotations
 import logging
 import re
 from datetime import date, datetime
+from typing import Any
 
 from bs4 import BeautifulSoup
 
@@ -99,24 +100,68 @@ def find_form_5604(html: str) -> dict[str, str] | None:
     return None
 
 
-def check(matter: Matter, client: Client | None = None) -> Matter:
-    """Update one Matter with its Form 5604 status. Safe to call repeatedly."""
-    matter.last_checked = date.today().isoformat()
+# Only a creditors' voluntary liquidation reliably produces a Form 5604 - it
+# is 47.3% of appointments and the form is mandatory within 10 business days
+# of the resolution. Court liquidations and administrations sometimes carry
+# creditor information on other forms, so they are checked, just later.
+LIKELY_5604 = ("creditors' voluntary", "creditors voluntary")
+
+
+def check_order(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Order open matters so a capped run spends its requests where they pay.
+
+    Three tiers, and the last one is what keeps the rotation fair:
+      1. Appointment types that actually produce a 5604, newest first - a
+         recent CVL is the most likely to have just lodged one.
+      2. Everything else, newest first.
+      3. Within each tier, matters never checked come before matters checked
+         recently, so a capped run works through the backlog instead of
+         re-asking about the same 150 companies every week.
+    """
+    def key(record: dict[str, Any]) -> tuple:
+        kind = (record.get("appointment_type") or "").lower()
+        likely = any(marker in kind for marker in LIKELY_5604)
+        return (
+            0 if likely else 1,
+            record.get("last_checked") or "",
+            # Newest appointment first within the same check age.
+            _invert(record.get("appointment_date") or ""),
+        )
+
+    return sorted(records, key=key)
+
+
+def _invert(date_text: str) -> str:
+    """Sort ISO dates descending inside an ascending sort key."""
+    return "".join(chr(0x10FFFD - ord(ch)) for ch in date_text)
+
+
+def check(matter: Matter, client: Client | None = None) -> tuple[Matter, bool]:
+    """Update one Matter with its Form 5604 status. Safe to call repeatedly.
+
+    Returns (matter, reached) where `reached` says whether ASIC actually
+    answered. That distinction is the whole point: 744 CVLs were marked
+    checked, and found no 5604, when every single request had 404'd. A matter
+    whose lookup failed is not stamped as checked, so it stays at the front of
+    the rotation instead of being retired on evidence that was never gathered.
+    """
     if not matter.acn:
         log.debug("%s has no ACN - cannot check ASIC Connect", matter.company_name)
-        return matter
+        matter.last_checked = date.today().isoformat()
+        return matter, True
 
     client = client or Client()
     try:
         html = client.get(organisation_url(matter.acn)).text
     except Exception as exc:  # noqa: BLE001 - one bad company must not stop the run
         log.warning("ASIC Connect lookup failed for %s: %s", matter.company_name, exc)
-        return matter
+        return matter, False
 
+    matter.last_checked = date.today().isoformat()
     found = find_form_5604(html)
     if found:
         matter.form_5604_lodged = True
         matter.form_5604_date = found["date"] or None
         matter.form_5604_doc_number = found["doc_number"] or None
         log.info("5604 found for %s (doc %s)", matter.company_name, found["doc_number"])
-    return matter
+    return matter, True

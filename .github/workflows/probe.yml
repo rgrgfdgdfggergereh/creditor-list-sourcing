@@ -30,8 +30,9 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: |
-          python -m creditor_sourcing probe "${{ inputs.source }}" \
-            ${{ inputs.acn && format('--acn {0}', inputs.acn) || '' }} --verbose
+          mkdir -p out/probe
+          python -m creditor_sourcing -v probe "${{ inputs.source }}" \
+            ${{ inputs.acn && format('--acn {0}', inputs.acn) || '' }}
       - uses: actions/upload-artifact@v4
         with:
           name: probe-${{ inputs.source }}

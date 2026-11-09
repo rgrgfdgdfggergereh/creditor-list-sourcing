@@ -61,15 +61,18 @@ def _finish(sheet: Worksheet, widths: Sequence[int]) -> None:
 def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
     for prospect in prospects:
         debtors = "; ".join(
-            f"{m['debtor_company']} (${m['amount_aud']:,.0f})" for m in prospect.matters
+            f"{m['debtor_company']} "
+            f"({'$' + format(m['amount_aud'], ',.0f') if m.get('amount_known', True) else 'TBC'})"
+            for m in prospect.matters
         )
         sheet.append(
             [
                 prospect.display_name,
                 prospect.score,
-                prospect.total_exposure_aud,
+                prospect.total_exposure_aud if prospect.exposure_known else "TBC",
                 prospect.matter_count,
                 debtors,
+                ", ".join(prospect.debtor_industries),
                 prospect.abn,
                 prospect.state,
                 prospect.contact_name,
@@ -83,12 +86,13 @@ def _prospect_rows(sheet: Worksheet, prospects: Iterable[Prospect]) -> None:
             ]
         )
         row = sheet.max_row
-        sheet.cell(row=row, column=3).number_format = MONEY
+        if prospect.exposure_known:
+            sheet.cell(row=row, column=3).number_format = MONEY
         if prospect.matter_count > 1:
             for column in range(1, 6):
                 sheet.cell(row=row, column=column).fill = PRIORITY_FILL
         if prospect.pipedrive_org_id:
-            for column in range(13, 16):
+            for column in range(14, 17):
                 sheet.cell(row=row, column=column).fill = CRM_FILL
 
 
@@ -107,11 +111,11 @@ def build(
 
     headers = [
         "Creditor (prospect)", "Score", "Total exposure", "# insolvencies",
-        "Owed by (debtor companies)", "ABN", "State", "Contact", "Title",
-        "Email", "Phone", "Contact source", "Pipedrive org", "Pipedrive owner",
-        "Pipedrive link",
+        "Owed by (debtor companies)", "Debtor industries", "ABN", "State",
+        "Contact", "Title", "Email", "Phone", "Contact source",
+        "Pipedrive org", "Pipedrive owner", "Pipedrive link",
     ]
-    widths = [38, 7, 16, 13, 52, 15, 8, 24, 24, 30, 18, 14, 28, 20, 42]
+    widths = [38, 7, 16, 13, 52, 30, 15, 8, 24, 24, 30, 18, 14, 28, 20, 42]
 
     sheet = _sheet(workbook, "Prospects", headers)
     _prospect_rows(sheet, qualified)
@@ -122,20 +126,21 @@ def build(
     _finish(repeat, widths)
 
     queue_headers = [
-        "Company (insolvent)", "ACN", "Form", "Document number", "Lodged",
-        "Appointment type", "ASIC Connect link (buy here)", "Queued",
+        "Company (insolvent)", "ACN", "ABN", "Form", "Document number",
+        "Lodged", "Appointment type", "ASIC Connect link (buy here)",
+        "Queued",
     ]
     queue_sheet = _sheet(workbook, "Purchase Queue", queue_headers)
     for row in queue:
         queue_sheet.append(
             [
-                row.get("company_name"), row.get("acn"), "5604",
+                row.get("company_name"), row.get("acn"), row.get("abn"), "5604",
                 row.get("document_number"), row.get("lodged_date"),
                 row.get("appointment_type"), row.get("asic_connect_url"),
                 row.get("queued_at"),
             ]
         )
-    _finish(queue_sheet, [38, 14, 8, 20, 13, 26, 62, 20])
+    _finish(queue_sheet, [38, 14, 18, 8, 20, 13, 26, 62, 20])
 
     excluded_headers = ["Creditor", "Total exposure", "# insolvencies",
                         "Why it was excluded"]
@@ -154,7 +159,8 @@ def build(
 
     matter_headers = [
         "Insolvent company", "ACN", "Source", "Appointment type",
-        "Appointment date", "Practitioner", "Form 5604 lodged", "5604 date",
+        "Appointment date", "Industry", "Industry (subdivision)", "State",
+        "Postcode", "Practitioner", "Form 5604 lodged", "5604 date",
         "Document number", "Purchased", "Creditors captured", "Last checked",
     ]
     matter_sheet = _sheet(workbook, "Matters", matter_headers)
@@ -163,6 +169,8 @@ def build(
             [
                 matter.get("company_name"), matter.get("acn"), matter.get("source"),
                 matter.get("appointment_type"), matter.get("appointment_date"),
+                matter.get("industry"), matter.get("industry_subdivision"),
+                matter.get("state"), matter.get("postcode"),
                 matter.get("practitioner"),
                 "Yes" if matter.get("form_5604_lodged") else "No",
                 matter.get("form_5604_date"), matter.get("form_5604_doc_number"),
@@ -171,7 +179,8 @@ def build(
                 matter.get("last_checked"),
             ]
         )
-    _finish(matter_sheet, [38, 14, 10, 26, 16, 26, 16, 13, 18, 11, 18, 14])
+    _finish(matter_sheet,
+            [38, 14, 10, 26, 16, 22, 24, 16, 10, 26, 16, 13, 18, 11, 18, 14])
 
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{prefix}_{date.today().isoformat()}.xlsx"
