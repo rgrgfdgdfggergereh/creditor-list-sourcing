@@ -695,6 +695,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Betta Buy Bakers Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 116633.04,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "betta buy bakers",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 50,
+    "state": null,
+    "total_exposure_aud": 116633.04,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "TLE Fyshwick",
@@ -2311,6 +2349,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Cadell Food Service",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 17887.53,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cadell food service",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 42,
+    "state": null,
+    "total_exposure_aud": 17887.53,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "MHC Interior Pty Ltd",
@@ -2985,6 +3061,44 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10553.4,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Stean Nicholls Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10410.5,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "stean nicholls",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10410.5,
     "website": null
   },
   {
@@ -3765,6 +3879,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Exflo Hospitality Supplies",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6664.23,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "exflo hospitality supplies",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6664.23,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Other"
     ],
     "display_name": "Coastal Sound and Lighting",
@@ -3793,6 +3945,82 @@
     "score": 38,
     "state": null,
     "total_exposure_aud": 6612.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Superior Food Service Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 6459.33,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "superior food service",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 38,
+    "state": null,
+    "total_exposure_aud": 6459.33,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Engie",
+    "disqualified_reason": null,
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 5752.14,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "engie",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 37,
+    "state": null,
+    "total_exposure_aud": 5752.14,
     "website": null
   },
   {
@@ -4195,10 +4423,10 @@
       }
     ],
     "name_key": "aluminium specialties",
-    "pipedrive_org_id": 75757,
-    "pipedrive_org_name": "ALUMINIUM SPECIALTIES GROUP PTY. LTD.",
-    "pipedrive_owner": "Library",
-    "pipedrive_url": "https://nci.pipedrive.com/organization/75757",
+    "pipedrive_org_id": 45939,
+    "pipedrive_org_name": "ALUMINIUM SPECIALTIES GROUP PTY LTD",
+    "pipedrive_owner": "joonky.nah@nci.com.au",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/45939",
     "policylist_match": null,
     "qualified": true,
     "score": 0,
@@ -5924,6 +6152,310 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Henley Arch Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CLEAN ENERGY DIRECT PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "2e80c739f9e3a3bc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "henley arch",
+    "pipedrive_org_id": 24591,
+    "pipedrive_org_name": "Henley Arch Pty Ltd",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/24591",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Australia And New Zealand Banking",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "new zealand banking",
+    "pipedrive_org_id": 35882,
+    "pipedrive_org_name": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED",
+    "pipedrive_owner": "Library",
+    "pipedrive_url": "https://nci.pipedrive.com/organization/35882",
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Ni Made Diah Kusuma Dewi",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "ni made diah kusuma dewi",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Rowen OBDIN",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "rowen obdin",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Sally WARNER",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "sally warner",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Sharon HOFFMANN",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "sharon hoffmann",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Tahnee CARTER",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "tahnee carter",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Thinkex Holdings Pty Ltd",
+    "disqualified_reason": null,
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "thinkex",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": true,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction",
       "Hospitality",
       "Manufacturing",
@@ -5936,7 +6468,7 @@
     "display_name": "Australian Taxation Office (Insolvencies)",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 38,
+    "matter_count": 41,
     "matters": [
       {
         "amount_aud": 223694.0,
@@ -6317,6 +6849,36 @@
         "matter_id": "44b2c8f4261f03eb",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 201699.57,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 720000.0,
+        "amount_known": true,
+        "debtor_company": "CLEAN ENERGY DIRECT PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "2e80c739f9e3a3bc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office insolvencies",
@@ -6328,7 +6890,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 6935400.56,
+    "total_exposure_aud": 7857100.13,
     "website": null
   },
   {
@@ -6348,7 +6910,7 @@
     "display_name": "Australian Taxation Office",
     "disqualified_reason": "Statutory / government creditor - not a trade supplier",
     "exposure_known": true,
-    "matter_count": 13,
+    "matter_count": 14,
     "matters": [
       {
         "amount_aud": 178000.0,
@@ -6499,6 +7061,16 @@
         "matter_id": "3a5be894a3504e1a",
         "source": "worrells",
         "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 321629.29,
+        "amount_known": true,
+        "debtor_company": "SUNRISE CLEANING SERVICES PTY. LTD.",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "1832e992e71204cd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
       }
     ],
     "name_key": "australian taxation office",
@@ -6510,7 +7082,7 @@
     "qualified": false,
     "score": 100,
     "state": null,
-    "total_exposure_aud": 1947372.47,
+    "total_exposure_aud": 2269001.76,
     "website": null
   },
   {
@@ -7364,6 +7936,66 @@
     "score": 100,
     "state": null,
     "total_exposure_aud": 105525.56,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Motor Vehicle/Transport",
+      "Unknown"
+    ],
+    "display_name": "Australian Taxation Office (Super",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "Patchworx Pty Ltd",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "02678f0101caf513",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 105302.0,
+        "amount_known": true,
+        "debtor_company": "Casino Truck Repairs Pty Ltd",
+        "debtor_industry": "Motor Vehicle/Transport",
+        "debtor_state": null,
+        "matter_id": "1ba8e74a274199ee",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "australian taxation office super",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 100,
+    "state": null,
+    "total_exposure_aud": 105302.0,
     "website": null
   },
   {
@@ -8300,6 +8932,66 @@
     "contact_title": null,
     "debtor_industries": [
       "Hospitality",
+      "Retail/Wholesale",
+      "Unknown"
+    ],
+    "display_name": "ELGAS LIMITED",
+    "disqualified_reason": "Exposure $1,920 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 3,
+    "matters": [
+      {
+        "amount_aud": 1524.07,
+        "amount_known": true,
+        "debtor_company": "Elihu Pty Ltd",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "12f3229f95aa273c",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "ALPEN HOLDINGS PTY LTD",
+        "debtor_industry": "Retail/Wholesale",
+        "debtor_state": null,
+        "matter_id": "358753089e17f94a",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 396.0,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "elgas",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 82,
+    "state": null,
+    "total_exposure_aud": 1920.07,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Hospitality",
       "Retail/Wholesale"
     ],
     "display_name": "Australian Taxation Office (Tax Withheld)",
@@ -8494,55 +9186,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Building/Construction",
-      "Motor Vehicle/Transport"
-    ],
-    "display_name": "Australian Taxation Office (Super",
-    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "Patchworx Pty Ltd",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "02678f0101caf513",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 105302.0,
-        "amount_known": true,
-        "debtor_company": "Casino Truck Repairs Pty Ltd",
-        "debtor_industry": "Motor Vehicle/Transport",
-        "debtor_state": null,
-        "matter_id": "1ba8e74a274199ee",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "australian taxation office super",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 75,
-    "state": null,
-    "total_exposure_aud": 105302.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Square Australia Pty Ltd",
@@ -8630,6 +9273,55 @@
     "score": 71,
     "state": null,
     "total_exposure_aud": 45676.87,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other",
+      "Unknown"
+    ],
+    "display_name": "Tradezone",
+    "disqualified_reason": "Existing NCI client (TRADEZONE PTY LTD)",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 29506.24,
+        "amount_known": true,
+        "debtor_company": "Rhino Resources Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "3af12c3a5cacf323",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 400.0,
+        "amount_known": true,
+        "debtor_company": "CLEAN ENERGY DIRECT PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "2e80c739f9e3a3bc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "tradezone",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "TRADEZONE PTY LTD",
+    "qualified": false,
+    "score": 69,
+    "state": null,
+    "total_exposure_aud": 29906.24,
     "website": null
   },
   {
@@ -8728,6 +9420,55 @@
     "score": 67,
     "state": null,
     "total_exposure_aud": 17192.64,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Building/Construction",
+      "Other"
+    ],
+    "display_name": "Volkswagen Financial Services Australia Pty Limited",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "MULTITUDE PLASTER PTY LTD",
+        "debtor_industry": "Building/Construction",
+        "debtor_state": null,
+        "matter_id": "269805005d868646",
+        "source": "worrells",
+        "source_document": "Initial advice"
+      },
+      {
+        "amount_aud": 16101.0,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "volkswagen financial services",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 67,
+    "state": null,
+    "total_exposure_aud": 16101.0,
     "website": null
   },
   {
@@ -9096,6 +9837,55 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Hospitality",
+      "Other"
+    ],
+    "display_name": "Hales Douglass Pty Ltd",
+    "disqualified_reason": "Exposure $2,640 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 2,
+    "matters": [
+      {
+        "amount_aud": 1540.0,
+        "amount_known": true,
+        "debtor_company": "CAKETOYOU PTY LTD",
+        "debtor_industry": "Hospitality",
+        "debtor_state": null,
+        "matter_id": "24b3530077a78599",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      },
+      {
+        "amount_aud": 1100.0,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "hales douglass",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 59,
+    "state": null,
+    "total_exposure_aud": 2640.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Nadia Montesano",
@@ -9346,55 +10136,6 @@
     "score": 56,
     "state": null,
     "total_exposure_aud": 415345.98,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Hospitality",
-      "Retail/Wholesale"
-    ],
-    "display_name": "ELGAS LIMITED",
-    "disqualified_reason": "Exposure $1,524 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 2,
-    "matters": [
-      {
-        "amount_aud": 1524.07,
-        "amount_known": true,
-        "debtor_company": "Elihu Pty Ltd",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "12f3229f95aa273c",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      },
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "ALPEN HOLDINGS PTY LTD",
-        "debtor_industry": "Retail/Wholesale",
-        "debtor_state": null,
-        "matter_id": "358753089e17f94a",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "elgas",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 56,
-    "state": null,
-    "total_exposure_aud": 1524.07,
     "website": null
   },
   {
@@ -10825,44 +11566,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Unknown"
-    ],
-    "display_name": "Tradezone",
-    "disqualified_reason": "Existing NCI client (TRADEZONE PTY LTD)",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 29506.24,
-        "amount_known": true,
-        "debtor_company": "Rhino Resources Pty Ltd",
-        "debtor_industry": "Unknown",
-        "debtor_state": null,
-        "matter_id": "3af12c3a5cacf323",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "tradezone",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": "TRADEZONE PTY LTD",
-    "qualified": false,
-    "score": 44,
-    "state": null,
-    "total_exposure_aud": 29506.24,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Boat Sales",
@@ -11889,6 +12592,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Icare Payment Services (NSW)",
+    "disqualified_reason": "Insurer or broker - competitor / not a prospect",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 11731.74,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "icare payment services nsw",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 11731.74,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Professional Services"
     ],
     "display_name": "MOR Accountants",
@@ -12031,6 +12772,44 @@
     "score": 40,
     "state": null,
     "total_exposure_aud": 10300.84,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Australian Taxation Office (SGC)",
+    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 10134.63,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "australian taxation office sgc",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 40,
+    "state": null,
+    "total_exposure_aud": 10134.63,
     "website": null
   },
   {
@@ -14511,6 +15290,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "ANZ",
+    "disqualified_reason": "Exposure $3,646 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3646.0,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "anz",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3646.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "KJ Enterprises Pty Ltd TA Chefs fruiterer",
@@ -14919,6 +15736,44 @@
     "score": 35,
     "state": null,
     "total_exposure_aud": 3265.5,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Trinity Anglican College",
+    "disqualified_reason": "Exposure $3,207 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 3207.05,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "trinity anglican college",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 35,
+    "state": null,
+    "total_exposure_aud": 3207.05,
     "website": null
   },
   {
@@ -16145,6 +17000,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Accredited Distributors Pty Ltd",
+    "disqualified_reason": "Exposure $2,471 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2470.67,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "accredited distributors",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2470.67,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Other"
     ],
     "display_name": "Cross Carpets",
@@ -16867,6 +17760,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Pakstat Pty Ltd",
+    "disqualified_reason": "Exposure $2,086 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 2086.46,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "pakstat",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 33,
+    "state": null,
+    "total_exposure_aud": 2086.46,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Building/Construction"
     ],
     "display_name": "Evergard Concreters Warehouse",
@@ -17551,6 +18482,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Locky's Countryside Meats BBQ",
+    "disqualified_reason": "Exposure $1,801 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1800.73,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "locky s countryside meats bbq",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 32,
+    "state": null,
+    "total_exposure_aud": 1800.73,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Bert Geisler",
@@ -18159,44 +19128,6 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
-      "Hospitality"
-    ],
-    "display_name": "Hales Douglass Pty Ltd",
-    "disqualified_reason": "Exposure $1,540 is under the $5,000 minimum",
-    "exposure_known": true,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 1540.0,
-        "amount_known": true,
-        "debtor_company": "CAKETOYOU PTY LTD",
-        "debtor_industry": "Hospitality",
-        "debtor_state": null,
-        "matter_id": "24b3530077a78599",
-        "source": "worrells",
-        "source_document": "Initial Advice"
-      }
-    ],
-    "name_key": "hales douglass",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 31,
-    "state": null,
-    "total_exposure_aud": 1540.0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
       "Other"
     ],
     "display_name": "Christiaan Ramsey",
@@ -18567,6 +19498,44 @@
     "score": 31,
     "state": null,
     "total_exposure_aud": 1395.88,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Origin Energy - Electricity",
+    "disqualified_reason": "Exposure $1,374 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 1373.69,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "origin energy electricity",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 31,
+    "state": null,
+    "total_exposure_aud": 1373.69,
     "website": null
   },
   {
@@ -20401,6 +21370,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Efex - Thinkex Holdings",
+    "disqualified_reason": "Exposure $819 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 818.68,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "efex thinkex",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 29,
+    "state": null,
+    "total_exposure_aud": 818.68,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Robert Markham",
@@ -20619,6 +21626,44 @@
     "score": 28,
     "state": null,
     "total_exposure_aud": 759.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Australian Securities & Investments Commission",
+    "disqualified_reason": "Exposure $757 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 757.0,
+        "amount_known": true,
+        "debtor_company": "101 WEB TECHNOLOGY PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "26a5dbcb7552ae4d",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "australian securities investments commission",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 28,
+    "state": null,
+    "total_exposure_aud": 757.0,
     "website": null
   },
   {
@@ -21893,6 +22938,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Platform 9 Coffee Roasters",
+    "disqualified_reason": "Exposure $493 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 493.3,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "platform 9 coffee roasters",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 26,
+    "state": null,
+    "total_exposure_aud": 493.3,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Oceanic Trailers",
@@ -22643,6 +23726,44 @@
     "score": 25,
     "state": null,
     "total_exposure_aud": 359.7,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Rentokil",
+    "disqualified_reason": "Exposure $352 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 351.56,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "rentokil",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 25,
+    "state": null,
+    "total_exposure_aud": 351.56,
     "website": null
   },
   {
@@ -23782,6 +24903,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Big Mouth Foods Pty Ltd",
+    "disqualified_reason": "Exposure $251 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 251.41,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "big mouth foods",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 24,
+    "state": null,
+    "total_exposure_aud": 251.41,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Other"
     ],
     "display_name": "Lili Bulyk Solicitor & Attorney Office",
@@ -23858,6 +25017,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Border Markets",
+    "disqualified_reason": "Exposure $232 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 232.19,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "border markets",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 23,
+    "state": null,
+    "total_exposure_aud": 232.19,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Retail/Wholesale"
     ],
     "display_name": "Gulli Food Distributors",
@@ -23924,6 +25121,44 @@
     "score": 23,
     "state": null,
     "total_exposure_aud": 216.07,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Kw & S Coon Pty Ltd",
+    "disqualified_reason": "Exposure $210 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 210.4,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "kw s coon",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 23,
+    "state": null,
+    "total_exposure_aud": 210.4,
     "website": null
   },
   {
@@ -24694,6 +25929,44 @@
     "contact_source": null,
     "contact_title": null,
     "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Kleenkeen",
+    "disqualified_reason": "Exposure $116 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 116.0,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "kleenkeen",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 20,
+    "state": null,
+    "total_exposure_aud": 116.0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
       "Hospitality"
     ],
     "display_name": "Tablelands Business Solutions",
@@ -25114,6 +26387,44 @@
     "debtor_industries": [
       "Unknown"
     ],
+    "display_name": "Thryv",
+    "disqualified_reason": "Exposure $36 is under the $5,000 minimum",
+    "exposure_known": true,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 35.6,
+        "amount_known": true,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "thryv",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 15,
+    "state": null,
+    "total_exposure_aud": 35.6,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
     "display_name": "Coles Supermarkets",
     "disqualified_reason": "Exposure $10 is under the $5,000 minimum",
     "exposure_known": true,
@@ -25511,44 +26822,6 @@
       }
     ],
     "name_key": "procuret funding no 5",
-    "pipedrive_org_id": null,
-    "pipedrive_org_name": null,
-    "pipedrive_owner": null,
-    "pipedrive_url": null,
-    "policylist_match": null,
-    "qualified": false,
-    "score": 0,
-    "state": null,
-    "total_exposure_aud": 0,
-    "website": null
-  },
-  {
-    "abn": null,
-    "contact_email": null,
-    "contact_name": null,
-    "contact_phone": null,
-    "contact_source": null,
-    "contact_title": null,
-    "debtor_industries": [
-      "Building/Construction"
-    ],
-    "display_name": "Volkswagen Financial Services Australia Pty Ltd",
-    "disqualified_reason": "Statutory / government creditor - not a trade supplier",
-    "exposure_known": false,
-    "matter_count": 1,
-    "matters": [
-      {
-        "amount_aud": 0.0,
-        "amount_known": false,
-        "debtor_company": "MULTITUDE PLASTER PTY LTD",
-        "debtor_industry": "Building/Construction",
-        "debtor_state": null,
-        "matter_id": "269805005d868646",
-        "source": "worrells",
-        "source_document": "Initial advice"
-      }
-    ],
-    "name_key": "volkswagen financial services",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
@@ -26803,6 +28076,538 @@
       }
     ],
     "name_key": "gallagher bassett",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "EAGLE FINANCIAL SOLUTIONS PTY",
+    "disqualified_reason": "Secured lender or financier - exposure is not trade credit",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "SUNRISE CLEANING SERVICES PTY. LTD.",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "1832e992e71204cd",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "eagle financial solutions",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Metal Manufacturers Pty Limited",
+    "disqualified_reason": "Existing NCI client (METAL MANUFACTURES PTY LIMITED)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CLEAN ENERGY DIRECT PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "2e80c739f9e3a3bc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "metal manufacturers",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "METAL MANUFACTURES PTY LIMITED",
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Other"
+    ],
+    "display_name": "Solar Juice Pty Ltd",
+    "disqualified_reason": "Existing NCI client (SOLAR JUICE PTY LTD)",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "CLEAN ENERGY DIRECT PTY LTD",
+        "debtor_industry": "Other",
+        "debtor_state": null,
+        "matter_id": "2e80c739f9e3a3bc",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "solar juice",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": "SOLAR JUICE PTY LTD",
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Alanah Belk",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "alanah belk",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Brandon Surmon",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "brandon surmon",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Catherine Whiley",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "catherine whiley",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Chelsea Bordignon",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "chelsea bordignon",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Cheyenne Kells",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "cheyenne kells",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Coral Gray",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "coral gray",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Daniel Machiso",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "daniel machiso",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Kirsten Cook",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "kirsten cook",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Margaret Marinic",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "margaret marinic",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Olivia Telford",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "olivia telford",
+    "pipedrive_org_id": null,
+    "pipedrive_org_name": null,
+    "pipedrive_owner": null,
+    "pipedrive_url": null,
+    "policylist_match": null,
+    "qualified": false,
+    "score": 0,
+    "state": null,
+    "total_exposure_aud": 0,
+    "website": null
+  },
+  {
+    "abn": null,
+    "contact_email": null,
+    "contact_name": null,
+    "contact_phone": null,
+    "contact_source": null,
+    "contact_title": null,
+    "debtor_industries": [
+      "Unknown"
+    ],
+    "display_name": "Shane Mckenzie",
+    "disqualified_reason": "Individual, not a business - no receivables ledger to insure",
+    "exposure_known": false,
+    "matter_count": 1,
+    "matters": [
+      {
+        "amount_aud": 0.0,
+        "amount_known": false,
+        "debtor_company": "D & J West Investments Pty Ltd",
+        "debtor_industry": "Unknown",
+        "debtor_state": null,
+        "matter_id": "371ddfdb001601a9",
+        "source": "worrells",
+        "source_document": "Initial Advice"
+      }
+    ],
+    "name_key": "shane mckenzie",
     "pipedrive_org_id": null,
     "pipedrive_org_name": null,
     "pipedrive_owner": null,
